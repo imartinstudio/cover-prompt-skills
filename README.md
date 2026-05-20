@@ -123,16 +123,25 @@ Recommended workflow:
 
 Four ways to install.
 
-### Plugin Marketplace
+### CLI Plugin Marketplace
+
+Codex CLI:
+
+```
+codex plugin marketplace add imartinstudio/cover-prompt-skills
+codex plugin add cover-editorial-collage@cover-prompt-skills
+```
+
+Claude CLI:
 
 ```
 /plugin marketplace add imartinstudio/cover-prompt-skills
 /plugin install cover-editorial-collage@cover-prompt-skills
 ```
 
-Use this only in agents that support the `/plugin` slash command. Some Codex builds do not expose `/plugin` in chat; use `npx`, `curl`, local install, or Codex's plugin configuration / UI instead.
+Use the command variant for your CLI. In Codex CLI, add the plugin marketplace repository, then install the skill/plugin you need. In Claude CLI, use the `/plugin` slash commands.
 
-After updating an already-installed Codex plugin, refresh/re-enable the plugin or restart Codex so it loads the newest plugin version instead of the cached version.
+After updating an already-installed plugin, refresh/re-enable the plugin or restart the agent so it loads the newest plugin version instead of the cached version.
 
 ### npx
 

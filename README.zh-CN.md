@@ -123,16 +123,25 @@ $cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提�
 
 四种方式任选。
 
-### Plugin Marketplace
+### CLI Plugin Marketplace
+
+Codex CLI：
+
+```
+codex plugin marketplace add imartinstudio/cover-prompt-skills
+codex plugin add cover-editorial-collage@cover-prompt-skills
+```
+
+Claude CLI：
 
 ```
 /plugin marketplace add imartinstudio/cover-prompt-skills
 /plugin install cover-editorial-collage@cover-prompt-skills
 ```
 
-仅适用于支持 `/plugin` slash command 的 agent。部分 Codex 版本不会在聊天里暴露 `/plugin` 命令；这种情况下请使用 `npx`、`curl`、本地安装，或通过 Codex 的插件配置 / 界面启用。
+根据你使用的 CLI 选择对应命令。Codex CLI 中先添加插件市场仓库，再安装需要的 skill/plugin。Claude CLI 中使用 `/plugin` slash commands。
 
-更新已安装的 Codex 插件后，需要刷新/重新启用插件，或重启 Codex，让它加载最新插件版本，而不是继续使用旧缓存版本。
+更新已安装的插件后，需要刷新/重新启用插件，或重启对应 agent，让它加载最新插件版本，而不是继续使用旧缓存版本。
 
 ### npx
 
