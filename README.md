@@ -19,6 +19,24 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-editorial-collage` | Torn-paper editorial collage | Satire, conflict, social commentary, magazine collage covers |
 | `cover-tea-oriental` | Oriental tea aesthetic, Song literati, character-as-image | Cultural posters, invitations, infographics, PPT covers |
 
+## Style Preview
+
+### `cover-black-white-minimal`
+
+![Black-White Minimal style showcase](assets/style-showcases/cover-black-white-minimal.png)
+
+### `cover-trendy-color-poster`
+
+![Trendy Color Poster style showcase](assets/style-showcases/cover-trendy-color-poster.png)
+
+### `cover-editorial-collage`
+
+![Editorial Collage style showcase](assets/style-showcases/cover-editorial-collage.png)
+
+### `cover-tea-oriental`
+
+![Tea Oriental style showcase](assets/style-showcases/cover-tea-oriental.png)
+
 ## Recommended Daily Use
 
 Use `cover-tips` as the entry point:
@@ -26,23 +44,21 @@ Use `cover-tips` as the entry point:
 ```text
 $cover-tips 撕纸剪贴
 
-主题：可以洗稿，但不能被洗脑
-副标题：AI 时代的内容判断力
-用途：X封面
-情绪：讽刺、冲突
+生成一个模版
+主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
 Default output is a template:
 
 ```text
 使用 $cover-editorial-collage 生成一张封面
-主题词：可以洗稿，但不能被洗脑
-副标题：AI 时代的内容判断力
+主题词：提示词
+副标题：好的提示，不只是命令，更是设计
 画幅比例：5:2
 语言：中文
-用途：X封面
-情绪倾向：讽刺 / 冲突
-禁用元素：机器人脸、蓝紫霓虹
+用途：X 封面
+情绪倾向：讽刺 / 冲突 / 街头 / 复古 / 观点感
+禁用元素：机器人脸、蓝紫霓虹、廉价科技感、PPT 布局、干净矩形堆叠、低质脏乱朋克、不可读文字
 ```
 
 Ask for a prompt when needed:
@@ -50,7 +66,7 @@ Ask for a prompt when needed:
 ```text
 $cover-tips 潮流彩色 提示词
 
-美区苹果 App Store 礼品卡，2-100 面值，现货秒发，库存充足。
+主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
 ## Install
@@ -133,6 +149,24 @@ MIT
 | `cover-editorial-collage` | 撕纸编辑拼贴 | 讽刺、冲突、社会评论、杂志拼贴封面 |
 | `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT封面 |
 
+## 风格展示
+
+### `cover-black-white-minimal`
+
+![黑白极简风格展示](assets/style-showcases/cover-black-white-minimal.png)
+
+### `cover-trendy-color-poster`
+
+![潮流高冲击彩色海报风格展示](assets/style-showcases/cover-trendy-color-poster.png)
+
+### `cover-editorial-collage`
+
+![撕纸编辑拼贴风格展示](assets/style-showcases/cover-editorial-collage.png)
+
+### `cover-tea-oriental`
+
+![茶风格东方美学展示](assets/style-showcases/cover-tea-oriental.png)
+
 ## 推荐使用方式
 
 以 `cover-tips` 为入口：
@@ -140,23 +174,21 @@ MIT
 ```text
 $cover-tips 撕纸剪贴
 
-主题：可以洗稿，但不能被洗脑
-副标题：AI 时代的内容判断力
-用途：X封面
-情绪：讽刺、冲突
+生成一个模版
+主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
 默认输出为模板：
 
 ```text
 使用 $cover-editorial-collage 生成一张封面
-主题词：可以洗稿，但不能被洗脑
-副标题：AI 时代的内容判断力
+主题词：提示词
+副标题：好的提示，不只是命令，更是设计
 画幅比例：5:2
 语言：中文
-用途：X封面
-情绪倾向：讽刺 / 冲突
-禁用元素：机器人脸、蓝紫霓虹
+用途：X 封面
+情绪倾向：讽刺 / 冲突 / 街头 / 复古 / 观点感
+禁用元素：机器人脸、蓝紫霓虹、廉价科技感、PPT 布局、干净矩形堆叠、低质脏乱朋克、不可读文字
 ```
 
 需要生成提示词时：
@@ -164,7 +196,7 @@ $cover-tips 撕纸剪贴
 ```text
 $cover-tips 潮流彩色 提示词
 
-美区苹果 App Store 礼品卡，2-100 面值，现货秒发，库存充足。
+主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
 ## 安装
