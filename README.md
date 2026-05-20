@@ -103,12 +103,21 @@ $cover-black-white-minimal --out-type prompt
 主题：长期主义 副标题：在即时反馈时代重新理解耐心 画幅比例：4:3 用途：文章封面
 ```
 
+You can also skip template generation entirely and ask a concrete skill to generate the final cover from a natural-language brief:
+
+```text
+$cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提示词”，副标题是“好的提示，不只是命令，更是设计”。整体要撕纸剪贴、杂志感、讽刺一点，不要机器人脸和蓝紫霓虹。
+```
+
+Use this direct generation path when the style is clear and you do not need to inspect intermediate fields.
+
 Recommended workflow:
 
 1. Start with `$cover-tips <style>` for rough ideas.
 2. Use the returned template to confirm title, subtitle, ratio, language, use case, mood, and banned elements.
-3. Switch to `--out-type prompt` or `--out-type all` when the structure is ready.
-4. Directly call `$cover-*` only for repeated workflows where the style and fields are already stable.
+3. Switch to `--out-type prompt` or `--out-type all` when you need reusable prompt text.
+4. Use `$cover-*` followed by natural-language instructions when you want to skip the template and generate the final cover immediately.
+5. Directly call `$cover-*` for repeated workflows where the style and fields are already stable.
 
 ## Install
 
