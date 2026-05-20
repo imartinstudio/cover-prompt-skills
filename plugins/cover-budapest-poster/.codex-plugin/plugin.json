@@ -1,0 +1,18 @@
+{
+  "name": "cover-budapest-poster",
+  "version": "1.0.0",
+  "description": "Generate Budapest-inspired cinematic poster covers with pastel-pop European film-poster aesthetics.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "budapest", "cinematic", "poster", "pastel", "retro", "european"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Budapest Poster",
+    "shortDescription": "Generate Budapest-inspired cinematic poster covers",
+    "longDescription": "Generate Budapest-inspired cinematic editorial cover/poster image prompts or final images with pastel-pop European film-poster aesthetics, symmetrical composition, retro hotel/postcard atmosphere, architectural facades, theatrical color blocking, and typography-led layout.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#E8C4A2"
+  }
+}

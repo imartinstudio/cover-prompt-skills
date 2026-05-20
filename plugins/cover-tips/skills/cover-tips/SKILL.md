@@ -109,12 +109,15 @@ For template-only mode, output exactly this structure and fill every field:
 禁用元素：{forbidden_elements}
 ```
 
-Use the exact skill command:
+### Skill invocation prefix
 
-- `$cover-black-white-minimal`
-- `$cover-trendy-color-poster`
-- `$cover-budapest-poster`
-- `$cover-editorial-collage`
+Detect the current platform and use the matching prefix in the template:
+
+- Claude Code → `/cover-{style}`
+- Codex → `$cover-{style}`
+- Cursor → `/cover-{style}`
+- Gemini CLI → `/cover-{style}`
+- Default (unknown platform) → `/cover-{style}`
 
 ## Generic Prompt Output
 

@@ -1,0 +1,9 @@
+{
+  "name": "cover-black-white-minimal",
+  "displayName": "Black-White Minimal",
+  "version": "1.0.0",
+  "description": "Generate black-white minimalist conceptual cover/posters with monochrome typography and strict grid composition.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "black-white", "minimal", "poster", "typography", "monochrome"]
+}

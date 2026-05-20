@@ -2,19 +2,19 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SKILLS_DIR="$ROOT_DIR/skills"
+PLUGINS_DIR="$ROOT_DIR/plugins"
 TARGET_DIR="${COVER_SKILLS_TARGET:-$HOME/.shared-skills}"
 BACKUP_DIR="${COVER_SKILLS_BACKUP_DIR:-$TARGET_DIR/.cover-prompt-skills-backup}"
 
 usage() {
   cat <<'USAGE'
 Usage:
-  scripts/install.sh                 Install all skills
+  scripts/install.sh                        Install all skills
   scripts/install.sh cover-black-white-minimal
   scripts/install.sh cover-trendy-color-poster
   scripts/install.sh cover-budapest-poster
   scripts/install.sh cover-editorial-collage
-  scripts/install.sh cover           Install all cover skills
+  scripts/install.sh all                    Install all skills
 
 Environment:
   COVER_SKILLS_TARGET=~/.shared-skills
@@ -44,7 +44,7 @@ backup_existing_target() {
 
 install_skill() {
   local name="$1"
-  local src="$SKILLS_DIR/$name"
+  local src="$PLUGINS_DIR/$name"
   local dst="$TARGET_DIR/$name"
 
   if [[ ! -d "$src" ]]; then
@@ -71,11 +71,11 @@ main() {
   fi
 
   local requested=("$@")
-  if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
+  if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "all" ]]; then
     requested=()
     while IFS= read -r skill; do
       requested+=("$skill")
-    done < <(find "$SKILLS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+    done < <(find "$PLUGINS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
   elif [[ ${#requested[@]} -eq 1 && "${requested[0]}" == "cover-tips" ]]; then
     echo "cover-tips cannot be installed by itself." >&2
     echo "It is only a navigator. Install all skills instead:" >&2

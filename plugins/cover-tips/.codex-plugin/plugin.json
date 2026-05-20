@@ -1,0 +1,18 @@
+{
+  "name": "cover-tips",
+  "version": "1.0.0",
+  "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "navigator", "router", "tips", "template"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cover Tips",
+    "shortDescription": "Route your cover idea to the right style-specific cover skill",
+    "longDescription": "Convert a rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style (black-white minimal, trendy color, Budapest, or editorial collage).",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#555555"
+  }
+}

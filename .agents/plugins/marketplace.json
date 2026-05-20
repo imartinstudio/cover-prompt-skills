@@ -1,0 +1,71 @@
+{
+  "name": "cover-prompt-skills",
+  "interface": {
+    "displayName": "Cover Prompt Skills",
+    "shortDescription": "AI-powered cover and poster image prompt skills for designers and content creators",
+    "developerName": "imartinstudio",
+    "category": "Design"
+  },
+  "plugins": [
+    {
+      "name": "cover-black-white-minimal",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-black-white-minimal"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-budapest-poster",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-budapest-poster"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-editorial-collage",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-editorial-collage"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-tips",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-tips"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-trendy-color-poster",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-trendy-color-poster"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    }
+  ]
+}

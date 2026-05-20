@@ -1,0 +1,9 @@
+{
+  "name": "cover-tips",
+  "displayName": "Cover Tips",
+  "version": "1.0.0",
+  "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "navigator", "router", "tips", "template"]
+}

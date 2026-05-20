@@ -1,0 +1,18 @@
+{
+  "name": "cover-editorial-collage",
+  "version": "1.0.0",
+  "description": "Generate editorial collage covers with torn-paper, mixed media, retro print grain, and bold typography.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "collage", "editorial", "magazine", "torn-paper", "mixed-media", "poster"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Editorial Collage",
+    "shortDescription": "Generate editorial collage covers with torn-paper and mixed media",
+    "longDescription": "Generate high-end editorial collage cover/poster image prompts or final images with torn-paper collage, visual magazine layout, retro print grain, mixed media, bold typography, visual metaphor, and balanced handmade disorder.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#CC3333"
+  }
+}

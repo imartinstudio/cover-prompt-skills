@@ -1,0 +1,33 @@
+{
+  "name": "cover-prompt-skills",
+  "owner": {
+    "name": "imartinstudio"
+  },
+  "plugins": [
+    {
+      "name": "cover-black-white-minimal",
+      "source": "./plugins/cover-black-white-minimal",
+      "description": "Generate black-white minimalist conceptual cover/posters with monochrome typography and grid composition."
+    },
+    {
+      "name": "cover-budapest-poster",
+      "source": "./plugins/cover-budapest-poster",
+      "description": "Generate Budapest-inspired cinematic poster covers with pastel European film-poster aesthetics."
+    },
+    {
+      "name": "cover-editorial-collage",
+      "source": "./plugins/cover-editorial-collage",
+      "description": "Generate editorial collage covers with torn-paper, mixed media, and bold typography."
+    },
+    {
+      "name": "cover-tips",
+      "source": "./plugins/cover-tips",
+      "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill."
+    },
+    {
+      "name": "cover-trendy-color-poster",
+      "source": "./plugins/cover-trendy-color-poster",
+      "description": "Generate trendy high-impact color poster covers with bold contrast and typography-led layouts."
+    }
+  ]
+}

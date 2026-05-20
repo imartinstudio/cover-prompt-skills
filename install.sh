@@ -1,49 +1,79 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="${COVER_PROMPT_SKILLS_REPO:-https://github.com/imartinstudio/cover-prompt-skills.git}"
-INSTALL_DIR="${COVER_PROMPT_SKILLS_HOME:-$HOME/.cover-prompt-skills}"
+REPO_RAW="https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main"
 TARGET_DIR="${COVER_SKILLS_TARGET:-$HOME/.shared-skills}"
+BACKUP_DIR="${COVER_SKILLS_BACKUP_DIR:-$TARGET_DIR/.cover-prompt-skills-backup}"
+
+# Update this list when skills are added or removed
+ALL_SKILLS=(
+  cover-black-white-minimal
+  cover-budapest-poster
+  cover-editorial-collage
+  cover-tips
+  cover-trendy-color-poster
+)
 
 has_local_project() {
-  [[ -d "skills" && -x "scripts/install.sh" ]]
+  [[ -d "plugins" && -x "scripts/install.sh" ]]
 }
 
-ensure_git() {
-  if ! command -v git >/dev/null 2>&1; then
-    echo "git is required but was not found." >&2
-    exit 1
-  fi
+backup_existing_target() {
+  local name="$1" dst="$2" stamp backup
+  stamp="$(date +%Y%m%d%H%M%S)"
+  backup="$BACKUP_DIR/$stamp/$name"
+  mkdir -p "$(dirname "$backup")"
+  mv "$dst" "$backup"
+  echo "Backed up: $dst -> $backup"
 }
 
-install_from_local_project() {
+install_from_local() {
   COVER_SKILLS_TARGET="$TARGET_DIR" scripts/install.sh "$@"
 }
 
-install_from_repo() {
-  ensure_git
+install_skill_remote() {
+  local name="$1"
+  local src_url="$REPO_RAW/plugins/$name/skills/$name/SKILL.md"
+  local dst="$TARGET_DIR/$name"
 
-  if [[ -d "$INSTALL_DIR/.git" ]]; then
-    echo "Updating Cover Prompt Skills in $INSTALL_DIR"
-    git -C "$INSTALL_DIR" pull --ff-only
-  elif [[ -e "$INSTALL_DIR" ]]; then
-    echo "Install path exists but is not a git repository: $INSTALL_DIR" >&2
-    echo "Move it away or set COVER_PROMPT_SKILLS_HOME to another path." >&2
-    exit 1
-  else
-    echo "Cloning Cover Prompt Skills into $INSTALL_DIR"
-    git clone "$REPO_URL" "$INSTALL_DIR"
+  echo "Downloading $name..."
+
+  mkdir -p "$TARGET_DIR"
+
+  if [[ -L "$dst" ]]; then
+    rm "$dst"
+  elif [[ -d "$dst" ]]; then
+    backup_existing_target "$name" "$dst"
   fi
 
-  COVER_SKILLS_TARGET="$TARGET_DIR" "$INSTALL_DIR/scripts/install.sh" "$@"
+  mkdir -p "$dst"
+  if ! curl -fsSL "$src_url" -o "$dst/SKILL.md"; then
+    echo "Failed to download: $name" >&2
+    rm -rf "$dst"
+    return 1
+  fi
+  echo "Installed: $name -> $dst"
 }
 
 main() {
   if has_local_project; then
-    install_from_local_project "$@"
-  else
-    install_from_repo "$@"
+    install_from_local "$@"
+    return
   fi
+
+  local requested=("$@")
+  if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
+    requested=("${ALL_SKILLS[@]}")
+  elif [[ ${#requested[@]} -eq 1 && "${requested[0]}" == "cover-tips" ]]; then
+    echo "cover-tips cannot be installed alone." >&2
+    echo "It is a navigator skill and depends on concrete cover style skills." >&2
+    echo "Install all skills instead: ./install.sh" >&2
+    exit 1
+  fi
+
+  for skill in "${requested[@]}"; do
+    install_skill_remote "$skill"
+  done
 
   local try_command="\$cover-tips 撕纸剪贴"
   if [[ $# -gt 0 && "${1:-}" != "cover" && "${1:-}" != "all" ]]; then

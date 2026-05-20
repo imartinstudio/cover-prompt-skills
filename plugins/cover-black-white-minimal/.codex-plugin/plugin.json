@@ -1,0 +1,18 @@
+{
+  "name": "cover-black-white-minimal",
+  "version": "1.0.0",
+  "description": "Generate black-white minimalist conceptual cover/posters with monochrome typography and strict grid composition.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "black-white", "minimal", "poster", "typography", "monochrome"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Black-White Minimal",
+    "shortDescription": "Generate black-white minimalist conceptual covers and posters",
+    "longDescription": "Generate black-white minimalist conceptual cover/poster image prompts or final images with portfolio-cover aesthetics, typography-led modern editorial design, deep visual metaphor, strong title extraction, strict grid composition, negative space, and restrained monochrome art direction.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#1A1A1A"
+  }
+}
