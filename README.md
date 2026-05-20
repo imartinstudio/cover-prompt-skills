@@ -74,6 +74,12 @@ curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/m
 
 By default, skills are linked into `~/.shared-skills`, and the repository is cloned or updated at `~/.cover-prompt-skills`.
 
+If an old non-symlink skill directory already exists, the installer moves it to:
+
+```text
+~/.shared-skills/.cover-prompt-skills-backup/
+```
+
 Override the install target when your agent uses another skills directory:
 
 ```bash

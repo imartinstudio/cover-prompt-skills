@@ -4,6 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKILLS_DIR="$ROOT_DIR/skills"
 TARGET_DIR="${COVER_SKILLS_TARGET:-$HOME/.shared-skills}"
+BACKUP_DIR="${COVER_SKILLS_BACKUP_DIR:-$TARGET_DIR/.cover-prompt-skills-backup}"
 
 usage() {
   cat <<'USAGE'
@@ -17,11 +18,28 @@ Usage:
 
 Environment:
   COVER_SKILLS_TARGET=~/.shared-skills
+  COVER_SKILLS_BACKUP_DIR=~/.shared-skills/.cover-prompt-skills-backup
 
 Note:
   cover-tips is a navigator skill. It is installed with all skills, but cannot
   be installed by itself because it depends on the concrete cover style skills.
+
+Existing non-symlink skill directories are moved to a timestamped backup
+directory before installing symlinks.
 USAGE
+}
+
+backup_existing_target() {
+  local name="$1"
+  local dst="$2"
+  local stamp
+  local backup
+
+  stamp="$(date +%Y%m%d%H%M%S)"
+  backup="$BACKUP_DIR/$stamp/$name"
+  mkdir -p "$(dirname "$backup")"
+  mv "$dst" "$backup"
+  echo "Backed up existing target: $dst -> $backup"
 }
 
 install_skill() {
@@ -39,9 +57,7 @@ install_skill() {
   if [[ -L "$dst" ]]; then
     rm "$dst"
   elif [[ -e "$dst" ]]; then
-    echo "Target already exists and is not a symlink: $dst" >&2
-    echo "Move it away or remove it before installing." >&2
-    exit 1
+    backup_existing_target "$name" "$dst"
   fi
 
   ln -s "$src" "$dst"
