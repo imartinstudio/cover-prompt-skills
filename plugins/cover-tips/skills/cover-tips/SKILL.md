@@ -24,8 +24,8 @@ Map user style names and aliases to these cover skills:
   - Aliases: `潮流彩色`, `彩色`, `高冲击`, `trendy`, `color`, `color poster`, `高饱和`.
   - Use for product covers, promotional posters, marketplace covers, launch visuals, bright high-impact graphics.
 - Budapest poster: `cover-budapest-poster`
-  - Aliases: `布达佩斯`, `budapest`, `复古欧洲`, `电影感`, `明信片`, `酒店感`.
-  - Use for retro European cinematic, boutique hotel, postcard, facade, theatrical pastel-pop covers.
+  - Aliases: `布达佩斯`, `budapest`, `复古欧洲`, `复古中欧`, `电影感`, `明信片`, `剧院感`, `电车`, `车站`, `浴场`.
+  - Use for retro Central European cinematic posters, theatre/tram/station/bathhouse/archive scenes, postcard-like concepts, and spatial storytelling covers. Hotel imagery is only a specific optional subset, not the default.
 - Editorial collage: `cover-editorial-collage`
   - Aliases: `撕纸剪贴`, `剪贴`, `拼贴`, `collage`, `editorial collage`, `torn paper`, `杂志拼贴`.
   - Use for torn-paper collage, magazine collage, satire, social commentary, conflict, handmade editorial covers.
