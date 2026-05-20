@@ -8,6 +8,14 @@ Reusable cover prompt skills for AI agents and image-generation workflows.
 
 Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that supports SKILL.md.
 
+## GitHub Quick Start
+
+![GitHub quick start tutorial](assets/quickstart/github-quickstart.gif)
+
+1. Open this repository on GitHub and copy the install command you prefer.
+2. Run the command in your terminal or agent workspace.
+3. Use `$cover-tips` as the daily entry point, or call a specific `cover-*` skill directly.
+
 ## Skills
 
 | Skill | Style | Best For |
@@ -81,7 +89,9 @@ Four ways to install.
 /plugin install cover-editorial-collage@cover-prompt-skills
 ```
 
-Works in Claude Code and Codex.
+Use this only in agents that support the `/plugin` slash command. Some Codex builds do not expose `/plugin` in chat; use `npx`, `curl`, local install, or Codex's plugin configuration / UI instead.
+
+After updating an already-installed Codex plugin, refresh/re-enable the plugin or restart Codex so it loads the newest plugin version instead of the cached version.
 
 ### npx
 

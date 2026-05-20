@@ -8,6 +8,14 @@
 
 兼容 Claude Code、Codex、Gemini CLI、Cursor，以及任何支持 SKILL.md 的 agent。
 
+## GitHub 快速上手
+
+![GitHub 快速上手教程](assets/quickstart/github-quickstart.gif)
+
+1. 在 GitHub 打开本仓库，复制你偏好的安装命令。
+2. 在终端或 agent 工作区执行安装命令。
+3. 日常使用以 `$cover-tips` 为入口，也可以直接调用具体的 `cover-*` 技能。
+
 ## 技能列表
 
 | 技能 | 风格 | 适用场景 |
@@ -81,7 +89,9 @@ $cover-tips 潮流彩色 --out-type prompt
 /plugin install cover-editorial-collage@cover-prompt-skills
 ```
 
-适用于 Claude Code 和 Codex。
+仅适用于支持 `/plugin` slash command 的 agent。部分 Codex 版本不会在聊天里暴露 `/plugin` 命令；这种情况下请使用 `npx`、`curl`、本地安装，或通过 Codex 的插件配置 / 界面启用。
+
+更新已安装的 Codex 插件后，需要刷新/重新启用插件，或重启 Codex，让它加载最新插件版本，而不是继续使用旧缓存版本。
 
 ### npx
 
