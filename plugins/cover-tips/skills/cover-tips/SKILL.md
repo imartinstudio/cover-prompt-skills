@@ -8,10 +8,10 @@ description: Convert a user's rough cover idea, product description, article top
 Use this skill as a style-specific cover prompt organizer. It does not choose a style by guessing unless the user explicitly asks for a recommendation. The normal workflow is:
 
 ```text
-$cover-tips + style + output intent + user content
+$cover-tips + style + --out-type template|prompt|all + user content
 ```
 
-Default output is a standardized template. Only output a full generic image prompt when the user clearly asks for prompt output.
+Default output is a standardized template. If `--out-type` is omitted, behave as `--out-type template`.
 
 ## Supported Styles
 
@@ -35,16 +35,24 @@ Map user style names and aliases to these cover skills:
 
 If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
 
-## Output Intent Detection
+## Output Type
 
-Do not require exact syntax. Detect the user's intent from natural language.
+Use the explicit `--out-type` parameter to decide what to output. Read `--out-type` only as a control parameter, not as part of the user's topic or subtitle.
 
-- Default: template only.
-- Template only: `模版`, `模板`, `整理成格式`, `标准格式`, `调用格式`, `使用格式`.
-- Prompt only: `提示词`, `prompt`, `image prompt`, `完整提示词`, `生图提示词`, `直接给 prompt`, `只要提示词`.
-- Both: any request that clearly asks for both template and prompt, such as `模版和提示词`, `模板和 prompt`, `模版+提示词`, `两个都要`, `都输出`, `先给模版再给提示词`, `既要标准格式也要完整 prompt`.
+- `--out-type template`: output the standardized invocation template only.
+- `--out-type prompt`: output the generic image prompt only.
+- `--out-type all`: output the template first, then the generic image prompt.
+- Omitted `--out-type`: default to `template`.
 
-When both are requested, output the template first, then the generic image prompt.
+Backward compatibility:
+
+- Treat `模版`, `模板`, `整理成格式`, `标准格式`, `调用格式`, and `使用格式` as `--out-type template`.
+- Treat explicit output requests such as `输出提示词`, `生成提示词`, `完整提示词`, `生图提示词`, `直接给 prompt`, `只要提示词`, `只要 prompt`, and `image prompt` as `--out-type prompt`.
+- Treat `模版和提示词`, `模板和 prompt`, `模版+提示词`, `两个都要`, `都输出`, `先给模版再给提示词`, and `既要标准格式也要完整 prompt` as `--out-type all`.
+
+Do not infer prompt mode from field values. For example, `主题：提示词` means the topic is "提示词"; it does not by itself mean `--out-type prompt`.
+
+If `--out-type` has any value other than `template`, `prompt`, or `all`, ask the user to choose one of those three values.
 
 ## Field Extraction
 
@@ -161,5 +169,5 @@ When both template and prompt are requested, output:
 
 - If style is missing: ask the user to choose one style and list the four supported styles.
 - If user content is missing: ask for at least a title, topic, product description, or article idea.
-- If output intent is missing or unclear: default to template only.
+- If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.

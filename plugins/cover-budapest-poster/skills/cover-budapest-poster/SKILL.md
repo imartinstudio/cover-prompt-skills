@@ -7,7 +7,41 @@ description: Generate Budapest-inspired retro Central European cinematic poster/
 
 Use this skill to create a finished image prompt, or call an image generation tool directly when the user asks to generate the final cover. The result should feel like a refined retro Central European film poster, cinematic city postcard, archive-ticket visual, theatre placard, or atmospheric cultural poster.
 
-If generating the image directly, keep all semantic and design analysis internal and output only the generated image result. If the user explicitly asks for a prompt, output only the final image prompt.
+If generating the image directly, keep all semantic and design analysis internal and output only the generated image result. If the user sets `--out-type prompt`, output only the final image prompt. If the user sets `--out-type template` or omits `--out-type`, output only the template described in "Template Output" and do not output a generic image prompt.
+
+## Output Type
+
+Use the explicit `--out-type` parameter to decide what to output. Read `--out-type` only as a control parameter, not as part of the user's topic or subtitle.
+
+- `--out-type template`: output the invocation template only.
+- `--out-type prompt`: output the final image prompt only.
+- `--out-type all`: output the template first, then the final image prompt.
+- Omitted `--out-type`: default to `template`.
+
+Backward compatibility:
+
+- Treat `模版`, `模板`, `整理成格式`, `标准格式`, `调用格式`, and `使用格式` as `--out-type template`.
+- Treat explicit output requests such as `输出提示词`, `生成提示词`, `完整提示词`, `生图提示词`, `直接给 prompt`, `只要提示词`, `只要 prompt`, and `image prompt` as `--out-type prompt`.
+- Treat `模版和提示词`, `模板和 prompt`, `模版+提示词`, `两个都要`, `都输出`, `先给模版再给提示词`, and `既要标准格式也要完整 prompt` as `--out-type all`.
+
+Do not infer prompt mode from field values. For example, `主题：提示词` means the topic is "提示词"; it does not by itself mean `--out-type prompt`.
+
+If `--out-type` has any value other than `template`, `prompt`, or `all`, ask the user to choose one of those three values.
+
+## Template Output
+
+For template-only mode, output exactly this structure and fill every field:
+
+```text
+使用 $cover-budapest-poster 生成一张封面
+主题词：{topic}
+副标题：{subtitle}
+画幅比例：{ratio}
+语言：{language}
+用途：{use_case}
+情绪倾向：{mood}
+禁用元素：{forbidden_elements}
+```
 
 ## Required Inputs
 

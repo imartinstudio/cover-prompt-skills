@@ -7,7 +7,7 @@ Use `cover-tips` when the user knows the desired style but has not formatted the
 Formula:
 
 ```text
-$cover-tips + style + output intent + user content
+$cover-tips + style + --out-type template|prompt|all + user content
 ```
 
 Examples:
@@ -17,14 +17,14 @@ $cover-tips 撕纸剪贴
 ```
 
 ```text
-$cover-tips 潮流彩色 提示词
+$cover-tips 潮流彩色 --out-type prompt
 ```
 
 ```text
-$cover-tips 布达佩斯 模版和提示词
+$cover-tips 布达佩斯 --out-type all
 ```
 
-If output intent is omitted, `cover-tips` outputs the template only.
+If `--out-type` is omitted, `cover-tips` outputs the template only.
 
 ## Supported Styles
 
@@ -45,38 +45,27 @@ If output intent is omitted, `cover-tips` outputs the template only.
 → $cover-tea-oriental
 ```
 
-## Output Intent
+## Output Type
 
 Template only:
 
 ```text
-模版
-模板
-整理成格式
-标准格式
-调用格式
+--out-type template
 ```
 
 Prompt only:
 
 ```text
-提示词
-prompt
-image prompt
-完整提示词
-生图提示词
+--out-type prompt
 ```
 
 Both:
 
 ```text
-模版和提示词
-模板和 prompt
-模版+提示词
-两个都要
-都输出
-先给模版再给提示词
+--out-type all
 ```
+
+For backward compatibility, Chinese natural-language output requests still work, but `--out-type` is the preferred control parameter.
 
 ## Direct Style Skills
 
@@ -89,5 +78,14 @@ $cover-budapest-poster ...
 $cover-editorial-collage ...
 $cover-tea-oriental ...
 ```
+
+Direct style skills also support `--out-type`. Omit it or use `--out-type template` when you only want the invocation template:
+
+```text
+$cover-budapest-poster --out-type template
+主题：提示词 副主题：好的提示，不只是命令，更是设计 画幅比例：5:2 用途：X封面
+```
+
+In this case, `主题：提示词` is treated as the topic value, not as a request to output a full image prompt.
 
 Use `cover-tips` when the user needs content cleanup, field extraction, or standard formatting first.

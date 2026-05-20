@@ -44,11 +44,10 @@ Use `cover-tips` as the entry point:
 ```text
 $cover-tips 撕纸剪贴
 
-生成一个模版
 主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
-Default output is a template:
+Default output is a template. This is the same as `--out-type template`:
 
 ```text
 使用 $cover-editorial-collage 生成一张封面
@@ -64,10 +63,12 @@ Default output is a template:
 Ask for a prompt when needed:
 
 ```text
-$cover-tips 潮流彩色 提示词
+$cover-tips 潮流彩色 --out-type prompt
 
 主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
+
+Use `--out-type all` when you need both the template and the final image prompt.
 
 ## Install
 
