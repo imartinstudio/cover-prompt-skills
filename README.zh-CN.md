@@ -47,7 +47,15 @@
 
 ## 推荐使用方式
 
-以 `cover-tips` 为入口：
+日常建议以 `cover-tips` 为入口，适合只有粗略主题、粗略风格方向、但还没有整理成标准字段的情况。它会先清理需求、提取字段、匹配具体封面风格技能，并默认输出可直接调用的模板。
+
+基本公式：
+
+```text
+$cover-tips + 风格 + --out-type template|prompt|all + 用户内容
+```
+
+示例：
 
 ```text
 $cover-tips 撕纸剪贴
@@ -55,7 +63,7 @@ $cover-tips 撕纸剪贴
 主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
-默认输出为模板，等同于 `--out-type template`：
+默认输出为模板，等同于 `--out-type template`。当你希望先检查或修改结构化字段，再进入最终出图提示词时，推荐使用默认模式：
 
 ```text
 使用 $cover-editorial-collage 生成一张封面
@@ -68,7 +76,7 @@ $cover-tips 撕纸剪贴
 禁用元素：机器人脸、蓝紫霓虹、廉价科技感、PPT 布局、干净矩形堆叠、低质脏乱朋克、不可读文字
 ```
 
-需要生成提示词时：
+需求已经清楚、希望直接得到完整图像提示词时，使用 `--out-type prompt`：
 
 ```text
 $cover-tips 潮流彩色 --out-type prompt
@@ -77,6 +85,30 @@ $cover-tips 潮流彩色 --out-type prompt
 ```
 
 需要同时输出模板和完整提示词时，使用 `--out-type all`。
+
+支持的风格别名：
+
+| 用户输入风格 | 路由到的技能 |
+|---|---|
+| `黑白极简` / `黑白` / `极简` / `minimal` / `bw` | `$cover-black-white-minimal` |
+| `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
+| `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
+| `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
+| `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
+
+如果你已经确定具体风格，并且不需要 `cover-tips` 帮你重组内容，可以直接调用具体技能：
+
+```text
+$cover-black-white-minimal --out-type prompt
+主题：长期主义 副标题：在即时反馈时代重新理解耐心 画幅比例：4:3 用途：文章封面
+```
+
+推荐工作流：
+
+1. 粗略想法先用 `$cover-tips <风格>`。
+2. 根据返回模板确认标题、副标题、画幅比例、语言、用途、情绪和禁用元素。
+3. 结构确认后，再切到 `--out-type prompt` 或 `--out-type all`。
+4. 已经稳定的重复流程，才直接调用 `$cover-*` 具体风格技能。
 
 ## 安装
 

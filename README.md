@@ -47,7 +47,15 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 
 ## Recommended Daily Use
 
-Use `cover-tips` as the entry point:
+Use `cover-tips` as the daily entry point when you have rough content and a rough style direction. It cleans up the brief, extracts fields, chooses the matching concrete style skill, and returns a ready-to-use invocation template by default.
+
+Basic formula:
+
+```text
+$cover-tips + style + --out-type template|prompt|all + user content
+```
+
+Example:
 
 ```text
 $cover-tips 撕纸剪贴
@@ -55,7 +63,7 @@ $cover-tips 撕纸剪贴
 主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
-Default output is a template. This is the same as `--out-type template`:
+Default output is a template. This is the same as `--out-type template`, and is recommended when you want to review or edit structured fields before generating the final image:
 
 ```text
 使用 $cover-editorial-collage 生成一张封面
@@ -68,7 +76,7 @@ Default output is a template. This is the same as `--out-type template`:
 禁用元素：机器人脸、蓝紫霓虹、廉价科技感、PPT 布局、干净矩形堆叠、低质脏乱朋克、不可读文字
 ```
 
-Ask for a prompt when needed:
+Ask for a final image prompt when the brief is already clear:
 
 ```text
 $cover-tips 潮流彩色 --out-type prompt
@@ -76,7 +84,31 @@ $cover-tips 潮流彩色 --out-type prompt
 主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
-Use `--out-type all` when you need both the template and the final image prompt.
+Use `--out-type all` when you need both the structured template and the final image prompt.
+
+Supported style aliases:
+
+| User style input | Routed skill |
+|---|---|
+| `黑白极简` / `黑白` / `极简` / `minimal` / `bw` | `$cover-black-white-minimal` |
+| `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
+| `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
+| `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
+| `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
+
+Call a concrete style skill directly when you already know the exact style and do not need `cover-tips` to reorganize the brief:
+
+```text
+$cover-black-white-minimal --out-type prompt
+主题：长期主义 副标题：在即时反馈时代重新理解耐心 画幅比例：4:3 用途：文章封面
+```
+
+Recommended workflow:
+
+1. Start with `$cover-tips <style>` for rough ideas.
+2. Use the returned template to confirm title, subtitle, ratio, language, use case, mood, and banned elements.
+3. Switch to `--out-type prompt` or `--out-type all` when the structure is ready.
+4. Directly call `$cover-*` only for repeated workflows where the style and fields are already stable.
 
 ## Install
 
