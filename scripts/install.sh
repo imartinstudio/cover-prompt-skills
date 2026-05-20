@@ -9,11 +9,18 @@ usage() {
   cat <<'USAGE'
 Usage:
   scripts/install.sh                 Install all skills
-  scripts/install.sh cover-tips      Install one skill
+  scripts/install.sh cover-black-white-minimal
+  scripts/install.sh cover-trendy-color-poster
+  scripts/install.sh cover-budapest-poster
+  scripts/install.sh cover-editorial-collage
   scripts/install.sh cover           Install all cover skills
 
 Environment:
   COVER_SKILLS_TARGET=~/.shared-skills
+
+Note:
+  cover-tips is a navigator skill. It is installed with all skills, but cannot
+  be installed by itself because it depends on the concrete cover style skills.
 USAGE
 }
 
@@ -49,7 +56,17 @@ main() {
 
   local requested=("$@")
   if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
-    mapfile -t requested < <(find "$SKILLS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+    requested=()
+    while IFS= read -r skill; do
+      requested+=("$skill")
+    done < <(find "$SKILLS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+  elif [[ ${#requested[@]} -eq 1 && "${requested[0]}" == "cover-tips" ]]; then
+    echo "cover-tips cannot be installed by itself." >&2
+    echo "It is only a navigator. Install all skills instead:" >&2
+    echo "  scripts/install.sh" >&2
+    echo "Or install a concrete style skill, for example:" >&2
+    echo "  scripts/install.sh cover-editorial-collage" >&2
+    exit 1
   fi
 
   for skill in "${requested[@]}"; do

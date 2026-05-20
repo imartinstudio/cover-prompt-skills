@@ -2,7 +2,7 @@
 
 ## The Main Entry Point
 
-Use `cover-tips` when the user knows the desired style but has not formatted the content.
+Use `cover-tips` when the user knows the desired style but has not formatted the content. Install it with the full package; by itself it is only a navigator and is not useful without the concrete cover style skills.
 
 Formula:
 

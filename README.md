@@ -64,11 +64,13 @@ Fast install:
 curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash
 ```
 
-Install one skill:
+Install one concrete style skill:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash -s -- cover-tips
+curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash -s -- cover-editorial-collage
 ```
+
+`cover-tips` is a navigator skill. It is installed with the full package, but should not be installed by itself because it needs the concrete cover style skills to be useful.
 
 By default, skills are linked into `~/.shared-skills`, and the repository is cloned or updated at `~/.cover-prompt-skills`.
 
@@ -95,10 +97,10 @@ cd cover-prompt-skills
 scripts/install.sh
 ```
 
-Install one skill manually:
+Install one concrete style skill manually:
 
 ```bash
-scripts/install.sh cover-tips
+scripts/install.sh cover-editorial-collage
 ```
 
 ## Repository Principles

@@ -45,6 +45,13 @@ main() {
     install_from_repo "$@"
   fi
 
+  local try_command="\$cover-tips 撕纸剪贴"
+  if [[ $# -gt 0 && "${1:-}" != "cover" && "${1:-}" != "all" ]]; then
+    if [[ "$*" != *"cover-tips"* ]]; then
+      try_command="\$${1}"
+    fi
+  fi
+
   cat <<EOF
 
 Done.
@@ -53,7 +60,7 @@ Installed skills target:
   $TARGET_DIR
 
 Try:
-  \$cover-tips 撕纸剪贴
+  $try_command
 
   主题：可以洗稿，但不能被洗脑
   副标题：AI 时代的内容判断力
