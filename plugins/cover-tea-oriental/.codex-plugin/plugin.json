@@ -1,0 +1,18 @@
+{
+  "name": "cover-tea-oriental",
+  "version": "1.0.0",
+  "description": "Generate high-end oriental tea-aesthetic covers with Chinese character-as-image structure and refined cultural information design.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "tea", "oriental", "song-dynasty", "chinese-character", "poster", "infographic", "invitation"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tea Oriental",
+    "shortDescription": "Generate tea-aesthetic oriental covers with character-as-image structure",
+    "longDescription": "Generate high-end oriental tea-aesthetic poster/cover image prompts or final images with Chinese character-as-image structure, Song dynasty literati aesthetics, rice paper texture, gongbi ink-wash collage, refined information hierarchy, exhibition poster quality, and restrained cultural atmosphere.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#8A6A42"
+  }
+}

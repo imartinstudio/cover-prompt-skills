@@ -40,6 +40,9 @@ If output intent is omitted, `cover-tips` outputs the template only.
 
 撕纸剪贴 / 剪贴 / 拼贴 / collage / editorial collage
 → $cover-editorial-collage
+
+茶风格 / 茶 / 东方美学 / 宋代美学 / 汉字成像
+→ $cover-tea-oriental
 ```
 
 ## Output Intent
@@ -84,6 +87,7 @@ $cover-black-white-minimal ...
 $cover-trendy-color-poster ...
 $cover-budapest-poster ...
 $cover-editorial-collage ...
+$cover-tea-oriental ...
 ```
 
 Use `cover-tips` when the user needs content cleanup, field extraction, or standard formatting first.

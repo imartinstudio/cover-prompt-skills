@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-budapest-poster, or cover-editorial-collage. The user should specify a style such as black-white minimal, trendy color, Budapest, or editorial collage.
+description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-budapest-poster, cover-editorial-collage, or cover-tea-oriental. The user should specify a style such as black-white minimal, trendy color, Budapest, editorial collage, or tea oriental.
 ---
 
 # Cover Tips
@@ -29,8 +29,11 @@ Map user style names and aliases to these cover skills:
 - Editorial collage: `cover-editorial-collage`
   - Aliases: `撕纸剪贴`, `剪贴`, `拼贴`, `collage`, `editorial collage`, `torn paper`, `杂志拼贴`.
   - Use for torn-paper collage, magazine collage, satire, social commentary, conflict, handmade editorial covers.
+- Tea oriental: `cover-tea-oriental`
+  - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
+  - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `布达佩斯`, `撕纸剪贴`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
 
 ## Output Intent Detection
 
@@ -93,6 +96,11 @@ Editorial collage:
 
 - Mood: `讽刺 / 冲突 / 街头 / 复古 / 观点感`.
 - Forbidden: `机器人脸、蓝紫霓虹、廉价科技感、PPT 布局、干净矩形堆叠、低质脏乱朋克、不可读文字`.
+
+Tea oriental:
+
+- Mood: `安静 / 雅致 / 书卷气 / 东方哲思 / 展览感`.
+- Forbidden: `廉价国风模板、俗气红金配色、随机书法背景、过度装饰边框、网红茶室风、杂乱信息、不可读核心字、蓝紫霓虹、低端 3D`.
 
 ## Template Output
 

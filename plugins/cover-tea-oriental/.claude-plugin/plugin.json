@@ -1,0 +1,9 @@
+{
+  "name": "cover-tea-oriental",
+  "displayName": "Tea Oriental",
+  "version": "1.0.0",
+  "description": "Generate high-end oriental tea-aesthetic covers with Chinese character-as-image structure and refined cultural information design.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "tea", "oriental", "song-dynasty", "chinese-character", "poster", "infographic", "invitation"]
+}

@@ -20,6 +20,11 @@
       "description": "Generate editorial collage covers with torn-paper, mixed media, and bold typography."
     },
     {
+      "name": "cover-tea-oriental",
+      "source": "./plugins/cover-tea-oriental",
+      "description": "Generate tea-aesthetic oriental covers with character-as-image structure and refined cultural information design."
+    },
+    {
       "name": "cover-tips",
       "source": "./plugins/cover-tips",
       "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill."

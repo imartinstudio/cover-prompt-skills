@@ -14,6 +14,7 @@ Usage:
   scripts/install.sh cover-trendy-color-poster
   scripts/install.sh cover-budapest-poster
   scripts/install.sh cover-editorial-collage
+  scripts/install.sh cover-tea-oriental
   scripts/install.sh all                    Install all skills
 
 Environment:
