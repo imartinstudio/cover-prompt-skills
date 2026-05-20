@@ -58,48 +58,47 @@ $cover-tips 黑白极简 模版和提示词
 
 ## Install
 
-Recommended symlink install:
+Fast install:
 
 ```bash
-scripts/install.sh
+curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash
 ```
 
 Install one skill:
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash -s -- cover-tips
+```
+
+By default, skills are linked into `~/.shared-skills`, and the repository is cloned or updated at `~/.cover-prompt-skills`.
+
+Override the install target when your agent uses another skills directory:
+
+```bash
+COVER_SKILLS_TARGET=~/your-agent-skills \
+curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash
+```
+
+Use a custom repository URL or local clone path:
+
+```bash
+COVER_PROMPT_SKILLS_REPO=https://github.com/your-name/cover-prompt-skills.git \
+COVER_PROMPT_SKILLS_HOME=~/.cover-prompt-skills \
+curl -fsSL https://raw.githubusercontent.com/your-name/cover-prompt-skills/main/install.sh | bash
+```
+
+Manual install:
+
+```bash
+git clone https://github.com/imartinstudio/cover-prompt-skills.git
+cd cover-prompt-skills
+scripts/install.sh
+```
+
+Install one skill manually:
+
+```bash
 scripts/install.sh cover-tips
-```
-
-Install all cover skills explicitly:
-
-```bash
-scripts/install.sh cover
-```
-
-By default, skills are linked into `~/.shared-skills`. Override the target when your agent uses another skills directory:
-
-```bash
-COVER_SKILLS_TARGET=~/your-agent-skills scripts/install.sh
-```
-
-You can also copy any skill folder into your local skills directory:
-
-```bash
-cp -R skills/cover-tips ~/.shared-skills/
-cp -R skills/cover-black-white-minimal ~/.shared-skills/
-cp -R skills/cover-trendy-color-poster ~/.shared-skills/
-cp -R skills/cover-budapest-poster ~/.shared-skills/
-cp -R skills/cover-editorial-collage ~/.shared-skills/
-```
-
-Or symlink them for easier updates:
-
-```bash
-ln -s "$PWD/skills/cover-tips" ~/.shared-skills/cover-tips
-ln -s "$PWD/skills/cover-black-white-minimal" ~/.shared-skills/cover-black-white-minimal
-ln -s "$PWD/skills/cover-trendy-color-poster" ~/.shared-skills/cover-trendy-color-poster
-ln -s "$PWD/skills/cover-budapest-poster" ~/.shared-skills/cover-budapest-poster
-ln -s "$PWD/skills/cover-editorial-collage" ~/.shared-skills/cover-editorial-collage
 ```
 
 ## Repository Principles
