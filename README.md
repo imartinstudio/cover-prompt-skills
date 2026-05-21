@@ -1,61 +1,65 @@
-[English](README.md) | [中文](README.zh-CN.md)
+[English](README.en.md) | [中文](README.md)
 
 ---
 
-# Cover Prompt Skills
+# 封面提示词技能
 
-Reusable cover prompt skills for AI agents and image-generation workflows.
+面向 AI agent 和图像生成工作流的可复用封面提示词技能。
 
-Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that supports SKILL.md.
+兼容 Claude Code、Codex、Gemini CLI、Cursor，以及任何支持 SKILL.md 的 agent。
 
-## GitHub Quick Start
+## GitHub 快速上手
 
-![GitHub quick start tutorial](assets/quickstart/github-quickstart.gif)
+![GitHub 快速上手教程](assets/quickstart/github-quickstart.gif)
 
-1. Open this repository on GitHub and copy the install command you prefer.
-2. Run the command in your terminal or agent workspace.
-3. Use `$cover-tips` as the daily entry point, or call a specific `cover-*` skill directly.
+1. 在 GitHub 打开本仓库，复制你偏好的安装命令。
+2. 在终端或 agent 工作区执行安装命令。
+3. 日常使用以 `$cover-tips` 为入口，也可以直接调用具体的 `cover-*` 技能。
 
-## Skills
+## GitHub 展示
 
-| Skill | Style | Best For |
+![GitHub showcases 展示](assets/style-showcases/github-showcases.gif)
+
+## 技能列表
+
+| 技能 | 风格 | 适用场景 |
 |---|---|---|
-| `cover-tips` | Style-specific prompt organizer | Turn rough user content into a template or generic image prompt |
-| `cover-black-white-minimal` | Black-white minimal, Swiss grid, restrained editorial | Premium concepts, serious essays, portfolio covers |
-| `cover-trendy-color-poster` | Trendy high-impact color poster | Product covers, marketplace covers, launch posters |
-| `cover-budapest-poster` | Retro Central European cinematic, Budapest-style poster | Theatre, tram, station, bathhouse, archive, postcard concepts |
-| `cover-editorial-collage` | Torn-paper editorial collage | Satire, conflict, social commentary, magazine collage covers |
-| `cover-tea-oriental` | Oriental tea aesthetic, Song literati, character-as-image | Cultural posters, invitations, infographics, PPT covers |
+| `cover-tips` | 风格化提示词组织器 | 将用户粗糙的封面想法转化为模板或通用图像提示词 |
+| `cover-black-white-minimal` | 黑白极简、瑞士网格、克制编辑风 | 高级概念封面、严肃文章、作品集封面 |
+| `cover-trendy-color-poster` | 潮流高冲击彩色海报 | 产品封面、电商封面、发布海报 |
+| `cover-budapest-poster` | 复古中欧电影感、布达佩斯海报风 | 剧院、电车、车站、浴场、档案、明信片概念图 |
+| `cover-editorial-collage` | 撕纸编辑拼贴 | 讽刺、冲突、社会评论、杂志拼贴封面 |
+| `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT封面 |
 
-## Style Preview
+## 风格展示
 
 ### `cover-black-white-minimal`
 
-![Black-White Minimal style showcase](assets/style-showcases/cover-black-white-minimal.png)
+![黑白极简风格展示](assets/style-showcases/cover-black-white-minimal.png)
 
 ### `cover-trendy-color-poster`
 
-![Trendy Color Poster style showcase](assets/style-showcases/cover-trendy-color-poster.png)
+![潮流高冲击彩色海报风格展示](assets/style-showcases/cover-trendy-color-poster.png)
 
 ### `cover-editorial-collage`
 
-![Editorial Collage style showcase](assets/style-showcases/cover-editorial-collage.png)
+![撕纸编辑拼贴风格展示](assets/style-showcases/cover-editorial-collage.png)
 
 ### `cover-tea-oriental`
 
-![Tea Oriental style showcase](assets/style-showcases/cover-tea-oriental.png)
+![茶风格东方美学展示](assets/style-showcases/cover-tea-oriental.png)
 
-## Recommended Daily Use
+## 推荐使用方式
 
-Use `cover-tips` as the daily entry point when you have rough content and a rough style direction. It cleans up the brief, extracts fields, chooses the matching concrete style skill, and returns a ready-to-use invocation template by default.
+日常建议以 `cover-tips` 为入口，适合只有粗略主题、粗略风格方向、但还没有整理成标准字段的情况。它会先清理需求、提取字段、匹配具体封面风格技能，并默认输出可直接调用的模板。
 
-Basic formula:
+基本公式：
 
 ```text
-$cover-tips + style + --out-type template|prompt|all + user content
+$cover-tips + 风格 + --out-type template|prompt|all + 用户内容
 ```
 
-Example:
+示例：
 
 ```text
 $cover-tips 撕纸剪贴
@@ -63,7 +67,7 @@ $cover-tips 撕纸剪贴
 主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
-Default output is a template. This is the same as `--out-type template`, and is recommended when you want to review or edit structured fields before generating the final image:
+默认输出为模板，等同于 `--out-type template`。当你希望先检查或修改结构化字段，再进入最终出图提示词时，推荐使用默认模式：
 
 ```text
 使用 $cover-editorial-collage 生成一张封面
@@ -76,7 +80,7 @@ Default output is a template. This is the same as `--out-type template`, and is 
 禁用元素：机器人脸、蓝紫霓虹、廉价科技感、PPT 布局、干净矩形堆叠、低质脏乱朋克、不可读文字
 ```
 
-Ask for a final image prompt when the brief is already clear:
+需求已经清楚、希望直接得到完整图像提示词时，使用 `--out-type prompt`：
 
 ```text
 $cover-tips 潮流彩色 --out-type prompt
@@ -84,11 +88,11 @@ $cover-tips 潮流彩色 --out-type prompt
 主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
 ```
 
-Use `--out-type all` when you need both the structured template and the final image prompt.
+需要同时输出模板和完整提示词时，使用 `--out-type all`。
 
-Supported style aliases:
+支持的风格别名：
 
-| User style input | Routed skill |
+| 用户输入风格 | 路由到的技能 |
 |---|---|
 | `黑白极简` / `黑白` / `极简` / `minimal` / `bw` | `$cover-black-white-minimal` |
 | `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
@@ -96,52 +100,52 @@ Supported style aliases:
 | `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
 | `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
 
-Call a concrete style skill directly when you already know the exact style and do not need `cover-tips` to reorganize the brief:
+如果你已经确定具体风格，并且不需要 `cover-tips` 帮你重组内容，可以直接调用具体技能：
 
 ```text
 $cover-black-white-minimal --out-type prompt
 主题：长期主义 副标题：在即时反馈时代重新理解耐心 画幅比例：4:3 用途：文章封面
 ```
 
-You can also skip template generation entirely and ask a concrete skill to generate the final cover from a natural-language brief:
+也可以完全跳过模板生成，直接用具体技能加用户说明生成最终封面：
 
 ```text
 $cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提示词”，副标题是“好的提示，不只是命令，更是设计”。整体要撕纸剪贴、杂志感、讽刺一点，不要机器人脸和蓝紫霓虹。
 ```
 
-Use this direct generation path when the style is clear and you do not need to inspect intermediate fields.
+当风格已经明确、且不需要检查中间字段时，推荐使用这种直接生成方式。
 
-Recommended workflow:
+推荐工作流：
 
-1. Start with `$cover-tips <style>` for rough ideas.
-2. Use the returned template to confirm title, subtitle, ratio, language, use case, mood, and banned elements.
-3. Switch to `--out-type prompt` or `--out-type all` when you need reusable prompt text.
-4. Use `$cover-*` followed by natural-language instructions when you want to skip the template and generate the final cover immediately.
-5. Directly call `$cover-*` for repeated workflows where the style and fields are already stable.
+1. 粗略想法先用 `$cover-tips <风格>`。
+2. 根据返回模板确认标题、副标题、画幅比例、语言、用途、情绪和禁用元素。
+3. 需要可复用提示词文本时，再切到 `--out-type prompt` 或 `--out-type all`。
+4. 希望跳过模板、马上生成最终封面时，在 `$cover-*` 后面直接接自然语言说明。
+5. 已经稳定的重复流程，可以直接调用 `$cover-*` 具体风格技能。
 
-## Install
+## 安装
 
-Four ways to install.
+四种方式任选。
 
 ### CLI Plugin Marketplace
 
-Codex CLI:
+Codex CLI：
 
 ```
 codex plugin marketplace add imartinstudio/cover-prompt-skills
 codex plugin add cover-editorial-collage@cover-prompt-skills
 ```
 
-Claude CLI:
+Claude CLI：
 
 ```
 /plugin marketplace add imartinstudio/cover-prompt-skills
 /plugin install cover-editorial-collage@cover-prompt-skills
 ```
 
-Use the command variant for your CLI. In Codex CLI, add the plugin marketplace repository, then install the skill/plugin you need. In Claude CLI, use the `/plugin` slash commands.
+根据你使用的 CLI 选择对应命令。Codex CLI 中先添加插件市场仓库，再安装需要的 skill/plugin。Claude CLI 中使用 `/plugin` slash commands。
 
-After updating an already-installed plugin, refresh/re-enable the plugin or restart the agent so it loads the newest plugin version instead of the cached version.
+更新已安装的插件后，需要刷新/重新启用插件，或重启对应 agent，让它加载最新插件版本，而不是继续使用旧缓存版本。
 
 ### npx
 
@@ -149,7 +153,7 @@ After updating an already-installed plugin, refresh/re-enable the plugin or rest
 npx skills add imartinstudio/cover-prompt-skills
 ```
 
-Pick the skills you want interactively. Works in Claude Code, Codex, Cursor, Gemini CLI, Windsurf, and 40+ other agents.
+交互式选择要安装的技能。支持 Claude Code、Codex、Cursor、Gemini CLI、Windsurf 等 40+ 个 agent。
 
 ### curl
 
@@ -157,36 +161,38 @@ Pick the skills you want interactively. Works in Claude Code, Codex, Cursor, Gem
 curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash
 ```
 
-Install a single skill:
+安装单个技能：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash -s -- cover-editorial-collage
 ```
 
-Skills are downloaded as standalone `SKILL.md` files to `~/.shared-skills`. Override the target directory:
+技能会以独立 `SKILL.md` 文件下载到目标目录。脚本默认使用 `~/.shared-skills`；不同 agent 的技能目录可能不同，Codex / Agents 用户通常可以指定 `~/.agents/skills` 或 `~/.codex/skills`：
 
 ```bash
-COVER_SKILLS_TARGET=~/your-agent-skills \
+COVER_SKILLS_TARGET=~/.agents/skills \
 curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash
 ```
 
-### Local development
+### 本地开发安装
 
 ```bash
 cd cover-prompt-skills
-./install.sh                              # install all (symlinks)
-./install.sh cover-editorial-collage      # install one
+./install.sh                              # 安装全部（symlink）
+./install.sh cover-editorial-collage      # 安装单个
 ```
 
-`cover-tips` is a navigator skill. It is installed with the full package, but cannot be installed alone — it depends on concrete cover style skills.
+本地开发安装会把仓库里的技能目录软链到目标目录，适合一边修改仓库内容、一边在 agent 中测试。
 
-## Repository Principles
+`cover-tips` 是导航技能，随完整包安装，不可单独安装 —— 它依赖具体的封面风格技能。
 
-- Keep each plugin minimal: one `SKILL.md` under `skills/`, one manifest each for Claude Code and Codex.
-- Do not include provider-specific agent metadata by default.
-- Keep prompts generic unless a user explicitly asks for a provider-specific variant.
-- Use `cover-` as the naming prefix for cover-generation skills.
+## 仓库原则
 
-## License
+- 每个插件保持精简：一个 `SKILL.md` 置于 `skills/` 下，Claude Code 和 Codex 各一个 manifest。
+- 默认不包含特定平台的 agent 元数据。
+- 保持提示词通用，除非用户明确要求特定平台的变体。
+- 使用 `cover-` 作为封面生成技能的命名前缀。
+
+## 许可证
 
 MIT
