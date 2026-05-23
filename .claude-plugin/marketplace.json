@@ -33,6 +33,11 @@
       "name": "cover-trendy-color-poster",
       "source": "./plugins/cover-trendy-color-poster",
       "description": "Generate trendy high-impact color poster covers with bold contrast and typography-led layouts."
+    },
+    {
+      "name": "cover-giant-perspective-poster",
+      "source": "./plugins/cover-giant-perspective-poster",
+      "description": "Generate giant Chinese perspective typography poster covers with cinematic depth and high-contrast color clashes."
     }
   ]
 }

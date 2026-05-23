@@ -13,6 +13,7 @@ These files are source/design records only. Runtime behavior is defined by each 
 | `cover-trendy-color-poster.md` | `cover-trendy-color-poster` |
 | `cover-budapest-poster.md` | `cover-budapest-poster` |
 | `cover-tea-oriental.md` | `cover-tea-oriental` |
+| `cover-giant-perspective-poster.md` | `cover-giant-perspective-poster` |
 
 ## Source
 

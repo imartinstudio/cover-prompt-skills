@@ -10,6 +10,7 @@ ALL_SKILLS=(
   cover-black-white-minimal
   cover-budapest-poster
   cover-editorial-collage
+  cover-giant-perspective-poster
   cover-tea-oriental
   cover-tips
   cover-trendy-color-poster

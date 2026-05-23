@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-budapest-poster, cover-editorial-collage, or cover-tea-oriental. The user should specify a style such as black-white minimal, trendy color, Budapest, editorial collage, or tea oriental.
+description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-budapest-poster, cover-editorial-collage, or cover-tea-oriental. The user should specify a style such as black-white minimal, trendy color, giant perspective, Budapest, editorial collage, or tea oriental.
 ---
 
 # Cover Tips
@@ -23,6 +23,9 @@ Map user style names and aliases to these cover skills:
 - Trendy color poster: `cover-trendy-color-poster`
   - Aliases: `潮流彩色`, `彩色`, `高冲击`, `trendy`, `color`, `color poster`, `高饱和`.
   - Use for product covers, promotional posters, marketplace covers, launch visuals, bright high-impact graphics.
+- Giant perspective poster: `cover-giant-perspective-poster`
+  - Aliases: `巨型透视`, `透视标题`, `透视海报`, `电影海报风`, `电竞主视觉`, `运动品牌风`, `perspective`, `giant type`, `cinematic poster`, `高冲突撞色`, `中文透视`.
+  - Use for giant Chinese perspective titles, cinematic/sports/esports key visuals, movie-poster composition, typography-as-architecture, and high-contrast clash covers where text is spatial structure.
 - Budapest poster: `cover-budapest-poster`
   - Aliases: `布达佩斯`, `budapest`, `复古欧洲`, `复古中欧`, `电影感`, `明信片`, `剧院感`, `电车`, `车站`, `浴场`.
   - Use for retro Central European cinematic posters, theatre/tram/station/bathhouse/archive scenes, postcard-like concepts, and spatial storytelling covers. Hotel imagery is only a specific optional subset, not the default.
@@ -33,7 +36,7 @@ Map user style names and aliases to these cover skills:
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
 
 ## Output Type
 
@@ -94,6 +97,11 @@ Trendy color poster:
 
 - Mood: `明亮 / 快速 / 可信 / 高冲击 / 活跃`.
 - Forbidden: `廉价电商模板、购物车图标、金币堆、蓝紫霓虹、机器人脸、低端 3D、PPT 风、过度堆字`.
+
+Giant perspective poster:
+
+- Mood: `热血 / 速度 / 压迫 / 戏剧化 / 胜利 / 反叛`.
+- Forbidden: `小字标题、无透视平排标题、文字与插图分离、黑白灰平淡配色、廉价霓虹、蓝紫科技渐变、电商促销风、知识卡片风、PPT 封面、模板居中排版、中文错字`.
 
 Budapest poster:
 
@@ -167,7 +175,7 @@ When both template and prompt are requested, output:
 
 ## Error Handling
 
-- If style is missing: ask the user to choose one style and list the four supported styles.
+- If style is missing: ask the user to choose one style and list the six supported styles: 黑白极简, 潮流彩色, 巨型透视, 布达佩斯, 撕纸剪贴, 茶风格.
 - If user content is missing: ask for at least a title, topic, product description, or article idea.
 - If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.

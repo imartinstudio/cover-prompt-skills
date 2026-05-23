@@ -1,0 +1,9 @@
+{
+  "name": "cover-giant-perspective-poster",
+  "displayName": "Giant Perspective Poster",
+  "version": "1.0.0",
+  "description": "Generate giant Chinese perspective typography poster covers with high-contrast color clashes, cinematic depth, and typography-as-architecture.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "perspective", "typography", "chinese", "cinematic", "esports", "high-impact", "poster"]
+}

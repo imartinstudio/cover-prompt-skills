@@ -16,6 +16,7 @@ cover-trendy-color-poster
 cover-budapest-poster
 cover-editorial-collage
 cover-tea-oriental
+cover-giant-perspective-poster
 ```
 
 The general organizer uses:
