@@ -42,6 +42,10 @@
 
 ![潮流高冲击彩色海报风格展示](assets/style-showcases/cover-trendy-color-poster.png)
 
+### `cover-giant-perspective-poster`
+
+![巨型中文透视海报风格展示](assets/style-showcases/cover-giant-perspective-poster.png)
+
 ### `cover-editorial-collage`
 
 ![撕纸编辑拼贴风格展示](assets/style-showcases/cover-editorial-collage.png)

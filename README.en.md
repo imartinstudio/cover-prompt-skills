@@ -42,6 +42,10 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 
 ![Trendy Color Poster style showcase](assets/style-showcases/cover-trendy-color-poster.png)
 
+### `cover-giant-perspective-poster`
+
+![Giant Perspective Poster style showcase](assets/style-showcases/cover-giant-perspective-poster.png)
+
 ### `cover-editorial-collage`
 
 ![Editorial Collage style showcase](assets/style-showcases/cover-editorial-collage.png)
