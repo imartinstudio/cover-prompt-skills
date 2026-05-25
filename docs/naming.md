@@ -17,6 +17,7 @@ cover-budapest-poster
 cover-editorial-collage
 cover-tea-oriental
 cover-giant-perspective-poster
+cover-midnight-studio
 ```
 
 The general organizer uses:

@@ -38,6 +38,11 @@
       "name": "cover-giant-perspective-poster",
       "source": "./plugins/cover-giant-perspective-poster",
       "description": "Generate giant Chinese perspective typography poster covers with cinematic depth and high-contrast color clashes."
+    },
+    {
+      "name": "cover-midnight-studio",
+      "source": "./plugins/cover-midnight-studio",
+      "description": "Generate cinematic midnight AI creator workspace covers with film-grade lighting and indie hacker atmosphere."
     }
   ]
 }

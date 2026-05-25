@@ -1,0 +1,18 @@
+{
+  "name": "cover-midnight-studio",
+  "version": "1.0.0",
+  "description": "Generate cinematic midnight AI creator workspace covers with multi-monitor stations, film-grade lighting, and indie hacker atmosphere.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "midnight", "studio", "workspace", "AI", "developer", "cinematic", "tech"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Midnight Studio",
+    "shortDescription": "Cinematic midnight AI creator workspace covers",
+    "longDescription": "Generate late-night indie developer and AI engineer workspace covers with premium cinematic photography, integrated HUD titles, multi-monitor workflow atmosphere, and immersive build-in-public culture.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#1A1F36"
+  }
+}
