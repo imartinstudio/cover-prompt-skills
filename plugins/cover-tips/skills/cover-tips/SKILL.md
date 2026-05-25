@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-budapest-poster, cover-editorial-collage, or cover-tea-oriental. The user should specify a style such as black-white minimal, trendy color, giant perspective, Budapest, editorial collage, or tea oriental.
+description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, Budapest, editorial collage, tea oriental, or pixel avatar.
 ---
 
 # Cover Tips
@@ -35,8 +35,11 @@ Map user style names and aliases to these cover skills:
 - Tea oriental: `cover-tea-oriental`
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
+- Pixel avatar: `cover-pixel-avatar`
+  - Aliases: `像素头像`, `像素风`, `8-bit`, `8bit`, `retro pixel`, `pixel avatar`, `NFT头像`, `游戏头像`, `抽象像素`, `profile pixel`.
+  - Use when the user uploads a reference image and wants an abstract retro 8-bit square avatar with solid clash-color background—not a photorealistic or 1:1 pixelated copy of the photo.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `像素头像`. Do not silently pick a style unless the user asks for a recommendation.
 
 ## Output Type
 
@@ -118,9 +121,17 @@ Tea oriental:
 - Mood: `安静 / 雅致 / 书卷气 / 东方哲思 / 展览感`.
 - Forbidden: `廉价国风模板、俗气红金配色、随机书法背景、过度装饰边框、网红茶室风、杂乱信息、不可读核心字、蓝紫霓虹、低端 3D`.
 
+Pixel avatar:
+
+- Mood: `呆萌 / 酷 / 调皮 / 图标化 / 复古游戏感` (infer from subject when possible).
+- Forbidden: `写实、3D、厚涂、普通动漫插画、照片质感、复杂背景、原图场景、1:1照片像素化、固定黄底橙发模板、过度相似原图`.
+- Required: user must provide or upload a reference image with a clear subject. Default ratio is `1:1`.
+
 ## Template Output
 
-For template-only mode, output exactly this structure and fill every field:
+For template-only mode, output exactly one structure and fill every field.
+
+Default (all styles except pixel avatar):
 
 ```text
 使用 $cover-{selected-style} 生成一张封面
@@ -130,6 +141,19 @@ For template-only mode, output exactly this structure and fill every field:
 语言：{language}
 用途：{use_case}
 情绪倾向：{mood}
+禁用元素：{forbidden_elements}
+```
+
+Pixel avatar (`cover-pixel-avatar`):
+
+```text
+使用 $cover-pixel-avatar 根据上传图片生成像素头像
+参考图片：{uploaded_or_pending}
+主体类型：{subject_type}
+表情倾向：{expression_mood}
+背景配色倾向：{background_color_direction}
+主体配色倾向：{subject_color_direction}
+补充说明：{context}
 禁用元素：{forbidden_elements}
 ```
 
@@ -175,7 +199,7 @@ When both template and prompt are requested, output:
 
 ## Error Handling
 
-- If style is missing: ask the user to choose one style and list the six supported styles: 黑白极简, 潮流彩色, 巨型透视, 布达佩斯, 撕纸剪贴, 茶风格.
-- If user content is missing: ask for at least a title, topic, product description, or article idea.
+- If style is missing: ask the user to choose one style and list the seven supported styles: 黑白极简, 潮流彩色, 巨型透视, 布达佩斯, 撕纸剪贴, 茶风格, 像素头像.
+- If user content is missing: for cover styles, ask for at least a title, topic, product description, or article idea; for pixel avatar, ask for an uploaded reference image with a clear subject.
 - If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.

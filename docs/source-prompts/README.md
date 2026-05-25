@@ -14,6 +14,7 @@ These files are source/design records only. Runtime behavior is defined by each 
 | `cover-budapest-poster.md` | `cover-budapest-poster` |
 | `cover-tea-oriental.md` | `cover-tea-oriental` |
 | `cover-giant-perspective-poster.md` | `cover-giant-perspective-poster` |
+| `cover-pixel-avatar.md` | `cover-pixel-avatar` |
 
 ## Source
 

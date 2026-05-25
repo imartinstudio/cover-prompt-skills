@@ -13,6 +13,7 @@ Usage:
   scripts/install.sh cover-black-white-minimal
   scripts/install.sh cover-trendy-color-poster
   scripts/install.sh cover-giant-perspective-poster
+  scripts/install.sh cover-pixel-avatar
   scripts/install.sh cover-budapest-poster
   scripts/install.sh cover-editorial-collage
   scripts/install.sh cover-tea-oriental

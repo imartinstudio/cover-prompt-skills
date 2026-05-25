@@ -53,6 +53,7 @@ Use `--out-type all` when you need both the structured template and the final im
 | `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
 | `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
 | `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
+| `像素头像` / `像素风` / `8-bit` / `pixel avatar` / `NFT头像` | `$cover-pixel-avatar` |
 
 ## Output Type
 
@@ -89,7 +90,10 @@ $cover-giant-perspective-poster ...
 $cover-budapest-poster ...
 $cover-editorial-collage ...
 $cover-tea-oriental ...
+$cover-pixel-avatar ...
 ```
+
+For pixel avatar, upload a reference image with a clear subject. Default canvas is `1:1`.
 
 Direct style skills also support `--out-type`.
 

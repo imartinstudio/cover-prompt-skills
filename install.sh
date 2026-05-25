@@ -11,6 +11,7 @@ ALL_SKILLS=(
   cover-budapest-poster
   cover-editorial-collage
   cover-giant-perspective-poster
+  cover-pixel-avatar
   cover-tea-oriental
   cover-tips
   cover-trendy-color-poster

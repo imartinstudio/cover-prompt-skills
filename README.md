@@ -31,6 +31,7 @@
 | `cover-editorial-collage` | 撕纸编辑拼贴 | 讽刺、冲突、社会评论、杂志拼贴封面 |
 | `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT封面 |
 | `cover-giant-perspective-poster` | 巨型中文透视标题、高冲突撞色、电影/电竞主视觉 | 电影海报、运动品牌、电竞 KV、强传播封面 |
+| `cover-pixel-avatar` | 抽象复古 8-bit 像素头像、高饱和撞色、纯色背景 | 上传照片生成社交头像、游戏风/NFT 风个人形象 |
 
 ## 风格展示
 
@@ -105,6 +106,7 @@ $cover-tips 潮流彩色 --out-type prompt
 | `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
 | `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
 | `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
+| `像素头像` / `像素风` / `8-bit` / `pixel avatar` / `NFT头像` | `$cover-pixel-avatar` |
 
 如果你已经确定具体风格，并且不需要 `cover-tips` 帮你重组内容，可以直接调用具体技能：
 

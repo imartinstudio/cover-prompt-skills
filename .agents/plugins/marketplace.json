@@ -90,6 +90,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Design"
+    },
+    {
+      "name": "cover-pixel-avatar",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-pixel-avatar"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
     }
   ]
 }

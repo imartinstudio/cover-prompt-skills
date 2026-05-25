@@ -38,6 +38,11 @@
       "name": "cover-giant-perspective-poster",
       "source": "./plugins/cover-giant-perspective-poster",
       "description": "Generate giant Chinese perspective typography poster covers with cinematic depth and high-contrast color clashes."
+    },
+    {
+      "name": "cover-pixel-avatar",
+      "source": "./plugins/cover-pixel-avatar",
+      "description": "Generate abstract retro 8-bit pixel art avatars from uploaded photos with bold clash colors and solid backgrounds."
     }
   ]
 }

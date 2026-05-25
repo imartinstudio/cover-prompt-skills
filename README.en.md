@@ -31,6 +31,7 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-editorial-collage` | Torn-paper editorial collage | Satire, conflict, social commentary, magazine collage covers |
 | `cover-tea-oriental` | Oriental tea aesthetic, Song literati, character-as-image | Cultural posters, invitations, infographics, PPT covers |
 | `cover-giant-perspective-poster` | Giant Chinese perspective type, high-contrast clash, cinematic/esports KV | Movie posters, sports brand, esports key visuals, viral covers |
+| `cover-pixel-avatar` | Abstract retro 8-bit pixel avatar, bold clash colors, solid background | Profile avatars from uploaded photos, game/NFT-style icons |
 
 ## Style Preview
 
@@ -105,6 +106,7 @@ Supported style aliases:
 | `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
 | `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
 | `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
+| `像素头像` / `像素风` / `8-bit` / `pixel avatar` / `NFT头像` | `$cover-pixel-avatar` |
 
 Call a concrete style skill directly when you already know the exact style and do not need `cover-tips` to reorganize the brief:
 
