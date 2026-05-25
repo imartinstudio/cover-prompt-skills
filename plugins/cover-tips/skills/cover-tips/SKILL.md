@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-budapest-poster, cover-editorial-collage, or cover-tea-oriental. The user should specify a style such as black-white minimal, trendy color, giant perspective, Budapest, editorial collage, or tea oriental.
+description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, or cover-tea-oriental. The user should specify a style such as black-white minimal, trendy color, giant perspective, midnight studio, Budapest, editorial collage, or tea oriental.
 ---
 
 # Cover Tips
@@ -26,6 +26,9 @@ Map user style names and aliases to these cover skills:
 - Giant perspective poster: `cover-giant-perspective-poster`
   - Aliases: `巨型透视`, `透视标题`, `透视海报`, `电影海报风`, `电竞主视觉`, `运动品牌风`, `perspective`, `giant type`, `cinematic poster`, `高冲突撞色`, `中文透视`.
   - Use for giant Chinese perspective titles, cinematic/sports/esports key visuals, movie-poster composition, typography-as-architecture, and high-contrast clash covers where text is spatial structure.
+- Midnight studio: `cover-midnight-studio`
+  - Aliases: `深夜工作室`, `深夜工作室风`, `midnight studio`, `AI工程师空间`, `独立开发者`, `indie hacker`, `工作站`, `多屏工作站`, `build in public`, `creator lab`, `coding at night`.
+  - Use for cinematic late-night AI creator workspace covers with multi-monitor stations, premium tech photography, film lighting, and HUD-integrated titles—not RGB gaming rooms or ordinary desk photos.
 - Budapest poster: `cover-budapest-poster`
   - Aliases: `布达佩斯`, `budapest`, `复古欧洲`, `复古中欧`, `电影感`, `明信片`, `剧院感`, `电车`, `车站`, `浴场`.
   - Use for retro Central European cinematic posters, theatre/tram/station/bathhouse/archive scenes, postcard-like concepts, and spatial storytelling covers. Hotel imagery is only a specific optional subset, not the default.
@@ -36,7 +39,7 @@ Map user style names and aliases to these cover skills:
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `深夜工作室`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
 
 ## Output Type
 
@@ -102,6 +105,12 @@ Giant perspective poster:
 
 - Mood: `热血 / 速度 / 压迫 / 戏剧化 / 胜利 / 反叛`.
 - Forbidden: `小字标题、无透视平排标题、文字与插图分离、黑白灰平淡配色、廉价霓虹、蓝紫科技渐变、电商促销风、知识卡片风、PPT 封面、模板居中排版、中文错字`.
+
+Midnight studio:
+
+- Mood: `专注 / 孤独 / 高级感 / 深夜平静 / 实验感 / 创业拼搏` (infer from topic when possible).
+- Forbidden: `RGB电竞房、花哨灯带、低级霓虹、廉价赛博朋克、电商摄影感、样板间、网吧、电竞酒店、宿舍、普通电脑桌、标题贴纸感、杂乱堆屏`.
+- Ratio defaults: X `5:2`, Xiaohongshu `3:4`, WeChat `2.35:1`, Xianyu `1:1`, Bilibili `16:9`, blog `21:9`.
 
 Budapest poster:
 
@@ -175,7 +184,7 @@ When both template and prompt are requested, output:
 
 ## Error Handling
 
-- If style is missing: ask the user to choose one style and list the six supported styles: 黑白极简, 潮流彩色, 巨型透视, 布达佩斯, 撕纸剪贴, 茶风格.
+- If style is missing: ask the user to choose one style and list the seven supported styles: 黑白极简, 潮流彩色, 巨型透视, 深夜工作室, 布达佩斯, 撕纸剪贴, 茶风格.
 - If user content is missing: ask for at least a title, topic, product description, or article idea.
 - If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.
