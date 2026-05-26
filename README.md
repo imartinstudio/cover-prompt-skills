@@ -47,6 +47,10 @@
 
 ![巨型中文透视海报风格展示](assets/style-showcases/cover-giant-perspective-poster.png)
 
+### `cover-midnight-studio`
+
+![深夜工作室风格展示](assets/style-showcases/cover-midnight-studio.png)
+
 ### `cover-editorial-collage`
 
 ![撕纸编辑拼贴风格展示](assets/style-showcases/cover-editorial-collage.png)
