@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# pre-commit — Run lint checks before every commit.
+#   Installed via: git config core.hooksPath .githooks
+#
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT_DIR"
+
+echo ""
+echo "🔍 Running pre-commit lint checks..."
+
+if [ -x "$ROOT_DIR/scripts/lint.sh" ]; then
+  "$ROOT_DIR/scripts/lint.sh"
+else
+  echo "⚠️  lint.sh not found or not executable — skipping lint check."
+fi
