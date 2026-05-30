@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, or cover-tea-oriental. The user should specify a style such as black-white minimal, trendy color, giant perspective, midnight studio, Budapest, editorial collage, or tea oriental.
+description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, or cover-light-product. The user should specify a style such as black-white minimal, trendy color, giant perspective, midnight studio, Budapest, editorial collage, tea oriental, or light product.
 ---
 
 # Cover Tips
@@ -29,6 +29,9 @@ Map user style names and aliases to these cover skills:
 - Midnight studio: `cover-midnight-studio`
   - Aliases: `深夜工作室`, `深夜工作室风`, `midnight studio`, `AI工程师空间`, `独立开发者`, `indie hacker`, `工作站`, `多屏工作站`, `build in public`, `creator lab`, `coding at night`.
   - Use for cinematic late-night AI creator workspace covers with multi-monitor stations, premium tech photography, film lighting, and HUD-integrated titles—not RGB gaming rooms or ordinary desk photos.
+- Light product: `cover-light-product`
+  - Aliases: `浅色产品`, `浅色产品风`, `SaaS产品`, `light product`, `奶油白`, `产品风`, `浅色Hero`, `浅色产品美学`.
+  - Use for AI product covers, SaaS brand headers, product launch visuals, Agent workspace covers, and light/cream-based premium product marketing visuals with warm-cool dual color fusion—not dark mode, not ordinary banner ads.
 - Budapest poster: `cover-budapest-poster`
   - Aliases: `布达佩斯`, `budapest`, `复古欧洲`, `复古中欧`, `电影感`, `明信片`, `剧院感`, `电车`, `车站`, `浴场`.
   - Use for retro Central European cinematic posters, theatre/tram/station/bathhouse/archive scenes, postcard-like concepts, and spatial storytelling covers. Hotel imagery is only a specific optional subset, not the default.
@@ -39,7 +42,7 @@ Map user style names and aliases to these cover skills:
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `深夜工作室`, `布达佩斯`, `撕纸剪贴`, `茶风格`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `深夜工作室`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`. Do not silently pick a style unless the user asks for a recommendation.
 
 ## Output Type
 
@@ -127,6 +130,12 @@ Tea oriental:
 - Mood: `安静 / 雅致 / 书卷气 / 东方哲思 / 展览感`.
 - Forbidden: `廉价国风模板、俗气红金配色、随机书法背景、过度装饰边框、网红茶室风、杂乱信息、不可读核心字、蓝紫霓虹、低端 3D`.
 
+Light product:
+
+- Mood: `专业 / 高级感 / 未来工作方式 / SaaS品质 / 温暖但精密`.
+- Forbidden: `暗黑模式、咖啡杯、笔记本、铅笔、人手打字、芯片电路板、机器人、发光大脑、赛博朋克、宇宙星空、廉价AI海报风、电商封面感、荧光渐变色、只有暖色或只有冷色`.
+- Ratio defaults: X `5:2`, Xiaohongshu `3:4`, WeChat `2.35:1`, Xianyu `1:1`, Bilibili `16:10`, blog `16:9`.
+
 ## Template Output
 
 For template-only mode, output exactly this structure and fill every field:
@@ -184,7 +193,7 @@ When both template and prompt are requested, output:
 
 ## Error Handling
 
-- If style is missing: ask the user to choose one style and list the seven supported styles: 黑白极简, 潮流彩色, 巨型透视, 深夜工作室, 布达佩斯, 撕纸剪贴, 茶风格.
+- If style is missing: ask the user to choose one style and list the eight supported styles: 黑白极简, 潮流彩色, 巨型透视, 深夜工作室, 布达佩斯, 撕纸剪贴, 茶风格, 浅色产品.
 - If user content is missing: ask for at least a title, topic, product description, or article idea.
 - If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.

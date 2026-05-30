@@ -18,6 +18,7 @@ cover-editorial-collage
 cover-tea-oriental
 cover-giant-perspective-poster
 cover-midnight-studio
+cover-light-product
 ```
 
 The general organizer uses:
