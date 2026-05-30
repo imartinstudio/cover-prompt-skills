@@ -15,6 +15,7 @@ These files are source/design records only. Runtime behavior is defined by each 
 | `cover-tea-oriental.md` | `cover-tea-oriental` |
 | `cover-giant-perspective-poster.md` | `cover-giant-perspective-poster` |
 | `cover-midnight-studio.md` | `cover-midnight-studio` |
+| `cover-light-product.md` | `cover-light-product` |
 
 ## Source
 
