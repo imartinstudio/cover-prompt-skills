@@ -1,0 +1,9 @@
+{
+  "name": "cover-light-product",
+  "displayName": "Light Product",
+  "version": "1.0.0",
+  "description": "Generate light-theme AI-native SaaS product cover images with cream-white base, Claude-Codex dual-brand fusion, Agent workspace narrative, and premium hero-banner aesthetics.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "light", "product", "SaaS", "AI-native", "agent-workspace", "cream-white", "hero-banner"]
+}

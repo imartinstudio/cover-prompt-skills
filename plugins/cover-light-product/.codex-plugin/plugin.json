@@ -1,0 +1,18 @@
+{
+  "name": "cover-light-product",
+  "version": "1.0.0",
+  "description": "Generate light-theme AI-native SaaS product cover images with cream-white base, Claude-Codex dual-brand fusion, Agent workspace narrative, and premium hero-banner aesthetics.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "light", "product", "SaaS", "AI-native", "agent-workspace", "cream-white", "hero-banner"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Light Product",
+    "shortDescription": "Light-theme AI-native SaaS product covers",
+    "longDescription": "Generate premium light-theme cover images with cream-white base, Claude-Codex dual-brand color fusion, Agent workspace visual narrative, and SaaS website hero-banner aesthetics. Perfect for AI product covers, SaaS brand headers, product launch visuals, and agent workspace concept covers.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#FAF7F2"
+  }
+}

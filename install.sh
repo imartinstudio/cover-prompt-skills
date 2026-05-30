@@ -12,6 +12,7 @@ ALL_SKILLS=(
   cover-editorial-collage
   cover-giant-perspective-poster
   cover-midnight-studio
+  cover-light-product
   cover-tea-oriental
   cover-tips
   cover-trendy-color-poster
