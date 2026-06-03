@@ -33,6 +33,7 @@
 | `cover-giant-perspective-poster` | 巨型中文透视标题、高冲突撞色、电影/电竞主视觉 | 电影海报、运动品牌、电竞 KV、强传播封面 |
 | `cover-midnight-studio` | 深夜工作室、AI 工程师空间、电影级多屏工作站 | 独立开发者、Build in Public、AI 工作流、科技品牌头图 |
 | `cover-light-product` | 浅色产品风、奶油白基底、冷暖双色融合、SaaS Hero 美学 | AI 产品封面、SaaS 品牌头图、产品发布会视觉、Agent 工作区封面 |
+| `cover-mckinsey-briefing-style` | 麦肯锡简报风、咨询报告、战略框架、董事会级版式 | 战略简报封面、咨询报告、PPT 封面、商业分析视觉 |
 
 ## 风格展示
 
@@ -114,6 +115,7 @@ $cover-tips 潮流彩色 --out-type prompt
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `浅色产品` / `浅色产品风` / `SaaS产品` / `light product` / `奶油白` | `$cover-light-product` |
+| `麦肯锡简报风` / `麦肯锡风` / `咨询简报` / `战略报告` / `consulting briefing` | `$cover-mckinsey-briefing-style` |
 | `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
 | `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
 | `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
