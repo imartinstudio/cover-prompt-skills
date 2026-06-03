@@ -1,0 +1,50 @@
+# markdownlint-cli2 configuration for cover-prompt-skills
+# SKILL.md files use YAML frontmatter and are the main content.
+# docs/source-prompts/ contain raw AI prompt templates — skip those.
+
+config:
+  # Inherit from default
+  default: true
+
+  # Disable line length — prompt/skill files intentionally have long lines
+  MD013: false
+
+  # Allow any heading style (atx ## or setext ===)
+  MD003: false
+
+  # Allow first line not being a heading (YAML frontmatter + prompt files)
+  MD041: false
+
+  # Allow emphasis as heading (used in prompt templates like **Bold Headers**)
+  MD036: false
+
+  # Allow multiple top-level headings
+  MD025: false
+
+  # Allow bare URLs
+  MD034: false
+
+  # Allow inline HTML
+  MD033: false
+
+  # Order list items by prefix not required
+  MD029: false
+
+  # Allow compact table formatting
+  MD060: false
+
+  # Allow code blocks without language specification
+  MD040: false
+
+  # Allow missing blank lines around headings (prompt template formatting)
+  MD022: false
+
+  # Allow missing blank lines around lists (prompt template formatting)
+  MD032: false
+
+# These are raw AI prompt templates, not formatted markdown docs
+ignores:
+  - "docs/source-prompts/"
+  - "node_modules/"
+  - ".git/"
+  - ".playwright-mcp/"
