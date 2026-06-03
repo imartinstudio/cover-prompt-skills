@@ -33,6 +33,7 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-giant-perspective-poster` | Giant Chinese perspective type, high-contrast clash, cinematic/esports KV | Movie posters, sports brand, esports key visuals, viral covers |
 | `cover-midnight-studio` | Midnight AI creator studio, cinematic workstation, multi-monitor workflow | Indie hackers, build-in-public, AI workflow, premium tech headers |
 | `cover-light-product` | Light product aesthetic, cream base, warm-cool dual color, SaaS Hero look | AI product covers, SaaS brand headers, product launch visuals, Agent workspace covers |
+| `cover-mckinsey-briefing-style` | McKinsey-style executive briefing, consulting report, strategy frameworks | Strategy briefing covers, consulting reports, PPT covers, business analysis visuals |
 
 ## Style Preview
 
@@ -114,6 +115,7 @@ Supported style aliases:
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `浅色产品` / `浅色产品风` / `SaaS产品` / `light product` / `奶油白` | `$cover-light-product` |
+| `麦肯锡简报风` / `麦肯锡风` / `咨询简报` / `战略报告` / `consulting briefing` | `$cover-mckinsey-briefing-style` |
 | `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
 | `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
 | `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |

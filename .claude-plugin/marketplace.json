@@ -48,6 +48,11 @@
       "name": "cover-light-product",
       "source": "./plugins/cover-light-product",
       "description": "Generate light-theme AI-native SaaS product cover images with cream-white base, Claude-Codex dual-brand fusion, and Agent workspace narrative."
+    },
+    {
+      "name": "cover-mckinsey-briefing-style",
+      "source": "./plugins/cover-mckinsey-briefing-style",
+      "description": "Generate McKinsey-style executive briefing cover images with consulting-grade report aesthetics, strategy frameworks, crisp white space, and boardroom-ready typography."
     }
   ]
 }

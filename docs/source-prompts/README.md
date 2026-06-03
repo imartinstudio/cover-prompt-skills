@@ -16,6 +16,7 @@ These files are source/design records only. Runtime behavior is defined by each 
 | `cover-giant-perspective-poster.md` | `cover-giant-perspective-poster` |
 | `cover-midnight-studio.md` | `cover-midnight-studio` |
 | `cover-light-product.md` | `cover-light-product` |
+| `cover-mckinsey-briefing-style.md` | `cover-mckinsey-briefing-style` |
 
 ## Source
 

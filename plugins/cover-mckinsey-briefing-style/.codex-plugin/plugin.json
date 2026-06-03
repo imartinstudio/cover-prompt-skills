@@ -1,0 +1,18 @@
+{
+  "name": "cover-mckinsey-briefing-style",
+  "version": "1.0.0",
+  "description": "Generate McKinsey-style executive briefing cover images with consulting-grade report aesthetics, strategy frameworks, crisp white space, and boardroom-ready typography.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "mckinsey-style", "consulting", "briefing", "strategy", "report", "executive", "presentation"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "McKinsey Briefing Style",
+    "shortDescription": "Consulting-grade executive briefing covers",
+    "longDescription": "Generate high-end management consulting style cover images with crisp white space, strict grids, strategy frameworks, disciplined blue-black-red accents, boardroom-ready typography, and executive report hierarchy.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#1F4E79"
+  }
+}
