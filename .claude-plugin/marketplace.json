@@ -45,6 +45,11 @@
       "description": "Generate cinematic midnight AI creator workspace covers with film-grade lighting and indie hacker atmosphere."
     },
     {
+      "name": "cover-pixel-avatar",
+      "source": "./plugins/cover-pixel-avatar",
+      "description": "Generate abstract retro 8-bit pixel art avatars from uploaded reference photos with bold clash colors and solid backgrounds."
+    },
+    {
       "name": "cover-light-product",
       "source": "./plugins/cover-light-product",
       "description": "Generate light-theme AI-native SaaS product cover images with cream-white base, Claude-Codex dual-brand fusion, and Agent workspace narrative."
