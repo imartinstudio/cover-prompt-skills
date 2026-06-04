@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, or cover-mckinsey-briefing-style. The user should specify a style such as black-white minimal, trendy color, giant perspective, midnight studio, Budapest, editorial collage, tea oriental, light product, or McKinsey briefing style.
+description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar.
 ---
 
 # Cover Tips
@@ -35,6 +35,9 @@ Map user style names and aliases to these cover skills:
 - McKinsey briefing style: `cover-mckinsey-briefing-style`
   - Aliases: `麦肯锡简报风`, `麦肯锡风`, `咨询简报`, `咨询简报封面`, `战略简报`, `战略报告`, `咨询报告`, `consulting briefing`, `mckinsey style`, `strategy report`, `executive briefing`, `boardroom deck`.
   - Use for consulting-grade executive briefing covers, strategy report title pages, boardroom deck covers, business analysis visuals, and PPT consulting covers with strict grids, crisp white space, strategy frameworks, and disciplined blue-black-red accents.
+- Pixel avatar: `cover-pixel-avatar`
+  - Aliases: `像素头像`, `像素`, `8-bit头像`, `8bit头像`, `8-bit avatar`, `pixel avatar`, `retro game avatar`, `NFT头像`, `Q版像素头像`, `社交头像`.
+  - Use for abstract retro 8-bit pixel art avatars redesigned from an uploaded reference image, with solid flat backgrounds, high-saturation clash colors, and commercial avatar/IP energy. Requires a reference image.
 - Budapest poster: `cover-budapest-poster`
   - Aliases: `布达佩斯`, `budapest`, `复古欧洲`, `复古中欧`, `电影感`, `明信片`, `剧院感`, `电车`, `车站`, `浴场`.
   - Use for retro Central European cinematic posters, theatre/tram/station/bathhouse/archive scenes, postcard-like concepts, and spatial storytelling covers. Hotel imagery is only a specific optional subset, not the default.
@@ -45,7 +48,7 @@ Map user style names and aliases to these cover skills:
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `深夜工作室`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
 
 ## Output Type
 
@@ -145,6 +148,12 @@ McKinsey briefing style:
 - Forbidden: `官方麦肯锡logo、官方品牌标识、虚假隶属关系、握手图、商务人士摆拍、摩天楼图库、蓝紫霓虹、机器人脸、金币堆、廉价PPT模板、拥挤信息图、随机漂浮图表、过度3D`.
 - Ratio defaults: X/LinkedIn `5:2`, PPT `16:9`, WeChat header `2.35:1`, report title page `4:5`, knowledge card `1:1`.
 
+Pixel avatar:
+
+- Mood: `复古 / 抽象 / 俏皮 / 高饱和 / 游戏感 / 社交头像感`.
+- Forbidden: `写实照片、3D、厚涂、普通动漫插画、真实照片质感、复杂背景、保留原图场景、风景、街道、建筑、房间、桌面、草地、天空、过度追求相似度、固定黄底、固定橙发、低对比脏色`.
+- Fixed ratio: `1:1`; requires an uploaded reference image.
+
 ## Template Output
 
 For template-only mode, output exactly this structure and fill every field:
@@ -202,7 +211,7 @@ When both template and prompt are requested, output:
 
 ## Error Handling
 
-- If style is missing: ask the user to choose one style and list the nine supported styles: 黑白极简, 潮流彩色, 巨型透视, 深夜工作室, 布达佩斯, 撕纸剪贴, 茶风格, 浅色产品, 麦肯锡简报风.
+- If style is missing: ask the user to choose one style and list the ten supported styles: 黑白极简, 潮流彩色, 巨型透视, 深夜工作室, 像素头像, 布达佩斯, 撕纸剪贴, 茶风格, 浅色产品, 麦肯锡简报风.
 - If user content is missing: ask for at least a title, topic, product description, or article idea.
 - If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.
