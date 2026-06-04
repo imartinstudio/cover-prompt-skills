@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+#
+# pre-push — Run lint checks AND block direct pushes to main.
+#   Installed via: git config core.hooksPath .githooks
+#
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT_DIR"
+
+# ---- helpers ---------------------------------------------------------
+red()   { printf '\033[31m%s\033[0m\n' "$*"; }
+green() { printf '\033[32m%s\033[0m\n' "$*"; }
+
+# ---- block direct pushes to main ------------------------------------
+# The remote name and branch are passed as stdin lines for the pre-push hook.
+# Format: <local ref> <local sha1> <remote ref> <remote sha1>
+while IFS=' ' read -r local_ref local_sha remote_ref remote_sha; do
+  # Extract the branch name from the remote ref (e.g. refs/heads/main → main)
+  remote_branch="${remote_ref#refs/heads/}"
+
+  if [ "$remote_branch" = "main" ]; then
+    echo ""
+    red "╔══════════════════════════════════════════════════════════════╗"
+    red "║  ❌  Direct push to 'main' is blocked.                      ║"
+    red "║                                                              ║"
+    red "║  Please create a PR from a feature branch instead:           ║"
+    red "║    git checkout -b feat/your-change                          ║"
+    red "║    git push -u origin feat/your-change                       ║"
+    red "║    # Then open a PR on GitHub.                               ║"
+    red "╚══════════════════════════════════════════════════════════════╝"
+    echo ""
+    exit 1
+  fi
+done
+
+# ---- run lint checks ------------------------------------------------
+echo ""
+echo "🔍 Running pre-push lint checks..."
+
+if [ -x "$ROOT_DIR/scripts/lint.sh" ]; then
+  "$ROOT_DIR/scripts/lint.sh"
+else
+  echo "⚠️  lint.sh not found or not executable — skipping lint check."
+fi
+
+green "✅ Pre-push checks passed!"
