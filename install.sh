@@ -12,6 +12,7 @@ ALL_SKILLS=(
   cover-editorial-collage
   cover-giant-perspective-poster
   cover-midnight-studio
+  cover-pixel-avatar
   cover-light-product
   cover-mckinsey-briefing-style
   cover-tea-oriental

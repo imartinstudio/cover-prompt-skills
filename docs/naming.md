@@ -18,7 +18,9 @@ cover-editorial-collage
 cover-tea-oriental
 cover-giant-perspective-poster
 cover-midnight-studio
+cover-pixel-avatar
 cover-light-product
+cover-mckinsey-briefing-style
 ```
 
 The general organizer uses:

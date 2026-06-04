@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Cover Tips",
     "shortDescription": "Route your cover idea to the right style-specific cover skill",
-    "longDescription": "Convert a rough cover idea, product description, article topic, or design brief into a standardized template or generic image prompt for a user-specified cover style (black-white minimal, trendy color, Budapest, or editorial collage).",
+    "longDescription": "Convert a rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for one of ten cover styles: black-white minimal, trendy color, giant perspective, midnight studio, pixel avatar, Budapest, editorial collage, tea oriental, light product, or McKinsey briefing style.",
     "developerName": "imartinstudio",
     "category": "Design",
     "capabilities": ["Read", "Write"],
