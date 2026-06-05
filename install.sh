@@ -19,7 +19,9 @@ ALL_SKILLS=(
   cover-tea-oriental
   cover-tips
   cover-trendy-color-poster
+  illustration-light-product
   illustration-sketch-ui
+  light-product-kit
   sketch-knowledge-kit
 )
 
@@ -73,7 +75,7 @@ main() {
   local requested=("$@")
   if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
     requested=("${ALL_SKILLS[@]}")
-  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" ) ]]; then
+  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" || "${requested[0]}" == "light-product-kit" ) ]]; then
     echo "${requested[0]} cannot be installed alone." >&2
     echo "It is a navigator/kit skill and depends on concrete visual style skills." >&2
     echo "Install all skills instead: ./install.sh" >&2

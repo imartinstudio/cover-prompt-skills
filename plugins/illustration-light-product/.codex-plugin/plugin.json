@@ -1,0 +1,18 @@
+{
+  "name": "illustration-light-product",
+  "version": "1.0.0",
+  "description": "Generate light-theme AI-native SaaS product explanation illustrations with cream-white base, refined UI modules, and warm-cool dual color fusion.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["illustration", "light", "product", "SaaS", "AI-native", "workflow", "product-education"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Light Product Illustration",
+    "shortDescription": "Light-theme SaaS product explanation illustrations",
+    "longDescription": "Generate premium light-theme AI-native SaaS product education illustrations with cream-white base, refined UI modules, agent workflow diagrams, and balanced warm-cool dual color fusion.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#FAF7F2"
+  }
+}

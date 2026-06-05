@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar.
+description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar. If the user asks for coordinated cover + illustration assets, route sketch knowledge requests to sketch-knowledge-kit and light product requests to light-product-kit.
 ---
 
 # Cover Tips
@@ -53,7 +53,7 @@ Map user style names and aliases to these cover skills:
 
 If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `手绘知识图谱`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
 
-`cover-tips` remains a cover-only router. If the user asks for a coordinated cover + illustration package, direct them to `sketch-knowledge-kit` instead of trying to produce illustration briefs here.
+`cover-tips` remains a cover-only router. If the user asks for a coordinated cover + illustration package, direct hand-drawn knowledge map requests to `sketch-knowledge-kit` and light product / SaaS product requests to `light-product-kit` instead of trying to produce illustration briefs here.
 
 ## Output Type
 

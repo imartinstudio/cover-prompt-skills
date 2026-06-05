@@ -36,7 +36,9 @@
 | `cover-pixel-avatar` | 复古 8-bit 像素头像、高饱和撞色、纯色背景 | 上传图片转抽象像素头像、社交头像、Q版像素 IP |
 | `cover-light-product` | 浅色产品风、奶油白基底、冷暖双色融合、SaaS Hero 美学 | AI 产品封面、SaaS 品牌头图、产品发布会视觉、Agent 工作区封面 |
 | `cover-mckinsey-briefing-style` | 麦肯锡简报风、咨询报告、战略框架、董事会级版式 | 战略简报封面、咨询报告、PPT 封面、商业分析视觉 |
+| `illustration-light-product` | 浅色产品插图、精致 UI 模块、Agent 工作流图解 | AI 产品功能讲解图、SaaS 教程配图、工作流说明图、产品文档插图 |
 | `illustration-sketch-ui` | 手绘 UI 产品教育插图、黑橙双色、箭头讲解 | 教程配图、产品说明图、功能讲解图、X文章配图 |
+| `light-product-kit` | 浅色产品视觉套件 | 一次组织浅色产品封面 brief + 多张产品插图 brief，保持同一视觉系统 |
 | `sketch-knowledge-kit` | 手绘知识图谱视觉套件 | 一次组织封面 brief + 多张插图 brief，保持同一视觉系统 |
 
 ## 风格展示
@@ -153,6 +155,14 @@ $illustration-sketch-ui            # 产品 UI 教程插图 / 功能讲解图
 $sketch-knowledge-kit              # 配套 brief 编排入口
 ```
 
+浅色产品视觉家族包含：
+
+```text
+$cover-light-product               # AI 产品封面 / SaaS Hero / Agent 工作区头图
+$illustration-light-product        # 产品功能讲解插图 / Agent 工作流图解
+$light-product-kit                 # 浅色产品封面 + 多张插图配套 brief 编排入口
+```
+
 当你要为一篇文章或教程同时准备封面和多张配图时，使用：
 
 ```text
@@ -165,6 +175,19 @@ $sketch-knowledge-kit
 内容结构：入口位置、创建项目、添加上下文
 ```
 
+当你要为 AI 产品文章、SaaS 教程或 Agent 工作流说明准备一套浅色产品视觉时，使用：
+
+```text
+$light-product-kit
+主题：Codex 自动化工作流
+封面用途：X文章封面
+插图用途：教程配图
+插图数量：3
+语言：中文
+产品/场景：Codex Agent 工作区
+内容结构：创建任务、调用工具、验证结果
+```
+
 推荐工作流：
 
 1. 粗略想法先用 `$cover-tips <风格>`。
@@ -172,7 +195,8 @@ $sketch-knowledge-kit
 3. 需要可复用提示词文本时，再切到 `--out-type prompt` 或 `--out-type all`。
 4. 希望跳过模板、马上生成最终封面时，在 `$cover-*` 后面直接接自然语言说明。
 5. 需要正文教程配图时，直接调用 `$illustration-*`。
-6. 需要封面和插图配套时，调用 `$sketch-knowledge-kit`。
+6. 需要手绘知识图谱封面和插图配套时，调用 `$sketch-knowledge-kit`。
+7. 需要浅色产品封面和多张产品插图配套时，调用 `$light-product-kit`。
 
 ## 安装
 

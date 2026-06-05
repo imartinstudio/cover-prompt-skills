@@ -21,6 +21,7 @@ Usage:
   scripts/install.sh cover-light-product
   scripts/install.sh cover-mckinsey-briefing-style
   scripts/install.sh cover-tea-oriental
+  scripts/install.sh illustration-light-product
   scripts/install.sh illustration-sketch-ui
   scripts/install.sh all                    Install all skills
 
@@ -29,7 +30,7 @@ Environment:
   COVER_SKILLS_BACKUP_DIR=~/.shared-skills/.cover-prompt-skills-backup
 
 Note:
-  cover-tips and sketch-knowledge-kit are navigator/kit skills. They are
+  cover-tips, sketch-knowledge-kit, and light-product-kit are navigator/kit skills. They are
   installed with all skills, but cannot be installed by themselves because they
   depend on concrete visual style skills.
 
@@ -85,7 +86,7 @@ main() {
     while IFS= read -r skill; do
       requested+=("$skill")
     done < <(find "$PLUGINS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
-  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" ) ]]; then
+  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" || "${requested[0]}" == "light-product-kit" ) ]]; then
     echo "${requested[0]} cannot be installed by itself." >&2
     echo "It is only a navigator/kit. Install all skills instead:" >&2
     echo "  scripts/install.sh" >&2

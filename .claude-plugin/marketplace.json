@@ -70,9 +70,19 @@
       "description": "Generate hand-drawn sketch UI product education illustrations with warm paper, black marker redraws, and Anthropic orange highlights."
     },
     {
+      "name": "illustration-light-product",
+      "source": "./plugins/illustration-light-product",
+      "description": "Generate light-theme AI-native SaaS product explanation illustrations with cream-white base, refined UI modules, and warm-cool dual color fusion."
+    },
+    {
       "name": "sketch-knowledge-kit",
       "source": "./plugins/sketch-knowledge-kit",
       "description": "Create coordinated cover and illustration briefs for the sketch-knowledge visual family."
+    },
+    {
+      "name": "light-product-kit",
+      "source": "./plugins/light-product-kit",
+      "description": "Create coordinated cover and illustration briefs for the light-product visual family."
     }
   ]
 }

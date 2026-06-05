@@ -36,7 +36,9 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-pixel-avatar` | Retro 8-bit pixel avatars, high-saturation clash colors, solid backgrounds | Uploaded image to abstract pixel avatar, social profile picture, chibi pixel IP |
 | `cover-light-product` | Light product aesthetic, cream base, warm-cool dual color, SaaS Hero look | AI product covers, SaaS brand headers, product launch visuals, Agent workspace covers |
 | `cover-mckinsey-briefing-style` | McKinsey-style executive briefing, consulting report, strategy frameworks | Strategy briefing covers, consulting reports, PPT covers, business analysis visuals |
+| `illustration-light-product` | Light product illustrations, refined UI modules, Agent workflow diagrams | AI product feature explanations, SaaS tutorial images, workflow diagrams, product docs illustrations |
 | `illustration-sketch-ui` | Hand-drawn UI product education illustrations, black/orange arrows and callouts | Tutorial images, product explanation graphics, feature walkthroughs, X article illustrations |
+| `light-product-kit` | Light product visual kit | Organize one light product cover brief plus multiple product illustration briefs in the same visual system |
 | `sketch-knowledge-kit` | Sketch knowledge visual kit | Organize one cover brief plus multiple illustration briefs in the same visual system |
 
 ## Style Preview
@@ -153,6 +155,14 @@ $illustration-sketch-ui            # Product UI tutorial illustration / feature 
 $sketch-knowledge-kit              # Coordinated brief organizer
 ```
 
+The light product visual family includes:
+
+```text
+$cover-light-product               # AI product cover / SaaS Hero / Agent workspace header
+$illustration-light-product        # Product feature explanation illustration / Agent workflow diagram
+$light-product-kit                 # Coordinated light product cover + illustration brief organizer
+```
+
 When you need one article or tutorial to have a cover and several matching illustrations, use:
 
 ```text
@@ -165,6 +175,19 @@ $sketch-knowledge-kit
 内容结构：entry point, create project, add context
 ```
 
+When you need a light product visual package for an AI product article, SaaS tutorial, or Agent workflow explanation, use:
+
+```text
+$light-product-kit
+主题：Codex automation workflow
+封面用途：X article cover
+插图用途：tutorial illustrations
+插图数量：3
+语言：中文
+产品/场景：Codex Agent workspace
+内容结构：create task, call tools, verify result
+```
+
 Recommended workflow:
 
 1. Start with `$cover-tips <style>` for rough ideas.
@@ -172,7 +195,8 @@ Recommended workflow:
 3. Switch to `--out-type prompt` or `--out-type all` when you need reusable prompt text.
 4. Use `$cover-*` followed by natural-language instructions when you want to skip the template and generate the final cover immediately.
 5. Call `$illustration-*` directly when you need inline/tutorial illustrations.
-6. Call `$sketch-knowledge-kit` when you need coordinated cover + illustration briefs.
+6. Call `$sketch-knowledge-kit` when you need coordinated hand-drawn knowledge cover + illustration briefs.
+7. Call `$light-product-kit` when you need coordinated light product cover + product illustration briefs.
 
 ## Install
 
