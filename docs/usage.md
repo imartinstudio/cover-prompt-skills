@@ -133,6 +133,16 @@ $illustration-sketch-ui --out-type prompt
 重点区域：Projects 入口和 Create Project 按钮
 ```
 
+```text
+$illustration-light-product --out-type prompt
+主题：Codex 自动化工作流
+说明：解释 Agent 如何创建任务、调用工具并验证结果
+画幅比例：16:9
+用途：教程配图
+产品/场景：Codex Agent 工作区
+重点模块：任务状态面板和工具调用流程
+```
+
 ## Cover + Illustration Kits
 
 Use `sketch-knowledge-kit` when one article, tutorial, or product explanation needs a coordinated cover plus several matching illustrations.
@@ -153,6 +163,26 @@ The kit output should contain:
 - `插图 brief[]`: calls `$illustration-sketch-ui`.
 - `一致性约束`: title tone, black/orange ratio, paper texture, icon linework, terminology.
 - `差异化约束`: cover for overview/shareability, illustrations for feature explanation.
+
+Use `light-product-kit` when an AI product article, SaaS tutorial, or Agent workflow explanation needs one light product cover plus several matching product illustrations.
+
+```text
+$light-product-kit
+主题：Codex 自动化工作流
+封面用途：X文章封面
+插图用途：教程配图
+插图数量：3
+语言：中文
+产品/场景：Codex Agent 工作区
+内容结构：创建任务、调用工具、验证结果
+```
+
+The light product kit output should contain:
+
+- `封面 brief`: calls `$cover-light-product`.
+- `插图 brief[]`: calls `$illustration-light-product`.
+- `一致性约束`: cream-white base, warm/cool color balance, SaaS UI modules, product terminology.
+- `差异化约束`: cover for product story and shareability, illustrations for feature/workflow explanation.
 
 ## Direct Image Generation
 

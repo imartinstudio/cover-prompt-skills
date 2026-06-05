@@ -164,10 +164,34 @@
       "category": "Design"
     },
     {
+      "name": "illustration-light-product",
+      "source": {
+        "source": "local",
+        "path": "./plugins/illustration-light-product"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "sketch-knowledge-kit",
       "source": {
         "source": "local",
         "path": "./plugins/sketch-knowledge-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "light-product-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/light-product-kit"
       },
       "policy": {
         "installation": "AVAILABLE",
