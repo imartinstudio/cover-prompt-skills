@@ -11,6 +11,7 @@ ALL_SKILLS=(
   cover-budapest-poster
   cover-editorial-collage
   cover-giant-perspective-poster
+  cover-sketch-knowledge-poster
   cover-midnight-studio
   cover-pixel-avatar
   cover-light-product
@@ -18,6 +19,8 @@ ALL_SKILLS=(
   cover-tea-oriental
   cover-tips
   cover-trendy-color-poster
+  illustration-sketch-ui
+  sketch-knowledge-kit
 )
 
 has_local_project() {
@@ -70,9 +73,9 @@ main() {
   local requested=("$@")
   if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
     requested=("${ALL_SKILLS[@]}")
-  elif [[ ${#requested[@]} -eq 1 && "${requested[0]}" == "cover-tips" ]]; then
-    echo "cover-tips cannot be installed alone." >&2
-    echo "It is a navigator skill and depends on concrete cover style skills." >&2
+  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" ) ]]; then
+    echo "${requested[0]} cannot be installed alone." >&2
+    echo "It is a navigator/kit skill and depends on concrete visual style skills." >&2
     echo "Install all skills instead: ./install.sh" >&2
     exit 1
   fi

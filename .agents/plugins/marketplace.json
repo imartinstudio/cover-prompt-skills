@@ -2,7 +2,7 @@
   "name": "cover-prompt-skills",
   "interface": {
     "displayName": "Cover Prompt Skills",
-    "shortDescription": "AI-powered cover and poster image prompt skills for designers and content creators",
+    "shortDescription": "Cover-first visual prompt skills for covers, posters, illustrations, and coordinated visual kits",
     "developerName": "imartinstudio",
     "category": "Design"
   },
@@ -92,6 +92,18 @@
       "category": "Design"
     },
     {
+      "name": "cover-sketch-knowledge-poster",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-sketch-knowledge-poster"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "cover-midnight-studio",
       "source": {
         "source": "local",
@@ -104,10 +116,58 @@
       "category": "Design"
     },
     {
+      "name": "cover-pixel-avatar",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-pixel-avatar"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-light-product",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-light-product"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "cover-mckinsey-briefing-style",
       "source": {
         "source": "local",
         "path": "./plugins/cover-mckinsey-briefing-style"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "illustration-sketch-ui",
+      "source": {
+        "source": "local",
+        "path": "./plugins/illustration-sketch-ui"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "sketch-knowledge-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/sketch-knowledge-kit"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar.
+description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar.
 ---
 
 # Cover Tips
@@ -26,6 +26,9 @@ Map user style names and aliases to these cover skills:
 - Giant perspective poster: `cover-giant-perspective-poster`
   - Aliases: `巨型透视`, `透视标题`, `透视海报`, `电影海报风`, `电竞主视觉`, `运动品牌风`, `perspective`, `giant type`, `cinematic poster`, `高冲突撞色`, `中文透视`.
   - Use for giant Chinese perspective titles, cinematic/sports/esports key visuals, movie-poster composition, typography-as-architecture, and high-contrast clash covers where text is spatial structure.
+- Sketch knowledge poster: `cover-sketch-knowledge-poster`
+  - Aliases: `手绘知识图谱`, `手绘知识图谱风`, `知识图谱`, `知识地图`, `白板框架`, `手绘信息图`, `sketch knowledge`, `sketch knowledge poster`, `sketchnote`, `whiteboard framework`.
+  - Use for hand-drawn knowledge maps, sketchnote infographic covers, whiteboard framework posters, product education covers, AI tool maps, capability maps, tutorial covers, and collectible educational diagram covers.
 - Midnight studio: `cover-midnight-studio`
   - Aliases: `深夜工作室`, `深夜工作室风`, `midnight studio`, `AI工程师空间`, `独立开发者`, `indie hacker`, `工作站`, `多屏工作站`, `build in public`, `creator lab`, `coding at night`.
   - Use for cinematic late-night AI creator workspace covers with multi-monitor stations, premium tech photography, film lighting, and HUD-integrated titles—not RGB gaming rooms or ordinary desk photos.
@@ -48,7 +51,9 @@ Map user style names and aliases to these cover skills:
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `手绘知识图谱`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
+
+`cover-tips` remains a cover-only router. If the user asks for a coordinated cover + illustration package, direct them to `sketch-knowledge-kit` instead of trying to produce illustration briefs here.
 
 ## Output Type
 
@@ -114,6 +119,12 @@ Giant perspective poster:
 
 - Mood: `热血 / 速度 / 压迫 / 戏剧化 / 胜利 / 反叛`.
 - Forbidden: `小字标题、无透视平排标题、文字与插图分离、黑白灰平淡配色、廉价霓虹、蓝紫科技渐变、电商促销风、知识卡片风、PPT 封面、模板居中排版、中文错字`.
+
+Sketch knowledge poster:
+
+- Mood: `高级 / 克制 / 专业 / 清晰 / 易收藏 / 教育感`.
+- Forbidden: `纯白背景、科技背景、深色背景、渐变背景、霓虹背景、赛博朋克背景、彩虹色、多彩配色、科技蓝、紫色、绿色、红色、金色、3D图标、CAD风格、企业图标库风格、PPT模板、SaaS Banner、信息堆砌、不可读小字`.
+- Ratio defaults: X `5:2`, WeChat header `2.35:1`, tutorial/blog `16:9`, knowledge card `1:1`, poster `3:4`.
 
 Midnight studio:
 
