@@ -1,0 +1,18 @@
+{
+  "name": "sketch-knowledge-kit",
+  "version": "1.0.0",
+  "description": "Create coordinated cover and illustration briefs for the sketch-knowledge visual family.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["sketch", "knowledge", "kit", "cover", "illustration", "visual-system"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sketch Knowledge Kit",
+    "shortDescription": "Coordinate sketch covers and UI illustrations",
+    "longDescription": "Create coordinated cover + illustration briefs for the sketch-knowledge visual family, combining cover-sketch-knowledge-poster and illustration-sketch-ui with shared warm paper, black marker linework, Anthropic orange highlights, sketchnote typography, and consistent terminology.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#E67E22"
+  }
+}

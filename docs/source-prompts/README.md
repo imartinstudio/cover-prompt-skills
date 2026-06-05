@@ -1,6 +1,6 @@
 # Source Prompts
 
-This directory archives the original Chinese prompts used to create the cover prompt skills.
+This directory archives the original Chinese prompts used to create the visual prompt skills.
 
 These files are source/design records only. Runtime behavior is defined by each plugin's `SKILL.md`.
 
@@ -17,6 +17,10 @@ These files are source/design records only. Runtime behavior is defined by each 
 | `cover-midnight-studio.md` | `cover-midnight-studio` |
 | `cover-light-product.md` | `cover-light-product` |
 | `cover-mckinsey-briefing-style.md` | `cover-mckinsey-briefing-style` |
+| `cover-sketch-knowledge-poster.md` | `cover-sketch-knowledge-poster` |
+| `illustration-sketch-ui.md` | `illustration-sketch-ui` |
+
+`sketch-knowledge-kit` has no standalone source prompt. It is a coordination skill that combines `cover-sketch-knowledge-poster` and `illustration-sketch-ui`.
 
 ## Source
 

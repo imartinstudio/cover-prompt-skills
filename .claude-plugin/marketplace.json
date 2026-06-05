@@ -40,9 +40,19 @@
       "description": "Generate giant Chinese perspective typography poster covers with cinematic depth and high-contrast color clashes."
     },
     {
+      "name": "cover-sketch-knowledge-poster",
+      "source": "./plugins/cover-sketch-knowledge-poster",
+      "description": "Generate hand-drawn sketch knowledge map cover/poster images with warm paper, black marker linework, and Anthropic orange highlights."
+    },
+    {
       "name": "cover-midnight-studio",
       "source": "./plugins/cover-midnight-studio",
       "description": "Generate cinematic midnight AI creator workspace covers with film-grade lighting and indie hacker atmosphere."
+    },
+    {
+      "name": "cover-pixel-avatar",
+      "source": "./plugins/cover-pixel-avatar",
+      "description": "Generate abstract retro 8-bit pixel art avatars from uploaded reference photos with bold clash colors and solid backgrounds."
     },
     {
       "name": "cover-light-product",
@@ -53,6 +63,16 @@
       "name": "cover-mckinsey-briefing-style",
       "source": "./plugins/cover-mckinsey-briefing-style",
       "description": "Generate McKinsey-style executive briefing cover images with consulting-grade report aesthetics, strategy frameworks, crisp white space, and boardroom-ready typography."
+    },
+    {
+      "name": "illustration-sketch-ui",
+      "source": "./plugins/illustration-sketch-ui",
+      "description": "Generate hand-drawn sketch UI product education illustrations with warm paper, black marker redraws, and Anthropic orange highlights."
+    },
+    {
+      "name": "sketch-knowledge-kit",
+      "source": "./plugins/sketch-knowledge-kit",
+      "description": "Create coordinated cover and illustration briefs for the sketch-knowledge visual family."
     }
   ]
 }

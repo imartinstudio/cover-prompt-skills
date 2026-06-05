@@ -1,0 +1,9 @@
+{
+  "name": "illustration-sketch-ui",
+  "displayName": "Sketch UI Illustration",
+  "version": "1.0.0",
+  "description": "Generate hand-drawn sketch UI product education illustrations with warm paper, black marker redraws, and Anthropic orange highlights.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["illustration", "sketch", "ui", "tutorial", "product-education", "hand-drawn"]
+}

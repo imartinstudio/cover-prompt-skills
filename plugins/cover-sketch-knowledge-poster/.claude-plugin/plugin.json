@@ -1,0 +1,9 @@
+{
+  "name": "cover-sketch-knowledge-poster",
+  "displayName": "Sketch Knowledge Poster",
+  "version": "1.0.0",
+  "description": "Generate hand-drawn sketch knowledge map cover/poster images with warm paper, black marker linework, and Anthropic orange highlights.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "sketch", "knowledge-map", "sketchnote", "infographic", "poster", "education"]
+}

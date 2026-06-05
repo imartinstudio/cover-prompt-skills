@@ -13,6 +13,7 @@ Usage:
   scripts/install.sh cover-black-white-minimal
   scripts/install.sh cover-trendy-color-poster
   scripts/install.sh cover-giant-perspective-poster
+  scripts/install.sh cover-sketch-knowledge-poster
   scripts/install.sh cover-midnight-studio
   scripts/install.sh cover-pixel-avatar
   scripts/install.sh cover-budapest-poster
@@ -20,6 +21,7 @@ Usage:
   scripts/install.sh cover-light-product
   scripts/install.sh cover-mckinsey-briefing-style
   scripts/install.sh cover-tea-oriental
+  scripts/install.sh illustration-sketch-ui
   scripts/install.sh all                    Install all skills
 
 Environment:
@@ -27,8 +29,9 @@ Environment:
   COVER_SKILLS_BACKUP_DIR=~/.shared-skills/.cover-prompt-skills-backup
 
 Note:
-  cover-tips is a navigator skill. It is installed with all skills, but cannot
-  be installed by itself because it depends on the concrete cover style skills.
+  cover-tips and sketch-knowledge-kit are navigator/kit skills. They are
+  installed with all skills, but cannot be installed by themselves because they
+  depend on concrete visual style skills.
 
 Existing non-symlink skill directories are moved to a timestamped backup
 directory before installing symlinks.
@@ -82,9 +85,9 @@ main() {
     while IFS= read -r skill; do
       requested+=("$skill")
     done < <(find "$PLUGINS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
-  elif [[ ${#requested[@]} -eq 1 && "${requested[0]}" == "cover-tips" ]]; then
-    echo "cover-tips cannot be installed by itself." >&2
-    echo "It is only a navigator. Install all skills instead:" >&2
+  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" ) ]]; then
+    echo "${requested[0]} cannot be installed by itself." >&2
+    echo "It is only a navigator/kit. Install all skills instead:" >&2
     echo "  scripts/install.sh" >&2
     echo "Or install a concrete style skill, for example:" >&2
     echo "  scripts/install.sh cover-editorial-collage" >&2

@@ -2,9 +2,9 @@
 
 ---
 
-# Cover Prompt Skills
+# Cover-First Visual Prompt Skills
 
-Reusable cover prompt skills for AI agents and image-generation workflows.
+Reusable visual prompt skills for AI agents and image-generation workflows. The project keeps the existing `cover-*` cover line backward compatible while adding `illustration-*` illustration skills and optional coordinated visual kits.
 
 Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that supports SKILL.md.
 
@@ -14,7 +14,7 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 
 1. Open this repository on GitHub and copy the install command you prefer.
 2. Run the command in your terminal or agent workspace.
-3. Use `$cover-tips` as the daily entry point, or call a specific `cover-*` skill directly.
+3. Use `$cover-tips` as the daily cover entry point, or call a specific `cover-*`, `illustration-*`, or `*-kit` skill directly.
 
 ## GitHub Showcases
 
@@ -31,10 +31,13 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-editorial-collage` | Torn-paper editorial collage | Satire, conflict, social commentary, magazine collage covers |
 | `cover-tea-oriental` | Oriental tea aesthetic, Song literati, character-as-image | Cultural posters, invitations, infographics, PPT covers |
 | `cover-giant-perspective-poster` | Giant Chinese perspective type, high-contrast clash, cinematic/esports KV | Movie posters, sports brand, esports key visuals, viral covers |
+| `cover-sketch-knowledge-poster` | Hand-drawn knowledge maps, whiteboard frameworks, black/orange paper sketch | Knowledge map covers, tutorial covers, product education posters, X/WeChat covers |
 | `cover-midnight-studio` | Midnight AI creator studio, cinematic workstation, multi-monitor workflow | Indie hackers, build-in-public, AI workflow, premium tech headers |
 | `cover-pixel-avatar` | Retro 8-bit pixel avatars, high-saturation clash colors, solid backgrounds | Uploaded image to abstract pixel avatar, social profile picture, chibi pixel IP |
 | `cover-light-product` | Light product aesthetic, cream base, warm-cool dual color, SaaS Hero look | AI product covers, SaaS brand headers, product launch visuals, Agent workspace covers |
 | `cover-mckinsey-briefing-style` | McKinsey-style executive briefing, consulting report, strategy frameworks | Strategy briefing covers, consulting reports, PPT covers, business analysis visuals |
+| `illustration-sketch-ui` | Hand-drawn UI product education illustrations, black/orange arrows and callouts | Tutorial images, product explanation graphics, feature walkthroughs, X article illustrations |
+| `sketch-knowledge-kit` | Sketch knowledge visual kit | Organize one cover brief plus multiple illustration briefs in the same visual system |
 
 ## Style Preview
 
@@ -114,6 +117,7 @@ Supported style aliases:
 | `黑白极简` / `黑白` / `极简` / `minimal` / `bw` | `$cover-black-white-minimal` |
 | `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
+| `手绘知识图谱` / `知识图谱` / `知识地图` / `白板框架` / `sketch knowledge` | `$cover-sketch-knowledge-poster` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `像素头像` / `像素` / `8-bit头像` / `pixel avatar` / `Q版像素头像` | `$cover-pixel-avatar` |
 | `浅色产品` / `浅色产品风` / `SaaS产品` / `light product` / `奶油白` | `$cover-light-product` |
@@ -137,13 +141,38 @@ $cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提�
 
 Use this direct generation path when the style is clear and you do not need to inspect intermediate fields.
 
+## Cover + Illustration Kits
+
+`cover-*` names are for cover/poster outputs. `illustration-*` names are for inline illustrations, tutorial images, and product explanation graphics. They can share the same visual family while keeping separate invocation surfaces.
+
+The sketch knowledge visual family includes:
+
+```text
+$cover-sketch-knowledge-poster     # Overview cover / knowledge map poster
+$illustration-sketch-ui            # Product UI tutorial illustration / feature explanation image
+$sketch-knowledge-kit              # Coordinated brief organizer
+```
+
+When you need one article or tutorial to have a cover and several matching illustrations, use:
+
+```text
+$sketch-knowledge-kit
+主题：Claude Projects tutorial
+封面用途：X article cover
+插图用途：tutorial illustrations
+插图数量：3
+语言：中文
+内容结构：entry point, create project, add context
+```
+
 Recommended workflow:
 
 1. Start with `$cover-tips <style>` for rough ideas.
 2. Use the returned template to confirm title, subtitle, ratio, language, use case, mood, and banned elements.
 3. Switch to `--out-type prompt` or `--out-type all` when you need reusable prompt text.
 4. Use `$cover-*` followed by natural-language instructions when you want to skip the template and generate the final cover immediately.
-5. Directly call `$cover-*` for repeated workflows where the style and fields are already stable.
+5. Call `$illustration-*` directly when you need inline/tutorial illustrations.
+6. Call `$sketch-knowledge-kit` when you need coordinated cover + illustration briefs.
 
 ## Install
 
@@ -213,7 +242,9 @@ Local development install creates symlinks from this repository's skill director
 - Keep each plugin minimal: one `SKILL.md` under `skills/`, one manifest each for Claude Code and Codex.
 - Do not include provider-specific agent metadata by default.
 - Keep prompts generic unless a user explicitly asks for a provider-specific variant.
-- Use `cover-` as the naming prefix for cover-generation skills.
+- Use `cover-` as the naming prefix for cover/poster skills.
+- Use `illustration-` as the naming prefix for illustration skills.
+- Use a neutral `*-kit` name for multi-asset coordination skills that are not themselves a single cover.
 
 ## License
 

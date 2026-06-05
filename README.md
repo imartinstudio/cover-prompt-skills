@@ -2,9 +2,9 @@
 
 ---
 
-# 封面提示词技能
+# 封面优先的视觉提示词技能
 
-面向 AI agent 和图像生成工作流的可复用封面提示词技能。
+面向 AI agent 和图像生成工作流的可复用视觉提示词技能。项目保持 `cover-*` 封面主线向后兼容，同时开始支持 `illustration-*` 插图能力和可选的配套视觉套件。
 
 兼容 Claude Code、Codex、Gemini CLI、Cursor，以及任何支持 SKILL.md 的 agent。
 
@@ -14,7 +14,7 @@
 
 1. 在 GitHub 打开本仓库，复制你偏好的安装命令。
 2. 在终端或 agent 工作区执行安装命令。
-3. 日常使用以 `$cover-tips` 为入口，也可以直接调用具体的 `cover-*` 技能。
+3. 日常封面使用以 `$cover-tips` 为入口，也可以直接调用具体的 `cover-*`、`illustration-*` 或 `*-kit` 技能。
 
 ## GitHub 展示
 
@@ -31,10 +31,13 @@
 | `cover-editorial-collage` | 撕纸编辑拼贴 | 讽刺、冲突、社会评论、杂志拼贴封面 |
 | `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT封面 |
 | `cover-giant-perspective-poster` | 巨型中文透视标题、高冲突撞色、电影/电竞主视觉 | 电影海报、运动品牌、电竞 KV、强传播封面 |
+| `cover-sketch-knowledge-poster` | 手绘知识图谱、白板框架、黑橙双色、纸张质感 | 知识图谱封面、教程封面、产品教育海报、X/公众号封面 |
 | `cover-midnight-studio` | 深夜工作室、AI 工程师空间、电影级多屏工作站 | 独立开发者、Build in Public、AI 工作流、科技品牌头图 |
 | `cover-pixel-avatar` | 复古 8-bit 像素头像、高饱和撞色、纯色背景 | 上传图片转抽象像素头像、社交头像、Q版像素 IP |
 | `cover-light-product` | 浅色产品风、奶油白基底、冷暖双色融合、SaaS Hero 美学 | AI 产品封面、SaaS 品牌头图、产品发布会视觉、Agent 工作区封面 |
 | `cover-mckinsey-briefing-style` | 麦肯锡简报风、咨询报告、战略框架、董事会级版式 | 战略简报封面、咨询报告、PPT 封面、商业分析视觉 |
+| `illustration-sketch-ui` | 手绘 UI 产品教育插图、黑橙双色、箭头讲解 | 教程配图、产品说明图、功能讲解图、X文章配图 |
+| `sketch-knowledge-kit` | 手绘知识图谱视觉套件 | 一次组织封面 brief + 多张插图 brief，保持同一视觉系统 |
 
 ## 风格展示
 
@@ -114,6 +117,7 @@ $cover-tips 潮流彩色 --out-type prompt
 | `黑白极简` / `黑白` / `极简` / `minimal` / `bw` | `$cover-black-white-minimal` |
 | `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
+| `手绘知识图谱` / `知识图谱` / `知识地图` / `白板框架` / `sketch knowledge` | `$cover-sketch-knowledge-poster` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `像素头像` / `像素` / `8-bit头像` / `pixel avatar` / `Q版像素头像` | `$cover-pixel-avatar` |
 | `浅色产品` / `浅色产品风` / `SaaS产品` / `light product` / `奶油白` | `$cover-light-product` |
@@ -137,13 +141,38 @@ $cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提�
 
 当风格已经明确、且不需要检查中间字段时，推荐使用这种直接生成方式。
 
+## 封面 + 插图配套
+
+`cover-*` 只表示封面或海报类产物，`illustration-*` 表示正文插图、教程配图、产品说明图。二者可以共享同一个视觉家族，但调用面保持分离。
+
+手绘知识图谱视觉家族包含：
+
+```text
+$cover-sketch-knowledge-poster     # 总览封面 / 知识图谱海报
+$illustration-sketch-ui            # 产品 UI 教程插图 / 功能讲解图
+$sketch-knowledge-kit              # 配套 brief 编排入口
+```
+
+当你要为一篇文章或教程同时准备封面和多张配图时，使用：
+
+```text
+$sketch-knowledge-kit
+主题：Claude Projects 使用教程
+封面用途：X文章封面
+插图用途：教程配图
+插图数量：3
+语言：中文
+内容结构：入口位置、创建项目、添加上下文
+```
+
 推荐工作流：
 
 1. 粗略想法先用 `$cover-tips <风格>`。
 2. 根据返回模板确认标题、副标题、画幅比例、语言、用途、情绪和禁用元素。
 3. 需要可复用提示词文本时，再切到 `--out-type prompt` 或 `--out-type all`。
 4. 希望跳过模板、马上生成最终封面时，在 `$cover-*` 后面直接接自然语言说明。
-5. 已经稳定的重复流程，可以直接调用 `$cover-*` 具体风格技能。
+5. 需要正文教程配图时，直接调用 `$illustration-*`。
+6. 需要封面和插图配套时，调用 `$sketch-knowledge-kit`。
 
 ## 安装
 
@@ -213,7 +242,9 @@ cd cover-prompt-skills
 - 每个插件保持精简：一个 `SKILL.md` 置于 `skills/` 下，Claude Code 和 Codex 各一个 manifest。
 - 默认不包含特定平台的 agent 元数据。
 - 保持提示词通用，除非用户明确要求特定平台的变体。
-- 使用 `cover-` 作为封面生成技能的命名前缀。
+- 使用 `cover-` 作为封面/海报技能的命名前缀。
+- 使用 `illustration-` 作为插图技能的命名前缀。
+- 使用中性的 `*-kit` 命名多资产编排技能，避免把非封面能力塞进 `cover-`。
 
 ## 许可证
 
