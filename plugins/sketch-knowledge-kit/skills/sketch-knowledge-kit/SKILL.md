@@ -132,4 +132,48 @@ Repeat the illustration brief section for the requested illustration count.
 
 ## Prompt Output
 
-For prompt or all mode, convert each brief into a generic image-generation prompt using the appropriate target skill's rules. Keep prompts provider-neutral and include exact ratio, visual goal, structure, style constraints, and avoid list for every asset.
+For prompt or all mode, convert each brief into a final image-generation prompt. Keep prompts provider-neutral — do not mention provider names, model names, or runtime-specific syntax.
+
+### Cover Prompt
+
+For the cover, follow `cover-sketch-knowledge-poster` rules. Every cover prompt must include:
+
+1. Exact canvas ratio and size (e.g. `5:2, 1500×600` or `16:9, 2048×1152`).
+2. Topic, subtitle, use case, and language.
+3. Selected knowledge structure and why it fits.
+4. Visual metaphor with 1–3 concrete anchors.
+5. Text-image relationship and title hierarchy.
+6. Background (warm off-white paper, grain texture, scan feel), linework (black fine-tip marker), typography (handwritten/sketchnote), and black/orange (#E67E22) color system.
+7. A concise avoid list (dark backgrounds, blue tech gradients, code editor windows, glossy UI, 3D effects, real logos, sans-serif typography, pure white backgrounds).
+
+```text
+【封面 prompt】
+<provider-neutral image prompt following the 7 rules above>
+```
+
+### Illustration Prompt
+
+For each illustration, follow `illustration-sketch-ui` rules. Every illustration prompt must include:
+
+1. Exact canvas ratio and size (e.g. `16:9, 2048×1152`).
+2. Topic, description, use case, product context, and focus area.
+3. Selected composition mode (single feature / feature entry / function walkthrough / before-after / conceptual UI diagram).
+4. Simplified UI structure and what to remove from the real interface.
+5. Arrow/callout plan — which element gets the orange (#E67E22) annotation and what the handwritten label says.
+6. Background (warm off-white paper, grain texture), linework (black fine-tip marker), typography (handwritten), and black/orange color system (70%+ empty paper space).
+7. A concise avoid list (dark backgrounds, real screenshots, OS chrome, glossy buttons, 3D effects, gradients, colorful UI, sans-serif typography, pure white backgrounds).
+
+```text
+【插图 prompt 1/ N】
+<provider-neutral image prompt following the 7 rules above>
+
+【插图 prompt 2/ N】
+...
+```
+
+### Consistency Across Prompts
+
+- All prompts share the same warm paper, black marker, and orange (#E67E22) accent language.
+- Product names, feature names, and core concepts must use identical terms across cover and all illustrations.
+- Cover prompt must NOT describe a UI walkthrough. Illustration prompts must NOT describe a conceptual map.
+- If the source article has existing images, illustration prompts must anchor to those images' visual content (subject, composition, UI elements) as concrete reference, not vague inspiration.
