@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "3D Eye Illustration",
     "shortDescription": "Dark neon-green local AI tutorial illustrations",
-    "longDescription": "Generate dark 3D Eye tutorial illustrations with black grid boards, neon green diagram lines, terminal UI cards, hardware maps, quantization charts, privacy flows, and optional watcher mascot continuity.",
+    "longDescription": "Generate dark 3D Eye tutorial illustrations with black grid boards, neon green diagram lines, terminal UI cards, hardware maps, quantization charts, privacy flows, and optional blue-white hand-drawn 3D Eye mascot continuity.",
     "developerName": "imartinstudio",
     "category": "Design",
     "capabilities": ["Read", "Write"],

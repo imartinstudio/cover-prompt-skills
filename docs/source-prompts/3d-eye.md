@@ -12,15 +12,16 @@ Runtime behavior is defined by:
 
 | File | Role |
 |---|---|
-| `assets/cases/HLU5CYYXQAAGdWR.jpeg` | Cover: uncensored local AI hero, torn censorship tape, terminal, lock, mascot |
-| `assets/cases/HLVCwRhXkAAE0BA.jpeg` | Illustration: whole flow from zero to local AI |
-| `assets/cases/HLVFycxWcAEMQ82.jpeg` | Illustration: terminal running state and install-run-own path |
-| `assets/cases/HLVFcx3WQAAe8HV.jpeg` | Illustration: mistake checklist with warning cards |
-| `assets/cases/HLVFkISXYAACc9e.jpeg` | Illustration: privacy path, cloud vs local |
-| `assets/cases/HLVEzCwWEAAfqgS.jpeg` | Illustration: customization options and effort arrow |
-| `assets/cases/HLVEF6PXYAAzjdy.jpeg` | Illustration: quantization chart and sweet spot |
-| `assets/cases/HLVDlfHWYAAtnpA.jpeg` | Illustration: hardware map and RAM/model fit |
-| `assets/cases/HLVC8MYWQAA1_BQ.jpeg` | Illustration: local vs cloud comparison and break-even slider |
+| `.cases/3d-eye/HLU5CYYXQAAGdWR.jpeg` | Cover: uncensored local AI hero, torn censorship tape, terminal, lock, mascot |
+| `.cases/3d-eye/HLVCwRhXkAAE0BA.jpeg` | Illustration: whole flow from zero to local AI |
+| `.cases/3d-eye/HLVFycxWcAEMQ82.jpeg` | Illustration: terminal running state and install-run-own path |
+| `.cases/3d-eye/HLVFcx3WQAAe8HV.jpeg` | Illustration: mistake checklist with warning cards |
+| `.cases/3d-eye/HLVFkISXYAACc9e.jpeg` | Illustration: privacy path, cloud vs local |
+| `.cases/3d-eye/HLVEzCwWEAAfqgS.jpeg` | Illustration: customization options and effort arrow |
+| `.cases/3d-eye/HLVEF6PXYAAzjdy.jpeg` | Illustration: quantization chart and sweet spot |
+| `.cases/3d-eye/HLVDlfHWYAAtnpA.jpeg` | Illustration: hardware map and RAM/model fit |
+| `.cases/3d-eye/HLVC8MYWQAA1_BQ.jpeg` | Illustration: local vs cloud comparison and break-even slider |
+| `assets/style-showcases/3d-eye-mascot-system.png` | Mascot system: blue-white hand-drawn eyeball character sheet, poses, hands, expressions, color palette |
 
 ## Extracted Visual Rules
 
@@ -29,7 +30,9 @@ Runtime behavior is defined by:
 - Cream-white oversized condensed titles with monospaced terminal microcopy.
 - Dim gray inactive/cloud states; red only for warnings or errors.
 - Terminal windows, CLI cursors, rounded diagram cards, dotted arrows, checklists, bar charts, hardware rows, lock/shield/cloud/device icons.
-- Recurring one-eyed watcher mascot: white spherical eye, blue iris, gold monocle chain, white gloves, black limbs, chunky boots.
+- Recurring 3D Eye mascot system: friendly hand-drawn white eyeball body, rich blue iris, black sketch outlines, thick expressive eyebrows, black rubber arms/legs, white cartoon gloves, and small black shoes.
+- Mascot poses: confident center pose, waving welcome, running action, pointing guidance, holding a blue skill card, thumbs-up, open palm, and surprised reaction.
+- Color system for the mascot: white `#FFFFFF`, blue `#1E88E5`, black `#111111`, gray `#7B7B7B`, light blue `#D6ECFF`; keep the mascot blue-white-black even when the surrounding 3D Eye poster uses black and neon green.
 - Cover images carry the thesis and emotional hook; illustrations explain one concrete step, comparison, or tradeoff.
 
 Do not copy the original text verbatim by default. Use the images as style and structure references, then adapt the copy, labels, and diagram logic to the user's topic.

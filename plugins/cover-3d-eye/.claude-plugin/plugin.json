@@ -2,7 +2,7 @@
   "name": "cover-3d-eye",
   "displayName": "3D Eye",
   "version": "1.0.0",
-  "description": "Generate dark 3D Eye cover images with black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a recurring one-eyed mascot.",
+  "description": "Generate dark 3D Eye cover images with black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a blue-white hand-drawn eyeball mascot.",
   "author": { "name": "imartinstudio" },
   "license": "MIT",
   "keywords": ["cover", "local-ai", "terminal", "dark", "neon-green", "offline", "privacy", "Ollama"]

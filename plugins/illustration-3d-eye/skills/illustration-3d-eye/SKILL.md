@@ -1,11 +1,11 @@
 ---
 name: illustration-3d-eye
-description: Generate dark 3D Eye tutorial illustration prompts or final images with black grid boards, neon green diagram lines, terminal UI cards, hardware/quantization/privacy explainers, and a recurring one-eyed mascot. Use when the user asks for 本地AI配图, local AI tutorial illustration, Ollama setup diagram, hardware map, quantization chart, local vs cloud comparison, privacy flow, terminal workflow graphic, or black-green explainer image.
+description: Generate dark 3D Eye tutorial illustration prompts or final images with black grid boards, neon green diagram lines, terminal UI cards, hardware/quantization/privacy explainers, and a blue-white hand-drawn eyeball mascot system. Use when the user asks for 本地AI配图, local AI tutorial illustration, Ollama setup diagram, hardware map, quantization chart, local vs cloud comparison, privacy flow, terminal workflow graphic, or black-green explainer image.
 ---
 
 # 3D Eye Illustration
 
-Use this skill to create a tutorial or product-education illustration prompt, or call an image generation tool directly when the user asks to generate the final illustration. The result should explain one concrete idea in the `3d-eye` visual family: dark board, neon green focus path, terminal-native UI, and an optional recurring one-eyed watcher mascot.
+Use this skill to create a tutorial or product-education illustration prompt, or call an image generation tool directly when the user asks to generate the final illustration. The result should explain one concrete idea in the `3d-eye` visual family: dark board, neon green focus path, terminal-native UI, and an optional recurring 3D Eye mascot.
 
 This is the illustration member of the `3d-eye` family. Pair it with `cover-3d-eye` for the cover of the same article/tutorial. Use `3d-eye-kit` when the user wants a coordinated cover + illustration package.
 
@@ -47,7 +47,7 @@ Extract or infer:
 - Use case: tutorial inline image, product documentation image, X article illustration, carousel slide, knowledge card, feature walkthrough.
 - Diagram type: flow, step cards, local-vs-cloud comparison, hardware map, quantization chart, mistake checklist, privacy path, customization options, terminal state.
 - Focus area: the single step, comparison, card, metric, warning, or command that matters most.
-- Mascot role: guide, pointer, blocker, surprised reaction, proud owner, absent/minimal.
+- Mascot role: waving welcome, running action, pointing guidance, skill-card helper, thumbs-up, open-palm explanation, confident center pose, surprised reaction, absent/minimal.
 - Extra context: optional.
 - Forbidden elements: optional; combine with style defaults.
 
@@ -70,7 +70,7 @@ Use these rules strictly:
 - Typography: large cream-white condensed headings, monospaced terminal labels, short readable phrases only.
 - UI elements: terminal windows, command prompts, step cards, comparison panels, memory chips, file cards, sliders, checklists, bar charts, lock/shield/cloud/device icons.
 - Lines: dotted arrows, solid green active arrows, highlighted card borders, bracket labels, terminal cursor blocks.
-- Mascot: optional but useful for continuity. Use the white one-eyed watcher with blue iris, gold monocle, gloves, black limbs, boots as a small guide or pointer. Do not let the mascot replace the explanatory diagram.
+- Mascot system: optional but useful for continuity. Use the 3D Eye mascot as a friendly hand-drawn white eyeball character with a rich blue iris, black sketch outlines, thick expressive eyebrows, black rubber arms/legs, white cartoon gloves, and small black shoes. Choose the pose that supports the diagram: waving for onboarding, running for action/automation, pointing for direction, holding a blue skill card for skills/capabilities, thumbs-up for success, open palm for explanation, or surprised reaction for mistakes. Keep the mascot blue-white-black with small light-blue motion marks. Do not let the mascot replace the explanatory diagram.
 - Information density: one idea per image. Big labels, clear path, no tiny unreadable paragraphs.
 
 Avoid generic cyberpunk, Matrix rain, blue/purple neon, photoreal people, stock 3D robots, busy dashboards, official logos unless requested, dense code blocks, fake screenshots, random charts, and copying exact case-image copy or layout without adapting to the user's topic.

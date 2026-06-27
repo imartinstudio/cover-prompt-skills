@@ -1,6 +1,6 @@
 ---
 name: 3d-eye-kit
-description: Create coordinated cover + illustration briefs for the 3d-eye visual family, combining cover-3d-eye and illustration-3d-eye with shared black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a recurring one-eyed mascot. Use when the user asks for 本地AI整套封面配图, local AI visual kit, cover plus illustrations, Ollama tutorial visual package, privacy-first AI article visuals, or black-green terminal tutorial assets.
+description: Create coordinated cover + illustration briefs for the 3d-eye visual family, combining cover-3d-eye and illustration-3d-eye with shared black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a blue-white hand-drawn eyeball mascot system. Use when the user asks for 本地AI整套封面配图, local AI visual kit, cover plus illustrations, Ollama tutorial visual package, privacy-first AI article visuals, or black-green terminal tutorial assets.
 ---
 
 # 3D Eye Kit
@@ -52,7 +52,7 @@ Extract or infer:
 - Language: Chinese, English, or mixed Chinese-English.
 - Core hook: uncensored, local ownership, no cloud, offline, privacy, hardware match, quantization, API serving, customization, mistake avoidance.
 - Content structure: tutorial outline, setup steps, comparison sections, hardware/quantization/privacy chapters, or feature list; infer a compact structure when omitted.
-- Mascot plan: recurring one-eyed watcher present in all assets, selected subset only, or absent/minimal.
+- Mascot plan: recurring 3D Eye mascot system present in all assets, selected subset only, or absent/minimal.
 - Extra context: optional.
 
 ## Brief Output
@@ -104,9 +104,10 @@ Repeat the illustration brief section for the requested illustration count.
 
 - Cover role: thesis, promise, emotional hook, shareability, saved-collection value.
 - Illustration role: one teachable idea per image: workflow, hardware fit, quantization, privacy path, customization, mistake list, API serving.
-- Shared family: near-black grid board, neon green terminal glow, off-white condensed title, monospaced labels, terminal UI panels, crop marks, optional watcher mascot.
+- Shared family: near-black grid board, neon green terminal glow, off-white condensed title, monospaced labels, terminal UI panels, crop marks, optional 3D Eye mascot system.
 - Shared terminology: keep model names, commands, hardware sizes, privacy claims, and step labels identical across assets.
-- Mascot continuity: use the same one-eyed watcher design if present. Change pose and placement, not identity.
+- Mascot continuity: use the same 3D Eye mascot identity if present: friendly hand-drawn white eyeball body, rich blue iris, black sketch outlines, thick expressive eyebrows, black rubber limbs, white cartoon gloves, and small black shoes. Vary hand poses and action posture by asset, not the base identity.
+- Mascot poses: confident center pose for the cover, waving for onboarding, running for action/automation, pointing for direction, holding a blue skill card for skills/capabilities, thumbs-up for success, open palm for explanation, surprised reaction for mistakes.
 - Avoid duplication: the cover should not become a dense step-by-step chart; illustrations should not become mini covers with giant marketing headlines.
 - Sequence: if the user gives an article outline, map the cover to the whole thesis and the illustrations to the highest-information sections.
 - Red accent discipline: red is only for mistakes, warnings, errors, or "safe mode off" tags; green remains the main accent.
@@ -165,7 +166,7 @@ For each illustration, follow `illustration-3d-eye` rules. Every illustration pr
 
 ### Consistency Across Prompts
 
-- All prompts share the same black grid board, neon green terminal glow, off-white titles, and monospaced labels.
-- Keep the watcher mascot identity stable if used.
+- All prompts share the same black grid board, neon green terminal glow, off-white titles, monospaced labels, and blue-white hand-drawn 3D Eye mascot identity.
+- Keep the 3D Eye mascot identity stable if used.
 - Product names, commands, model names, hardware numbers, and core claims must use identical wording across assets.
 - Cover prompt must not describe a dense tutorial chart. Illustration prompts must not describe a giant viral headline unless the user asks for a carousel cover slide.
