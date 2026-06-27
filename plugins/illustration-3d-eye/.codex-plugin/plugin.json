@@ -1,0 +1,18 @@
+{
+  "name": "illustration-3d-eye",
+  "version": "1.0.0",
+  "description": "Generate dark 3D Eye tutorial illustrations with black grid boards, neon green diagram lines, terminal UI cards, hardware maps, privacy flows, and quantization explainers.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["illustration", "local-ai", "terminal", "diagram", "tutorial", "privacy", "hardware", "quantization"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "3D Eye Illustration",
+    "shortDescription": "Dark neon-green local AI tutorial illustrations",
+    "longDescription": "Generate dark 3D Eye tutorial illustrations with black grid boards, neon green diagram lines, terminal UI cards, hardware maps, quantization charts, privacy flows, and optional watcher mascot continuity.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#39FF73"
+  }
+}

@@ -22,6 +22,7 @@ cover-giant-perspective-poster
 cover-midnight-studio
 cover-pixel-avatar
 cover-light-product
+cover-3d-eye
 cover-mckinsey-briefing-style
 cover-sketch-knowledge-poster
 ```
@@ -42,6 +43,7 @@ Example:
 
 ```text
 illustration-sketch-ui
+illustration-3d-eye
 ```
 
 Multi-asset coordination skills should use a neutral `*-kit` suffix instead of `cover-`, because they do not produce only one cover:
@@ -54,9 +56,12 @@ Example:
 
 ```text
 sketch-knowledge-kit
+3d-eye-kit
 ```
 
 Use a shared visual-family name when a cover skill and an illustration skill are designed to work together. For example, `cover-sketch-knowledge-poster`, `illustration-sketch-ui`, and `sketch-knowledge-kit` belong to the same `sketch-knowledge` visual family.
+
+Use `3d-eye` for the black-grid, neon-green, terminal-native local AI tutorial family. The name should be preferred over generic names such as `cyber`, `hacker`, or `black-green`, because the core usage is local/offline/private AI education rather than decorative cyberpunk.
 
 Avoid names tied to a provider or runtime:
 

@@ -1,0 +1,18 @@
+{
+  "name": "cover-3d-eye",
+  "version": "1.0.0",
+  "description": "Generate dark 3D Eye cover images with black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a recurring one-eyed mascot.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "local-ai", "terminal", "dark", "neon-green", "offline", "privacy", "Ollama"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "3D Eye",
+    "shortDescription": "Dark neon-green 3D Eye covers",
+    "longDescription": "Generate bold dark local AI tutorial covers with black grid backgrounds, neon green terminal glow, off-white condensed titles, privacy/offline motifs, and optional one-eyed watcher mascot continuity.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#39FF73"
+  }
+}

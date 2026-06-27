@@ -51,6 +51,7 @@ Use `--out-type all` when you need both the structured template and the final im
 | `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
 | `手绘知识图谱` / `知识图谱` / `知识地图` / `白板框架` / `sketch knowledge` | `$cover-sketch-knowledge-poster` |
+| `本地AI` / `3D Eye` / `黑绿终端` / `local AI` / `terminal poster` | `$cover-3d-eye` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `像素头像` / `像素` / `8-bit头像` / `pixel avatar` / `Q版像素头像` | `$cover-pixel-avatar` |
 | `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
@@ -92,6 +93,7 @@ $cover-black-white-minimal ...
 $cover-trendy-color-poster ...
 $cover-giant-perspective-poster ...
 $cover-sketch-knowledge-poster ...
+$cover-3d-eye ...
 $cover-midnight-studio ...
 $cover-pixel-avatar ...
 $cover-budapest-poster ...
@@ -143,6 +145,17 @@ $illustration-light-product --out-type prompt
 重点模块：任务状态面板和工具调用流程
 ```
 
+```text
+$illustration-3d-eye --out-type prompt
+主题：量化模型怎么选
+说明：解释 Q2_K、Q4_K_M、Q8_0、F16 在体积和质量之间的取舍
+画幅比例：16:9
+用途：教程配图
+图解类型：量化柱状图
+重点区域：Q4_K_M 作为 sweet spot
+连续角色：watcher mascot 指向高亮柱
+```
+
 ## Cover + Illustration Kits
 
 Use `sketch-knowledge-kit` when one article, tutorial, or product explanation needs a coordinated cover plus several matching illustrations.
@@ -183,6 +196,27 @@ The light product kit output should contain:
 - `插图 brief[]`: calls `$illustration-light-product`.
 - `一致性约束`: cream-white base, warm/cool color balance, SaaS UI modules, product terminology.
 - `差异化约束`: cover for product story and shareability, illustrations for feature/workflow explanation.
+
+Use `3d-eye-kit` when a local AI, Ollama, offline model, privacy, hardware, or quantization tutorial needs one 3D Eye cover plus several matching tutorial illustrations.
+
+```text
+$3d-eye-kit
+主题：14 步搭建自己的本地 AI
+封面用途：X文章封面
+配图用途：教程配图
+配图数量：5
+语言：中英混排
+核心钩子：No cloud, no filters, no one watching
+内容结构：全流程、Local vs Cloud、硬件匹配、量化选择、常见错误
+连续角色：白色独眼 watcher mascot 贯穿全套
+```
+
+The 3D Eye kit output should contain:
+
+- `封面 brief`: calls `$cover-3d-eye`.
+- `配图 brief[]`: calls `$illustration-3d-eye`.
+- `一致性约束`: black grid board, neon green terminal glow, mascot continuity, terminal UI labels.
+- `差异化约束`: cover for thesis/shareability, illustrations for specific tutorial explanations.
 
 ## Direct Image Generation
 

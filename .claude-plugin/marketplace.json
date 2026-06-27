@@ -60,6 +60,11 @@
       "description": "Generate light-theme AI-native SaaS product cover images with cream-white base, Claude-Codex dual-brand fusion, and Agent workspace narrative."
     },
     {
+      "name": "cover-3d-eye",
+      "source": "./plugins/cover-3d-eye",
+      "description": "Generate dark 3D Eye covers with black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a recurring one-eyed mascot."
+    },
+    {
       "name": "cover-mckinsey-briefing-style",
       "source": "./plugins/cover-mckinsey-briefing-style",
       "description": "Generate McKinsey-style executive briefing cover images with consulting-grade report aesthetics, strategy frameworks, crisp white space, and boardroom-ready typography."
@@ -75,6 +80,11 @@
       "description": "Generate light-theme AI-native SaaS product explanation illustrations with cream-white base, refined UI modules, and warm-cool dual color fusion."
     },
     {
+      "name": "illustration-3d-eye",
+      "source": "./plugins/illustration-3d-eye",
+      "description": "Generate dark 3D Eye tutorial illustrations with black grid boards, neon green diagram lines, terminal UI cards, hardware maps, privacy flows, and quantization explainers."
+    },
+    {
       "name": "sketch-knowledge-kit",
       "source": "./plugins/sketch-knowledge-kit",
       "description": "Create coordinated cover and illustration briefs for the sketch-knowledge visual family."
@@ -83,6 +93,11 @@
       "name": "light-product-kit",
       "source": "./plugins/light-product-kit",
       "description": "Create coordinated cover and illustration briefs for the light-product visual family."
+    },
+    {
+      "name": "3d-eye-kit",
+      "source": "./plugins/3d-eye-kit",
+      "description": "Create coordinated cover and illustration briefs for the 3d-eye visual family."
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar. If the user asks for coordinated cover + illustration assets, route sketch knowledge requests to sketch-knowledge-kit and light product requests to light-product-kit.
+description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-3d-eye, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, 3D Eye, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar. If the user asks for coordinated cover + illustration assets, route sketch knowledge requests to sketch-knowledge-kit, light product requests to light-product-kit, and 3D Eye requests to 3d-eye-kit.
 ---
 
 # Cover Tips
@@ -29,6 +29,9 @@ Map user style names and aliases to these cover skills:
 - Sketch knowledge poster: `cover-sketch-knowledge-poster`
   - Aliases: `手绘知识图谱`, `手绘知识图谱风`, `知识图谱`, `知识地图`, `白板框架`, `手绘信息图`, `sketch knowledge`, `sketch knowledge poster`, `sketchnote`, `whiteboard framework`.
   - Use for hand-drawn knowledge maps, sketchnote infographic covers, whiteboard framework posters, product education covers, AI tool maps, capability maps, tutorial covers, and collectible educational diagram covers.
+- 3D Eye: `cover-3d-eye`
+  - Aliases: `本地AI`, `本地AI封面`, `本地 AI`, `local AI`, `local ai terminal`, `terminal poster`, `黑绿终端`, `霓虹绿终端`, `Ollama教程`, `离线AI`, `uncensored AI`, `private AI`, `offline AI`.
+  - Use for dark local AI tutorial covers, terminal-native posters, offline/private/uncensored AI covers, Ollama/local model setup visuals, privacy-first AI covers, black-grid neon-green education posters, and mascot-led local ownership visuals.
 - Midnight studio: `cover-midnight-studio`
   - Aliases: `深夜工作室`, `深夜工作室风`, `midnight studio`, `AI工程师空间`, `独立开发者`, `indie hacker`, `工作站`, `多屏工作站`, `build in public`, `creator lab`, `coding at night`.
   - Use for cinematic late-night AI creator workspace covers with multi-monitor stations, premium tech photography, film lighting, and HUD-integrated titles—not RGB gaming rooms or ordinary desk photos.
@@ -51,9 +54,9 @@ Map user style names and aliases to these cover skills:
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `手绘知识图谱`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `手绘知识图谱`, `3D Eye`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
 
-`cover-tips` remains a cover-only router. If the user asks for a coordinated cover + illustration package, direct hand-drawn knowledge map requests to `sketch-knowledge-kit` and light product / SaaS product requests to `light-product-kit` instead of trying to produce illustration briefs here.
+`cover-tips` remains a cover-only router. If the user asks for a coordinated cover + illustration package, direct hand-drawn knowledge map requests to `sketch-knowledge-kit`, light product / SaaS product requests to `light-product-kit`, and 3D Eye / black-green terminal tutorial requests to `3d-eye-kit` instead of trying to produce illustration briefs here.
 
 ## Output Type
 
@@ -125,6 +128,12 @@ Sketch knowledge poster:
 - Mood: `高级 / 克制 / 专业 / 清晰 / 易收藏 / 教育感`.
 - Forbidden: `纯白背景、科技背景、深色背景、渐变背景、霓虹背景、赛博朋克背景、彩虹色、多彩配色、科技蓝、紫色、绿色、红色、金色、3D图标、CAD风格、企业图标库风格、PPT模板、SaaS Banner、信息堆砌、不可读小字`.
 - Ratio defaults: X `5:2`, WeChat header `2.35:1`, tutorial/blog `16:9`, knowledge card `1:1`, poster `3:4`.
+
+Local AI terminal:
+
+- Mood: `私密 / 本地掌控 / 终端感 / 轻微反叛 / 教程清晰 / 黑客式克制`.
+- Forbidden: `紫蓝霓虹、赛博朋克城市、Matrix代码雨、RGB电竞房、黑客兜帽人、机器人脸、廉价3D图标、杂乱仪表盘、官方产品logo、不可读小字、逐字复制案例图文字`.
+- Ratio defaults: X `5:2`, WeChat header `2.35:1`, tutorial/blog/YouTube `16:9`, knowledge card `1:1`, poster `3:4`.
 
 Midnight studio:
 
@@ -222,7 +231,7 @@ When both template and prompt are requested, output:
 
 ## Error Handling
 
-- If style is missing: ask the user to choose one style and list the ten supported styles: 黑白极简, 潮流彩色, 巨型透视, 深夜工作室, 像素头像, 布达佩斯, 撕纸剪贴, 茶风格, 浅色产品, 麦肯锡简报风.
+- If style is missing: ask the user to choose one style and list the supported styles: 黑白极简, 潮流彩色, 巨型透视, 手绘知识图谱, 3D Eye, 深夜工作室, 像素头像, 布达佩斯, 撕纸剪贴, 茶风格, 浅色产品, 麦肯锡简报风.
 - If user content is missing: ask for at least a title, topic, product description, or article idea.
 - If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.
