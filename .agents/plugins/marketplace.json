@@ -140,6 +140,18 @@
       "category": "Design"
     },
     {
+      "name": "cover-3d-eye",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-3d-eye"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "cover-mckinsey-briefing-style",
       "source": {
         "source": "local",
@@ -176,10 +188,34 @@
       "category": "Design"
     },
     {
+      "name": "illustration-3d-eye",
+      "source": {
+        "source": "local",
+        "path": "./plugins/illustration-3d-eye"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "sketch-knowledge-kit",
       "source": {
         "source": "local",
         "path": "./plugins/sketch-knowledge-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "3d-eye-kit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/3d-eye-kit"
       },
       "policy": {
         "installation": "AVAILABLE",

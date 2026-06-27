@@ -32,14 +32,17 @@
 | `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT封面 |
 | `cover-giant-perspective-poster` | 巨型中文透视标题、高冲突撞色、电影/电竞主视觉 | 电影海报、运动品牌、电竞 KV、强传播封面 |
 | `cover-sketch-knowledge-poster` | 手绘知识图谱、白板框架、黑橙双色、纸张质感 | 知识图谱封面、教程封面、产品教育海报、X/公众号封面 |
+| `cover-3d-eye` | 3D Eye 风、黑底网格、霓虹绿、隐私/离线/掌控感 | 本地 AI 教程封面、Ollama/本地模型封面、隐私优先 AI 海报、黑绿终端风封面 |
 | `cover-midnight-studio` | 深夜工作室、AI 工程师空间、电影级多屏工作站 | 独立开发者、Build in Public、AI 工作流、科技品牌头图 |
 | `cover-pixel-avatar` | 复古 8-bit 像素头像、高饱和撞色、纯色背景 | 上传图片转抽象像素头像、社交头像、Q版像素 IP |
 | `cover-light-product` | 浅色产品风、奶油白基底、冷暖双色融合、SaaS Hero 美学 | AI 产品封面、SaaS 品牌头图、产品发布会视觉、Agent 工作区封面 |
 | `cover-mckinsey-briefing-style` | 麦肯锡简报风、咨询报告、战略框架、董事会级版式 | 战略简报封面、咨询报告、PPT 封面、商业分析视觉 |
 | `illustration-light-product` | 浅色产品插图、精致 UI 模块、Agent 工作流图解 | AI 产品功能讲解图、SaaS 教程配图、工作流说明图、产品文档插图 |
 | `illustration-sketch-ui` | 手绘 UI 产品教育插图、黑橙双色、箭头讲解 | 教程配图、产品说明图、功能讲解图、X文章配图 |
+| `illustration-3d-eye` | 3D Eye 配图、黑底网格、霓虹绿图解、终端 UI 卡片 | 本地 AI 教程配图、硬件地图、量化图解、隐私路径、Local vs Cloud 对比 |
 | `light-product-kit` | 浅色产品视觉套件 | 一次组织浅色产品封面 brief + 多张产品插图 brief，保持同一视觉系统 |
 | `sketch-knowledge-kit` | 手绘知识图谱视觉套件 | 一次组织封面 brief + 多张插图 brief，保持同一视觉系统 |
+| `3d-eye-kit` | 3D Eye 视觉套件 | 一次组织 3D Eye 风封面 brief + 多张教程配图 brief，保持同一视觉系统 |
 
 ## 风格展示
 
@@ -120,6 +123,7 @@ $cover-tips 潮流彩色 --out-type prompt
 | `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
 | `手绘知识图谱` / `知识图谱` / `知识地图` / `白板框架` / `sketch knowledge` | `$cover-sketch-knowledge-poster` |
+| `本地AI` / `3D Eye` / `黑绿终端` / `local AI` / `terminal poster` | `$cover-3d-eye` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `像素头像` / `像素` / `8-bit头像` / `pixel avatar` / `Q版像素头像` | `$cover-pixel-avatar` |
 | `浅色产品` / `浅色产品风` / `SaaS产品` / `light product` / `奶油白` | `$cover-light-product` |
@@ -163,6 +167,14 @@ $illustration-light-product        # 产品功能讲解插图 / Agent 工作流�
 $light-product-kit                 # 浅色产品封面 + 多张插图配套 brief 编排入口
 ```
 
+3D Eye 视觉家族包含：
+
+```text
+$cover-3d-eye           # 本地 AI 教程封面 / 黑绿终端风海报
+$illustration-3d-eye    # 本地 AI 教程配图 / 硬件、量化、隐私、流程图解
+$3d-eye-kit             # 3D Eye 封面 + 多张配图配套 brief 编排入口
+```
+
 当你要为一篇文章或教程同时准备封面和多张配图时，使用：
 
 ```text
@@ -188,6 +200,20 @@ $light-product-kit
 内容结构：创建任务、调用工具、验证结果
 ```
 
+当你要为本地 AI、Ollama、离线模型、隐私/硬件/量化教程准备一套黑绿终端视觉时，使用：
+
+```text
+$3d-eye-kit
+主题：14 步搭建自己的本地 AI
+封面用途：X文章封面
+配图用途：教程配图
+配图数量：5
+语言：中英混排
+核心钩子：No cloud, no filters, no one watching
+内容结构：全流程、Local vs Cloud、硬件匹配、量化选择、常见错误
+连续角色：白色独眼 watcher mascot 贯穿全套
+```
+
 推荐工作流：
 
 1. 粗略想法先用 `$cover-tips <风格>`。
@@ -197,6 +223,7 @@ $light-product-kit
 5. 需要正文教程配图时，直接调用 `$illustration-*`。
 6. 需要手绘知识图谱封面和插图配套时，调用 `$sketch-knowledge-kit`。
 7. 需要浅色产品封面和多张产品插图配套时，调用 `$light-product-kit`。
+8. 需要 3D Eye 风封面和多张教程配图配套时，调用 `$3d-eye-kit`。
 
 ## 安装
 

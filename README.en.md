@@ -32,14 +32,17 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-tea-oriental` | Oriental tea aesthetic, Song literati, character-as-image | Cultural posters, invitations, infographics, PPT covers |
 | `cover-giant-perspective-poster` | Giant Chinese perspective type, high-contrast clash, cinematic/esports KV | Movie posters, sports brand, esports key visuals, viral covers |
 | `cover-sketch-knowledge-poster` | Hand-drawn knowledge maps, whiteboard frameworks, black/orange paper sketch | Knowledge map covers, tutorial covers, product education posters, X/WeChat covers |
+| `cover-3d-eye` | 3D Eye style, black grid, neon green, privacy/offline/ownership mood | Local AI tutorial covers, Ollama/local model covers, privacy-first AI posters, black-green terminal covers |
 | `cover-midnight-studio` | Midnight AI creator studio, cinematic workstation, multi-monitor workflow | Indie hackers, build-in-public, AI workflow, premium tech headers |
 | `cover-pixel-avatar` | Retro 8-bit pixel avatars, high-saturation clash colors, solid backgrounds | Uploaded image to abstract pixel avatar, social profile picture, chibi pixel IP |
 | `cover-light-product` | Light product aesthetic, cream base, warm-cool dual color, SaaS Hero look | AI product covers, SaaS brand headers, product launch visuals, Agent workspace covers |
 | `cover-mckinsey-briefing-style` | McKinsey-style executive briefing, consulting report, strategy frameworks | Strategy briefing covers, consulting reports, PPT covers, business analysis visuals |
 | `illustration-light-product` | Light product illustrations, refined UI modules, Agent workflow diagrams | AI product feature explanations, SaaS tutorial images, workflow diagrams, product docs illustrations |
 | `illustration-sketch-ui` | Hand-drawn UI product education illustrations, black/orange arrows and callouts | Tutorial images, product explanation graphics, feature walkthroughs, X article illustrations |
+| `illustration-3d-eye` | 3D Eye illustrations, black grid boards, neon green diagrams, terminal UI cards | Local AI tutorial images, hardware maps, quantization charts, privacy flows, local vs cloud comparisons |
 | `light-product-kit` | Light product visual kit | Organize one light product cover brief plus multiple product illustration briefs in the same visual system |
 | `sketch-knowledge-kit` | Sketch knowledge visual kit | Organize one cover brief plus multiple illustration briefs in the same visual system |
+| `3d-eye-kit` | 3D Eye visual kit | Organize one 3D Eye cover brief plus multiple tutorial illustration briefs in the same visual system |
 
 ## Style Preview
 
@@ -120,6 +123,7 @@ Supported style aliases:
 | `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
 | `手绘知识图谱` / `知识图谱` / `知识地图` / `白板框架` / `sketch knowledge` | `$cover-sketch-knowledge-poster` |
+| `本地AI` / `3D Eye` / `黑绿终端` / `local AI` / `terminal poster` | `$cover-3d-eye` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `像素头像` / `像素` / `8-bit头像` / `pixel avatar` / `Q版像素头像` | `$cover-pixel-avatar` |
 | `浅色产品` / `浅色产品风` / `SaaS产品` / `light product` / `奶油白` | `$cover-light-product` |
@@ -163,6 +167,14 @@ $illustration-light-product        # Product feature explanation illustration / 
 $light-product-kit                 # Coordinated light product cover + illustration brief organizer
 ```
 
+The 3D Eye visual family includes:
+
+```text
+$cover-3d-eye           # Local AI tutorial cover / black-green terminal poster
+$illustration-3d-eye    # Local AI tutorial illustration / hardware, quantization, privacy, flow diagram
+$3d-eye-kit             # Coordinated 3D Eye cover + illustration brief organizer
+```
+
 When you need one article or tutorial to have a cover and several matching illustrations, use:
 
 ```text
@@ -188,6 +200,20 @@ $light-product-kit
 内容结构：create task, call tools, verify result
 ```
 
+When you need a black-green terminal visual package for local AI, Ollama, offline models, privacy, hardware, or quantization tutorials, use:
+
+```text
+$3d-eye-kit
+主题：14 steps to run your own local AI
+封面用途：X article cover
+配图用途：tutorial illustrations
+配图数量：5
+语言：mixed Chinese-English
+核心钩子：No cloud, no filters, no one watching
+内容结构：whole flow, local vs cloud, hardware match, quantization choice, common mistakes
+连续角色：white one-eyed watcher mascot across the series
+```
+
 Recommended workflow:
 
 1. Start with `$cover-tips <style>` for rough ideas.
@@ -197,6 +223,7 @@ Recommended workflow:
 5. Call `$illustration-*` directly when you need inline/tutorial illustrations.
 6. Call `$sketch-knowledge-kit` when you need coordinated hand-drawn knowledge cover + illustration briefs.
 7. Call `$light-product-kit` when you need coordinated light product cover + product illustration briefs.
+8. Call `$3d-eye-kit` when you need coordinated 3D Eye cover + tutorial illustration briefs.
 
 ## Install
 
