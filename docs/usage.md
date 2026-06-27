@@ -153,7 +153,7 @@ $illustration-3d-eye --out-type prompt
 用途：教程配图
 图解类型：量化柱状图
 重点区域：Q4_K_M 作为 sweet spot
-连续角色：watcher mascot 指向高亮柱
+连续角色：蓝白手绘 3D Eye 指引姿态指向高亮柱
 ```
 
 ## Cover + Illustration Kits
@@ -208,14 +208,14 @@ $3d-eye-kit
 语言：中英混排
 核心钩子：No cloud, no filters, no one watching
 内容结构：全流程、Local vs Cloud、硬件匹配、量化选择、常见错误
-连续角色：白色独眼 watcher mascot 贯穿全套
+连续角色：蓝白手绘 3D Eye 吉祥物贯穿全套，按内容切换挥手、奔跑、指引、技能卡、点赞等姿态
 ```
 
 The 3D Eye kit output should contain:
 
 - `封面 brief`: calls `$cover-3d-eye`.
 - `配图 brief[]`: calls `$illustration-3d-eye`.
-- `一致性约束`: black grid board, neon green terminal glow, mascot continuity, terminal UI labels.
+- `一致性约束`: black grid board, neon green terminal glow, blue-white hand-drawn 3D Eye mascot continuity, terminal UI labels.
 - `差异化约束`: cover for thesis/shareability, illustrations for specific tutorial explanations.
 
 ## Direct Image Generation

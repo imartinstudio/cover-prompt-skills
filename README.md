@@ -211,7 +211,7 @@ $3d-eye-kit
 语言：中英混排
 核心钩子：No cloud, no filters, no one watching
 内容结构：全流程、Local vs Cloud、硬件匹配、量化选择、常见错误
-连续角色：白色独眼 watcher mascot 贯穿全套
+连续角色：蓝白手绘 3D Eye 吉祥物贯穿全套，按内容切换挥手、奔跑、指引、技能卡、点赞等姿态
 ```
 
 推荐工作流：

@@ -211,7 +211,7 @@ $3d-eye-kit
 语言：mixed Chinese-English
 核心钩子：No cloud, no filters, no one watching
 内容结构：whole flow, local vs cloud, hardware match, quantization choice, common mistakes
-连续角色：white one-eyed watcher mascot across the series
+连续角色：blue-white hand-drawn 3D Eye mascot across the series, switching between waving, running, pointing, skill-card, and thumbs-up poses
 ```
 
 Recommended workflow:

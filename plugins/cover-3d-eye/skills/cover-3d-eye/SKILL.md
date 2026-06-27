@@ -1,6 +1,6 @@
 ---
 name: cover-3d-eye
-description: Generate dark 3D Eye cover/poster image prompts or final images with black grid backgrounds, neon green terminal glow, cream-white condensed titles, privacy/offline motifs, and a recurring one-eyed mascot. Use when the user asks for 本地AI封面, local AI cover, uncensored AI, offline AI, Ollama tutorial cover, terminal poster, privacy-first AI cover, neon green dark tech poster, or black-green tutorial cover.
+description: Generate dark 3D Eye cover/poster image prompts or final images with black grid backgrounds, neon green terminal glow, cream-white condensed titles, privacy/offline motifs, and a blue-white hand-drawn eyeball mascot system. Use when the user asks for 本地AI封面, local AI cover, uncensored AI, offline AI, Ollama tutorial cover, terminal poster, privacy-first AI cover, neon green dark tech poster, or black-green tutorial cover.
 ---
 
 # 3D Eye Cover
@@ -47,7 +47,7 @@ Extract or infer:
 - Language: Chinese, English, or mixed Chinese-English.
 - Use case: X cover, WeChat cover, blog header, tutorial cover, YouTube thumbnail, product education poster, knowledge card.
 - Core hook: privacy, uncensored, offline, local ownership, hardware fit, quantization, speed, cost, safety mode off, no cloud, no account, no logs.
-- Hero subject: terminal window, lock, hardware card, local-vs-cloud split, workflow strip, one-eyed watcher mascot, torn censorship tape, model file, API endpoint.
+- Hero subject: terminal window, lock, hardware card, local-vs-cloud split, workflow strip, 3D Eye mascot, torn censorship tape, model file, API endpoint.
 - Extra context: optional.
 - Forbidden elements: optional; combine with style defaults.
 
@@ -71,7 +71,7 @@ Use these rules strictly:
 - Green usage: terminal command text, active borders, arrows, checkmarks, selected cards, glow around the lock/mascot/focus item.
 - Typography: huge condensed bold sans title, cream-white, poster-like; secondary text can use monospaced terminal style.
 - UI language: rounded terminal windows, command prompts, CLI cursors, step cards, hardware memory cards, lock/shield icons, cloud/local comparison panels, API endpoint labels.
-- Mascot: optional but recommended for series continuity: a white one-eyed watcher with vivid blue iris, gold monocle chain, white gloves, black rubber arms/legs, chunky boots. Use it as a guide, pointer, blocker, or expressive reaction, not as the whole image unless requested.
+- Mascot system: optional but recommended for series continuity. Use the 3D Eye mascot as a friendly hand-drawn white eyeball character with a rich blue iris, black sketch outlines, thick expressive eyebrows, black rubber arms/legs, white cartoon gloves, and small black shoes. It should feel intelligent, warm, focused, and action-oriented rather than robotic. Preferred poses: waving welcome, running forward, pointing direction, holding a blue skill card, thumbs-up, open palm, or confident center pose. Keep the mascot blue-white-black with small light-blue motion marks; do not add headset/cap/tool-belt variants unless the user explicitly asks.
 - Composition: strong title layer, one clear hero scene, 1-3 supporting UI/diagram elements, generous dark negative space, bright green focus path.
 - Mood: private, local, hacker-clean, educational, confident, a little defiant.
 
@@ -84,7 +84,7 @@ Pick one mode unless the user specifies one:
 - Censored breakthrough: huge title, torn black tape, green crack/glow, lock or terminal revealing the thesis.
 - Local ownership hero: terminal plus unlocked lock/shield, with install-run-own workflow strip.
 - Split world: local device vs cloud server, with local highlighted and cloud dimmed.
-- Mascot explainer: mascot points to a terminal, card, or lock while title carries the argument.
+- Mascot explainer: 3D Eye mascot points to a terminal, card, or lock while title carries the argument.
 - Hardware promise: memory/VRAM card, model size, speed tag, local machine emphasis.
 - Danger/mistakes poster: red warning bullets with mascot reaction, but keep green as the dominant accent.
 
