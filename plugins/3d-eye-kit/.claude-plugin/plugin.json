@@ -1,9 +1,0 @@
-{
-  "name": "3d-eye-kit",
-  "displayName": "3D Eye Kit",
-  "version": "1.0.0",
-  "description": "Create coordinated cover and illustration briefs for the 3d-eye visual family.",
-  "author": { "name": "imartinstudio" },
-  "license": "MIT",
-  "keywords": ["local-ai", "terminal", "kit", "cover", "illustration", "visual-system", "privacy", "offline"]
-}

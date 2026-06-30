@@ -7,7 +7,7 @@ description: Generate cream-orange technical knowledge poster cover prompts or f
 
 Use this skill to create a cover/poster prompt, or generate the final image when the user explicitly asks for direct image generation. The result should feel like a premium editorial technical infographic: warm paper, strong headline, clear system logic, hand-drawn diagram energy, and enough detail to reward close reading.
 
-This is the cover member of the `cream-orange-knowledge` visual family. Pair it with `illustration-cream-orange-diagram` for inline article visuals, and use `kit-cream-orange-knowledge` when the user wants a coordinated cover + illustration package arranged from article content.
+This is the visual style member of the `cream-orange-knowledge` family. Use it directly for covers/posters. When the user wants a coordinated article package, route planning through `article-visual-planner` and pass this skill as the selected style, for example `/article-visual-planner:cover-cream-orange-knowledge-poster`.
 
 ## Output Type
 

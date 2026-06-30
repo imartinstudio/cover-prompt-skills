@@ -4,7 +4,7 @@
 
 # Cover-First Visual Prompt Skills
 
-Reusable visual prompt skills for AI agents and image-generation workflows. The project keeps the existing `cover-*` cover line backward compatible while adding `illustration-*` illustration skills and optional coordinated visual kits.
+Reusable visual prompt skills for AI agents and image-generation workflows. The project uses `cover-*` as the unified visual style surface and `article-visual-planner` to automatically plan article covers and inline visuals.
 
 Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that supports SKILL.md.
 
@@ -14,7 +14,7 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 
 1. Open this repository on GitHub and copy the install command you prefer.
 2. Run the command in your terminal or agent workspace.
-3. Use `$cover-tips` as the daily cover entry point, or call a specific `cover-*`, `illustration-*`, or `*-kit` skill directly.
+3. Use `$cover-tips` as the daily cover entry point. Use `$article-visual-planner` when one article needs a cover plus matching inline visuals.
 
 ## GitHub Showcases
 
@@ -38,14 +38,7 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-pixel-avatar` | Retro 8-bit pixel avatars, high-saturation clash colors, solid backgrounds | Uploaded image to abstract pixel avatar, social profile picture, chibi pixel IP |
 | `cover-light-product` | Light product aesthetic, cream base, warm-cool dual color, SaaS Hero look | AI product covers, SaaS brand headers, product launch visuals, Agent workspace covers |
 | `cover-mckinsey-briefing-style` | McKinsey-style executive briefing, consulting report, strategy frameworks | Strategy briefing covers, consulting reports, PPT covers, business analysis visuals |
-| `illustration-light-product` | Light product illustrations, refined UI modules, Agent workflow diagrams | AI product feature explanations, SaaS tutorial images, workflow diagrams, product docs illustrations |
-| `illustration-cream-orange-diagram` | Cream-orange technical diagrams, workflow/loop/architecture explainers | AI engineering article images, technical explanations, system module diagrams, tutorial step graphics |
-| `illustration-sketch-ui` | Hand-drawn UI product education illustrations, black/orange arrows and callouts | Tutorial images, product explanation graphics, feature walkthroughs, X article illustrations |
-| `illustration-3d-eye` | 3D Eye illustrations, black grid boards, neon green diagrams, terminal UI cards | Local AI tutorial images, hardware maps, quantization charts, privacy flows, local vs cloud comparisons |
-| `light-product-kit` | Light product visual kit | Organize one light product cover brief plus multiple product illustration briefs in the same visual system |
-| `sketch-knowledge-kit` | Sketch knowledge visual kit | Organize one cover brief plus multiple illustration briefs in the same visual system |
-| `kit-cream-orange-knowledge` | Cream-orange knowledge visual kit | Arrange one cover brief plus multiple illustration briefs from article content in the same visual system |
-| `3d-eye-kit` | 3D Eye visual kit | Organize one 3D Eye cover brief plus multiple tutorial illustration briefs in the same visual system |
+| `article-visual-planner` | Automatic article visual planner | Read an article and chain planned cover/inline visual briefs to a selected `cover-*` style |
 
 ## Style Preview
 
@@ -150,93 +143,40 @@ $cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提�
 
 Use this direct generation path when the style is clear and you do not need to inspect intermediate fields.
 
-## Cover + Illustration Kits
+## Article Visual Planning
 
-`cover-*` names are for cover/poster outputs. `illustration-*` names are for inline illustrations, tutorial images, and product explanation graphics. They can share the same visual family while keeping separate invocation surfaces.
+`article-visual-planner` is the unified entry point for article visual packages. It reads article content, counts existing images, analyzes section structure, then chains every planned asset to a selected `cover-*` style.
 
-The sketch knowledge visual family includes:
-
-```text
-$cover-sketch-knowledge-poster     # Overview cover / knowledge map poster
-$illustration-sketch-ui            # Product UI tutorial illustration / feature explanation image
-$sketch-knowledge-kit              # Coordinated brief organizer
-```
-
-The cream-orange knowledge visual family includes:
+Recommended Claude CLI syntax:
 
 ```text
-$cover-cream-orange-knowledge-poster   # AI engineering cover / system architecture poster / technical infographic cover
-$illustration-cream-orange-diagram     # Inline workflow, loop, architecture, and comparison diagrams
-$kit-cream-orange-knowledge            # Article-content-based cover + multi-illustration brief organizer
-```
+/article-visual-planner:cover-cream-orange-knowledge-poster
 
-The light product visual family includes:
-
-```text
-$cover-light-product               # AI product cover / SaaS Hero / Agent workspace header
-$illustration-light-product        # Product feature explanation illustration / Agent workflow diagram
-$light-product-kit                 # Coordinated light product cover + illustration brief organizer
-```
-
-The 3D Eye visual family includes:
-
-```text
-$cover-3d-eye           # Local AI tutorial cover / black-green terminal poster
-$illustration-3d-eye    # Local AI tutorial illustration / hardware, quantization, privacy, flow diagram
-$3d-eye-kit             # Coordinated 3D Eye cover + illustration brief organizer
-```
-
-When you need one article or tutorial to have a cover and several matching illustrations, use:
-
-```text
-$sketch-knowledge-kit
-主题：Claude Projects tutorial
-封面用途：X article cover
-插图用途：tutorial illustrations
-插图数量：infer from article structure, minimum 5
-语言：中文
-内容结构：entry point, create project, add context
-```
-
-When you need a light product visual package for an AI product article, SaaS tutorial, or Agent workflow explanation, use:
-
-```text
-$light-product-kit
-主题：Codex automation workflow
-封面用途：X article cover
-插图用途：tutorial illustrations
-插图数量：infer from article structure, minimum 5
-语言：中文
-产品/场景：Codex Agent workspace
-内容结构：create task, call tools, verify result
-```
-
-When you need a cream-orange knowledge visual package for AI engineering, Agent systems, feedback loops, or technical architecture articles, use:
-
-```text
-$kit-cream-orange-knowledge
-主题：From Prompt-First to Loop-First AI Systems
+文章：/path/to/article.md
+输出类型：prompt
 平台：X article
-封面用途：X article cover
-配图用途：article illustrations
-配图数量：infer from article structure, minimum 5
-语言：mixed Chinese-English
-文章结构：problem, old paradigm, new paradigm, feedback loop, architecture components, team adoption
-目标读者：AI builders and product teams
+资产范围：cover + inline visuals
 ```
 
-When you need a black-green terminal visual package for local AI, Ollama, offline models, privacy, hardware, or quantization tutorials, use:
+Portable field syntax:
 
 ```text
-$3d-eye-kit
-主题：14 steps to run your own local AI
-封面用途：X article cover
-配图用途：tutorial illustrations
-配图数量：5
-语言：mixed Chinese-English
-核心钩子：No cloud, no filters, no one watching
-内容结构：whole flow, local vs cloud, hardware match, quantization choice, common mistakes
-连续角色：blue-white hand-drawn 3D Eye mascot across the series, switching between waving, running, pointing, skill-card, and thumbs-up poses
+$article-visual-planner
+文章：/path/to/article.md
+视觉风格：cover-sketch-knowledge-poster
+输出类型：brief
+平台：WeChat article
+资产范围：cover + inline visuals
+```
+
+Chain model:
+
+```text
+$article-visual-planner
+  -> reads the article
+  -> plans the cover and inline visuals
+  -> creates one brief per asset
+  -> dispatches each brief to the selected $cover-* style
 ```
 
 Recommended workflow:
@@ -245,11 +185,7 @@ Recommended workflow:
 2. Use the returned template to confirm title, subtitle, ratio, language, use case, mood, and banned elements.
 3. Switch to `--out-type prompt` or `--out-type all` when you need reusable prompt text.
 4. Use `$cover-*` followed by natural-language instructions when you want to skip the template and generate the final cover immediately.
-5. Call `$illustration-*` directly when you need inline/tutorial illustrations.
-6. Call `$sketch-knowledge-kit` when you need coordinated hand-drawn knowledge cover + illustration briefs.
-7. Call `$light-product-kit` when you need coordinated light product cover + product illustration briefs.
-8. Call `$kit-cream-orange-knowledge` when you need coordinated cream-orange AI engineering cover + article illustration briefs.
-9. Call `$3d-eye-kit` when you need coordinated 3D Eye cover + tutorial illustration briefs.
+5. Call `$article-visual-planner` with a selected `cover-*` style when one article needs a cover plus coordinated inline visual prompts.
 
 ## Install
 
@@ -312,16 +248,16 @@ cd cover-prompt-skills
 
 Local development install creates symlinks from this repository's skill directories into the target directory, which is useful when editing the repository and testing in an agent.
 
-`cover-tips` is a navigator skill. It is installed with the full package, but cannot be installed alone — it depends on concrete cover style skills.
+`cover-tips` and `article-visual-planner` are navigator/planner skills. They are installed with the full package, but cannot be installed alone — they depend on concrete `cover-*` visual style skills.
 
 ## Repository Principles
 
 - Keep each plugin minimal: one `SKILL.md` under `skills/`, one manifest each for Claude Code and Codex.
 - Do not include provider-specific agent metadata by default.
 - Keep prompts generic unless a user explicitly asks for a provider-specific variant.
-- Use `cover-` as the naming prefix for cover/poster skills.
-- Use `illustration-` as the naming prefix for illustration skills.
-- Use a neutral `*-kit` name for multi-asset coordination skills that are not themselves a single cover.
+- Use `cover-` as the naming prefix for visual style skills and preserve existing cover skill names.
+- Use `article-visual-planner` as the single article cover and inline visual planning entry point.
+- Do not add standalone `illustration-*` or per-style `*-kit` / `kit-*` coordination skills. Inline visuals are planned by the planner and chained to a selected `cover-*` style.
 
 ## License
 
