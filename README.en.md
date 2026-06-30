@@ -182,7 +182,7 @@ $sketch-knowledge-kit
 主题：Claude Projects tutorial
 封面用途：X article cover
 插图用途：tutorial illustrations
-插图数量：3
+插图数量：infer from article structure, minimum 5
 语言：中文
 内容结构：entry point, create project, add context
 ```
@@ -194,7 +194,7 @@ $light-product-kit
 主题：Codex automation workflow
 封面用途：X article cover
 插图用途：tutorial illustrations
-插图数量：3
+插图数量：infer from article structure, minimum 5
 语言：中文
 产品/场景：Codex Agent workspace
 内容结构：create task, call tools, verify result

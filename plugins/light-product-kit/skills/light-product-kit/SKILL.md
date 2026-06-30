@@ -48,7 +48,7 @@ Extract or infer:
 - Topic: required.
 - Cover use case: X header, WeChat header, blog header, product launch cover, SaaS landing hero, PPT cover, LinkedIn cover.
 - Illustration use case: tutorial inline images, product docs, feature walkthroughs, X article illustrations, product education graphics.
-- Illustration count: default `3` when omitted.
+- Illustration count: when omitted, infer from the article/content structure and use at least `5`. Use the exact count if the user provides one.
 - Language: Chinese, English, or mixed Chinese-English.
 - Product context: AI product, agent workspace, SaaS workflow, automation system, coding agent, research assistant, dashboard, knowledge base, product feature, or product story.
 - Ratios: infer separately for cover and illustrations if the user provides only platforms.
