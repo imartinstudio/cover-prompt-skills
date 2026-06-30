@@ -18,12 +18,15 @@ These files are source/design records only. Runtime behavior is defined by each 
 | `cover-light-product.md` | `cover-light-product` |
 | `cover-mckinsey-briefing-style.md` | `cover-mckinsey-briefing-style` |
 | `cover-sketch-knowledge-poster.md` | `cover-sketch-knowledge-poster` |
+| `cream-orange-knowledge.md` | `cover-cream-orange-knowledge-poster`, `illustration-cream-orange-diagram`, `kit-cream-orange-knowledge` |
 | `illustration-sketch-ui.md` | `illustration-sketch-ui` |
 | `3d-eye.md` | `cover-3d-eye`, `illustration-3d-eye`, `3d-eye-kit` |
 
 `sketch-knowledge-kit` has no standalone source prompt. It is a coordination skill that combines `cover-sketch-knowledge-poster` and `illustration-sketch-ui`.
 
 `3d-eye.md` tracks the original case images in `assets/cases/`. `3d-eye-kit` is a coordination skill that combines `cover-3d-eye` and `illustration-3d-eye`.
+
+`cream-orange-knowledge.md` tracks the original reference-image set and requirement dialogue for the cream-orange technical knowledge family. `kit-cream-orange-knowledge` coordinates `cover-cream-orange-knowledge-poster` and `illustration-cream-orange-diagram`.
 
 ## Source
 
