@@ -1,0 +1,9 @@
+{
+  "name": "illustration-cream-orange-diagram",
+  "displayName": "Cream Orange Diagram",
+  "version": "1.0.0",
+  "description": "Generate cream-orange technical article illustrations with workflow, loop, architecture, and comparison diagrams.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["illustration", "cream-orange", "diagram", "workflow", "ai-engineering", "infographic"]
+}

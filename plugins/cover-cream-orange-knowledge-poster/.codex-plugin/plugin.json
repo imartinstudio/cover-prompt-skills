@@ -1,0 +1,18 @@
+{
+  "name": "cover-cream-orange-knowledge-poster",
+  "version": "1.0.0",
+  "description": "Generate cream-orange technical knowledge poster covers with editorial infographic layouts and AI engineering diagrams.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "cream-orange", "knowledge", "infographic", "ai-engineering", "poster", "architecture"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cream Orange Knowledge Poster",
+    "shortDescription": "Cream-orange technical infographic covers",
+    "longDescription": "Generate cream-orange technical knowledge poster cover prompts or final images with warm paper background, charcoal typography, burnt-orange highlights, system architecture diagrams, feedback loops, maturity ladders, and AI engineering visual language.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#C65A2E"
+  }
+}

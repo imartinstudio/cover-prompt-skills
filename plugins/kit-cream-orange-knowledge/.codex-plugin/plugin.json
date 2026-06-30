@@ -1,0 +1,18 @@
+{
+  "name": "kit-cream-orange-knowledge",
+  "version": "1.0.0",
+  "description": "Create coordinated cream-orange cover and inline illustration briefs from article content for technical AI engineering explainers.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["kit", "cream-orange", "cover", "illustration", "article-layout", "ai-engineering", "infographic"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Cream Orange Knowledge Kit",
+    "shortDescription": "Coordinated cover and diagram briefs",
+    "longDescription": "Create coordinated cover and inline illustration briefs from article content for the cream-orange knowledge visual family, combining cream paper, charcoal typography, burnt-orange arrows, technical infographic panels, AI engineering diagrams, section-to-image mapping, and consistent terminology.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#C65A2E"
+  }
+}

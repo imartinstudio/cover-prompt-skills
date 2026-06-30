@@ -1,0 +1,9 @@
+{
+  "name": "cover-cream-orange-knowledge-poster",
+  "displayName": "Cream Orange Knowledge Poster",
+  "version": "1.0.0",
+  "description": "Generate cream-orange technical knowledge poster covers with editorial infographic layouts and AI engineering diagrams.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "cream-orange", "knowledge", "infographic", "ai-engineering", "poster", "architecture"]
+}
