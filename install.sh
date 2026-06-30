@@ -11,6 +11,7 @@ ALL_SKILLS=(
   cover-budapest-poster
   cover-editorial-collage
   cover-giant-perspective-poster
+  cover-cream-orange-knowledge-poster
   cover-sketch-knowledge-poster
   cover-midnight-studio
   cover-pixel-avatar
@@ -21,8 +22,10 @@ ALL_SKILLS=(
   cover-tips
   cover-trendy-color-poster
   illustration-light-product
+  illustration-cream-orange-diagram
   illustration-3d-eye
   illustration-sketch-ui
+  kit-cream-orange-knowledge
   light-product-kit
   3d-eye-kit
   sketch-knowledge-kit
@@ -78,7 +81,7 @@ main() {
   local requested=("$@")
   if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
     requested=("${ALL_SKILLS[@]}")
-  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" || "${requested[0]}" == "light-product-kit" || "${requested[0]}" == "3d-eye-kit" ) ]]; then
+  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" || "${requested[0]}" == "light-product-kit" || "${requested[0]}" == "3d-eye-kit" || "${requested[0]}" == "kit-cream-orange-knowledge" ) ]]; then
     echo "${requested[0]} cannot be installed alone." >&2
     echo "It is a navigator/kit skill and depends on concrete visual style skills." >&2
     echo "Install all skills instead: ./install.sh" >&2

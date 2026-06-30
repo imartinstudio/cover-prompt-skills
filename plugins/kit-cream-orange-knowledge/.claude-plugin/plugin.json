@@ -1,0 +1,9 @@
+{
+  "name": "kit-cream-orange-knowledge",
+  "displayName": "Cream Orange Knowledge Kit",
+  "version": "1.0.0",
+  "description": "Create coordinated cream-orange cover and inline illustration briefs from article content for technical AI engineering explainers.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["kit", "cream-orange", "cover", "illustration", "article-layout", "ai-engineering", "infographic"]
+}

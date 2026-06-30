@@ -31,6 +31,7 @@
 | `cover-editorial-collage` | 撕纸编辑拼贴 | 讽刺、冲突、社会评论、杂志拼贴封面 |
 | `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT封面 |
 | `cover-giant-perspective-poster` | 巨型中文透视标题、高冲突撞色、电影/电竞主视觉 | 电影海报、运动品牌、电竞 KV、强传播封面 |
+| `cover-cream-orange-knowledge-poster` | 奶油橙知识海报、技术信息图、AI 工程图解 | AI Agent、系统架构、反馈循环、成熟度阶梯、技术解释封面 |
 | `cover-sketch-knowledge-poster` | 手绘知识图谱、白板框架、黑橙双色、纸张质感 | 知识图谱封面、教程封面、产品教育海报、X/公众号封面 |
 | `cover-3d-eye` | 3D Eye 风、黑底网格、霓虹绿、隐私/离线/掌控感 | 本地 AI 教程封面、Ollama/本地模型封面、隐私优先 AI 海报、黑绿终端风封面 |
 | `cover-midnight-studio` | 深夜工作室、AI 工程师空间、电影级多屏工作站 | 独立开发者、Build in Public、AI 工作流、科技品牌头图 |
@@ -38,10 +39,12 @@
 | `cover-light-product` | 浅色产品风、奶油白基底、冷暖双色融合、SaaS Hero 美学 | AI 产品封面、SaaS 品牌头图、产品发布会视觉、Agent 工作区封面 |
 | `cover-mckinsey-briefing-style` | 麦肯锡简报风、咨询报告、战略框架、董事会级版式 | 战略简报封面、咨询报告、PPT 封面、商业分析视觉 |
 | `illustration-light-product` | 浅色产品插图、精致 UI 模块、Agent 工作流图解 | AI 产品功能讲解图、SaaS 教程配图、工作流说明图、产品文档插图 |
+| `illustration-cream-orange-diagram` | 奶油橙技术配图、流程/循环/架构图解 | AI 工程文章配图、技术解释插图、系统模块图、教程步骤图 |
 | `illustration-sketch-ui` | 手绘 UI 产品教育插图、黑橙双色、箭头讲解 | 教程配图、产品说明图、功能讲解图、X文章配图 |
 | `illustration-3d-eye` | 3D Eye 配图、黑底网格、霓虹绿图解、终端 UI 卡片 | 本地 AI 教程配图、硬件地图、量化图解、隐私路径、Local vs Cloud 对比 |
 | `light-product-kit` | 浅色产品视觉套件 | 一次组织浅色产品封面 brief + 多张产品插图 brief，保持同一视觉系统 |
 | `sketch-knowledge-kit` | 手绘知识图谱视觉套件 | 一次组织封面 brief + 多张插图 brief，保持同一视觉系统 |
+| `kit-cream-orange-knowledge` | 奶油橙知识视觉套件 | 根据文章内容一次组织封面 brief + 多张配图 brief，保持同一视觉系统 |
 | `3d-eye-kit` | 3D Eye 视觉套件 | 一次组织 3D Eye 风封面 brief + 多张教程配图 brief，保持同一视觉系统 |
 
 ## 风格展示
@@ -159,6 +162,14 @@ $illustration-sketch-ui            # 产品 UI 教程插图 / 功能讲解图
 $sketch-knowledge-kit              # 配套 brief 编排入口
 ```
 
+奶油橙知识视觉家族包含：
+
+```text
+$cover-cream-orange-knowledge-poster   # AI 工程封面 / 系统架构海报 / 技术信息图封面
+$illustration-cream-orange-diagram     # 文章内流程、循环、架构、对比配图
+$kit-cream-orange-knowledge            # 根据文章内容编排封面 + 多张配图 brief 的套件入口
+```
+
 浅色产品视觉家族包含：
 
 ```text
@@ -198,6 +209,20 @@ $light-product-kit
 语言：中文
 产品/场景：Codex Agent 工作区
 内容结构：创建任务、调用工具、验证结果
+```
+
+当你要为 AI 工程、Agent 系统、反馈循环或技术架构文章准备一套奶油橙知识视觉时，使用：
+
+```text
+$kit-cream-orange-knowledge
+主题：从 Prompt-First 到 Loop-First 的 AI 系统演进
+平台：X article
+封面用途：X文章封面
+配图用途：文章配图
+配图数量：根据文章结构自动推断，最低 5
+语言：中英混排
+文章结构：问题、旧范式、新范式、反馈循环、架构组件、团队落地
+目标读者：AI builders 和产品团队
 ```
 
 当你要为本地 AI、Ollama、离线模型、隐私/硬件/量化教程准备一套黑绿终端视觉时，使用：
