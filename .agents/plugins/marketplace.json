@@ -104,6 +104,18 @@
       "category": "Design"
     },
     {
+      "name": "cover-cream-orange-knowledge-poster",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-cream-orange-knowledge-poster"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "cover-midnight-studio",
       "source": {
         "source": "local",
@@ -200,6 +212,18 @@
       "category": "Design"
     },
     {
+      "name": "illustration-cream-orange-diagram",
+      "source": {
+        "source": "local",
+        "path": "./plugins/illustration-cream-orange-diagram"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "sketch-knowledge-kit",
       "source": {
         "source": "local",
@@ -216,6 +240,18 @@
       "source": {
         "source": "local",
         "path": "./plugins/3d-eye-kit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "kit-cream-orange-knowledge",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kit-cream-orange-knowledge"
       },
       "policy": {
         "installation": "AVAILABLE",

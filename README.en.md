@@ -31,6 +31,7 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-editorial-collage` | Torn-paper editorial collage | Satire, conflict, social commentary, magazine collage covers |
 | `cover-tea-oriental` | Oriental tea aesthetic, Song literati, character-as-image | Cultural posters, invitations, infographics, PPT covers |
 | `cover-giant-perspective-poster` | Giant Chinese perspective type, high-contrast clash, cinematic/esports KV | Movie posters, sports brand, esports key visuals, viral covers |
+| `cover-cream-orange-knowledge-poster` | Cream-orange knowledge poster, technical infographic, AI engineering diagrams | AI Agent, system architecture, feedback loops, maturity ladders, technical explainer covers |
 | `cover-sketch-knowledge-poster` | Hand-drawn knowledge maps, whiteboard frameworks, black/orange paper sketch | Knowledge map covers, tutorial covers, product education posters, X/WeChat covers |
 | `cover-3d-eye` | 3D Eye style, black grid, neon green, privacy/offline/ownership mood | Local AI tutorial covers, Ollama/local model covers, privacy-first AI posters, black-green terminal covers |
 | `cover-midnight-studio` | Midnight AI creator studio, cinematic workstation, multi-monitor workflow | Indie hackers, build-in-public, AI workflow, premium tech headers |
@@ -38,10 +39,12 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 | `cover-light-product` | Light product aesthetic, cream base, warm-cool dual color, SaaS Hero look | AI product covers, SaaS brand headers, product launch visuals, Agent workspace covers |
 | `cover-mckinsey-briefing-style` | McKinsey-style executive briefing, consulting report, strategy frameworks | Strategy briefing covers, consulting reports, PPT covers, business analysis visuals |
 | `illustration-light-product` | Light product illustrations, refined UI modules, Agent workflow diagrams | AI product feature explanations, SaaS tutorial images, workflow diagrams, product docs illustrations |
+| `illustration-cream-orange-diagram` | Cream-orange technical diagrams, workflow/loop/architecture explainers | AI engineering article images, technical explanations, system module diagrams, tutorial step graphics |
 | `illustration-sketch-ui` | Hand-drawn UI product education illustrations, black/orange arrows and callouts | Tutorial images, product explanation graphics, feature walkthroughs, X article illustrations |
 | `illustration-3d-eye` | 3D Eye illustrations, black grid boards, neon green diagrams, terminal UI cards | Local AI tutorial images, hardware maps, quantization charts, privacy flows, local vs cloud comparisons |
 | `light-product-kit` | Light product visual kit | Organize one light product cover brief plus multiple product illustration briefs in the same visual system |
 | `sketch-knowledge-kit` | Sketch knowledge visual kit | Organize one cover brief plus multiple illustration briefs in the same visual system |
+| `kit-cream-orange-knowledge` | Cream-orange knowledge visual kit | Arrange one cover brief plus multiple illustration briefs from article content in the same visual system |
 | `3d-eye-kit` | 3D Eye visual kit | Organize one 3D Eye cover brief plus multiple tutorial illustration briefs in the same visual system |
 
 ## Style Preview
@@ -159,6 +162,14 @@ $illustration-sketch-ui            # Product UI tutorial illustration / feature 
 $sketch-knowledge-kit              # Coordinated brief organizer
 ```
 
+The cream-orange knowledge visual family includes:
+
+```text
+$cover-cream-orange-knowledge-poster   # AI engineering cover / system architecture poster / technical infographic cover
+$illustration-cream-orange-diagram     # Inline workflow, loop, architecture, and comparison diagrams
+$kit-cream-orange-knowledge            # Article-content-based cover + multi-illustration brief organizer
+```
+
 The light product visual family includes:
 
 ```text
@@ -200,6 +211,20 @@ $light-product-kit
 内容结构：create task, call tools, verify result
 ```
 
+When you need a cream-orange knowledge visual package for AI engineering, Agent systems, feedback loops, or technical architecture articles, use:
+
+```text
+$kit-cream-orange-knowledge
+主题：From Prompt-First to Loop-First AI Systems
+平台：X article
+封面用途：X article cover
+配图用途：article illustrations
+配图数量：infer from article structure, minimum 5
+语言：mixed Chinese-English
+文章结构：problem, old paradigm, new paradigm, feedback loop, architecture components, team adoption
+目标读者：AI builders and product teams
+```
+
 When you need a black-green terminal visual package for local AI, Ollama, offline models, privacy, hardware, or quantization tutorials, use:
 
 ```text
@@ -223,7 +248,8 @@ Recommended workflow:
 5. Call `$illustration-*` directly when you need inline/tutorial illustrations.
 6. Call `$sketch-knowledge-kit` when you need coordinated hand-drawn knowledge cover + illustration briefs.
 7. Call `$light-product-kit` when you need coordinated light product cover + product illustration briefs.
-8. Call `$3d-eye-kit` when you need coordinated 3D Eye cover + tutorial illustration briefs.
+8. Call `$kit-cream-orange-knowledge` when you need coordinated cream-orange AI engineering cover + article illustration briefs.
+9. Call `$3d-eye-kit` when you need coordinated 3D Eye cover + tutorial illustration briefs.
 
 ## Install
 

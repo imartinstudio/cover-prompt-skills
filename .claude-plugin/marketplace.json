@@ -45,6 +45,11 @@
       "description": "Generate hand-drawn sketch knowledge map cover/poster images with warm paper, black marker linework, and Anthropic orange highlights."
     },
     {
+      "name": "cover-cream-orange-knowledge-poster",
+      "source": "./plugins/cover-cream-orange-knowledge-poster",
+      "description": "Generate cream-orange technical knowledge poster covers with editorial infographic layouts and AI engineering diagrams."
+    },
+    {
       "name": "cover-midnight-studio",
       "source": "./plugins/cover-midnight-studio",
       "description": "Generate cinematic midnight AI creator workspace covers with film-grade lighting and indie hacker atmosphere."
@@ -85,6 +90,11 @@
       "description": "Generate dark 3D Eye tutorial illustrations with black grid boards, neon green diagram lines, terminal UI cards, hardware maps, privacy flows, and quantization explainers."
     },
     {
+      "name": "illustration-cream-orange-diagram",
+      "source": "./plugins/illustration-cream-orange-diagram",
+      "description": "Generate cream-orange technical article illustrations with workflow, loop, architecture, and comparison diagrams."
+    },
+    {
       "name": "sketch-knowledge-kit",
       "source": "./plugins/sketch-knowledge-kit",
       "description": "Create coordinated cover and illustration briefs for the sketch-knowledge visual family."
@@ -98,6 +108,11 @@
       "name": "3d-eye-kit",
       "source": "./plugins/3d-eye-kit",
       "description": "Create coordinated cover and illustration briefs for the 3d-eye visual family."
+    },
+    {
+      "name": "kit-cream-orange-knowledge",
+      "source": "./plugins/kit-cream-orange-knowledge",
+      "description": "Create coordinated cream-orange cover and inline illustration briefs from article content for technical AI engineering explainers."
     }
   ]
 }

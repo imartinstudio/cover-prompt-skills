@@ -51,6 +51,7 @@ Use `--out-type all` when you need both the structured template and the final im
 | `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
 | `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
 | `手绘知识图谱` / `知识图谱` / `知识地图` / `白板框架` / `sketch knowledge` | `$cover-sketch-knowledge-poster` |
+| `奶油橙知识` / `奶油橙` / `AI工程图解` / `系统架构图` / `cream orange` | `$cover-cream-orange-knowledge-poster` |
 | `本地AI` / `3D Eye` / `黑绿终端` / `local AI` / `terminal poster` | `$cover-3d-eye` |
 | `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
 | `像素头像` / `像素` / `8-bit头像` / `pixel avatar` / `Q版像素头像` | `$cover-pixel-avatar` |
@@ -92,6 +93,7 @@ Call a concrete style skill directly when you already know the exact style and d
 $cover-black-white-minimal ...
 $cover-trendy-color-poster ...
 $cover-giant-perspective-poster ...
+$cover-cream-orange-knowledge-poster ...
 $cover-sketch-knowledge-poster ...
 $cover-3d-eye ...
 $cover-midnight-studio ...
@@ -146,6 +148,17 @@ $illustration-light-product --out-type prompt
 ```
 
 ```text
+$illustration-cream-orange-diagram --out-type prompt
+主题：从 Prompt-First 到 Loop-First
+说明：解释 AI 系统从单轮提示走向反馈循环和工具调用架构
+画幅比例：16:9
+用途：文章配图
+图解模式：loop cycle
+重点区域：Evaluate -> Refine -> Act 的闭环路径
+视觉锚点：奶油纸背景上的模块卡片和橙色循环箭头
+```
+
+```text
 $illustration-3d-eye --out-type prompt
 主题：量化模型怎么选
 说明：解释 Q2_K、Q4_K_M、Q8_0、F16 在体积和质量之间的取舍
@@ -196,6 +209,28 @@ The light product kit output should contain:
 - `插图 brief[]`: calls `$illustration-light-product`.
 - `一致性约束`: cream-white base, warm/cool color balance, SaaS UI modules, product terminology.
 - `差异化约束`: cover for product story and shareability, illustrations for feature/workflow explanation.
+
+Use `kit-cream-orange-knowledge` when an AI engineering, Agent systems, feedback loop, or technical architecture article needs one cream-orange technical cover plus several article illustrations arranged from the article content.
+
+```text
+$kit-cream-orange-knowledge
+主题：从 Prompt-First 到 Loop-First 的 AI 系统演进
+平台：X article
+封面用途：X文章封面
+配图用途：文章配图
+配图数量：根据文章结构自动推断，最低 5
+语言：中英混排
+文章结构：问题、旧范式、新范式、反馈循环、架构组件、团队落地
+目标读者：AI builders 和产品团队
+```
+
+The cream-orange knowledge kit output should contain:
+
+- `封面 brief`: calls `$cover-cream-orange-knowledge-poster`.
+- `配图 brief[]`: calls `$illustration-cream-orange-diagram`.
+- `文章配图编排`: maps article sections to image roles.
+- `一致性约束`: cream paper, charcoal typography, burnt-orange arrows, technical infographic panels, terminology.
+- `差异化约束`: cover for total thesis/shareability, illustrations for section-level technical explanation.
 
 Use `3d-eye-kit` when a local AI, Ollama, offline model, privacy, hardware, or quantization tutorial needs one 3D Eye cover plus several matching tutorial illustrations.
 
