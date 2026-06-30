@@ -123,135 +123,71 @@ In this case, `主题：提示词` is treated as the topic value, not as a reque
 
 Use `cover-tips` when the user needs content cleanup, field extraction, or standard formatting first.
 
-## Illustration Skills
+## Article Visual Planner
 
-Use `illustration-*` skills for inline images, tutorial illustrations, product explanation graphics, and feature walkthrough visuals. They are separate from `cover-*` because they solve a different output job.
+Use `article-visual-planner` when one article, tutorial, newsletter, X article, or WeChat article needs a coordinated cover plus inline visuals.
 
-```text
-$illustration-sketch-ui --out-type prompt
-主题：Claude Projects 入口说明
-说明：解释用户从侧边栏进入 Projects 并创建第一个项目
-画幅比例：16:9
-用途：教程配图
-界面来源/产品场景：Claude Projects
-重点区域：Projects 入口和 Create Project 按钮
-```
+Recommended Claude CLI syntax:
 
 ```text
-$illustration-light-product --out-type prompt
-主题：Codex 自动化工作流
-说明：解释 Agent 如何创建任务、调用工具并验证结果
-画幅比例：16:9
-用途：教程配图
-产品/场景：Codex Agent 工作区
-重点模块：任务状态面板和工具调用流程
-```
+/article-visual-planner:cover-cream-orange-knowledge-poster
 
-```text
-$illustration-cream-orange-diagram --out-type prompt
-主题：从 Prompt-First 到 Loop-First
-说明：解释 AI 系统从单轮提示走向反馈循环和工具调用架构
-画幅比例：16:9
-用途：文章配图
-图解模式：loop cycle
-重点区域：Evaluate -> Refine -> Act 的闭环路径
-视觉锚点：奶油纸背景上的模块卡片和橙色循环箭头
-```
-
-```text
-$illustration-3d-eye --out-type prompt
-主题：量化模型怎么选
-说明：解释 Q2_K、Q4_K_M、Q8_0、F16 在体积和质量之间的取舍
-画幅比例：16:9
-用途：教程配图
-图解类型：量化柱状图
-重点区域：Q4_K_M 作为 sweet spot
-连续角色：蓝白手绘 3D Eye 指引姿态指向高亮柱
-```
-
-## Cover + Illustration Kits
-
-Use `sketch-knowledge-kit` when one article, tutorial, or product explanation needs a coordinated cover plus several matching illustrations.
-
-```text
-$sketch-knowledge-kit
-主题：Claude Projects 使用教程
-封面用途：X文章封面
-插图用途：教程配图
-插图数量：根据文章结构自动推断，最低 5
-语言：中文
-内容结构：入口位置、创建项目、添加上下文
-```
-
-The kit output should contain:
-
-- `封面 brief`: calls `$cover-sketch-knowledge-poster`.
-- `插图 brief[]`: calls `$illustration-sketch-ui`.
-- `一致性约束`: title tone, black/orange ratio, paper texture, icon linework, terminology.
-- `差异化约束`: cover for overview/shareability, illustrations for feature explanation.
-
-Use `light-product-kit` when an AI product article, SaaS tutorial, or Agent workflow explanation needs one light product cover plus several matching product illustrations.
-
-```text
-$light-product-kit
-主题：Codex 自动化工作流
-封面用途：X文章封面
-插图用途：教程配图
-插图数量：根据文章结构自动推断，最低 5
-语言：中文
-产品/场景：Codex Agent 工作区
-内容结构：创建任务、调用工具、验证结果
-```
-
-The light product kit output should contain:
-
-- `封面 brief`: calls `$cover-light-product`.
-- `插图 brief[]`: calls `$illustration-light-product`.
-- `一致性约束`: cream-white base, warm/cool color balance, SaaS UI modules, product terminology.
-- `差异化约束`: cover for product story and shareability, illustrations for feature/workflow explanation.
-
-Use `kit-cream-orange-knowledge` when an AI engineering, Agent systems, feedback loop, or technical architecture article needs one cream-orange technical cover plus several article illustrations arranged from the article content.
-
-```text
-$kit-cream-orange-knowledge
-主题：从 Prompt-First 到 Loop-First 的 AI 系统演进
+文章：/path/to/article.md
+输出类型：prompt
 平台：X article
-封面用途：X文章封面
-配图用途：文章配图
-配图数量：根据文章结构自动推断，最低 5
-语言：中英混排
-文章结构：问题、旧范式、新范式、反馈循环、架构组件、团队落地
-目标读者：AI builders 和产品团队
+资产范围：封面 + 正文配图
 ```
 
-The cream-orange knowledge kit output should contain:
-
-- `封面 brief`: calls `$cover-cream-orange-knowledge-poster`.
-- `配图 brief[]`: calls `$illustration-cream-orange-diagram`.
-- `文章配图编排`: maps article sections to image roles.
-- `一致性约束`: cream paper, charcoal typography, burnt-orange arrows, technical infographic panels, terminology.
-- `差异化约束`: cover for total thesis/shareability, illustrations for section-level technical explanation.
-
-Use `3d-eye-kit` when a local AI, Ollama, offline model, privacy, hardware, or quantization tutorial needs one 3D Eye cover plus several matching tutorial illustrations.
+Portable field syntax:
 
 ```text
-$3d-eye-kit
-主题：14 步搭建自己的本地 AI
-封面用途：X文章封面
-配图用途：教程配图
-配图数量：5
-语言：中英混排
-核心钩子：No cloud, no filters, no one watching
-内容结构：全流程、Local vs Cloud、硬件匹配、量化选择、常见错误
-连续角色：蓝白手绘 3D Eye 吉祥物贯穿全套，按内容切换挥手、奔跑、指引、技能卡、点赞等姿态
+$article-visual-planner
+文章：/path/to/article.md
+视觉风格：cover-sketch-knowledge-poster
+输出类型：brief
+平台：公众号文章
+资产范围：封面 + 正文配图
 ```
 
-The 3D Eye kit output should contain:
+The planner output should contain:
 
-- `封面 brief`: calls `$cover-3d-eye`.
-- `配图 brief[]`: calls `$illustration-3d-eye`.
-- `一致性约束`: black grid board, neon green terminal glow, blue-white hand-drawn 3D Eye mascot continuity, terminal UI labels.
-- `差异化约束`: cover for thesis/shareability, illustrations for specific tutorial explanations.
+- `文章分析`: title, thesis, audience, section structure, existing image count.
+- `链式调用设置`: selected `cover-*` style, output type, platform, language, target asset count.
+- `封面 brief`: one top-level asset with `资产类型：cover`.
+- `配图 brief[]`: section-level visual assets such as `article-inline`, `workflow-diagram`, `comparison`, `architecture`, `long-infographic`, or `social-card`.
+- `文章配图编排`: image placement map across article sections.
+- `一致性约束`: terminology, title voice, palette, texture, diagram logic, recurring symbols.
+
+Chain model:
+
+```text
+$article-visual-planner
+  -> reads the article
+  -> plans the cover and inline visuals
+  -> creates one brief per asset
+  -> dispatches each brief to the selected $cover-* style
+```
+
+Concrete examples:
+
+```text
+/article-visual-planner:cover-3d-eye
+
+文章：/path/to/local-ai-guide.md
+输出类型：prompt
+平台：X article
+资产范围：封面 + 正文配图
+连续角色：蓝白手绘 3D Eye 贯穿全套
+```
+
+```text
+/article-visual-planner:cover-light-product
+
+文章：/path/to/product-workflow.md
+输出类型：brief
+平台：blog
+资产范围：封面 + 正文配图 + social-card
+```
 
 ## Direct Image Generation
 
@@ -269,4 +205,4 @@ Use this path when the style is clear and you do not need to inspect intermediat
 2. Use the returned template to confirm title, subtitle, ratio, language, use case, mood, and banned elements.
 3. Switch to `--out-type prompt` or `--out-type all` when you need reusable prompt text.
 4. Use `$cover-*` followed by natural-language instructions when you want to skip the template and generate the final cover immediately.
-5. Directly call `$cover-*` for repeated workflows where the style and fields are already stable.
+5. Call `$article-visual-planner` with a selected `cover-*` style when one article needs cover and inline visual planning.

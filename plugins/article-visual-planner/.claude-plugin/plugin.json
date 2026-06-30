@@ -1,0 +1,9 @@
+{
+  "name": "article-visual-planner",
+  "displayName": "Article Visual Planner",
+  "version": "1.0.0",
+  "description": "Automatically plan article covers and inline visual prompts by chaining article sections to selected cover-* style skills.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["article", "visual-planner", "cover", "inline-visuals", "planner", "workflow"]
+}

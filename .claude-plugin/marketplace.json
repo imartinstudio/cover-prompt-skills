@@ -30,6 +30,11 @@
       "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill."
     },
     {
+      "name": "article-visual-planner",
+      "source": "./plugins/article-visual-planner",
+      "description": "Automatically plan article covers and inline visual prompts by chaining article sections to selected cover-* style skills."
+    },
+    {
       "name": "cover-trendy-color-poster",
       "source": "./plugins/cover-trendy-color-poster",
       "description": "Generate trendy high-impact color poster covers with bold contrast and typography-led layouts."
@@ -73,46 +78,6 @@
       "name": "cover-mckinsey-briefing-style",
       "source": "./plugins/cover-mckinsey-briefing-style",
       "description": "Generate McKinsey-style executive briefing cover images with consulting-grade report aesthetics, strategy frameworks, crisp white space, and boardroom-ready typography."
-    },
-    {
-      "name": "illustration-sketch-ui",
-      "source": "./plugins/illustration-sketch-ui",
-      "description": "Generate hand-drawn sketch UI product education illustrations with warm paper, black marker redraws, and Anthropic orange highlights."
-    },
-    {
-      "name": "illustration-light-product",
-      "source": "./plugins/illustration-light-product",
-      "description": "Generate light-theme AI-native SaaS product explanation illustrations with cream-white base, refined UI modules, and warm-cool dual color fusion."
-    },
-    {
-      "name": "illustration-3d-eye",
-      "source": "./plugins/illustration-3d-eye",
-      "description": "Generate dark 3D Eye tutorial illustrations with black grid boards, neon green diagram lines, terminal UI cards, hardware maps, privacy flows, and quantization explainers."
-    },
-    {
-      "name": "illustration-cream-orange-diagram",
-      "source": "./plugins/illustration-cream-orange-diagram",
-      "description": "Generate cream-orange technical article illustrations with workflow, loop, architecture, and comparison diagrams."
-    },
-    {
-      "name": "sketch-knowledge-kit",
-      "source": "./plugins/sketch-knowledge-kit",
-      "description": "Create coordinated cover and illustration briefs for the sketch-knowledge visual family."
-    },
-    {
-      "name": "light-product-kit",
-      "source": "./plugins/light-product-kit",
-      "description": "Create coordinated cover and illustration briefs for the light-product visual family."
-    },
-    {
-      "name": "3d-eye-kit",
-      "source": "./plugins/3d-eye-kit",
-      "description": "Create coordinated cover and illustration briefs for the 3d-eye visual family."
-    },
-    {
-      "name": "kit-cream-orange-knowledge",
-      "source": "./plugins/kit-cream-orange-knowledge",
-      "description": "Create coordinated cream-orange cover and inline illustration briefs from article content for technical AI engineering explainers."
     }
   ]
 }

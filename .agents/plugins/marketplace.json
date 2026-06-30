@@ -2,7 +2,7 @@
   "name": "cover-prompt-skills",
   "interface": {
     "displayName": "Cover Prompt Skills",
-    "shortDescription": "Cover-first visual prompt skills for covers, posters, illustrations, and coordinated visual kits",
+    "shortDescription": "Cover-first visual prompt skills for covers, posters, and article visual planning",
     "developerName": "imartinstudio",
     "category": "Design"
   },
@@ -60,6 +60,18 @@
       "source": {
         "source": "local",
         "path": "./plugins/cover-tips"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "article-visual-planner",
+      "source": {
+        "source": "local",
+        "path": "./plugins/article-visual-planner"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -168,102 +180,6 @@
       "source": {
         "source": "local",
         "path": "./plugins/cover-mckinsey-briefing-style"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "illustration-sketch-ui",
-      "source": {
-        "source": "local",
-        "path": "./plugins/illustration-sketch-ui"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "illustration-light-product",
-      "source": {
-        "source": "local",
-        "path": "./plugins/illustration-light-product"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "illustration-3d-eye",
-      "source": {
-        "source": "local",
-        "path": "./plugins/illustration-3d-eye"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "illustration-cream-orange-diagram",
-      "source": {
-        "source": "local",
-        "path": "./plugins/illustration-cream-orange-diagram"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "sketch-knowledge-kit",
-      "source": {
-        "source": "local",
-        "path": "./plugins/sketch-knowledge-kit"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "3d-eye-kit",
-      "source": {
-        "source": "local",
-        "path": "./plugins/3d-eye-kit"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "kit-cream-orange-knowledge",
-      "source": {
-        "source": "local",
-        "path": "./plugins/kit-cream-orange-knowledge"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "light-product-kit",
-      "source": {
-        "source": "local",
-        "path": "./plugins/light-product-kit"
       },
       "policy": {
         "installation": "AVAILABLE",

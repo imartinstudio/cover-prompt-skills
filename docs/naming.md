@@ -1,6 +1,6 @@
 # Naming
 
-This repository is cover-first but now supports multiple visual output types. Preserve existing `cover-*` names for backward compatibility.
+This repository is cover-first. Preserve existing `cover-*` names as the stable visual style surface.
 
 All cover/poster-generation skills should use the `cover-` prefix.
 
@@ -34,35 +34,30 @@ The general organizer uses:
 cover-tips
 ```
 
-Illustration skills should use the `illustration-` prefix:
+Article visual planning uses one explicit planner name:
 
 ```text
-illustration-{style-or-visual-system}
+article-visual-planner
 ```
 
-Example:
+Use `article-visual-planner` when one article needs a cover plus coordinated inline visuals. It should read the article, plan the visual set, then chain every planned asset to a selected `cover-*` style.
+
+Preferred Claude CLI chaining syntax:
 
 ```text
-illustration-sketch-ui
-illustration-3d-eye
-illustration-cream-orange-diagram
+/article-visual-planner:cover-cream-orange-knowledge-poster
 ```
 
-Multi-asset coordination skills should use the `kit-` prefix instead of `cover-`, because they do not produce only one cover:
+Portable field syntax:
 
 ```text
-kit-{style-or-visual-system}
+$article-visual-planner
+视觉风格：cover-sketch-knowledge-poster
 ```
 
-Example:
+Do not add new `illustration-*` skills or per-style `*-kit` / `kit-*` coordination skills. Inline visuals, workflow diagrams, comparison graphics, long infographics, and social cards should be planned by `article-visual-planner` and rendered through the selected `cover-*` visual style.
 
-```text
-kit-cream-orange-knowledge
-```
-
-Older kit names such as `sketch-knowledge-kit`, `light-product-kit`, and `3d-eye-kit` are preserved for backward compatibility. New kit skills should prefer the `kit-*` prefix.
-
-Use a shared visual-family name when a cover skill and an illustration skill are designed to work together. For example, `cover-cream-orange-knowledge-poster`, `illustration-cream-orange-diagram`, and `kit-cream-orange-knowledge` belong to the same `cream-orange-knowledge` visual family.
+Use a shared visual-family name inside the selected cover skill and planner brief when a style supports multiple asset types. For example, `cover-cream-orange-knowledge-poster` owns the `cream-orange-knowledge` style, while `article-visual-planner` decides whether a planned asset is a cover, article-inline diagram, workflow diagram, comparison panel, architecture map, or long infographic.
 
 Use `3d-eye` for the black-grid, neon-green, terminal-native local AI tutorial family. The name should be preferred over generic names such as `cyber`, `hacker`, or `black-green`, because the core usage is local/offline/private AI education rather than decorative cyberpunk.
 

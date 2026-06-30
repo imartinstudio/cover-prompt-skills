@@ -4,7 +4,7 @@
 
 # 封面优先的视觉提示词技能
 
-面向 AI agent 和图像生成工作流的可复用视觉提示词技能。项目保持 `cover-*` 封面主线向后兼容，同时开始支持 `illustration-*` 插图能力和可选的配套视觉套件。
+面向 AI agent 和图像生成工作流的可复用视觉提示词技能。项目以 `cover-*` 作为统一视觉风格入口，并通过 `article-visual-planner` 自动规划文章封面和正文配图。
 
 兼容 Claude Code、Codex、Gemini CLI、Cursor，以及任何支持 SKILL.md 的 agent。
 
@@ -14,7 +14,7 @@
 
 1. 在 GitHub 打开本仓库，复制你偏好的安装命令。
 2. 在终端或 agent 工作区执行安装命令。
-3. 日常封面使用以 `$cover-tips` 为入口，也可以直接调用具体的 `cover-*`、`illustration-*` 或 `*-kit` 技能。
+3. 日常封面使用以 `$cover-tips` 为入口；整篇文章的封面和配图规划使用 `$article-visual-planner`。
 
 ## GitHub 展示
 
@@ -38,14 +38,7 @@
 | `cover-pixel-avatar` | 复古 8-bit 像素头像、高饱和撞色、纯色背景 | 上传图片转抽象像素头像、社交头像、Q版像素 IP |
 | `cover-light-product` | 浅色产品风、奶油白基底、冷暖双色融合、SaaS Hero 美学 | AI 产品封面、SaaS 品牌头图、产品发布会视觉、Agent 工作区封面 |
 | `cover-mckinsey-briefing-style` | 麦肯锡简报风、咨询报告、战略框架、董事会级版式 | 战略简报封面、咨询报告、PPT 封面、商业分析视觉 |
-| `illustration-light-product` | 浅色产品插图、精致 UI 模块、Agent 工作流图解 | AI 产品功能讲解图、SaaS 教程配图、工作流说明图、产品文档插图 |
-| `illustration-cream-orange-diagram` | 奶油橙技术配图、流程/循环/架构图解 | AI 工程文章配图、技术解释插图、系统模块图、教程步骤图 |
-| `illustration-sketch-ui` | 手绘 UI 产品教育插图、黑橙双色、箭头讲解 | 教程配图、产品说明图、功能讲解图、X文章配图 |
-| `illustration-3d-eye` | 3D Eye 配图、黑底网格、霓虹绿图解、终端 UI 卡片 | 本地 AI 教程配图、硬件地图、量化图解、隐私路径、Local vs Cloud 对比 |
-| `light-product-kit` | 浅色产品视觉套件 | 一次组织浅色产品封面 brief + 多张产品插图 brief，保持同一视觉系统 |
-| `sketch-knowledge-kit` | 手绘知识图谱视觉套件 | 一次组织封面 brief + 多张插图 brief，保持同一视觉系统 |
-| `kit-cream-orange-knowledge` | 奶油橙知识视觉套件 | 根据文章内容一次组织封面 brief + 多张配图 brief，保持同一视觉系统 |
-| `3d-eye-kit` | 3D Eye 视觉套件 | 一次组织 3D Eye 风封面 brief + 多张教程配图 brief，保持同一视觉系统 |
+| `article-visual-planner` | 自动规划文章配图 | 读取文章并链式调用指定 `cover-*` 风格，生成封面和正文配图 brief/prompt |
 
 ## 风格展示
 
@@ -150,93 +143,40 @@ $cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提�
 
 当风格已经明确、且不需要检查中间字段时，推荐使用这种直接生成方式。
 
-## 封面 + 插图配套
+## 自动规划文章配图
 
-`cover-*` 只表示封面或海报类产物，`illustration-*` 表示正文插图、教程配图、产品说明图。二者可以共享同一个视觉家族，但调用面保持分离。
+`article-visual-planner` 是统一的文章视觉编排入口。它读取文章内容、统计已有图片、分析章节结构，然后链式调用指定 `cover-*` 风格，为整篇文章规划封面和正文配图。
 
-手绘知识图谱视觉家族包含：
-
-```text
-$cover-sketch-knowledge-poster     # 总览封面 / 知识图谱海报
-$illustration-sketch-ui            # 产品 UI 教程插图 / 功能讲解图
-$sketch-knowledge-kit              # 配套 brief 编排入口
-```
-
-奶油橙知识视觉家族包含：
+Claude CLI 推荐调用：
 
 ```text
-$cover-cream-orange-knowledge-poster   # AI 工程封面 / 系统架构海报 / 技术信息图封面
-$illustration-cream-orange-diagram     # 文章内流程、循环、架构、对比配图
-$kit-cream-orange-knowledge            # 根据文章内容编排封面 + 多张配图 brief 的套件入口
-```
+/article-visual-planner:cover-cream-orange-knowledge-poster
 
-浅色产品视觉家族包含：
-
-```text
-$cover-light-product               # AI 产品封面 / SaaS Hero / Agent 工作区头图
-$illustration-light-product        # 产品功能讲解插图 / Agent 工作流图解
-$light-product-kit                 # 浅色产品封面 + 多张插图配套 brief 编排入口
-```
-
-3D Eye 视觉家族包含：
-
-```text
-$cover-3d-eye           # 本地 AI 教程封面 / 黑绿终端风海报
-$illustration-3d-eye    # 本地 AI 教程配图 / 硬件、量化、隐私、流程图解
-$3d-eye-kit             # 3D Eye 封面 + 多张配图配套 brief 编排入口
-```
-
-当你要为一篇文章或教程同时准备封面和多张配图时，使用：
-
-```text
-$sketch-knowledge-kit
-主题：Claude Projects 使用教程
-封面用途：X文章封面
-插图用途：教程配图
-插图数量：根据文章结构自动推断，最低 5
-语言：中文
-内容结构：入口位置、创建项目、添加上下文
-```
-
-当你要为 AI 产品文章、SaaS 教程或 Agent 工作流说明准备一套浅色产品视觉时，使用：
-
-```text
-$light-product-kit
-主题：Codex 自动化工作流
-封面用途：X文章封面
-插图用途：教程配图
-插图数量：根据文章结构自动推断，最低 5
-语言：中文
-产品/场景：Codex Agent 工作区
-内容结构：创建任务、调用工具、验证结果
-```
-
-当你要为 AI 工程、Agent 系统、反馈循环或技术架构文章准备一套奶油橙知识视觉时，使用：
-
-```text
-$kit-cream-orange-knowledge
-主题：从 Prompt-First 到 Loop-First 的 AI 系统演进
+文章：/path/to/article.md
+输出类型：prompt
 平台：X article
-封面用途：X文章封面
-配图用途：文章配图
-配图数量：根据文章结构自动推断，最低 5
-语言：中英混排
-文章结构：问题、旧范式、新范式、反馈循环、架构组件、团队落地
-目标读者：AI builders 和产品团队
+资产范围：封面 + 正文配图
 ```
 
-当你要为本地 AI、Ollama、离线模型、隐私/硬件/量化教程准备一套黑绿终端视觉时，使用：
+通用字段调用：
 
 ```text
-$3d-eye-kit
-主题：14 步搭建自己的本地 AI
-封面用途：X文章封面
-配图用途：教程配图
-配图数量：5
-语言：中英混排
-核心钩子：No cloud, no filters, no one watching
-内容结构：全流程、Local vs Cloud、硬件匹配、量化选择、常见错误
-连续角色：蓝白手绘 3D Eye 吉祥物贯穿全套，按内容切换挥手、奔跑、指引、技能卡、点赞等姿态
+$article-visual-planner
+文章：/path/to/article.md
+视觉风格：cover-sketch-knowledge-poster
+输出类型：brief
+平台：公众号文章
+资产范围：封面 + 正文配图
+```
+
+链式调用模型：
+
+```text
+$article-visual-planner
+  -> 读取文章
+  -> 规划封面和正文配图
+  -> 为每个资产生成 brief
+  -> 调用指定 $cover-* 风格生成 prompt
 ```
 
 推荐工作流：
@@ -245,10 +185,7 @@ $3d-eye-kit
 2. 根据返回模板确认标题、副标题、画幅比例、语言、用途、情绪和禁用元素。
 3. 需要可复用提示词文本时，再切到 `--out-type prompt` 或 `--out-type all`。
 4. 希望跳过模板、马上生成最终封面时，在 `$cover-*` 后面直接接自然语言说明。
-5. 需要正文教程配图时，直接调用 `$illustration-*`。
-6. 需要手绘知识图谱封面和插图配套时，调用 `$sketch-knowledge-kit`。
-7. 需要浅色产品封面和多张产品插图配套时，调用 `$light-product-kit`。
-8. 需要 3D Eye 风封面和多张教程配图配套时，调用 `$3d-eye-kit`。
+5. 需要整篇文章的封面和配图方案时，调用 `$article-visual-planner`，并指定一个 `cover-*` 风格。
 
 ## 安装
 
@@ -311,16 +248,16 @@ cd cover-prompt-skills
 
 本地开发安装会把仓库里的技能目录软链到目标目录，适合一边修改仓库内容、一边在 agent 中测试。
 
-`cover-tips` 是导航技能，随完整包安装，不可单独安装 —— 它依赖具体的封面风格技能。
+`cover-tips` 和 `article-visual-planner` 是导航/编排技能，随完整包安装，不可单独安装 —— 它们依赖具体的 `cover-*` 视觉风格技能。
 
 ## 仓库原则
 
 - 每个插件保持精简：一个 `SKILL.md` 置于 `skills/` 下，Claude Code 和 Codex 各一个 manifest。
 - 默认不包含特定平台的 agent 元数据。
 - 保持提示词通用，除非用户明确要求特定平台的变体。
-- 使用 `cover-` 作为封面/海报技能的命名前缀。
-- 使用 `illustration-` 作为插图技能的命名前缀。
-- 使用中性的 `*-kit` 命名多资产编排技能，避免把非封面能力塞进 `cover-`。
+- 使用 `cover-` 作为视觉风格技能的命名前缀，保留既有封面技能名称。
+- 使用 `article-visual-planner` 作为文章封面和配图的唯一编排入口。
+- 不再新增独立 `illustration-*` 或 per-style `*-kit` / `kit-*` 编排技能；正文配图通过 planner 链式调用指定 `cover-*` 风格生成。
 
 ## 许可证
 

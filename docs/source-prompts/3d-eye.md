@@ -5,8 +5,7 @@ This source record tracks the original case images used to define the `3d-eye` v
 Runtime behavior is defined by:
 
 - `cover-3d-eye`
-- `illustration-3d-eye`
-- `3d-eye-kit`
+- `article-visual-planner` when one article needs coordinated cover and inline visual planning
 
 ## Case Images
 
@@ -33,6 +32,6 @@ Runtime behavior is defined by:
 - Recurring 3D Eye mascot system: friendly hand-drawn white eyeball body, rich blue iris, black sketch outlines, thick expressive eyebrows, black rubber arms/legs, white cartoon gloves, and small black shoes.
 - Mascot poses: confident center pose, waving welcome, running action, pointing guidance, holding a blue skill card, thumbs-up, open palm, and surprised reaction.
 - Color system for the mascot: white `#FFFFFF`, blue `#1E88E5`, black `#111111`, gray `#7B7B7B`, light blue `#D6ECFF`; keep the mascot blue-white-black even when the surrounding 3D Eye poster uses black and neon green.
-- Cover images carry the thesis and emotional hook; illustrations explain one concrete step, comparison, or tradeoff.
+- Cover images carry the thesis and emotional hook; inline visuals explain one concrete step, comparison, or tradeoff.
 
 Do not copy the original text verbatim by default. Use the images as style and structure references, then adapt the copy, labels, and diagram logic to the user's topic.

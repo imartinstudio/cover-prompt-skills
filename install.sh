@@ -20,15 +20,8 @@ ALL_SKILLS=(
   cover-mckinsey-briefing-style
   cover-tea-oriental
   cover-tips
+  article-visual-planner
   cover-trendy-color-poster
-  illustration-light-product
-  illustration-cream-orange-diagram
-  illustration-3d-eye
-  illustration-sketch-ui
-  kit-cream-orange-knowledge
-  light-product-kit
-  3d-eye-kit
-  sketch-knowledge-kit
 )
 
 has_local_project() {
@@ -81,9 +74,9 @@ main() {
   local requested=("$@")
   if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
     requested=("${ALL_SKILLS[@]}")
-  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "sketch-knowledge-kit" || "${requested[0]}" == "light-product-kit" || "${requested[0]}" == "3d-eye-kit" || "${requested[0]}" == "kit-cream-orange-knowledge" ) ]]; then
+  elif [[ ${#requested[@]} -eq 1 && ( "${requested[0]}" == "cover-tips" || "${requested[0]}" == "article-visual-planner" ) ]]; then
     echo "${requested[0]} cannot be installed alone." >&2
-    echo "It is a navigator/kit skill and depends on concrete visual style skills." >&2
+    echo "It is a navigator/planner skill and depends on concrete cover-* visual style skills." >&2
     echo "Install all skills instead: ./install.sh" >&2
     exit 1
   fi
