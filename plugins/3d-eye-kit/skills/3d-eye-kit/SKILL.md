@@ -48,7 +48,7 @@ Extract or infer:
 - Topic: required.
 - Cover use case: X article cover, WeChat cover, blog header, tutorial cover, YouTube thumbnail.
 - Illustration use case: tutorial inline images, product documentation, X article images, carousel slides, knowledge cards.
-- Illustration count: default `5` when omitted for local AI tutorial packages. Use `3` only for short articles, and use the exact count if the user provides one.
+- Illustration count: when omitted, infer from the article/content structure and use at least `5` for local AI tutorial packages. Use the exact count if the user provides one.
 - Language: Chinese, English, or mixed Chinese-English.
 - Core hook: uncensored, local ownership, no cloud, offline, privacy, hardware match, quantization, API serving, customization, mistake avoidance.
 - Content structure: tutorial outline, setup steps, comparison sections, hardware/quantization/privacy chapters, or feature list; infer a compact structure when omitted.

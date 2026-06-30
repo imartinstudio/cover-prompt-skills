@@ -47,7 +47,7 @@ Extract or infer:
 - Topic: required.
 - Cover use case: X article cover, WeChat cover, tutorial cover, blog header, knowledge map.
 - Illustration use case: tutorial inline images, product documentation, function walkthrough, X article images.
-- Illustration count: default `3` when omitted and no source article images exist. When the user provides a source article that already contains images (detected via `![](...)` in Markdown or `<img>` tags), count the content images (exclude the cover/first image) and use that count as the minimum — do not go below it. If the article's image count is higher than 3, match it. The article's existing image distribution reflects the author's editorial judgment about which sections have enough information density to warrant a visual; that judgment is more authoritative than the mechanical default.
+- Illustration count: when omitted, infer from the article/content structure and use at least `5`. When the user provides a source article that already contains images (detected via `![](...)` in Markdown or `<img>` tags), count the content images (exclude the cover/first image) and use that count as an additional floor — do not go below it. If the article's image count is higher than 5, match it. The article's existing image distribution reflects the author's editorial judgment about which sections have enough information density to warrant a visual; that judgment is more authoritative than a mechanical minimum.
 - Language: Chinese, English, or mixed Chinese-English.
 - Ratios: infer separately for cover and illustrations if the user provides only platforms.
 - Content structure: article outline, tutorial steps, feature list, product flow, or knowledge framework; infer a compact structure when omitted.
@@ -59,8 +59,8 @@ When the user provides a path to a source article:
 
 1. Read the article and count all image references (`![...](...)`, `<img ...>`, or equivalent Markdown/HTML patterns).
 2. Identify the first image — treat it as the existing cover. The remaining images are content illustrations.
-3. Count the content illustrations (`N_article`). Compare with the default (`N_default = 3`).
-4. Use `max(N_article, N_default)` as the illustration count for this kit.
+3. Count the content illustrations (`N_article`). Compare with the inferred structure count and the minimum (`N_min = 5`).
+4. Use `max(N_article, N_structure, N_min)` as the illustration count for this kit. If no source article images exist, use `max(N_structure, N_min)`.
 5. Do not mechanically skip sections that have images or inflate sections that have none. Instead: for each section that has a source image, produce an illustration brief anchored to that image's visual reference and the section's core argument. For key sections that lack a source image but carry high information density, consider adding an illustration brief beyond the source count — but justify it explicitly.
 6. When the source article has multiple images in one section (e.g. an architecture chapter with separate diagrams for integration, layered stack, and CI/CD), keep them as separate illustrations. The author split them for a reason — do not collapse them.
 
