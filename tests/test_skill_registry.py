@@ -165,6 +165,46 @@ class SkillRegistryTests(unittest.TestCase):
         self.assertEqual(set(payload["base_skills"]), EXPECTED_BASE_SKILLS)
         self.assertEqual(set(payload["with_docs_skills"]), EXPECTED_WITH_DOCS)
 
+    def test_anthropic_source_prompt_preserves_original_format(self):
+        source_path = ROOT / "docs" / "source-prompts" / "cover-anthropic-research.md"
+        source = source_path.read_text(encoding="utf-8")
+
+        self.assertTrue(
+            source.startswith(
+                "请根据以下输入，生成一张「Anthropic Research 风格」高级极简视觉封面。\n\n"
+                "【输入信息】\n\n主题：\n{{填写主题}}\n\n主标题：\n{{填写标题}}"
+            )
+        )
+        self.assertIn("右下角Logo；", source)
+        self.assertIn("数量：\n\n2-4个。", source)
+        self.assertIn(
+            "类似：\n\nSource Han Serif\nGeorgia\nNew York Times Magazine 标题风格。",
+            source,
+        )
+        self.assertIn(
+            "辅助文字：\n\n使用简洁无衬线字体。\n\n类似：\n\nInter。",
+            source,
+        )
+        self.assertNotIn("右下角 Logo", source)
+        self.assertNotIn("来源：", source)
+        self.assertNotIn("Source:", source)
+
+    def test_anthropic_skill_stays_with_source_ratio_and_no_provenance_copy(self):
+        skill_path = (
+            ROOT
+            / "plugins"
+            / "cover-anthropic-research"
+            / "skills"
+            / "cover-anthropic-research"
+            / "SKILL.md"
+        )
+        skill = skill_path.read_text(encoding="utf-8")
+
+        self.assertIn("`3:4`", skill)
+        self.assertNotIn("| Knowledge card | `1:1`", skill)
+        self.assertNotIn("For provenance and the paraphrased source rules", skill)
+        self.assertIn("original prompt is preserved", skill)
+
     def test_manifest_and_frontmatter_names_match_plugin_directory(self):
         payload = json.loads(self.run_registry("discover").stdout)
 

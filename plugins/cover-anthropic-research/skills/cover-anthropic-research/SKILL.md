@@ -47,7 +47,7 @@ When the user specifies a ratio, treat it as hard. Otherwise use:
 | X / LinkedIn header or article header | `5:2` | `2500x1000`, wide editorial cover |
 | X post, tutorial, product introduction | `16:9` | `1920x1080`, landscape cover |
 | Report title page or poster | `4:5` | `1600x2000`, vertical editorial page |
-| Knowledge card | `1:1` | `1600x1600`, square cover |
+| Article or knowledge portrait | `3:4` | `1500x2000`, vertical editorial cover |
 | Short-video cover | `9:16` | `1080x1920`, vertical cover |
 
 State the ratio and canvas size in the first line of a prompt. Do not silently crop a requested ratio or make a wide cover square.
@@ -79,7 +79,7 @@ Use a calm editorial layout with generous negative space. On wide covers, place 
 
 ### Typography
 
-Use an elegant serif for the main title: Source Han Serif, Noto Serif CJK, Georgia, Times-like editorial serif, or a comparable bookish face with visible thick-thin contrast. Use a clean sans serif such as Inter for a short subtitle or supporting line. Use JetBrains Mono or another monospace face only for a small technical token when it has semantic value.
+Use an elegant serif for the main title: Source Han Serif or Georgia, with a New York Times Magazine-like editorial character and visible thick-thin contrast. Use a clean sans serif such as Inter for a short subtitle or supporting line. Use JetBrains Mono or another monospace face only for a small technical token when it has semantic value.
 
 ### Abstract visual metaphor
 
@@ -90,7 +90,7 @@ Translate the topic into a conceptual structure instead of drawing the literal o
 1. Lock the requested ratio and canvas size.
 2. Select one fixed background scheme that supports the topic.
 3. Reduce the topic to one thesis and one abstract metaphor.
-4. Compose one title block, one visual metaphor, and 2–4 small irregular shapes.
+4. Compose one title block, one visual metaphor, and 2-4 small irregular shapes.
 5. Specify serif-led typography and the exact text language.
 6. Add the negative constraints below, then output one prompt only.
 
@@ -102,7 +102,7 @@ Create one premium research-editorial cover for “{topic}”. Main title: “{t
 
 Visual direction: quiet, rational, restrained, intelligent, archival, and high-end; like an AI research report, design research manual, or thoughtful laboratory publication. Use {palette_choice} as a mostly flat solid-color background with generous negative space and strong visual stability.
 
-Composition: one readable main title as the visual center, {title_position}; one abstract conceptual line-art metaphor for {abstract_metaphor}; 2–4 irregular organic or paper-like accent shapes occupying no more than 5% of the canvas. Keep the visual path simple and the empty space intentional.
+Composition: one readable main title as the visual center, {title_position}; one abstract conceptual line-art metaphor for {abstract_metaphor}; 2-4 irregular organic or paper-like accent shapes occupying no more than 5% of the canvas. Keep the visual path simple and the empty space intentional.
 
 Typography: {title_font}, with pronounced serif contrast and a bookish editorial character; supporting text in a clean sans serif; monospace only when semantically necessary. Render the supplied title accurately in {language}; do not invent extra copy.
 
@@ -122,4 +122,4 @@ Avoid marketing-poster energy, launch-event graphics, cyberpunk, neon, blue glow
 | Treating “minimal” as an empty blank canvas | Keep one meaningful line-art metaphor and a small, deliberate accent system. |
 | Reproducing an official logo or implying affiliation | Use the style name only as a visual reference; create an original composition. |
 
-For provenance and the paraphrased source rules, see [docs/source-prompts/cover-anthropic-research.md](../../../../docs/source-prompts/cover-anthropic-research.md).
+The original prompt is preserved in [docs/source-prompts/cover-anthropic-research.md](../../../../docs/source-prompts/cover-anthropic-research.md).
