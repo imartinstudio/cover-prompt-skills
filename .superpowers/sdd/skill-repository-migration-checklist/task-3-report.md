@@ -1,7 +1,7 @@
 # Task 3 报告：库存索引、生成和一致性校验
 
 - 状态：DONE
-- commit：待本次提交完成后回填最终 SHA
+- commit：本报告与 Task 3 实现同一提交；最终 SHA 以 `git rev-parse HEAD` 为准
 
 ## 实现摘要
 
