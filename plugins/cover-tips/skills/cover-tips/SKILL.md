@@ -55,13 +55,9 @@ visual rules.
 After the style is confirmed, ask the user to choose one of these targets:
 
 - **单张封面** — route to the selected style's `cover-X` ID.
-- **封面 + 正文配图（文章视觉包）** — show and route only to these published
-  pairs:
-  - `cover-3d-eye` → `cover-3d-eye-with-docs`
-  - `cover-cream-orange-knowledge-poster` →
-    `cover-cream-orange-knowledge-poster-with-docs`
-  - `cover-light-product` → `cover-light-product-with-docs`
-  - `cover-sketch-knowledge-poster` → `cover-sketch-knowledge-poster-with-docs`
+- **封面 + 正文配图（文章视觉包）** — 只使用上方 generated route table 中
+  `Article-package route` 非 `—` 的目标；表中这四个非空单元格就是唯一的真实
+  `with-docs` 约束，不要在本段复制具体 route ID。
 
 If the confirmed style has no article-package route, explain that the current
 inventory supports that style for a single cover only, then ask the user to

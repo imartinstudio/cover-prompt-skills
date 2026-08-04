@@ -413,6 +413,41 @@ class SkillRegistryTests(unittest.TestCase):
 
             self.assertIn("CoverTips generated route table drifted", result.stderr)
 
+    def test_cover_tips_stage_two_route_instructions_reject_fake_with_docs_route(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            self.copy_style_fixture(temporary_root)
+            self.run_registry("generate", "--root", str(temporary_root))
+
+            route_path = (
+                temporary_root
+                / "plugins"
+                / "cover-tips"
+                / "skills"
+                / "cover-tips"
+                / "SKILL.md"
+            )
+            route_text = route_path.read_text(encoding="utf-8")
+            stage_two_start = route_text.index("## Stage 2: Confirm the asset scope")
+            stage_two = route_text[stage_two_start:]
+            self.assertIn("`cover-X`", stage_two)
+            tampered_stage_two = stage_two.replace(
+                "`cover-X`", "`cover-fake-with-docs`", 1
+            )
+            route_path.write_text(
+                route_text[:stage_two_start] + tampered_stage_two,
+                encoding="utf-8",
+            )
+
+            result = self.run_registry_expect_failure(
+                "check", "--root", str(temporary_root)
+            )
+
+            self.assertIn(
+                "CoverTips runtime route instructions contain concrete route IDs",
+                result.stderr,
+            )
+
     def test_style_spec_semantic_drift_fails_when_skill_projection_is_unchanged(self):
         mutations = (
             (

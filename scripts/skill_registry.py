@@ -44,6 +44,10 @@ CODEX_MARKETPLACE_PATH = Path(".agents/plugins/marketplace.json")
 COVER_TIPS_SKILL_PATH = Path("plugins/cover-tips/skills/cover-tips/SKILL.md")
 COVER_TIPS_ROUTES_BEGIN = "<!-- BEGIN GENERATED COVER-TIPS ROUTES -->"
 COVER_TIPS_ROUTES_END = "<!-- END GENERATED COVER-TIPS ROUTES -->"
+COVER_TIPS_INLINE_ROUTE_PATTERN = re.compile(
+    r"`(?P<route>cover-[a-z0-9]+(?:-[a-z0-9]+)*)`"
+)
+COVER_TIPS_SELECTOR_NAME = "cover-tips"
 STYLE_PROJECTION_BEGIN = "<!-- BEGIN GENERATED STYLE SPEC: {base_skill} -->"
 STYLE_PROJECTION_END = "<!-- END GENERATED STYLE SPEC: {base_skill} -->"
 STYLE_PROJECTION_PATTERN = re.compile(
@@ -330,9 +334,27 @@ def validate_cover_tips_routes(root: Path, registry: dict[str, Any]) -> list[str
     except (OSError, RegistryError) as exc:
         return [str(exc)]
     expected = render_cover_tips_routes(registry)
+    errors: list[str] = []
     if actual != expected:
-        return [f"CoverTips generated route table drifted: {relative_path(path, root)}"]
-    return []
+        errors.append(f"CoverTips generated route table drifted: {relative_path(path, root)}")
+
+    generated_start = text.index(COVER_TIPS_ROUTES_BEGIN)
+    generated_end = text.index(COVER_TIPS_ROUTES_END) + len(COVER_TIPS_ROUTES_END)
+    runtime_text = text[:generated_start] + text[generated_end:]
+    runtime_route_ids = sorted(
+        {
+            match.group("route")
+            for match in COVER_TIPS_INLINE_ROUTE_PATTERN.finditer(runtime_text)
+            if match.group("route") != COVER_TIPS_SELECTOR_NAME
+        }
+    )
+    if runtime_route_ids:
+        errors.append(
+            "CoverTips runtime route instructions contain concrete route IDs "
+            "outside generated table: "
+            + ", ".join(runtime_route_ids)
+        )
+    return errors
 
 
 def build_style_index(root: Path, registry: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:

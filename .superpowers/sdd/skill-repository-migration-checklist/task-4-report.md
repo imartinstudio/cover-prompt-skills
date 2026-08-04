@@ -6,7 +6,18 @@
 
 Task 4 实现提交：`5effe19e58ef5fd51d58718c7657bc72c752be76`。
 
-本报告保留首轮 Task 4 和前两轮 NEEDS_FIX 的历史证据；当前最终审查修复回合基于 HEAD `4c41aad`，最终交付 commit 的真实 SHA 以本次交付消息为准。
+本报告保留首轮 Task 4 和前两轮 NEEDS_FIX 的历史证据；前一轮最终审查修复回合基于 HEAD `4c41aad`。当前小修复回合基于 HEAD `4900a60`，最终交付 commit 的真实 SHA 以本次交付消息为准。
+
+## 本轮 CoverTips 路由校验小修复
+
+本轮已完成：
+
+- 删除 Stage 2 中重复的四条具体文章包路由，改为只使用上方 generated route table 中 `Article-package route` 非 `—` 的四个真实 `with-docs` 目标。
+- 扩展 `validate_cover_tips_routes` 对 generated 区块之外的 Markdown 行内具体 `cover-*` route token 做校验；隔离测试篡改 Stage 2 为 `cover-fake-with-docs` 时，`registry check` 会失败。
+- TDD 回归验证：先观察 Stage 2 篡改测试在旧实现下失败，再完成实现；全量 unittest 结果为 `Ran 21 tests ... OK`。
+- `python3 scripts/skill_registry.py generate`、`check` 和 `git diff --check` 均通过；JSON `41 ok`、Shell `5 ok`，本地 Markdown 结构检查 `47 files` 通过。
+
+仓库 Markdown lint 子命令因当前环境无法解析 npm registry（`ENOTFOUND`）未能运行；未联网重试。未修改其他技能、`CONTEXT.md` 或 ADR。
 
 ## 本次 NEEDS_FIX 修复回合
 
