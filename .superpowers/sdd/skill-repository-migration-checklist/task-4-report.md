@@ -6,7 +6,7 @@
 
 Task 4 实现提交：`5effe19e58ef5fd51d58718c7657bc72c752be76`。
 
-本报告保留首轮 Task 4 的历史证据，并增加基于 HEAD `a2d0bc5` 的 NEEDS_FIX 修复回合。本报告记录当前回合；修复回合最终 commit 的 SHA 为：`97e47e07e6f0f76b0741e3b8702737112a0f6e2a`。
+本报告保留首轮 Task 4 的历史证据，并增加基于 HEAD `a2d0bc5` 的 NEEDS_FIX 修复回合。本报告记录当前回合；修复回合最终 commit 的 SHA 为：`961cb7a711da034b424538c4550985a981de0cd1`。
 
 ## 本次 NEEDS_FIX 修复回合
 
