@@ -1,15 +1,15 @@
 {
   "name": "cover-tips",
   "version": "1.0.1",
-  "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill.",
+  "description": "Two-stage selector that confirms a cover style and asset scope before routing to an installed cover skill.",
   "author": { "name": "imartinstudio" },
   "license": "MIT",
   "keywords": ["cover", "navigator", "router", "tips", "template"],
   "skills": "./skills/",
   "interface": {
     "displayName": "Cover Tips",
-    "shortDescription": "Route your cover idea to the right style-specific cover skill",
-    "longDescription": "Convert a rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for one of twelve cover styles: black-white minimal, trendy color, giant perspective, sketch knowledge poster, 3D Eye, midnight studio, pixel avatar, Budapest, editorial collage, tea oriental, light product, or McKinsey briefing style.",
+    "shortDescription": "Confirm style and asset scope, then route to the matching cover skill",
+    "longDescription": "Two-stage CoverTips selector: first confirm a published cover style, then choose a single cover or an article cover-plus-inline package. Single covers route to the matching cover-X skill; article packages route only to the four with-docs siblings, including cover-cream-orange-knowledge-poster-with-docs. When style is missing, propose 1-3 candidates and wait for confirmation.",
     "developerName": "imartinstudio",
     "category": "Design",
     "capabilities": ["Read", "Write"],

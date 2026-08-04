@@ -6,7 +6,18 @@
 
 Task 4 实现提交：`5effe19e58ef5fd51d58718c7657bc72c752be76`。
 
-本报告只记录该提交中的文档、marketplace 描述源、派生产物和迁移清单变更。报告文件在后续收尾提交中单独提交；最终交付消息会给出该报告提交的真实 SHA。
+本报告保留首轮 Task 4 的历史证据，并增加基于 HEAD `a2d0bc5` 的 NEEDS_FIX 修复回合。修复回合最终 commit 的 SHA 以本次交付消息为准。
+
+## 本次 NEEDS_FIX 修复回合
+
+本回合仍为 **DONE_WITH_CONCERNS**。已修复：
+
+- 将 `plugins/cover-tips/skills/cover-tips/SKILL.md` 重写为纯选择器：无风格时给出 1–3 个候选并等待确认；确认风格后再确认单张封面或封面 + 正文配图；单张路由到 `cover-X`，文章包只展示并路由到四个真实 `with-docs`，其中包含 `cover-cream-orange-knowledge-poster-with-docs`。
+- 删除 CoverTips 运行时中的具体视觉规则、风格默认值、通用 prompt 生成和 Pixel avatar 入口；补充 Claude/Codex 自动调用边界及其他 Agent 的下一步调用模板。
+- 同步两个 CoverTips manifest 描述；运行生成器更新 `.claude-plugin/marketplace.json` 和 `generated/skill-registry.json`。Codex marketplace 保持未修改。
+- 将命名契约改为默认 1 cover + 3 inline，显式 inline 数量为 1–5；迁移清单改为只勾静态/安装证据，保留真实 CoverTips 路由、自动执行和人工验收未勾选。
+
+本回合没有修改四个 with-docs `SKILL.md`、基础风格技能、registry 实现、安装器、测试、`CONTEXT.md` 或 ADR。
 
 ## 完成内容
 
@@ -122,6 +133,61 @@ git diff --check
 
 结果：退出码 `0`。实现提交前已通过；报告提交前会再次执行。
 
+## 本修复回合验证记录
+
+### 针对性静态边界检查
+
+命令检查了 CoverTips 的 1–3 候选契约、四个文章路由 ID、两个 manifest 的旧入口残留、具体风格规则标题/条目，以及迁移清单中已勾选的路由 smoke 项。
+
+结果：`targeted CoverTips static check passed`。
+
+### 生成器与 registry
+
+```bash
+python3 scripts/skill_registry.py generate
+python3 scripts/skill_registry.py check
+```
+
+`generate` 已写入 `generated/skill-registry.json`、`.claude-plugin/marketplace.json` 和其他可写生成物，随后在写 `.agents/plugins/marketplace.json` 时因仓库只读保护返回 `PermissionError`（退出码 1）。Codex marketplace 未被修改；`check` 结果为 `registry check passed: 17 plugins`（退出码 0）。
+
+### Frontmatter、Markdown、JSON、Shell
+
+```bash
+python3 -c 'from pathlib import Path; paths=sorted(Path("plugins").glob("*/skills/*/SKILL.md")); assert len(paths)==17; assert all((lambda text: text.startswith("---\n") and "\n---\n" in text and f"name: {p.parent.name}\n" in text and "description:" in text)(p.read_text(encoding="utf-8")) for p in paths); print(f"frontmatter-ok {len(paths)} skills")'
+find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' -print0 | xargs -0 npx --offline --yes markdownlint-cli2
+python3 -c 'from pathlib import Path; paths=sorted(Path(".").rglob("*.md")); assert paths; assert all(sum(1 for line in p.read_text(encoding="utf-8").splitlines() if line.strip().startswith(chr(96)*3)) % 2 == 0 for p in paths); assert all(all(not line.lstrip().startswith("#") or line.lstrip("#").strip() for line in p.read_text(encoding="utf-8").splitlines()) for p in paths); print(f"markdown-structure-ok {len(paths)} files; fenced blocks balanced; headings non-empty")'
+find . -name '*.json' -not -path './.git/*' -not -path './node_modules/*' -print0 | xargs -0 -n1 python3 -m json.tool >/dev/null
+find . -name '*.sh' -not -path './.git/*' -not -path './node_modules/*' -print0 | xargs -0 -n1 bash -n
+```
+
+结果：`frontmatter-ok 17 skills`、`markdown-structure-ok 47 files; fenced blocks balanced; headings non-empty`、`json-ok 41 files`、`shell-ok 5 files`。离线 markdownlint 因本机没有缓存返回 `ENOTCACHED`，未联网重试。
+
+### unittest
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p "test_*.py" -v
+```
+
+结果：`Ran 17 tests ... OK`。
+
+### 离线临时安装 smoke
+
+```bash
+COVER_SKILLS_TARGET="$tmpdir/all" COVER_SKILLS_BACKUP_DIR="$tmpdir/all-backup" bash scripts/install.sh
+COVER_SKILLS_TARGET="$tmpdir/single" COVER_SKILLS_BACKUP_DIR="$tmpdir/single-backup" bash scripts/install.sh cover-3d-eye-with-docs
+COVER_SKILLS_TARGET="$tmpdir/single" COVER_SKILLS_BACKUP_DIR="$tmpdir/single-backup" bash scripts/install.sh cover-tips
+```
+
+结果：`install-smoke-ok all=17 single=cover-3d-eye-with-docs cover-tips`。临时目标为 `/private/tmp/cover-prompt-task4-repair.CN2ZGs`，未联网。
+
+### 本回合 Diff
+
+```bash
+git diff --check
+```
+
+结果：退出码 `0`。
+
 ## 残留引用分类
 
 ### 当前发布库存：已清理
@@ -141,13 +207,13 @@ README、usage 和 source-prompts 说明中的两个旧名称只用于迁移指�
 
 ### 受保护运行时文件中的非入口残留
 
-- `plugins/cover-tips/skills/cover-tips/SKILL.md:168-172` 仍有未被当前 Supported Styles 使用的 `Pixel avatar` style-default 段落。它不形成 `cover-pixel-avatar` 安装入口；由于用户明确禁止修改基础提示词，本 Task 4 未改动它。
+- CoverTips 当前选择器已不再包含 `Pixel avatar` 规则或入口。`generated/skill-registry.json` 的 `excluded_skills` 仍保留 `cover-pixel-avatar`，这是弃用入口审计字段，不是当前发布或 CoverTips 路由。
 - 四个受保护的 with-docs `SKILL.md` 仍有显式的“不路由到”旧 planner、kit 或 illustration 名称。这些是负向运行时边界，不是当前发布入口；由于用户明确禁止修改四个技能正文，本 Task 4 未改动它们。
 - source prompt 中的 `Illustration` 等词是历史参考图角色描述，不是独立技能名；source-prompt README 已明确标成历史档案。
 
 ## 未解决疑问
 
 1. 四个 with-docs 尚未进行发布前人工抽样验收。本次按要求不联网、不实际生图，因此没有真实视觉结果可做风格、章节绑定、重复图片规避和提示词质量验收；迁移清单对应项保持未勾选。
-2. CoverTips 当前受保护基础提示词在未指定风格时要求用户从支持列表中选择，尚未验证它已经实现“给出 1–3 个推荐并等待确认”的精确行为。文档按已确认产品契约记录；若要收紧运行时行为，需要后续授权修改基础提示词。
+2. 本回合已把 CoverTips 选择器正文收紧为“给出 1–3 个候选并等待确认”的契约，但未执行真实 Agent 调用，因此尚未验证候选质量、确认顺序、目标 skill 自动执行或其他 Agent 模板的实际行为。
 3. 独立 `npx --offline` markdownlint 探测因 npm 缓存缺失返回 `ENOTCACHED`；提交钩子的实际 lint 输出全通过，另有本地 Markdown 结构检查通过。若发布门要求独立 offline markdownlint 命令，需要提供本地缓存或 vendored 工具。
-4. 未执行网络安装、`npx skills add`、curl 远程安装、provider 调用或实际生图；安装验证仅覆盖本地临时目标的全量和单个 symlink smoke。
+4. 未执行网络安装、`npx skills add`、curl 远程安装、provider 调用或实际生图；安装验证仅覆盖本地临时目标的全量和单个 symlink smoke。Codex marketplace 的生成写入仍受仓库只读保护，但其现有内容未被修改且 registry check 通过。

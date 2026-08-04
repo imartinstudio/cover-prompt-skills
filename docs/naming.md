@@ -75,7 +75,7 @@ Use the following terms consistently:
 - **Article visual skill**: an independent `cover-X-with-docs` skill for an article cover and section-bound inline visuals.
 - **Visual family**: the shared identity between a base skill and its optional sibling; the two remain separate install and runtime units.
 - **Article source**: pasted content, a Markdown file, or a plain-text file accepted by a `with-docs` skill.
-- **Article visual package**: one `cover` plus zero or more `article-inline` assets organized around an article.
+- **Article visual package**: 1 `cover` plus 3 `article-inline` assets by default; when an inline count is explicitly supplied, it must be 1–5.
 - **Asset scope**: the user's confirmed choice between a single cover and a cover plus inline visuals.
 - **Section binding**: the requirement that every inline asset names its source section or paragraph, insertion position, and reading problem.
 - **Brief**: an executable plan for an asset, including its purpose, placement or use case, visual task, aspect ratio, and prompt constraints.

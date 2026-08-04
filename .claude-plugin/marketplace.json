@@ -82,7 +82,7 @@
     {
       "name": "cover-tips",
       "source": "./plugins/cover-tips",
-      "description": "Two-stage CoverTips selector: confirm a visual style, then choose a single cover or an article cover-plus-inline package. Routes article packages only to the four published with-docs siblings."
+      "description": "Two-stage CoverTips selector: first confirm a published cover style, then choose a single cover or an article cover-plus-inline package. Single covers route to the matching cover-X skill; article packages route only to the four published with-docs siblings, including cover-cream-orange-knowledge-poster-with-docs. When style is missing, propose 1-3 candidates and wait for confirmation."
     },
     {
       "name": "cover-trendy-color-poster",
