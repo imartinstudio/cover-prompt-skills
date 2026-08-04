@@ -5,6 +5,7 @@
 ALL_SKILLS=(
   "cover-3d-eye"
   "cover-3d-eye-with-docs"
+  "cover-anthropic-research"
   "cover-black-white-minimal"
   "cover-budapest-poster"
   "cover-cream-orange-knowledge-poster"
@@ -24,6 +25,7 @@ ALL_SKILLS=(
 
 BASE_SKILLS=(
   "cover-3d-eye"
+  "cover-anthropic-research"
   "cover-black-white-minimal"
   "cover-budapest-poster"
   "cover-cream-orange-knowledge-poster"

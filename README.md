@@ -24,7 +24,7 @@
 
 ### 独立基础封面技能
 
-每个 `cover-X` 都是独立安装单元，可以直接接收单张封面需求，不要求先安装或调用其他技能。当前基础库存为 12 个：
+每个 `cover-X` 都是独立安装单元，可以直接接收单张封面需求，不要求先安装或调用其他技能。当前基础库存为 13 个：
 
 | 技能 | 视觉风格 | 适用场景 |
 |---|---|---|
@@ -39,6 +39,7 @@
 | `cover-3d-eye` | 黑网格、霓虹绿终端、隐私/离线/本地掌控 | 本地 AI 教程、Ollama、隐私优先海报 |
 | `cover-midnight-studio` | 深夜 AI 创作者工作室、电影感工作站 | 独立开发、AI 工作流、科技头图 |
 | `cover-light-product` | 浅色产品、奶油底、暖冷双强调色 | AI 产品、SaaS、Agent workspace、发布视觉 |
+| `cover-anthropic-research` | 研究编辑极简、纯色留白、衬线标题、抽象线稿 | AI 研究报告、工具教程、知识封面、产品概念 |
 | `cover-mckinsey-briefing-style` | 咨询简报、战略框架、留白和严格网格 | 战略报告、董事会简报、PPT 封面 |
 
 基础技能支持 `template | prompt | all`，省略 `--out-type` 时默认输出 `template`。需要直接生成图片时，必须明确提出生图请求；普通调用先返回可审阅的模板或提示词。
@@ -134,7 +135,7 @@ $cover-3d-eye-with-docs
 
 全量安装和单个安装都使用同一份生成库存：
 
-- 全量安装包含 12 个基础 `cover-X`、四个 `cover-X-with-docs` 和 `cover-tips`，共 17 个独立技能。
+- 全量安装包含 13 个基础 `cover-X`、四个 `cover-X-with-docs` 和 `cover-tips`，共 18 个独立技能。
 - 单个技能可以独立安装；安装基础版不会隐式安装对应的 `with-docs`，反之亦然。
 - `cover-tips` 也是可单独安装的技能，只是没有具体风格技能时不能完成目标路由。
 
@@ -156,7 +157,7 @@ Claude CLI：
 /plugin install cover-3d-eye-with-docs@cover-prompt-skills
 ```
 
-marketplace 的插件彼此独立。需要全量安装时，可使用下面的安装器或在 `npx skills add` 的交互选择中选中全部 17 个技能；需要单个安装时选择目标技能即可。
+marketplace 的插件彼此独立。需要全量安装时，可使用下面的安装器或在 `npx skills add` 的交互选择中选中全部 18 个技能；需要单个安装时选择目标技能即可。
 
 更新已安装插件后，需要刷新/重新启用插件，或重启对应 agent，让它加载最新版本而不是旧缓存。
 
@@ -193,7 +194,7 @@ curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/m
 
 ```bash
 cd cover-prompt-skills
-./install.sh                              # 全量安装 17 个技能
+./install.sh                              # 全量安装 18 个技能
 ./install.sh cover-3d-eye-with-docs       # 单个安装
 ```
 

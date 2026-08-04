@@ -24,7 +24,7 @@ Compatible with Claude Code, Codex, Gemini CLI, Cursor, and any agent that suppo
 
 ### Independent single-cover skills
 
-Every `cover-X` is an independent install unit. It accepts a single-cover request directly and does not require another skill to be installed or called first. The current base inventory has 12 skills:
+Every `cover-X` is an independent install unit. It accepts a single-cover request directly and does not require another skill to be installed or called first. The current base inventory has 13 skills:
 
 | Skill | Visual style | Best for |
 |---|---|---|
@@ -39,6 +39,7 @@ Every `cover-X` is an independent install unit. It accepts a single-cover reques
 | `cover-3d-eye` | Black grid, neon terminal green, privacy/offline/local ownership | Local AI tutorials, Ollama, privacy-first posters |
 | `cover-midnight-studio` | Cinematic midnight AI creator workspace | Indie hackers, AI workflows, technology headers |
 | `cover-light-product` | Light product aesthetic, cream base, warm-cool accents | AI products, SaaS, agent workspaces, launch visuals |
+| `cover-anthropic-research` | Research-editorial minimalism, solid-color space, serif title, abstract linework | AI research reports, tool tutorials, knowledge covers, product concepts |
 | `cover-mckinsey-briefing-style` | Consulting briefing, strategy frameworks, strict grids | Strategy reports, boardroom briefings, PPT covers |
 
 Base skills support `template | prompt | all`; when `--out-type` is omitted, the default is `template`. Direct image generation requires an explicit image request; ordinary calls return reviewable templates or prompts first.
@@ -134,7 +135,7 @@ Output type: brief
 
 Full and single-skill installs consume the same generated inventory:
 
-- Full installation contains 12 base `cover-X` skills, four `cover-X-with-docs` skills, and `cover-tips`: 17 independent skills total.
+- Full installation contains 13 base `cover-X` skills, four `cover-X-with-docs` skills, and `cover-tips`: 18 independent skills total.
 - Any one skill can be installed independently. Installing a base skill does not implicitly install its `with-docs` sibling, and vice versa.
 - `cover-tips` can also be installed alone, although it needs a concrete style skill to complete a route.
 
@@ -156,7 +157,7 @@ Claude CLI:
 /plugin install cover-3d-eye-with-docs@cover-prompt-skills
 ```
 
-Marketplace plugins are independent. For a full install, use the installer below or select all 17 skills in the interactive `npx skills add` flow; for a single install, select only the target skill.
+Marketplace plugins are independent. For a full install, use the installer below or select all 18 skills in the interactive `npx skills add` flow; for a single install, select only the target skill.
 
 After updating an installed plugin, refresh or re-enable it, or restart the agent, so it loads the newest version instead of a cached copy.
 
@@ -193,7 +194,7 @@ curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/m
 
 ```bash
 cd cover-prompt-skills
-./install.sh                              # install all 17 skills
+./install.sh                              # install all 18 skills
 ./install.sh cover-3d-eye-with-docs       # install one
 ```
 

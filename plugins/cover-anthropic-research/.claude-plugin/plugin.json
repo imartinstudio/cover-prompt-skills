@@ -1,0 +1,9 @@
+{
+  "name": "cover-anthropic-research",
+  "displayName": "Anthropic Research Editorial",
+  "version": "1.0.0",
+  "description": "Generate restrained research-editorial cover images with solid-color backgrounds, serif typography, abstract hand-drawn linework, and low-saturation composition.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "anthropic-research", "research-editorial", "minimal", "serif", "abstract-line-art", "low-saturation"]
+}
