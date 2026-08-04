@@ -108,7 +108,9 @@ class SkillRegistryTests(unittest.TestCase):
             text=True,
         )
 
-    def run_remote_installer_with_fake_curl(self, temporary_root, index_text):
+    def run_remote_installer_with_fake_curl(
+        self, temporary_root, index_text, *requested_skills
+    ):
         index_path = temporary_root / "remote-install-index.sh"
         index_path.write_text(index_text, encoding="utf-8")
         fake_bin = temporary_root / "bin"
@@ -144,8 +146,10 @@ class SkillRegistryTests(unittest.TestCase):
                 "COVER_SKILLS_TEST_SENTINEL": str(sentinel),
             }
         )
+        requested = requested_skills or ("cover-tips",)
         return subprocess.run(
-            ["bash", str(ROOT / "install.sh"), "cover-tips"],
+            ["bash", "-s", "--", *requested],
+            input=(ROOT / "install.sh").read_text(encoding="utf-8"),
             cwd=temporary_root,
             env=environment,
             capture_output=True,
@@ -431,9 +435,7 @@ class SkillRegistryTests(unittest.TestCase):
             stage_two_start = route_text.index("## Stage 2: Confirm the asset scope")
             stage_two = route_text[stage_two_start:]
             self.assertIn("`cover-X`", stage_two)
-            tampered_stage_two = stage_two.replace(
-                "`cover-X`", "`cover-fake-with-docs`", 1
-            )
+            tampered_stage_two = stage_two.replace("`cover-X`", "cover-fake-with-docs", 1)
             route_path.write_text(
                 route_text[:stage_two_start] + tampered_stage_two,
                 encoding="utf-8",
@@ -447,6 +449,42 @@ class SkillRegistryTests(unittest.TestCase):
                 "CoverTips runtime route instructions contain concrete route IDs",
                 result.stderr,
             )
+
+    def test_remote_pipeline_does_not_execute_cwd_local_installer(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            local_scripts = temporary_root / "scripts"
+            local_plugins = temporary_root / "plugins"
+            local_scripts.mkdir()
+            local_plugins.mkdir()
+            local_installer = local_scripts / "install.sh"
+            local_installer.write_text(
+                "#!/usr/bin/env bash\n"
+                "touch \"$COVER_SKILLS_TEST_SENTINEL\"\n",
+                encoding="utf-8",
+            )
+            local_installer.chmod(0o755)
+
+            result, sentinel_path = self.run_remote_installer_with_fake_curl(
+                temporary_root,
+                (ROOT / "generated" / "install-index.sh").read_text(encoding="utf-8"),
+            )
+
+            self.assertEqual(result.returncode, 0, msg=result.stderr)
+            self.assertFalse(sentinel_path.exists())
+
+    def test_remote_installer_rejects_safe_but_unknown_skill(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            result, sentinel_path = self.run_remote_installer_with_fake_curl(
+                temporary_root,
+                (ROOT / "generated" / "install-index.sh").read_text(encoding="utf-8"),
+                "cover-safe-but-unknown",
+            )
+
+            self.assertNotEqual(result.returncode, 0, msg=result.stderr)
+            self.assertFalse(sentinel_path.exists())
+            self.assertIn("not in the generated inventory", result.stderr)
 
     def test_style_spec_semantic_drift_fails_when_skill_projection_is_unchanged(self):
         mutations = (
@@ -597,6 +635,31 @@ COVER_TIPS_SKILL="cover-tips"
                 link = target / name
                 self.assertTrue(link.is_symlink())
                 self.assertEqual(link.resolve(), (ROOT / "plugins" / name).resolve())
+
+    def test_root_local_invocation_uses_repository_installer(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            target = temporary_root / "root-target"
+            environment = os.environ.copy()
+            environment.update(
+                {
+                    "COVER_SKILLS_TARGET": str(target),
+                    "COVER_SKILLS_BACKUP_DIR": str(temporary_root / "backup"),
+                    "HOME": str(temporary_root / "home"),
+                }
+            )
+
+            result = subprocess.run(
+                ["bash", str(ROOT / "install.sh")],
+                cwd=temporary_root,
+                env=environment,
+                capture_output=True,
+                text=True,
+            )
+
+            self.assertEqual(result.returncode, 0, msg=f"{result.stdout}\n{result.stderr}")
+            installed = {path.name for path in target.iterdir() if path.is_symlink()}
+            self.assertEqual(installed, EXPECTED_ALL_SKILLS)
 
     def test_local_installer_can_install_with_docs_and_cover_tips_individually(self):
         with tempfile.TemporaryDirectory() as temporary_directory:

@@ -45,7 +45,7 @@ COVER_TIPS_SKILL_PATH = Path("plugins/cover-tips/skills/cover-tips/SKILL.md")
 COVER_TIPS_ROUTES_BEGIN = "<!-- BEGIN GENERATED COVER-TIPS ROUTES -->"
 COVER_TIPS_ROUTES_END = "<!-- END GENERATED COVER-TIPS ROUTES -->"
 COVER_TIPS_INLINE_ROUTE_PATTERN = re.compile(
-    r"`(?P<route>cover-[a-z0-9]+(?:-[a-z0-9]+)*)`"
+    r"(?<![A-Za-z0-9-])(?P<route>cover-[a-z0-9]+(?:-[a-z0-9]+)*)(?![A-Za-z0-9-])"
 )
 COVER_TIPS_SELECTOR_NAME = "cover-tips"
 STYLE_PROJECTION_BEGIN = "<!-- BEGIN GENERATED STYLE SPEC: {base_skill} -->"

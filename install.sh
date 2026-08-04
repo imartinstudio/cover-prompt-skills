@@ -6,6 +6,12 @@ INSTALL_INDEX_URL="$REPO_RAW/generated/install-index.sh"
 TARGET_DIR="${COVER_SKILLS_TARGET:-$HOME/.shared-skills}"
 BACKUP_DIR="${COVER_SKILLS_BACKUP_DIR:-$TARGET_DIR/.cover-prompt-skills-backup}"
 REMOTE_INSTALL_INDEX=""
+SCRIPT_PATH="${BASH_SOURCE[0]:-}"
+SCRIPT_DIR=""
+
+if [[ -n "$SCRIPT_PATH" && -f "$SCRIPT_PATH" ]]; then
+  SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd -P)"
+fi
 
 cleanup_remote_install_index() {
   if [[ -n "$REMOTE_INSTALL_INDEX" && -f "$REMOTE_INSTALL_INDEX" ]]; then
@@ -16,7 +22,7 @@ cleanup_remote_install_index() {
 trap cleanup_remote_install_index EXIT
 
 has_local_project() {
-  [[ -d "plugins" && -x "scripts/install.sh" ]]
+  [[ -n "$SCRIPT_DIR" && -d "$SCRIPT_DIR/plugins" && -x "$SCRIPT_DIR/scripts/install.sh" ]]
 }
 
 backup_existing_target() {
@@ -29,7 +35,7 @@ backup_existing_target() {
 }
 
 install_from_local() {
-  COVER_SKILLS_TARGET="$TARGET_DIR" scripts/install.sh "$@"
+  COVER_SKILLS_TARGET="$TARGET_DIR" "$SCRIPT_DIR/scripts/install.sh" "$@"
 }
 
 load_remote_inventory() {
@@ -48,6 +54,20 @@ parse_remote_install_index() {
   local skill_line_re='^  "([a-z0-9]+(-[a-z0-9]+)*)"$'
 
   ALL_SKILLS=()
+  BASE_SKILLS=()
+  WITH_DOCS_SKILLS=()
+
+  array_contains() {
+    local candidate="$1"
+    shift
+    local existing
+    for existing in "$@"; do
+      if [[ "$existing" == "$candidate" ]]; then
+        return 0
+      fi
+    done
+    return 1
+  }
 
   while IFS= read -r line || [[ -n "$line" ]]; do
     ((line_number += 1))
@@ -112,8 +132,27 @@ parse_remote_install_index() {
       if [[ "$line" =~ $skill_line_re ]]; then
         skill="${BASH_REMATCH[1]}"
         case "$section" in
-          ALL_SKILLS) ALL_SKILLS+=("$skill") ;;
-          BASE_SKILLS|WITH_DOCS_SKILLS) : ;;
+          ALL_SKILLS)
+            if [[ ${#ALL_SKILLS[@]} -gt 0 ]] && array_contains "$skill" "${ALL_SKILLS[@]}"; then
+              echo "Invalid generated install inventory at line $line_number: duplicate ALL_SKILLS entry" >&2
+              return 1
+            fi
+            ALL_SKILLS+=("$skill")
+            ;;
+          BASE_SKILLS)
+            if [[ ${#BASE_SKILLS[@]} -gt 0 ]] && array_contains "$skill" "${BASE_SKILLS[@]}"; then
+              echo "Invalid generated install inventory at line $line_number: duplicate BASE_SKILLS entry" >&2
+              return 1
+            fi
+            BASE_SKILLS+=("$skill")
+            ;;
+          WITH_DOCS_SKILLS)
+            if [[ ${#WITH_DOCS_SKILLS[@]} -gt 0 ]] && array_contains "$skill" "${WITH_DOCS_SKILLS[@]}"; then
+              echo "Invalid generated install inventory at line $line_number: duplicate WITH_DOCS_SKILLS entry" >&2
+              return 1
+            fi
+            WITH_DOCS_SKILLS+=("$skill")
+            ;;
           *)
             echo "Invalid generated install inventory at line $line_number: unknown array" >&2
             return 1
@@ -138,6 +177,45 @@ parse_remote_install_index() {
     echo "Invalid generated install inventory: ALL_SKILLS is empty" >&2
     return 1
   fi
+  if [[ ${#BASE_SKILLS[@]} -eq 0 || ${#WITH_DOCS_SKILLS[@]} -eq 0 ]]; then
+    echo "Invalid generated install inventory: base/with-docs sections are incomplete" >&2
+    return 1
+  fi
+
+  local base_skill with_docs_skill found
+  for base_skill in "${BASE_SKILLS[@]}"; do
+    if [[ "$base_skill" == *-with-docs || "$base_skill" == "cover-tips" ]]; then
+      echo "Invalid generated install inventory: invalid BASE_SKILLS entry: $base_skill" >&2
+      return 1
+    fi
+    if ! is_known_skill "$base_skill"; then
+      echo "Invalid generated install inventory: BASE_SKILLS entry is not in ALL_SKILLS: $base_skill" >&2
+      return 1
+    fi
+  done
+  for with_docs_skill in "${WITH_DOCS_SKILLS[@]}"; do
+    if [[ "$with_docs_skill" != *-with-docs ]]; then
+      echo "Invalid generated install inventory: invalid WITH_DOCS_SKILLS entry: $with_docs_skill" >&2
+      return 1
+    fi
+    if ! is_known_skill "$with_docs_skill"; then
+      echo "Invalid generated install inventory: WITH_DOCS_SKILLS entry is not in ALL_SKILLS: $with_docs_skill" >&2
+      return 1
+    fi
+  done
+  for skill in "${ALL_SKILLS[@]}"; do
+    if [[ "$skill" == "cover-tips" ]]; then
+      continue
+    fi
+    found=0
+    if array_contains "$skill" "${BASE_SKILLS[@]}" || array_contains "$skill" "${WITH_DOCS_SKILLS[@]}"; then
+      found=1
+    fi
+    if [[ "$found" -eq 0 ]]; then
+      echo "Invalid generated install inventory: ALL_SKILLS entry is not classified: $skill" >&2
+      return 1
+    fi
+  done
 }
 
 is_known_skill() {
