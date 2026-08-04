@@ -38,3 +38,17 @@
   - `git diff --check`：通过
   - 针对本轮改动文件的 `rg` 复核：仅命中新路由文本，废弃 manifest 已不存在
 - 结果：本轮问题已修复，无新增疑问
+
+## Fix round 2/5 复核记录
+
+- 触发原因：复审指出上一轮把三份基础 skill 和 `cover-tips` 指向了当前尚未创建的具体 `with-docs` 名称，导致运行时出现悬空入口。
+- 本轮修复内容：
+  - 保持四个废弃 manifest 的删除状态不变
+  - 保持像素头像入口清理状态不变
+  - 将 `cover-3d-eye`、`cover-sketch-knowledge-poster`、`cover-cream-orange-knowledge-poster` 中的文章包说明退回为泛化的“匹配的、可用的 with-docs sibling”语义，不再写入具体不存在的 skill 路径
+  - 将 `cover-tips` 的文章包说明退回为同样的泛化规则，不再声称当前可直接调用某个不存在的具体目标
+- 实际验证：
+  - `bash -n install.sh scripts/install.sh`：通过
+  - `git diff --check`：通过
+  - `rg -n "article-visual-planner|cover-3d-eye-with-docs|cover-sketch-knowledge-poster-with-docs|cover-cream-orange-knowledge-poster-with-docs" plugins/cover-tips/skills/cover-tips/SKILL.md plugins/cover-3d-eye/skills/cover-3d-eye/SKILL.md plugins/cover-sketch-knowledge-poster/skills/cover-sketch-knowledge-poster/SKILL.md plugins/cover-cream-orange-knowledge-poster/skills/cover-cream-orange-knowledge-poster/SKILL.md`：无命中
+- 结果：悬空入口已清除，无新增疑问
