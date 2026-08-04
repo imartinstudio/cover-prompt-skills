@@ -23,6 +23,7 @@ EXPECTED_BASE_SKILLS = {
     "cover-light-product",
     "cover-mckinsey-briefing-style",
     "cover-midnight-studio",
+    "cover-anthropic-research",
     "cover-sketch-knowledge-poster",
     "cover-tea-oriental",
     "cover-trendy-color-poster",
@@ -617,7 +618,7 @@ COVER_TIPS_SKILL="cover-tips"
             self.assertFalse(sentinel_path.exists())
             self.assertIn("unsafe skill name", result.stderr)
 
-    def test_local_installer_all_creates_seventeen_skill_symlinks(self):
+    def test_local_installer_all_creates_eighteen_skill_symlinks(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             target = Path(temporary_directory) / "all-target"
 
@@ -630,7 +631,7 @@ COVER_TIPS_SKILL="cover-tips"
             )
             installed = {path.name for path in target.iterdir() if path.is_symlink()}
             self.assertEqual(installed, EXPECTED_ALL_SKILLS)
-            self.assertEqual(len(installed), 17)
+            self.assertEqual(len(installed), 18)
             for name in EXPECTED_ALL_SKILLS:
                 link = target / name
                 self.assertTrue(link.is_symlink())

@@ -15,6 +15,11 @@
       "description": "Create a self-contained article cover plus inline visual package in the 3D Eye family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported."
     },
     {
+      "name": "cover-anthropic-research",
+      "source": "./plugins/cover-anthropic-research",
+      "description": "Generate restrained research-editorial cover images with solid-color backgrounds, serif typography, abstract hand-drawn linework, and low-saturation composition."
+    },
+    {
       "name": "cover-black-white-minimal",
       "source": "./plugins/cover-black-white-minimal",
       "description": "Generate black-white minimalist conceptual cover/posters with monochrome typography and strict grid composition."

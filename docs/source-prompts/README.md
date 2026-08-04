@@ -9,6 +9,7 @@ This directory archives the original prompts, reference-image notes, and require
 | File | Current style artifact | Record type |
 |---|---|---|
 | `cover-editorial-collage.md` | `cover-editorial-collage` | historical source prompt |
+| `cover-anthropic-research.md` | `cover-anthropic-research` | historical source prompt and X reference notes |
 | `cover-black-white-minimal.md` | `cover-black-white-minimal` | historical source prompt |
 | `cover-trendy-color-poster.md` | `cover-trendy-color-poster` | historical source prompt |
 | `cover-budapest-poster.md` | `cover-budapest-poster` | historical source prompt |

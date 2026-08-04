@@ -1,0 +1,18 @@
+{
+  "name": "cover-anthropic-research",
+  "version": "1.0.0",
+  "description": "Generate restrained research-editorial cover images with solid-color backgrounds, serif typography, abstract hand-drawn linework, and low-saturation composition.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "anthropic-research", "research-editorial", "minimal", "serif", "abstract-line-art", "low-saturation"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Anthropic Research Editorial",
+    "shortDescription": "Restrained research-editorial covers",
+    "longDescription": "Generate quiet, premium cover prompts with a solid low-saturation color field, serif-led editorial typography, abstract hand-drawn linework, and a small number of irregular accent shapes. Suitable for research notes, AI tools, tutorials, and thoughtful product narratives.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#D97757"
+  }
+}

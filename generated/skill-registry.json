@@ -43,6 +43,22 @@
       "version": "1.0.0"
     },
     {
+      "name": "cover-anthropic-research",
+      "kind": "base",
+      "path": "plugins/cover-anthropic-research",
+      "skill_path": "plugins/cover-anthropic-research/skills/cover-anthropic-research/SKILL.md",
+      "claude_manifest_path": "plugins/cover-anthropic-research/.claude-plugin/plugin.json",
+      "codex_manifest_path": "plugins/cover-anthropic-research/.codex-plugin/plugin.json",
+      "directory_name": "cover-anthropic-research",
+      "claude_manifest_name": "cover-anthropic-research",
+      "codex_manifest_name": "cover-anthropic-research",
+      "skill_directory_name": "cover-anthropic-research",
+      "frontmatter_name": "cover-anthropic-research",
+      "display_name": "Anthropic Research Editorial",
+      "description": "Generate restrained research-editorial cover images with solid-color backgrounds, serif typography, abstract hand-drawn linework, and low-saturation composition.",
+      "version": "1.0.0"
+    },
+    {
       "name": "cover-black-white-minimal",
       "kind": "base",
       "path": "plugins/cover-black-white-minimal",
@@ -285,6 +301,7 @@
   ],
   "base_skills": [
     "cover-3d-eye",
+    "cover-anthropic-research",
     "cover-black-white-minimal",
     "cover-budapest-poster",
     "cover-cream-orange-knowledge-poster",
@@ -329,6 +346,7 @@
   ],
   "cover_tips_styles": [
     "cover-3d-eye",
+    "cover-anthropic-research",
     "cover-black-white-minimal",
     "cover-budapest-poster",
     "cover-cream-orange-knowledge-poster",
@@ -345,6 +363,7 @@
     "all_skills": [
       "cover-3d-eye",
       "cover-3d-eye-with-docs",
+      "cover-anthropic-research",
       "cover-black-white-minimal",
       "cover-budapest-poster",
       "cover-cream-orange-knowledge-poster",
@@ -364,6 +383,7 @@
     "standalone_skills": [
       "cover-3d-eye",
       "cover-3d-eye-with-docs",
+      "cover-anthropic-research",
       "cover-black-white-minimal",
       "cover-budapest-poster",
       "cover-cream-orange-knowledge-poster",
@@ -382,6 +402,7 @@
     ],
     "base_skills": [
       "cover-3d-eye",
+      "cover-anthropic-research",
       "cover-black-white-minimal",
       "cover-budapest-poster",
       "cover-cream-orange-knowledge-poster",

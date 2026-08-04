@@ -37,6 +37,7 @@ visual rules.
 | Display name | Single-cover route | Article-package route |
 | --- | --- | --- |
 | 3D Eye | `cover-3d-eye` | `cover-3d-eye-with-docs` |
+| Anthropic Research Editorial | `cover-anthropic-research` | — |
 | Black-White Minimal | `cover-black-white-minimal` | — |
 | Budapest Poster | `cover-budapest-poster` | — |
 | Cream Orange Knowledge Poster | `cover-cream-orange-knowledge-poster` | `cover-cream-orange-knowledge-poster-with-docs` |
