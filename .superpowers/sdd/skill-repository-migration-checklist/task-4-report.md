@@ -6,7 +6,7 @@
 
 Task 4 实现提交：`5effe19e58ef5fd51d58718c7657bc72c752be76`。
 
-本报告保留首轮 Task 4 和前两轮 NEEDS_FIX 的历史证据；前一轮最终审查修复回合基于 HEAD `4c41aad`。当前小修复回合基于 HEAD `4900a60`，最终交付 commit 的真实 SHA 以本次交付消息为准。
+本报告保留首轮 Task 4 和前两轮 NEEDS_FIX 的历史证据；前一轮最终审查修复回合基于 HEAD `4c41aad`。CoverTips 路由校验回合基于 HEAD `4900a60`，随后安全边界修复基于 `78007f7`；最终交付 commit 的真实 SHA 以本次交付消息为准。
 
 ## 本轮 CoverTips 路由校验小修复
 
@@ -18,6 +18,17 @@ Task 4 实现提交：`5effe19e58ef5fd51d58718c7657bc72c752be76`。
 - `python3 scripts/skill_registry.py generate`、`check` 和 `git diff --check` 均通过；JSON `41 ok`、Shell `5 ok`，本地 Markdown 结构检查 `47 files` 通过。
 
 仓库 Markdown lint 子命令因当前环境无法解析 npm registry（`ENOTFOUND`）未能运行；未联网重试。未修改其他技能、`CONTEXT.md` 或 ADR。
+
+## 本轮最终复审安全边界修复
+
+独立复审发现并已修复：
+
+- 根 `install.sh` 只有在自身通过文件路径从本地仓库执行时才转入本地安装；`curl | bash` 的 stdin 执行不会根据当前目录的 `plugins/` 和 `scripts/install.sh` 自动执行不可信本地脚本。
+- 远程安装索引解析器现在读取并校验 `ALL_SKILLS`、`BASE_SKILLS`、`WITH_DOCS_SKILLS` 三组的重复项、分类关系、命名后缀和库存包含关系；安全格式但未列入 `ALL_SKILLS` 的请求仍会被拒绝。
+- CoverTips route token 校验不再要求反引号，Stage 2 中无反引号的伪 `cover-*` route 也会使 `registry check` 失败。
+- 新增 root 本地调用、恶意当前目录、未知安全技能名和无反引号 route 的回归测试；全量 unittest 结果为 `Ran 24 tests ... OK`。
+
+本轮提交为 `a82b64c`；pre-commit 的 JSON `41 ok`、Markdown `0 issues` 和 Shell `5 ok` 全部通过。
 
 ## 本次 NEEDS_FIX 修复回合
 
