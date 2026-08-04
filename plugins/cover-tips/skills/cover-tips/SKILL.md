@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-3d-eye, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, or cover-mckinsey-briefing-style. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, 3D Eye, midnight studio, Budapest, editorial collage, tea oriental, light product, or McKinsey briefing style. If the user asks for a coordinated article cover plus inline visual package, route them only to the actual existing cover-X-with-docs skill that matches the selected style.
+description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-3d-eye, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, or cover-mckinsey-briefing-style. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, 3D Eye, midnight studio, Budapest, editorial collage, tea oriental, light product, or McKinsey briefing style. If the user asks for a coordinated article cover plus inline visual package, route them only to the actual existing `cover-X-with-docs` skill that matches the selected style.
 ---
 
 # Cover Tips
@@ -51,7 +51,7 @@ Map user style names and aliases to these cover skills:
   - Aliases: `茶风格`, `茶`, `东方美学`, `宋代美学`, `宋风`, `文人气`, `国风编辑设计`, `汉字成像`, `字中有画`, `tea`, `oriental tea`, `song literati`.
   - Use for high-end oriental cultural posters, tea-aesthetic invitations, character-as-image covers, refined infographics, PPT covers, and exhibition-style visuals with rice-paper texture and Song literati mood.
 
-If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `手绘知识图谱`, `3D Eye`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
+If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `手绘知识图谱`, `3D Eye`, `深夜工作室`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
 
 `cover-tips` remains a cover-only router. If the user asks for a coordinated article cover plus inline visual package, direct them to the actual existing `cover-X-with-docs` skill that matches the selected style instead of trying to produce article visual briefs here.
 
@@ -228,7 +228,7 @@ When both template and prompt are requested, output:
 
 ## Error Handling
 
-- If style is missing: ask the user to choose one style and list the supported styles: 黑白极简, 潮流彩色, 巨型透视, 手绘知识图谱, 3D Eye, 深夜工作室, 像素头像, 布达佩斯, 撕纸剪贴, 茶风格, 浅色产品, 麦肯锡简报风.
+- If style is missing: ask the user to choose one style and list the supported styles: 黑白极简, 潮流彩色, 巨型透视, 手绘知识图谱, 3D Eye, 深夜工作室, 布达佩斯, 撕纸剪贴, 茶风格, 浅色产品, 麦肯锡简报风.
 - If user content is missing: ask for at least a title, topic, product description, or article idea.
 - If `--out-type` is missing or unclear: default to `template`.
 - If the user asks for automatic style recommendation, provide one recommended style and then output the requested mode.

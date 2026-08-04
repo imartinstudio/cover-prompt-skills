@@ -7,7 +7,7 @@ description: Generate dark 3D Eye cover/poster image prompts or final images wit
 
 Use this skill to create a finished image prompt, or call an image generation tool directly when the user asks to generate the final cover. The result should feel like a premium dark-mode tutorial poster for running local AI: bold, private, terminal-native, slightly rebellious, and easy to understand at social-feed speed.
 
-This is the visual style member of the `3d-eye` family. Use it directly for covers/posters. When the same tutorial also needs step-by-step diagrams, hardware maps, privacy comparisons, or quantization explainers, route planning through `article-visual-planner` and pass this skill as the selected style, for example `/article-visual-planner:cover-3d-eye`.
+This is the visual style member of the `3d-eye` family. Use it directly for covers/posters. When the same tutorial also needs step-by-step diagrams, hardware maps, privacy comparisons, or quantization explainers, route planning through `cover-3d-eye-with-docs` and pass this skill as the selected style, for example `/cover-3d-eye-with-docs`.
 
 ## Output Type
 

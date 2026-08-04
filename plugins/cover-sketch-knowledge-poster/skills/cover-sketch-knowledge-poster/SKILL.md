@@ -7,7 +7,7 @@ description: Generate hand-drawn sketch knowledge map cover/poster image prompts
 
 Use this skill to create a finished image prompt, or call an image generation tool directly when the user asks to generate the final cover. The result must feel like an expert's hand-drawn knowledge map on warm paper: clear, collectible, educational, and highly shareable.
 
-This is the visual style member of the `sketch-knowledge` family. Use it directly for covers/posters. When the same article or tutorial also needs product UI explanation visuals, route planning through `article-visual-planner` and pass this skill as the selected style, for example `/article-visual-planner:cover-sketch-knowledge-poster`.
+This is the visual style member of the `sketch-knowledge` family. Use it directly for covers/posters. When the same article or tutorial also needs product UI explanation visuals, route planning through `cover-sketch-knowledge-poster-with-docs` and pass this skill as the selected style, for example `/cover-sketch-knowledge-poster-with-docs`.
 
 ## Output Type
 

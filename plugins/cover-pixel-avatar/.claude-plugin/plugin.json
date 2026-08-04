@@ -1,9 +1,0 @@
-{
-  "name": "cover-pixel-avatar",
-  "displayName": "Pixel Avatar",
-  "version": "1.0.0",
-  "description": "Generate abstract retro 8-bit pixel art avatars from uploaded reference photos with bold clash colors and solid backgrounds.",
-  "author": { "name": "imartinstudio" },
-  "license": "MIT",
-  "keywords": ["cover", "avatar", "pixel", "8-bit", "retro", "profile", "nft", "abstract"]
-}
