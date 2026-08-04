@@ -1,7 +1,7 @@
 # Task 3 报告：库存索引、生成和一致性校验
 
 - 状态：DONE
-- commit：本报告与 Task 3 实现同一提交；最终 SHA 以 `git rev-parse HEAD` 为准
+- commit：Task 3 主实现为 `ca1f0a22641ddf6c46e7e50b1db084a1084a9fd2`；本报告为后续收尾提交
 
 ## 实现摘要
 
@@ -47,11 +47,10 @@ python3 -m unittest discover -s tests -p 'test_*.py' -v
 结果：`7` 个测试全部失败。失败原因均为目标 `scripts/skill_registry.py` 尚不存在
 或安装器尚未引用生成库存，确认测试确实捕获了缺失功能。
 
-补充 style spec RED：在已有 registry 实现上先加入
-`test_shared_style_spec_locks_four_with_docs_skill_artifacts`，该测试因缺少
-`style-specs/with-docs.json` 失败；补齐 source spec、hash/marker 校验和生成索引后，
-该测试与原有测试合计 `8` 个全部通过。随后补充缺失 spec、错误配对和 SKILL 漂移
-三个临时 fixture 检查，最终共 `11` 个测试全部通过。
+补充 style spec RED：在已有 registry 实现上先要求
+`with-docs-style-index.json` 投影 `visual_system` 和 `article_visual_system`；测试按预期
+因生成条目缺少这两项而失败。补齐最小生成逻辑并重新生成 style index 后，再加入缺失
+spec、错误配对和 SKILL 漂移三个临时 fixture 检查，最终共 `11` 个测试全部通过。
 
 ### 生成与一致性检查
 
