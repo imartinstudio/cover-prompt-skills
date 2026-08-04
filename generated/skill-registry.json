@@ -39,7 +39,7 @@
       "skill_directory_name": "cover-3d-eye-with-docs",
       "frontmatter_name": "cover-3d-eye-with-docs",
       "display_name": "3D Eye With Docs",
-      "description": "Create a self-contained article cover plus inline visual package in the 3D Eye family from pasted text, Markdown, or plain-text articles.",
+      "description": "Create a self-contained article cover plus inline visual package in the 3D Eye family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported.",
       "version": "1.0.0"
     },
     {
@@ -103,7 +103,7 @@
       "skill_directory_name": "cover-cream-orange-knowledge-poster-with-docs",
       "frontmatter_name": "cover-cream-orange-knowledge-poster-with-docs",
       "display_name": "Cream Orange Knowledge Poster With Docs",
-      "description": "Create a self-contained article cover plus inline visual package in the cream-orange knowledge family from pasted text, Markdown, or plain-text articles.",
+      "description": "Create a self-contained article cover plus inline visual package in the cream-orange knowledge family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported.",
       "version": "1.0.0"
     },
     {
@@ -167,7 +167,7 @@
       "skill_directory_name": "cover-light-product-with-docs",
       "frontmatter_name": "cover-light-product-with-docs",
       "display_name": "Light Product With Docs",
-      "description": "Create a self-contained article cover plus inline visual package in the light-product family from pasted text, Markdown, or plain-text articles.",
+      "description": "Create a self-contained article cover plus inline visual package in the light-product family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported.",
       "version": "1.0.0"
     },
     {
@@ -231,7 +231,7 @@
       "skill_directory_name": "cover-sketch-knowledge-poster-with-docs",
       "frontmatter_name": "cover-sketch-knowledge-poster-with-docs",
       "display_name": "Sketch Knowledge Poster With Docs",
-      "description": "Create a self-contained article cover plus inline visual package in the sketch-knowledge style from pasted text, Markdown, or plain-text articles.",
+      "description": "Create a self-contained article cover plus inline visual package in the sketch-knowledge style from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported.",
       "version": "1.0.0"
     },
     {
@@ -263,7 +263,7 @@
       "skill_directory_name": "cover-tips",
       "frontmatter_name": "cover-tips",
       "display_name": "Cover Tips",
-      "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill.",
+      "description": "Two-stage CoverTips selector: confirm a visual style, then choose a single cover or an article cover-plus-inline package. Routes article packages only to the four published with-docs siblings.",
       "version": "1.0.1"
     },
     {

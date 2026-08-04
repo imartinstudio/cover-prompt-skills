@@ -1,9 +1,11 @@
 # 奶油橙知识视觉系统（Cream Orange Knowledge）
 
-这套视觉系统来自一组 AI 工程、Agent 系统、反馈循环、架构演进类信息图参考图。运行时由一个 `cover-*` 风格技能承载；整篇文章的封面和正文配图由统一 planner 编排：
+> **历史档案，不属于当前发布库存。** 本文件保留原始参考图和需求对话。原始对话中的旧文章编排名称只用于追溯，不能作为当前用户入口、marketplace 条目或安装来源。当前单张封面由 `cover-cream-orange-knowledge-poster` 提供，文章视觉包由独立的 `cover-cream-orange-knowledge-poster-with-docs` 提供。
+
+这套视觉系统来自一组 AI 工程、Agent 系统、反馈循环、架构演进类信息图参考图。当前运行时由一对独立技能承载：基础技能负责单张封面，`with-docs` 技能负责整篇文章的封面和正文配图：
 
 - `cover-cream-orange-knowledge-poster`
-- `article-visual-planner`
+- `cover-cream-orange-knowledge-poster-with-docs`
 
 ## 核心定位
 
@@ -50,10 +52,10 @@ $cover-cream-orange-knowledge-poster
 
 负责总览论点、主视觉隐喻、传播性和收藏价值。
 
-文章视觉 planner：
+文章视觉技能：
 
 ```text
-/article-visual-planner:cover-cream-orange-knowledge-poster
+$cover-cream-orange-knowledge-poster-with-docs
 ```
 
 根据文章内容编排一张封面和多张正文配图 brief。每个资产继续交给 `cover-cream-orange-knowledge-poster` 承载风格，但通过 `资产类型` 区分 `cover`、`article-inline`、`workflow-diagram`、`comparison`、`architecture`、`long-infographic` 等用途。

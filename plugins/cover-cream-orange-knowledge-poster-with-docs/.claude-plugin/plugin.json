@@ -2,7 +2,7 @@
   "name": "cover-cream-orange-knowledge-poster-with-docs",
   "displayName": "Cream Orange Knowledge Poster With Docs",
   "version": "1.0.0",
-  "description": "Create a self-contained article cover plus inline visual package in the cream-orange knowledge family from pasted text, Markdown, or plain-text articles.",
+  "description": "Create a self-contained article cover plus inline visual package in the cream-orange knowledge family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported.",
   "author": { "name": "imartinstudio" },
   "license": "MIT",
   "keywords": ["cover", "cream-orange", "knowledge", "article", "inline-visual", "with-docs", "architecture", "infographic"]

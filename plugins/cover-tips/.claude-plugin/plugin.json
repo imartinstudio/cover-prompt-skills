@@ -2,7 +2,7 @@
   "name": "cover-tips",
   "displayName": "Cover Tips",
   "version": "1.0.1",
-  "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill.",
+  "description": "Two-stage CoverTips selector: confirm a visual style, then choose a single cover or an article cover-plus-inline package. Routes article packages only to the four published with-docs siblings.",
   "author": { "name": "imartinstudio" },
   "license": "MIT",
   "keywords": ["cover", "navigator", "router", "tips", "template"]

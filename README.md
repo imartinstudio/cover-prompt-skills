@@ -1,12 +1,12 @@
-[English](README.en.md) | [中文](README.md)
+[English](README.en.md) | 中文
 
 ---
 
 # 封面优先的视觉提示词技能
 
-面向 AI agent 和图像生成工作流的可复用视觉提示词技能。项目以 `cover-*` 作为统一视觉风格入口，并通过 `article-visual-planner` 自动规划文章封面和正文配图。
+面向 AI agent 和图像生成工作流的可复用视觉提示词技能。`cover-X` 是可独立安装、可独立调用的单张封面技能；只有四个已确认适合文章配图的风格另有独立的 `cover-X-with-docs` sibling。`cover-tips` 是可选的两阶段选择器，不拥有具体视觉风格规则，也不再由通用 planner 统筹所有文章配图。
 
-兼容 Claude Code、Codex、Gemini CLI、Cursor，以及任何支持 SKILL.md 的 agent。
+兼容 Claude Code、Codex、Gemini CLI、Cursor，以及任何支持 `SKILL.md` 的 agent。
 
 ## GitHub 快速上手
 
@@ -14,224 +14,175 @@
 
 1. 在 GitHub 打开本仓库，复制你偏好的安装命令。
 2. 在终端或 agent 工作区执行安装命令。
-3. 日常封面使用以 `$cover-tips` 为入口；整篇文章的封面和配图规划使用 `$article-visual-planner`。
+3. 粗略需求先调用 `$cover-tips`；确定风格后，单张封面调用对应 `cover-X`，文章视觉包调用对应的四个 `cover-X-with-docs` 之一。
 
 ## GitHub 展示
 
 ![GitHub showcases 展示](assets/style-showcases/github-showcases.gif)
 
-## 技能列表
+## 发布模型
 
-| 技能 | 风格 | 适用场景 |
+### 独立基础封面技能
+
+每个 `cover-X` 都是独立安装单元，可以直接接收单张封面需求，不要求先安装或调用其他技能。当前基础库存为 12 个：
+
+| 技能 | 视觉风格 | 适用场景 |
 |---|---|---|
-| `cover-tips` | 风格化提示词组织器 | 将用户粗糙的封面想法转化为模板或通用图像提示词 |
-| `cover-black-white-minimal` | 黑白极简、瑞士网格、克制编辑风 | 高级概念封面、严肃文章、作品集封面 |
-| `cover-trendy-color-poster` | 潮流高冲击彩色海报 | 产品封面、电商封面、发布海报 |
-| `cover-budapest-poster` | 复古中欧电影感、布达佩斯海报风 | 剧院、电车、车站、浴场、档案、明信片概念图 |
+| `cover-black-white-minimal` | 黑白极简、瑞士网格、克制编辑风 | 概念封面、严肃文章、作品集封面 |
+| `cover-trendy-color-poster` | 潮流高冲击彩色海报 | 产品封面、发布海报、平台封面 |
+| `cover-budapest-poster` | 复古中欧电影感、布达佩斯海报风 | 剧院、电车、车站、档案、明信片概念 |
 | `cover-editorial-collage` | 撕纸编辑拼贴 | 讽刺、冲突、社会评论、杂志拼贴封面 |
-| `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT封面 |
-| `cover-giant-perspective-poster` | 巨型中文透视标题、高冲突撞色、电影/电竞主视觉 | 电影海报、运动品牌、电竞 KV、强传播封面 |
-| `cover-cream-orange-knowledge-poster` | 奶油橙知识海报、技术信息图、AI 工程图解 | AI Agent、系统架构、反馈循环、成熟度阶梯、技术解释封面 |
-| `cover-sketch-knowledge-poster` | 手绘知识图谱、白板框架、黑橙双色、纸张质感 | 知识图谱封面、教程封面、产品教育海报、X/公众号封面 |
-| `cover-3d-eye` | 3D Eye 风、黑底网格、霓虹绿、隐私/离线/掌控感 | 本地 AI 教程封面、Ollama/本地模型封面、隐私优先 AI 海报、黑绿终端风封面 |
-| `cover-midnight-studio` | 深夜工作室、AI 工程师空间、电影级多屏工作站 | 独立开发者、Build in Public、AI 工作流、科技品牌头图 |
-| `cover-pixel-avatar` | 复古 8-bit 像素头像、高饱和撞色、纯色背景 | 上传图片转抽象像素头像、社交头像、Q版像素 IP |
-| `cover-light-product` | 浅色产品风、奶油白基底、冷暖双色融合、SaaS Hero 美学 | AI 产品封面、SaaS 品牌头图、产品发布会视觉、Agent 工作区封面 |
-| `cover-mckinsey-briefing-style` | 麦肯锡简报风、咨询报告、战略框架、董事会级版式 | 战略简报封面、咨询报告、PPT 封面、商业分析视觉 |
-| `article-visual-planner` | 自动规划文章配图 | 读取文章并链式调用指定 `cover-*` 风格，生成封面和正文配图 brief/prompt |
+| `cover-tea-oriental` | 茶风格东方美学、宋代文人气、汉字成像 | 文化海报、邀请函、信息图、PPT 封面 |
+| `cover-giant-perspective-poster` | 巨型中文透视标题、强对比撞色、电影/电竞主视觉 | 电影海报、运动品牌、电竞视觉、传播封面 |
+| `cover-cream-orange-knowledge-poster` | 奶油橙知识海报、技术信息图、AI 工程图解 | Agent、系统架构、反馈循环、技术解释封面 |
+| `cover-sketch-knowledge-poster` | 手绘知识图谱、白板框架、黑橙纸张素描 | 知识地图、教程封面、产品教育海报 |
+| `cover-3d-eye` | 黑网格、霓虹绿终端、隐私/离线/本地掌控 | 本地 AI 教程、Ollama、隐私优先海报 |
+| `cover-midnight-studio` | 深夜 AI 创作者工作室、电影感工作站 | 独立开发、AI 工作流、科技头图 |
+| `cover-light-product` | 浅色产品、奶油底、暖冷双强调色 | AI 产品、SaaS、Agent workspace、发布视觉 |
+| `cover-mckinsey-briefing-style` | 咨询简报、战略框架、留白和严格网格 | 战略报告、董事会简报、PPT 封面 |
 
-## 风格展示
+基础技能支持 `template | prompt | all`，省略 `--out-type` 时默认输出 `template`。需要直接生成图片时，必须明确提出生图请求；普通调用先返回可审阅的模板或提示词。
 
-### `cover-black-white-minimal`
+### 文章配图技能：只有四个 with-docs sibling
 
-![黑白极简风格展示](assets/style-showcases/cover-black-white-minimal.png)
+文章视觉包不是基础技能的隐藏模式，而是同风格的独立技能。当前发布库存严格只有以下四个：
 
-### `cover-trendy-color-poster`
-
-![潮流高冲击彩色海报风格展示](assets/style-showcases/cover-trendy-color-poster.png)
-
-### `cover-giant-perspective-poster`
-
-![巨型中文透视海报风格展示](assets/style-showcases/cover-giant-perspective-poster.png)
-
-### `cover-midnight-studio`
-
-![深夜工作室风格展示](assets/style-showcases/cover-midnight-studio.png)
-
-### `cover-light-product`
-
-![浅色产品风格展示](assets/style-showcases/cover-light-product.png)
-
-### `cover-editorial-collage`
-
-![撕纸编辑拼贴风格展示](assets/style-showcases/cover-editorial-collage.png)
-
-### `cover-tea-oriental`
-
-![茶风格东方美学展示](assets/style-showcases/cover-tea-oriental.png)
-
-## 推荐使用方式
-
-日常建议以 `cover-tips` 为入口，适合只有粗略主题、粗略风格方向、但还没有整理成标准字段的情况。它会先清理需求、提取字段、匹配具体封面风格技能，并默认输出可直接调用的模板。
-
-基本公式：
-
-```text
-$cover-tips + 风格 + --out-type template|prompt|all + 用户内容
-```
-
-示例：
-
-```text
-$cover-tips 撕纸剪贴
-
-主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
-```
-
-默认输出为模板，等同于 `--out-type template`。当你希望先检查或修改结构化字段，再进入最终出图提示词时，推荐使用默认模式：
-
-```text
-使用 $cover-editorial-collage 生成一张封面
-主题词：提示词
-副标题：好的提示，不只是命令，更是设计
-画幅比例：5:2
-语言：中文
-用途：X 封面
-情绪倾向：讽刺 / 冲突 / 街头 / 复古 / 观点感
-禁用元素：机器人脸、蓝紫霓虹、廉价科技感、PPT 布局、干净矩形堆叠、低质脏乱朋克、不可读文字
-```
-
-需求已经清楚、希望直接得到完整图像提示词时，使用 `--out-type prompt`：
-
-```text
-$cover-tips 潮流彩色 --out-type prompt
-
-主题：提示词 副主题：好的提示，不只是命令，更是设计 其他的你定就好 画幅比例：5:2 用途：x封面
-```
-
-需要同时输出模板和完整提示词时，使用 `--out-type all`。
-
-支持的风格别名：
-
-| 用户输入风格 | 路由到的技能 |
+| 基础风格 | 独立文章配图技能 |
 |---|---|
-| `黑白极简` / `黑白` / `极简` / `minimal` / `bw` | `$cover-black-white-minimal` |
-| `潮流彩色` / `彩色` / `高冲击` / `trendy` / `color` | `$cover-trendy-color-poster` |
-| `巨型透视` / `透视标题` / `电影海报风` / `电竞主视觉` / `perspective` | `$cover-giant-perspective-poster` |
-| `手绘知识图谱` / `知识图谱` / `知识地图` / `白板框架` / `sketch knowledge` | `$cover-sketch-knowledge-poster` |
-| `本地AI` / `3D Eye` / `黑绿终端` / `local AI` / `terminal poster` | `$cover-3d-eye` |
-| `深夜工作室` / `深夜工作室风` / `AI工程师空间` / `indie hacker` / `midnight studio` | `$cover-midnight-studio` |
-| `像素头像` / `像素` / `8-bit头像` / `pixel avatar` / `Q版像素头像` | `$cover-pixel-avatar` |
-| `浅色产品` / `浅色产品风` / `SaaS产品` / `light product` / `奶油白` | `$cover-light-product` |
-| `麦肯锡简报风` / `麦肯锡风` / `咨询简报` / `战略报告` / `consulting briefing` | `$cover-mckinsey-briefing-style` |
-| `布达佩斯` / `Budapest` / `复古欧洲` / `电影感` / `明信片` | `$cover-budapest-poster` |
-| `撕纸剪贴` / `剪贴` / `拼贴` / `collage` / `editorial collage` | `$cover-editorial-collage` |
-| `茶风格` / `茶` / `东方美学` / `宋代美学` / `汉字成像` | `$cover-tea-oriental` |
+| `cover-3d-eye` | `cover-3d-eye-with-docs` |
+| `cover-cream-orange-knowledge-poster` | `cover-cream-orange-knowledge-poster-with-docs` |
+| `cover-light-product` | `cover-light-product-with-docs` |
+| `cover-sketch-knowledge-poster` | `cover-sketch-knowledge-poster-with-docs` |
 
-如果你已经确定具体风格，并且不需要 `cover-tips` 帮你重组内容，可以直接调用具体技能：
+每个 `with-docs` 都可以独立安装和调用，运行时不依赖基础 `cover-X`、通用 planner 或 illustration 技能。没有对应 sibling 的基础风格仍然可以做单张封面，但不会被静默替换成另一种文章风格。
+
+`with-docs` 的共同契约：
+
+- 文章源只接受用户粘贴的文章内容、Markdown 文件或纯文本文件；DOCX 和 PDF 暂不纳入。
+- 文章源只读；默认在对话中输出，只有用户明确提供输出路径时才写文件。
+- 支持 `template | brief | prompt | all`，默认 `brief`。
+- 默认输出 1 张封面 + 3 张正文配图；正文图数量可明确指定为 1–5 张，封面另计。
+- 每张正文图必须绑定具体章节或段落、建议插入位置、要解决的阅读问题、画幅比例和提示词约束。
+- 会读取已有图片引用以避免重复主题；缺少文章、文章为空或无法读取时明确失败，不自动降级到基础封面。
+
+## CoverTips 两阶段流程
+
+`cover-tips` 是可选的风格与资产范围选择器。它不拥有具体风格规则，也不直接替代目标技能完成文章视觉包。
+
+1. **先确认视觉风格。** 用户未指定风格时，先根据需求给出 1–3 个候选并等待确认；不能静默猜测。用户已明确风格时直接确认该风格。
+2. **再确认资产范围。** 选择“单张封面”或“封面 + 正文配图”。单张封面路由到对应的 `cover-X`；文章视觉包只显示上表中的四个可用 `with-docs` 风格。
+
+例如：
 
 ```text
-$cover-black-white-minimal --out-type prompt
-主题：长期主义 副标题：在即时反馈时代重新理解耐心 画幅比例：4:3 用途：文章封面
+$cover-tips
+主题：如何在本地运行一个 AI 模型
+资产范围：先推荐风格
 ```
 
-也可以完全跳过模板生成，直接用具体技能加用户说明生成最终封面：
+确认风格和范围后，文章视觉包应转交给具体 sibling：
 
 ```text
-$cover-editorial-collage 直接生成一张 5:2 的 X 封面，主题是“提示词”，副标题是“好的提示，不只是命令，更是设计”。整体要撕纸剪贴、杂志感、讽刺一点，不要机器人脸和蓝紫霓虹。
-```
-
-当风格已经明确、且不需要检查中间字段时，推荐使用这种直接生成方式。
-
-## 自动规划文章配图
-
-`article-visual-planner` 是统一的文章视觉编排入口。它读取文章内容、统计已有图片、分析章节结构，然后链式调用指定 `cover-*` 风格，为整篇文章规划封面和正文配图。
-
-Claude CLI 推荐调用：
-
-```text
-/article-visual-planner:cover-cream-orange-knowledge-poster
-
-文章：/path/to/article.md
-输出类型：prompt
-平台：X article
-资产范围：封面 + 正文配图
-```
-
-通用字段调用：
-
-```text
-$article-visual-planner
-文章：/path/to/article.md
-视觉风格：cover-sketch-knowledge-poster
+$cover-3d-eye-with-docs
+文章来源：/path/to/article.md
 输出类型：brief
-平台：公众号文章
+正文配图数量：3
+```
+
+如果用户只要一张封面，则直接调用基础技能：
+
+```text
+$cover-3d-eye
+输出类型：template
+主题词：本地 AI
+用途：教程封面
+```
+
+CoverTips 自身的封面整理模式默认输出模板；需要通用提示词时可使用 `--out-type prompt`，需要两者时使用 `--out-type all`。
+
+## 文章视觉包示例
+
+四个文章技能的目标都是同一组资产关系：一张代表整篇文章论点的 `cover`，以及绑定章节或段落、解释具体阅读问题的 `article-inline` 正文图。常规输出是 brief，不会在没有明确生图请求时调用生图工具。
+
+```text
+$cover-sketch-knowledge-poster-with-docs
+文章来源：/path/to/tutorial.md
+输出类型：brief
 资产范围：封面 + 正文配图
 ```
 
-链式调用模型：
-
 ```text
-$article-visual-planner
-  -> 读取文章
-  -> 规划封面和正文配图
-  -> 为每个资产生成 brief
-  -> 调用指定 $cover-* 风格生成 prompt
+$cover-light-product-with-docs
+文章来源：用户粘贴的文章正文
+输出类型：all
+正文配图数量：4
 ```
 
-推荐工作流：
+```text
+$cover-cream-orange-knowledge-poster-with-docs
+文章来源：/path/to/architecture.txt
+输出类型：prompt
+```
 
-1. 粗略想法先用 `$cover-tips <风格>`。
-2. 根据返回模板确认标题、副标题、画幅比例、语言、用途、情绪和禁用元素。
-3. 需要可复用提示词文本时，再切到 `--out-type prompt` 或 `--out-type all`。
-4. 希望跳过模板、马上生成最终封面时，在 `$cover-*` 后面直接接自然语言说明。
-5. 需要整篇文章的封面和配图方案时，调用 `$article-visual-planner`，并指定一个 `cover-*` 风格。
+```text
+$cover-3d-eye-with-docs
+文章来源：/path/to/local-ai.md
+输出类型：brief
+```
 
 ## 安装
 
-四种方式任选。
+全量安装和单个安装都使用同一份生成库存：
+
+- 全量安装包含 12 个基础 `cover-X`、四个 `cover-X-with-docs` 和 `cover-tips`，共 17 个独立技能。
+- 单个技能可以独立安装；安装基础版不会隐式安装对应的 `with-docs`，反之亦然。
+- `cover-tips` 也是可单独安装的技能，只是没有具体风格技能时不能完成目标路由。
 
 ### CLI Plugin Marketplace
 
+先添加 marketplace，再按需安装一个技能：
+
 Codex CLI：
 
-```
+```text
 codex plugin marketplace add imartinstudio/cover-prompt-skills
-codex plugin add cover-editorial-collage@cover-prompt-skills
+codex plugin add cover-3d-eye-with-docs@cover-prompt-skills
 ```
 
 Claude CLI：
 
-```
+```text
 /plugin marketplace add imartinstudio/cover-prompt-skills
-/plugin install cover-editorial-collage@cover-prompt-skills
+/plugin install cover-3d-eye-with-docs@cover-prompt-skills
 ```
 
-根据你使用的 CLI 选择对应命令。Codex CLI 中先添加插件市场仓库，再安装需要的 skill/plugin。Claude CLI 中使用 `/plugin` slash commands。
+marketplace 的插件彼此独立。需要全量安装时，可使用下面的安装器或在 `npx skills add` 的交互选择中选中全部 17 个技能；需要单个安装时选择目标技能即可。
 
-更新已安装的插件后，需要刷新/重新启用插件，或重启对应 agent，让它加载最新插件版本，而不是继续使用旧缓存版本。
+更新已安装插件后，需要刷新/重新启用插件，或重启对应 agent，让它加载最新版本而不是旧缓存。
 
 ### npx
 
-```
+```bash
 npx skills add imartinstudio/cover-prompt-skills
 ```
 
-交互式选择要安装的技能。支持 Claude Code、Codex、Cursor、Gemini CLI、Windsurf 等 40+ 个 agent。
+在交互界面中选择全部技能，或只选择一个基础技能、一个 `with-docs` sibling 或 `cover-tips`。
 
 ### curl
+
+全量安装：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash
 ```
 
-安装单个技能：
+单个安装：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash -s -- cover-editorial-collage
+curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main/install.sh | bash -s -- cover-3d-eye-with-docs
 ```
 
-技能会以独立 `SKILL.md` 文件下载到目标目录。脚本默认使用 `~/.shared-skills`；不同 agent 的技能目录可能不同，Codex / Agents 用户通常可以指定 `~/.agents/skills` 或 `~/.codex/skills`：
+技能会以独立 `SKILL.md` 文件安装到目标目录。脚本默认使用 `~/.shared-skills`；Codex / Agents 用户可指定目标目录：
 
 ```bash
 COVER_SKILLS_TARGET=~/.agents/skills \
@@ -242,23 +193,23 @@ curl -fsSL https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/m
 
 ```bash
 cd cover-prompt-skills
-./install.sh                              # 安装全部（symlink）
-./install.sh cover-editorial-collage      # 安装单个
+./install.sh                              # 全量安装 17 个技能
+./install.sh cover-3d-eye-with-docs       # 单个安装
 ```
 
-本地开发安装会把仓库里的技能目录软链到目标目录，适合一边修改仓库内容、一边在 agent 中测试。
+本地安装会把仓库中的技能目录软链到目标目录，适合修改仓库并在 agent 中测试。安装器不会联网，也不会执行实际生图。
 
-`cover-tips` 和 `article-visual-planner` 是导航/编排技能，随完整包安装，不可单独安装 —— 它们依赖具体的 `cover-*` 视觉风格技能。
+## 迁移说明
+
+- 旧的 `article-visual-planner` 调用应迁移为两步：先用 `CoverTips` 确认风格和资产范围，再调用实际存在的 `cover-X-with-docs`；也可以直接调用具体 sibling。
+- 如果旧 planner 指向的风格没有 `with-docs` sibling，当前只支持该风格的单张封面，不自动替换风格。
+- `cover-pixel-avatar` 已退出本仓库当前发布范围，不再出现在技能表、路由、marketplace、安装索引或安装命令中。
+- `docs/source-prompts/` 只保存历史源提示词和需求证据；其中出现的旧名称不是当前发布入口或安装库存。
 
 ## 仓库原则
 
 - 每个插件保持精简：一个 `SKILL.md` 置于 `skills/` 下，Claude Code 和 Codex 各一个 manifest。
-- 默认不包含特定平台的 agent 元数据。
-- 保持提示词通用，除非用户明确要求特定平台的变体。
-- 使用 `cover-` 作为视觉风格技能的命名前缀，保留既有封面技能名称。
-- 使用 `article-visual-planner` 作为文章封面和配图的唯一编排入口。
-- 不再新增独立 `illustration-*` 或 per-style `*-kit` / `kit-*` 编排技能；正文配图通过 planner 链式调用指定 `cover-*` 风格生成。
-
-## 许可证
-
-MIT
+- 基础封面技能与文章配图技能独立安装、独立调用、独立版本化；两者不构成运行时隐式依赖。
+- 共享视觉风格变更时同步维护对应的基础版和 `with-docs` 版；文章编排变化只影响对应的 `with-docs` 版。
+- 不为没有确认文章配图能力的风格创建 `with-docs` sibling，也不创建 `cover-tips-with-docs`。
+- 文章视觉包必须使用 `cover` 与 `article-inline` 资产类型，并保留章节绑定和阅读问题。

@@ -12,7 +12,7 @@
     {
       "name": "cover-3d-eye-with-docs",
       "source": "./plugins/cover-3d-eye-with-docs",
-      "description": "Create a self-contained article cover plus inline visual package in the 3D Eye family from pasted text, Markdown, or plain-text articles."
+      "description": "Create a self-contained article cover plus inline visual package in the 3D Eye family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported."
     },
     {
       "name": "cover-black-white-minimal",
@@ -32,7 +32,7 @@
     {
       "name": "cover-cream-orange-knowledge-poster-with-docs",
       "source": "./plugins/cover-cream-orange-knowledge-poster-with-docs",
-      "description": "Create a self-contained article cover plus inline visual package in the cream-orange knowledge family from pasted text, Markdown, or plain-text articles."
+      "description": "Create a self-contained article cover plus inline visual package in the cream-orange knowledge family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported."
     },
     {
       "name": "cover-editorial-collage",
@@ -52,7 +52,7 @@
     {
       "name": "cover-light-product-with-docs",
       "source": "./plugins/cover-light-product-with-docs",
-      "description": "Create a self-contained article cover plus inline visual package in the light-product family from pasted text, Markdown, or plain-text articles."
+      "description": "Create a self-contained article cover plus inline visual package in the light-product family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported."
     },
     {
       "name": "cover-mckinsey-briefing-style",
@@ -72,7 +72,7 @@
     {
       "name": "cover-sketch-knowledge-poster-with-docs",
       "source": "./plugins/cover-sketch-knowledge-poster-with-docs",
-      "description": "Create a self-contained article cover plus inline visual package in the sketch-knowledge style from pasted text, Markdown, or plain-text articles."
+      "description": "Create a self-contained article cover plus inline visual package in the sketch-knowledge style from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported."
     },
     {
       "name": "cover-tea-oriental",
@@ -82,7 +82,7 @@
     {
       "name": "cover-tips",
       "source": "./plugins/cover-tips",
-      "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill."
+      "description": "Two-stage CoverTips selector: confirm a visual style, then choose a single cover or an article cover-plus-inline package. Routes article packages only to the four published with-docs siblings."
     },
     {
       "name": "cover-trendy-color-poster",
