@@ -5,9 +5,19 @@
   },
   "plugins": [
     {
+      "name": "cover-3d-eye",
+      "source": "./plugins/cover-3d-eye",
+      "description": "Generate dark 3D Eye cover images with black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a blue-white hand-drawn eyeball mascot."
+    },
+    {
+      "name": "cover-3d-eye-with-docs",
+      "source": "./plugins/cover-3d-eye-with-docs",
+      "description": "Create a self-contained article cover plus inline visual package in the 3D Eye family from pasted text, Markdown, or plain-text articles."
+    },
+    {
       "name": "cover-black-white-minimal",
       "source": "./plugins/cover-black-white-minimal",
-      "description": "Generate black-white minimalist conceptual cover/posters with monochrome typography and grid composition."
+      "description": "Generate black-white minimalist conceptual cover/posters with monochrome typography and strict grid composition."
     },
     {
       "name": "cover-budapest-poster",
@@ -15,34 +25,44 @@
       "description": "Generate Budapest-inspired retro Central European cinematic poster covers with spatial storytelling."
     },
     {
+      "name": "cover-cream-orange-knowledge-poster",
+      "source": "./plugins/cover-cream-orange-knowledge-poster",
+      "description": "Generate cream-orange technical knowledge poster covers with editorial infographic layouts and AI engineering diagrams."
+    },
+    {
+      "name": "cover-cream-orange-knowledge-poster-with-docs",
+      "source": "./plugins/cover-cream-orange-knowledge-poster-with-docs",
+      "description": "Create a self-contained article cover plus inline visual package in the cream-orange knowledge family from pasted text, Markdown, or plain-text articles."
+    },
+    {
       "name": "cover-editorial-collage",
       "source": "./plugins/cover-editorial-collage",
-      "description": "Generate editorial collage covers with torn-paper, mixed media, and bold typography."
-    },
-    {
-      "name": "cover-tea-oriental",
-      "source": "./plugins/cover-tea-oriental",
-      "description": "Generate tea-aesthetic oriental covers with character-as-image structure and refined cultural information design."
-    },
-    {
-      "name": "cover-tips",
-      "source": "./plugins/cover-tips",
-      "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill."
-    },
-    {
-      "name": "article-visual-planner",
-      "source": "./plugins/article-visual-planner",
-      "description": "Automatically plan article covers and inline visual prompts by chaining article sections to selected cover-* style skills."
-    },
-    {
-      "name": "cover-trendy-color-poster",
-      "source": "./plugins/cover-trendy-color-poster",
-      "description": "Generate trendy high-impact color poster covers with bold contrast and typography-led layouts."
+      "description": "Generate editorial collage covers with torn-paper, mixed media, retro print grain, and bold typography."
     },
     {
       "name": "cover-giant-perspective-poster",
       "source": "./plugins/cover-giant-perspective-poster",
-      "description": "Generate giant Chinese perspective typography poster covers with cinematic depth and high-contrast color clashes."
+      "description": "Generate giant Chinese perspective typography poster covers with high-contrast color clashes, cinematic depth, and typography-as-architecture."
+    },
+    {
+      "name": "cover-light-product",
+      "source": "./plugins/cover-light-product",
+      "description": "Generate light-theme AI-native SaaS product cover images with cream-white base, Claude-Codex dual-brand fusion, Agent workspace narrative, and premium hero-banner aesthetics."
+    },
+    {
+      "name": "cover-light-product-with-docs",
+      "source": "./plugins/cover-light-product-with-docs",
+      "description": "Create a self-contained article cover plus inline visual package in the light-product family from pasted text, Markdown, or plain-text articles."
+    },
+    {
+      "name": "cover-mckinsey-briefing-style",
+      "source": "./plugins/cover-mckinsey-briefing-style",
+      "description": "Generate McKinsey-style executive briefing cover images with consulting-grade report aesthetics, strategy frameworks, crisp white space, and boardroom-ready typography."
+    },
+    {
+      "name": "cover-midnight-studio",
+      "source": "./plugins/cover-midnight-studio",
+      "description": "Generate cinematic midnight AI creator workspace covers with multi-monitor stations, film-grade lighting, and indie hacker atmosphere."
     },
     {
       "name": "cover-sketch-knowledge-poster",
@@ -50,34 +70,24 @@
       "description": "Generate hand-drawn sketch knowledge map cover/poster images with warm paper, black marker linework, and Anthropic orange highlights."
     },
     {
-      "name": "cover-cream-orange-knowledge-poster",
-      "source": "./plugins/cover-cream-orange-knowledge-poster",
-      "description": "Generate cream-orange technical knowledge poster covers with editorial infographic layouts and AI engineering diagrams."
+      "name": "cover-sketch-knowledge-poster-with-docs",
+      "source": "./plugins/cover-sketch-knowledge-poster-with-docs",
+      "description": "Create a self-contained article cover plus inline visual package in the sketch-knowledge style from pasted text, Markdown, or plain-text articles."
     },
     {
-      "name": "cover-midnight-studio",
-      "source": "./plugins/cover-midnight-studio",
-      "description": "Generate cinematic midnight AI creator workspace covers with film-grade lighting and indie hacker atmosphere."
+      "name": "cover-tea-oriental",
+      "source": "./plugins/cover-tea-oriental",
+      "description": "Generate high-end oriental tea-aesthetic covers with Chinese character-as-image structure and refined cultural information design."
     },
     {
-      "name": "cover-pixel-avatar",
-      "source": "./plugins/cover-pixel-avatar",
-      "description": "Generate abstract retro 8-bit pixel art avatars from uploaded reference photos with bold clash colors and solid backgrounds."
+      "name": "cover-tips",
+      "source": "./plugins/cover-tips",
+      "description": "Navigator skill that routes your rough cover idea to the right style-specific cover skill."
     },
     {
-      "name": "cover-light-product",
-      "source": "./plugins/cover-light-product",
-      "description": "Generate light-theme AI-native SaaS product cover images with cream-white base, Claude-Codex dual-brand fusion, and Agent workspace narrative."
-    },
-    {
-      "name": "cover-3d-eye",
-      "source": "./plugins/cover-3d-eye",
-      "description": "Generate dark 3D Eye covers with black grid backgrounds, neon green terminal glow, privacy/offline motifs, and a blue-white hand-drawn eyeball mascot."
-    },
-    {
-      "name": "cover-mckinsey-briefing-style",
-      "source": "./plugins/cover-mckinsey-briefing-style",
-      "description": "Generate McKinsey-style executive briefing cover images with consulting-grade report aesthetics, strategy frameworks, crisp white space, and boardroom-ready typography."
+      "name": "cover-trendy-color-poster",
+      "source": "./plugins/cover-trendy-color-poster",
+      "description": "Generate trendy high-impact color poster covers with bold contrast, oversized type, and magazine-cover energy."
     }
   ]
 }

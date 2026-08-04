@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "source_spec": "style-specs/with-docs.json",
+  "source_spec_sha256": "b7b86f796a1e2b9573fb9124b7e3110d5217148ee346e0c2fc5c51a752c7c01d",
+  "styles": [
+    {
+      "base_skill": "cover-3d-eye",
+      "with_docs_skill": "cover-3d-eye-with-docs",
+      "base_skill_path": "plugins/cover-3d-eye/skills/cover-3d-eye/SKILL.md",
+      "with_docs_skill_path": "plugins/cover-3d-eye-with-docs/skills/cover-3d-eye-with-docs/SKILL.md",
+      "base_skill_sha256": "f85eb0f695dd0ad9220b83a7fa5a0faf3b7fabf36568c2a4796b991e59412dbd",
+      "with_docs_skill_sha256": "5748baa3679bb4848b30844bbca3f38c3954b1933574bd42498c72ee3106b865",
+      "visual_system": {
+        "family": "3d-eye",
+        "background": "deep black or near-black #050707 with a subtle blueprint grid, scan lines, registration marks, and restrained grain",
+        "palette": [
+          "black",
+          "cream-white or off-white",
+          "neon terminal green #39FF73",
+          "dim gray",
+          "small red warning accents only when needed"
+        ],
+        "anchors": [
+          "terminal windows",
+          "CLI cursors",
+          "hardware memory cards",
+          "local/cloud comparison panels",
+          "optional blue-white 3D Eye mascot"
+        ],
+        "composition": "one clear hero scene plus 1-3 supporting educational UI or diagram elements",
+        "avoid": [
+          "purple-blue neon",
+          "cyberpunk cityscapes",
+          "RGB gaming rooms",
+          "Matrix code rain",
+          "robot faces",
+          "official logos unless explicitly requested"
+        ]
+      },
+      "article_visual_system": {
+        "default_out_type": "brief",
+        "default_inline_count": 3,
+        "inline_count_range": [
+          1,
+          5
+        ],
+        "accepted_article_sources": [
+          "pasted article text",
+          "Markdown files",
+          "plain-text files"
+        ],
+        "inline_focus": "one step, tradeoff, mistake, hardware fit, privacy comparison, or quantization point at a time",
+        "required_binding": [
+          "one concrete section or paragraph",
+          "one reading problem",
+          "insertion location",
+          "aspect ratio",
+          "visual anchors"
+        ],
+        "cover_role": "carry the emotional hook and whole local-AI thesis",
+        "inline_role": "explain one concrete local-AI teaching point without restating the cover",
+        "shared_family": "black grid, neon green terminal focus, cream-white titles, local-AI clarity, optional mascot continuity"
+      },
+      "base_rule_markers": [
+        "## Visual System",
+        "#050707",
+        "#39FF73",
+        "3D Eye mascot"
+      ],
+      "with_docs_rule_markers": [
+        "## Visual System",
+        "## Role Split",
+        "资产类型：article-inline",
+        "绑定章节/段落：",
+        "建议插入位置：",
+        "要解决的阅读问题：",
+        "正文配图数量：",
+        "fewer than `1` or more than `5`"
+      ]
+    },
+    {
+      "base_skill": "cover-cream-orange-knowledge-poster",
+      "with_docs_skill": "cover-cream-orange-knowledge-poster-with-docs",
+      "base_skill_path": "plugins/cover-cream-orange-knowledge-poster/skills/cover-cream-orange-knowledge-poster/SKILL.md",
+      "with_docs_skill_path": "plugins/cover-cream-orange-knowledge-poster-with-docs/skills/cover-cream-orange-knowledge-poster-with-docs/SKILL.md",
+      "base_skill_sha256": "4180408066a7be36d9233287a5bb59b0dddc2de59aab9c94dee385269dc2d068",
+      "with_docs_skill_sha256": "d543dd7d391461cc1f41b11c276eb11ad34303b6c5f0e75f68f1a130b25f8b51",
+      "visual_system": {
+        "family": "cream-orange-knowledge",
+        "background": "warm cream paper or soft off-white with subtle grid, grain, scan texture, and restrained border shadow",
+        "palette": [
+          "cream",
+          "charcoal black",
+          "warm gray",
+          "burnt orange",
+          "muted terracotta",
+          "small beige accents"
+        ],
+        "anchors": [
+          "system architecture diagrams",
+          "feedback loops",
+          "maturity ladders",
+          "comparison frameworks",
+          "editorial technical infographic modules"
+        ],
+        "composition": "strong title layer, structured diagram body, visible reading path, modular panels, and clear arrows",
+        "avoid": [
+          "dark cyberpunk backgrounds",
+          "blue-purple AI gradients",
+          "glossy 3D",
+          "realistic robots",
+          "chaotic arrows",
+          "dense unreadable paragraphs"
+        ]
+      },
+      "article_visual_system": {
+        "default_out_type": "brief",
+        "default_inline_count": 3,
+        "inline_count_range": [
+          1,
+          5
+        ],
+        "accepted_article_sources": [
+          "pasted article text",
+          "Markdown files",
+          "plain-text files"
+        ],
+        "inline_focus": "one architecture slice, loop, comparison, decision, or stage transition at a time",
+        "required_binding": [
+          "one concrete section or paragraph",
+          "one reading problem",
+          "insertion location",
+          "aspect ratio",
+          "visual anchors"
+        ],
+        "cover_role": "carry the system thesis, strategic model, or architecture-level story",
+        "inline_role": "explain one architecture slice or decision with a clear reading path",
+        "shared_family": "cream paper, charcoal typography, burnt-orange emphasis, editorial technical infographic discipline"
+      },
+      "base_rule_markers": [
+        "## Visual System",
+        "warm paper background",
+        "burnt-orange highlights",
+        "system architecture diagrams"
+      ],
+      "with_docs_rule_markers": [
+        "## Visual System",
+        "## Role Split",
+        "资产类型：article-inline",
+        "绑定章节/段落：",
+        "建议插入位置：",
+        "要解决的阅读问题：",
+        "正文配图数量：",
+        "fewer than `1` or more than `5`"
+      ]
+    },
+    {
+      "base_skill": "cover-light-product",
+      "with_docs_skill": "cover-light-product-with-docs",
+      "base_skill_path": "plugins/cover-light-product/skills/cover-light-product/SKILL.md",
+      "with_docs_skill_path": "plugins/cover-light-product-with-docs/skills/cover-light-product-with-docs/SKILL.md",
+      "base_skill_sha256": "c9dab9480db0b7c49ff408aa70605b4fccd774031431bed09ec7b996cb12ecd1",
+      "with_docs_skill_sha256": "3b16210790edb90e788ab245e6b937ffd188c4816d65e243ae30854ad6483839",
+      "visual_system": {
+        "family": "light-product",
+        "background": "cream-white or light neutral base with generous negative space",
+        "palette": [
+          "cream-white",
+          "Claude warm orange, brown, or gold",
+          "Codex indigo or purple-blue",
+          "neutral white, gray, or charcoal"
+        ],
+        "anchors": [
+          "refined SaaS UI modules",
+          "agent workspace narratives",
+          "workflow nodes",
+          "product surfaces",
+          "warm-cool dual-brand information hierarchy"
+        ],
+        "composition": "three-layer product visual with a clear hero object, supporting UI modules, and magazine-editorial typography",
+        "avoid": [
+          "dark mode",
+          "cheap AI poster art",
+          "e-commerce banner feel",
+          "candy colors",
+          "fluorescent gradients",
+          "overdone 3D"
+        ]
+      },
+      "article_visual_system": {
+        "default_out_type": "brief",
+        "default_inline_count": 3,
+        "inline_count_range": [
+          1,
+          5
+        ],
+        "accepted_article_sources": [
+          "pasted article text",
+          "Markdown files",
+          "plain-text files"
+        ],
+        "inline_focus": "one product workflow, interface behavior, decision, or agent-system relationship at a time",
+        "required_binding": [
+          "one concrete section or paragraph",
+          "one reading problem",
+          "insertion location",
+          "aspect ratio",
+          "visual anchors"
+        ],
+        "cover_role": "carry the article thesis as a premium AI-native product visual",
+        "inline_role": "explain one product or workflow concept with UI modules tied to the section",
+        "shared_family": "cream-white product surfaces, warm-cool dual accents, refined UI modules, and agent workflow storytelling"
+      },
+      "base_rule_markers": [
+        "## Color System",
+        "cream-white base",
+        "Claude-Codex dual-brand fusion",
+        "## Composition System"
+      ],
+      "with_docs_rule_markers": [
+        "## Visual System",
+        "## Role Split",
+        "资产类型：article-inline",
+        "绑定章节/段落：",
+        "建议插入位置：",
+        "要解决的阅读问题：",
+        "正文配图数量：",
+        "fewer than `1` or more than `5`"
+      ]
+    },
+    {
+      "base_skill": "cover-sketch-knowledge-poster",
+      "with_docs_skill": "cover-sketch-knowledge-poster-with-docs",
+      "base_skill_path": "plugins/cover-sketch-knowledge-poster/skills/cover-sketch-knowledge-poster/SKILL.md",
+      "with_docs_skill_path": "plugins/cover-sketch-knowledge-poster-with-docs/skills/cover-sketch-knowledge-poster-with-docs/SKILL.md",
+      "base_skill_sha256": "1d172412f50a6a1ba8fca5069e84d83723bb37d2dd1adef751dde1a77bd707ab",
+      "with_docs_skill_sha256": "f87dcd968472ba4d5e17b31142d1946c485a410efbcb0d60efe6aced693ce43a",
+      "visual_system": {
+        "family": "sketch-knowledge",
+        "background": "warm paper with subtle grain, scan feel, fold or notebook texture, and real paper shadow",
+        "palette": [
+          "paper white",
+          "black",
+          "Anthropic orange #E67E22 only"
+        ],
+        "anchors": [
+          "knowledge maps",
+          "arrows and folders",
+          "terminal windows",
+          "UI cards",
+          "databases, agents, memory, chat, and workflow nodes"
+        ],
+        "composition": "clear title layer, central knowledge structure, concise support notes, generous whitespace, and strong hierarchy",
+        "avoid": [
+          "pure white poster boards",
+          "dark tech backgrounds",
+          "blue-purple gradients",
+          "glossy UI mockups",
+          "3D icons",
+          "dense unreadable microtext"
+        ]
+      },
+      "article_visual_system": {
+        "default_out_type": "brief",
+        "default_inline_count": 3,
+        "inline_count_range": [
+          1,
+          5
+        ],
+        "accepted_article_sources": [
+          "pasted article text",
+          "Markdown files",
+          "plain-text files"
+        ],
+        "inline_focus": "one specific knowledge point, interface behavior, or step that can be understood in three seconds",
+        "required_binding": [
+          "one concrete section or paragraph",
+          "one reading problem",
+          "insertion location",
+          "aspect ratio",
+          "visual anchors"
+        ],
+        "cover_role": "explain the whole article thesis as a collectible knowledge map or tutorial overview",
+        "inline_role": "explain one specific knowledge point without becoming a mini cover",
+        "shared_family": "warm paper, black marker, orange emphasis, sketchnote hierarchy, and educational clarity"
+      },
+      "base_rule_markers": [
+        "## Visual System",
+        "warm paper texture",
+        "#E67E22",
+        "sketchnote typography"
+      ],
+      "with_docs_rule_markers": [
+        "## Visual System",
+        "## Role Split",
+        "资产类型：article-inline",
+        "绑定章节/段落：",
+        "建议插入位置：",
+        "要解决的阅读问题：",
+        "正文配图数量：",
+        "fewer than `1` or more than `5`"
+      ]
+    }
+  ]
+}

@@ -3,34 +3,31 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PLUGINS_DIR="$ROOT_DIR/plugins"
+INSTALL_INDEX="$ROOT_DIR/generated/install-index.sh"
 TARGET_DIR="${COVER_SKILLS_TARGET:-$HOME/.shared-skills}"
 BACKUP_DIR="${COVER_SKILLS_BACKUP_DIR:-$TARGET_DIR/.cover-prompt-skills-backup}"
+
+if [[ ! -f "$INSTALL_INDEX" ]]; then
+  echo "Generated install inventory is missing: $INSTALL_INDEX" >&2
+  echo "Run: python3 scripts/skill_registry.py generate" >&2
+  exit 1
+fi
+
+# This file is generated from the plugin directories and manifests.  Both the
+# local installer and the remote root installer consume this same file.
+# shellcheck source=/dev/null
+source "$INSTALL_INDEX"
 
 usage() {
   cat <<'USAGE'
 Usage:
-  scripts/install.sh                        Install all skills
-  scripts/install.sh cover-black-white-minimal
-  scripts/install.sh cover-trendy-color-poster
-  scripts/install.sh cover-giant-perspective-poster
-  scripts/install.sh cover-cream-orange-knowledge-poster
-  scripts/install.sh cover-sketch-knowledge-poster
-  scripts/install.sh cover-midnight-studio
-  scripts/install.sh cover-budapest-poster
-  scripts/install.sh cover-editorial-collage
-  scripts/install.sh cover-light-product
-  scripts/install.sh cover-3d-eye
-  scripts/install.sh cover-mckinsey-briefing-style
-  scripts/install.sh cover-tea-oriental
+  scripts/install.sh                        Install all generated skills
+  scripts/install.sh <skill-name>            Install one generated skill
   scripts/install.sh all                    Install all skills
 
 Environment:
   COVER_SKILLS_TARGET=~/.shared-skills
   COVER_SKILLS_BACKUP_DIR=~/.shared-skills/.cover-prompt-skills-backup
-
-Note:
-  cover-tips is a navigator/planner skill. It is installed with all skills, but
-  cannot be installed by itself because it depends on concrete visual style skills.
 
 Existing non-symlink skill directories are moved to a timestamped backup
 directory before installing symlinks.
@@ -50,13 +47,24 @@ backup_existing_target() {
   echo "Backed up existing target: $dst -> $backup"
 }
 
+is_known_skill() {
+  local candidate="$1"
+  local skill
+  for skill in "${ALL_SKILLS[@]}"; do
+    if [[ "$skill" == "$candidate" ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
 install_skill() {
   local name="$1"
   local src="$PLUGINS_DIR/$name"
   local dst="$TARGET_DIR/$name"
 
-  if [[ ! -d "$src" ]]; then
-    echo "Skill not found: $name" >&2
+  if ! is_known_skill "$name" || [[ ! -d "$src" ]]; then
+    echo "Skill is not in the generated inventory: $name" >&2
     exit 1
   fi
 
@@ -80,17 +88,7 @@ main() {
 
   local requested=("$@")
   if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "all" ]]; then
-    requested=()
-    while IFS= read -r skill; do
-      requested+=("$skill")
-    done < <(find "$PLUGINS_DIR" -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
-  elif [[ ${#requested[@]} -eq 1 && "${requested[0]}" == "cover-tips" ]]; then
-    echo "${requested[0]} cannot be installed by itself." >&2
-    echo "It is only a navigator/planner. Install all skills instead:" >&2
-    echo "  scripts/install.sh" >&2
-    echo "Or install a concrete style skill, for example:" >&2
-    echo "  scripts/install.sh cover-editorial-collage" >&2
-    exit 1
+    requested=("${ALL_SKILLS[@]}")
   fi
 
   for skill in "${requested[@]}"; do

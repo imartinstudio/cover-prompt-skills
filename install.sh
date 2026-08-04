@@ -2,25 +2,18 @@
 set -euo pipefail
 
 REPO_RAW="https://raw.githubusercontent.com/imartinstudio/cover-prompt-skills/main"
+INSTALL_INDEX_URL="$REPO_RAW/generated/install-index.sh"
 TARGET_DIR="${COVER_SKILLS_TARGET:-$HOME/.shared-skills}"
 BACKUP_DIR="${COVER_SKILLS_BACKUP_DIR:-$TARGET_DIR/.cover-prompt-skills-backup}"
+REMOTE_INSTALL_INDEX=""
 
-# Update this list when skills are added or removed
-ALL_SKILLS=(
-  cover-black-white-minimal
-  cover-budapest-poster
-  cover-editorial-collage
-  cover-giant-perspective-poster
-  cover-cream-orange-knowledge-poster
-  cover-sketch-knowledge-poster
-  cover-midnight-studio
-  cover-light-product
-  cover-3d-eye
-  cover-mckinsey-briefing-style
-  cover-tea-oriental
-  cover-tips
-  cover-trendy-color-poster
-)
+cleanup_remote_install_index() {
+  if [[ -n "$REMOTE_INSTALL_INDEX" && -f "$REMOTE_INSTALL_INDEX" ]]; then
+    rm -f "$REMOTE_INSTALL_INDEX"
+  fi
+}
+
+trap cleanup_remote_install_index EXIT
 
 has_local_project() {
   [[ -d "plugins" && -x "scripts/install.sh" ]]
@@ -39,10 +32,36 @@ install_from_local() {
   COVER_SKILLS_TARGET="$TARGET_DIR" scripts/install.sh "$@"
 }
 
+load_remote_inventory() {
+  REMOTE_INSTALL_INDEX="$(mktemp "${TMPDIR:-/tmp}/cover-prompt-skills-install-index.XXXXXX")"
+  if ! curl -fsSL "$INSTALL_INDEX_URL" -o "$REMOTE_INSTALL_INDEX"; then
+    echo "Failed to download generated install inventory: $INSTALL_INDEX_URL" >&2
+    exit 1
+  fi
+  # shellcheck source=/dev/null
+  source "$REMOTE_INSTALL_INDEX"
+}
+
+is_known_skill() {
+  local candidate="$1"
+  local skill
+  for skill in "${ALL_SKILLS[@]}"; do
+    if [[ "$skill" == "$candidate" ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
 install_skill_remote() {
   local name="$1"
   local src_url="$REPO_RAW/plugins/$name/skills/$name/SKILL.md"
   local dst="$TARGET_DIR/$name"
+
+  if ! is_known_skill "$name"; then
+    echo "Skill is not in the generated inventory: $name" >&2
+    exit 1
+  fi
 
   echo "Downloading $name..."
 
@@ -69,14 +88,11 @@ main() {
     return
   fi
 
+  load_remote_inventory
+
   local requested=("$@")
   if [[ ${#requested[@]} -eq 0 || "${requested[0]}" == "cover" || "${requested[0]}" == "all" ]]; then
     requested=("${ALL_SKILLS[@]}")
-  elif [[ ${#requested[@]} -eq 1 && "${requested[0]}" == "cover-tips" ]]; then
-    echo "${requested[0]} cannot be installed alone." >&2
-    echo "It is a navigator/planner skill and depends on concrete cover-* visual style skills." >&2
-    echo "Install all skills instead: ./install.sh" >&2
-    exit 1
   fi
 
   for skill in "${requested[@]}"; do
