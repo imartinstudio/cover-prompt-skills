@@ -124,3 +124,38 @@ git diff --check -- scripts/skill_registry.py scripts/install.sh install.sh \
 不删除这些前序任务留下的目录，也不会把它们写入任何生成产物。四个现有
 `with-docs/SKILL.md` 的内容保持原样，由 source spec 的规则 marker 和固定 SHA
 负责后续漂移检测。
+
+## Task 3 修复回合：审查问题收尾
+
+- 状态：DONE
+- 基线：`720e6a0`
+- 修复提交：`567482c6995a2818a850733494cd252e28019e4f`
+
+### 本轮修复
+
+- 根远程 `install.sh` 不再 `source` 网络下载的 `generated/install-index.sh`；它现在逐行读取并只接受固定头部、三个已知数组、固定的 `COVER_TIPS_SKILL` 行和安全技能名格式 `[a-z0-9]+(?:-[a-z0-9]+)*`，未知行、嵌套/重复结构、空库存和不安全值都会拒绝。
+- `scripts/skill_registry.py` 对插件目录名、两份 manifest 名、技能目录名、SKILL frontmatter 名和生成 shell 索引值统一执行严格技能名校验，避免恶意 manifest 名进入 shell 索引。
+- 新增隔离临时副本测试，确认修改 style spec 的 base rule marker 会使 `python3 scripts/skill_registry.py check --root <temporary-root>` 失败；该副本不写工作区。
+- 新增真实本地安装 smoke：临时 `COVER_SKILLS_TARGET` 全量创建 17 个 skill symlink；另一个临时目标分别单独安装 `cover-3d-eye-with-docs` 和 `cover-tips`，不访问网络、不触碰用户 home。
+
+### TDD 与验证结果
+
+- RED：先运行 `python3 -m unittest discover -s tests -p 'test_*.py' -v`；新增安全用例因远程索引会被执行、恶意 manifest 名没有严格校验而失败。style marker 用例直接通过，因为现有实现已经有 marker 检查；安装 smoke 的首次测试辅助函数复用临时 home 导致 1 个测试错误，随后只修正测试辅助函数并重新进入实现 GREEN。
+- GREEN：`PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v`，`17` 个测试全部通过。
+- `python3 scripts/skill_registry.py generate`：成功生成 7 个索引/marketplace 产物；生成结果无内容漂移。
+- `python3 scripts/skill_registry.py check`：`registry check passed: 17 plugins`。
+- `bash -n scripts/install.sh install.sh`：通过。
+- `style-specs/with-docs.json`、4 个 generated JSON、两份 marketplace JSON：全部通过 `python3 -m json.tool`。
+- `git diff --check`：通过；提交前 hook 的 41 个 JSON、33 个 Markdown、5 个 shell 文件 lint 全部通过。
+
+### 本轮改动范围
+
+本轮实际代码/测试提交只包含：`install.sh`、`scripts/skill_registry.py`、
+`tests/test_skill_registry.py`。没有修改 Task 2 文件、README、三份用户设计文档、
+四个 with-docs `SKILL.md` 或其他用户未跟踪文件；生成索引和 marketplace 在本轮
+重新生成后保持原内容。
+
+### 本轮未解决疑问
+
+无。远程生成索引解析不执行下载内容；本地安装仍消费同一份已由生成器严格校验的
+生成索引。
