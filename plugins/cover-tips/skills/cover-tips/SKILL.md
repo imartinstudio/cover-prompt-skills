@@ -1,6 +1,6 @@
 ---
 name: cover-tips
-description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-3d-eye, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, cover-mckinsey-briefing-style, or cover-pixel-avatar. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, 3D Eye, midnight studio, Budapest, editorial collage, tea oriental, light product, McKinsey briefing style, or pixel avatar. If the user asks for a coordinated article cover plus inline visual package, route them to article-visual-planner with a selected cover-* style.
+description: Convert a user's rough cover idea, product description, article topic, image reference, or design brief into a standardized template or generic image prompt for a user-specified cover style. Use when the user asks for cover tips, cover prompt formatting, style-specific cover templates, or wants to transform unstructured content into inputs for cover-black-white-minimal, cover-trendy-color-poster, cover-giant-perspective-poster, cover-sketch-knowledge-poster, cover-3d-eye, cover-midnight-studio, cover-budapest-poster, cover-editorial-collage, cover-tea-oriental, cover-light-product, or cover-mckinsey-briefing-style. The user should specify a style such as black-white minimal, trendy color, giant perspective, sketch knowledge poster, 3D Eye, midnight studio, Budapest, editorial collage, tea oriental, light product, or McKinsey briefing style. If the user asks for a coordinated article cover plus inline visual package, route them only to the actual existing cover-X-with-docs skill that matches the selected style.
 ---
 
 # Cover Tips
@@ -41,9 +41,6 @@ Map user style names and aliases to these cover skills:
 - McKinsey briefing style: `cover-mckinsey-briefing-style`
   - Aliases: `麦肯锡简报风`, `麦肯锡风`, `咨询简报`, `咨询简报封面`, `战略简报`, `战略报告`, `咨询报告`, `consulting briefing`, `mckinsey style`, `strategy report`, `executive briefing`, `boardroom deck`.
   - Use for consulting-grade executive briefing covers, strategy report title pages, boardroom deck covers, business analysis visuals, and PPT consulting covers with strict grids, crisp white space, strategy frameworks, and disciplined blue-black-red accents.
-- Pixel avatar: `cover-pixel-avatar`
-  - Aliases: `像素头像`, `像素`, `8-bit头像`, `8bit头像`, `8-bit avatar`, `pixel avatar`, `retro game avatar`, `NFT头像`, `Q版像素头像`, `社交头像`.
-  - Use for abstract retro 8-bit pixel art avatars redesigned from an uploaded reference image, with solid flat backgrounds, high-saturation clash colors, and commercial avatar/IP energy. Requires a reference image.
 - Budapest poster: `cover-budapest-poster`
   - Aliases: `布达佩斯`, `budapest`, `复古欧洲`, `复古中欧`, `电影感`, `明信片`, `剧院感`, `电车`, `车站`, `浴场`.
   - Use for retro Central European cinematic posters, theatre/tram/station/bathhouse/archive scenes, postcard-like concepts, and spatial storytelling covers. Hotel imagery is only a specific optional subset, not the default.
@@ -56,7 +53,7 @@ Map user style names and aliases to these cover skills:
 
 If no style is specified, ask the user to choose one of: `黑白极简`, `潮流彩色`, `巨型透视`, `手绘知识图谱`, `3D Eye`, `深夜工作室`, `像素头像`, `布达佩斯`, `撕纸剪贴`, `茶风格`, `浅色产品`, `麦肯锡简报风`. Do not silently pick a style unless the user asks for a recommendation.
 
-`cover-tips` remains a cover-only router. If the user asks for a coordinated article cover plus inline visual package, direct them to `article-visual-planner` and preserve the selected `cover-*` style instead of trying to produce article visual briefs here.
+`cover-tips` remains a cover-only router. If the user asks for a coordinated article cover plus inline visual package, direct them to the actual existing `cover-X-with-docs` skill that matches the selected style instead of trying to produce article visual briefs here.
 
 ## Output Type
 
