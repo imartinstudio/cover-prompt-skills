@@ -106,3 +106,41 @@ Include:
 8. A concise avoid list.
 
 If generating directly, keep analysis internal and output only the generated image result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-cream-orange-knowledge-poster -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "base_skill": "cover-cream-orange-knowledge-poster",
+  "visual_system": {
+    "anchors": [
+      "system architecture diagrams",
+      "feedback loops",
+      "maturity ladders",
+      "comparison frameworks",
+      "editorial technical infographic modules"
+    ],
+    "avoid": [
+      "dark cyberpunk backgrounds",
+      "blue-purple AI gradients",
+      "glossy 3D",
+      "realistic robots",
+      "chaotic arrows",
+      "dense unreadable paragraphs"
+    ],
+    "background": "warm cream paper or soft off-white with subtle grid, grain, scan texture, and restrained border shadow",
+    "composition": "strong title layer, structured diagram body, visible reading path, modular panels, and clear arrows",
+    "family": "cream-orange-knowledge",
+    "palette": [
+      "cream",
+      "charcoal black",
+      "warm gray",
+      "burnt orange",
+      "muted terracotta",
+      "small beige accents"
+    ]
+  },
+  "with_docs_skill": "cover-cream-orange-knowledge-poster-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-cream-orange-knowledge-poster -->

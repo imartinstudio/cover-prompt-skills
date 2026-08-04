@@ -41,6 +41,16 @@ STYLE_SPEC_PATH = Path("style-specs/with-docs.json")
 STYLE_INDEX_PATH = GENERATED_DIR / "with-docs-style-index.json"
 CLAUDE_MARKETPLACE_PATH = Path(".claude-plugin/marketplace.json")
 CODEX_MARKETPLACE_PATH = Path(".agents/plugins/marketplace.json")
+COVER_TIPS_SKILL_PATH = Path("plugins/cover-tips/skills/cover-tips/SKILL.md")
+COVER_TIPS_ROUTES_BEGIN = "<!-- BEGIN GENERATED COVER-TIPS ROUTES -->"
+COVER_TIPS_ROUTES_END = "<!-- END GENERATED COVER-TIPS ROUTES -->"
+STYLE_PROJECTION_BEGIN = "<!-- BEGIN GENERATED STYLE SPEC: {base_skill} -->"
+STYLE_PROJECTION_END = "<!-- END GENERATED STYLE SPEC: {base_skill} -->"
+STYLE_PROJECTION_PATTERN = re.compile(
+    r"\n<!-- BEGIN GENERATED STYLE SPEC: [^>]+ -->.*?"
+    r"<!-- END GENERATED STYLE SPEC: [^>]+ -->\n?",
+    re.DOTALL,
+)
 
 MARKETPLACE_NAME = "cover-prompt-skills"
 MARKETPLACE_OWNER = {"name": "imartinstudio"}
@@ -106,6 +116,51 @@ def sha256_file(path: Path) -> str:
         return hashlib.sha256(path.read_bytes()).hexdigest()
     except OSError as exc:
         raise RegistryError(f"cannot hash artifact: {path}: {exc}") from exc
+
+
+def normalized_style_artifact_sha256(path: Path) -> str:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise RegistryError(f"cannot hash artifact: {path}: {exc}") from exc
+    normalized = STYLE_PROJECTION_PATTERN.sub("", text)
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def render_generated_block(begin: str, end: str, body: str) -> str:
+    return "\n".join((begin, body, end))
+
+
+def extract_generated_block(text: str, begin: str, end: str, path: Path) -> str:
+    if text.count(begin) != 1 or text.count(end) != 1:
+        raise RegistryError(
+            f"generated block markers must occur exactly once: {path}"
+        )
+    start = text.index(begin)
+    end_start = text.index(end)
+    if end_start < start:
+        raise RegistryError(f"generated block markers are out of order: {path}")
+    end_position = end_start + len(end)
+    return text[start:end_position]
+
+
+def replace_generated_block(
+    text: str,
+    begin: str,
+    end: str,
+    expected: str,
+    path: Path,
+    *,
+    allow_append: bool,
+) -> str:
+    begin_count = text.count(begin)
+    end_count = text.count(end)
+    if begin_count == 0 and end_count == 0 and allow_append:
+        return f"{text.rstrip()}\n\n{expected}\n"
+    actual = extract_generated_block(text, begin, end, path)
+    start = text.index(begin)
+    end_position = start + len(actual)
+    return text[:start] + expected + text[end_position:]
 
 
 def load_style_spec(root: Path) -> dict[str, Any]:
@@ -174,6 +229,112 @@ def load_style_spec(root: Path) -> dict[str, Any]:
     return spec
 
 
+def render_cover_tips_routes(registry: dict[str, Any]) -> str:
+    plugins = {plugin["name"]: plugin for plugin in registry["plugins"]}
+    with_docs_by_base = {
+        pair["base"]: pair["with_docs"] for pair in registry["with_docs_pairs"]
+    }
+    lines = [
+        COVER_TIPS_ROUTES_BEGIN,
+        "| Display name | Single-cover route | Article-package route |",
+        "| --- | --- | --- |",
+    ]
+    for base in registry["base_skills"]:
+        article_route = with_docs_by_base.get(base)
+        article_cell = f"`{article_route}`" if article_route else "—"
+        lines.append(
+            f"| {plugins[base]['display_name']} | `{base}` | {article_cell} |"
+        )
+    lines.append(COVER_TIPS_ROUTES_END)
+    return "\n".join(lines)
+
+
+def render_style_spec_projection(style: dict[str, Any], target: str) -> str:
+    payload: dict[str, Any] = {
+        "base_skill": style["base_skill"],
+        "with_docs_skill": style["with_docs_skill"],
+        "visual_system": style["visual_system"],
+    }
+    if target == "with-docs":
+        payload["article_visual_system"] = style["article_visual_system"]
+    body = "\n".join(
+        (
+            "<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->",
+            "```json",
+            json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True),
+            "```",
+        )
+    )
+    return render_generated_block(
+        STYLE_PROJECTION_BEGIN.format(base_skill=style["base_skill"]),
+        STYLE_PROJECTION_END.format(base_skill=style["base_skill"]),
+        body,
+    )
+
+
+def synchronize_generated_skill_blocks(root: Path, registry: dict[str, Any]) -> None:
+    spec = load_style_spec(root)
+    route_path = root / COVER_TIPS_SKILL_PATH
+    try:
+        route_text = route_path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise RegistryError(f"cannot read CoverTips skill: {route_path}: {exc}") from exc
+    route_block = render_cover_tips_routes(registry)
+    route_updated = replace_generated_block(
+        route_text,
+        COVER_TIPS_ROUTES_BEGIN,
+        COVER_TIPS_ROUTES_END,
+        route_block,
+        route_path,
+        allow_append=False,
+    )
+    if route_updated != route_text:
+        route_path.write_text(route_updated, encoding="utf-8")
+
+    plugins = {plugin["name"]: plugin for plugin in registry["plugins"]}
+    for style in spec["styles"]:
+        for target, skill_name in (
+            ("base", style["base_skill"]),
+            ("with-docs", style["with_docs_skill"]),
+        ):
+            plugin = plugins.get(skill_name)
+            if plugin is None:
+                raise RegistryError(f"style spec references undiscovered skill: {skill_name}")
+            skill_path = root / plugin["skill_path"]
+            try:
+                skill_text = skill_path.read_text(encoding="utf-8")
+            except OSError as exc:
+                raise RegistryError(f"cannot read skill: {skill_path}: {exc}") from exc
+            projection = render_style_spec_projection(style, target)
+            begin = STYLE_PROJECTION_BEGIN.format(base_skill=style["base_skill"])
+            end = STYLE_PROJECTION_END.format(base_skill=style["base_skill"])
+            updated = replace_generated_block(
+                skill_text,
+                begin,
+                end,
+                projection,
+                skill_path,
+                allow_append=True,
+            )
+            if updated != skill_text:
+                skill_path.write_text(updated, encoding="utf-8")
+
+
+def validate_cover_tips_routes(root: Path, registry: dict[str, Any]) -> list[str]:
+    path = root / COVER_TIPS_SKILL_PATH
+    try:
+        text = path.read_text(encoding="utf-8")
+        actual = extract_generated_block(
+            text, COVER_TIPS_ROUTES_BEGIN, COVER_TIPS_ROUTES_END, path
+        )
+    except (OSError, RegistryError) as exc:
+        return [str(exc)]
+    expected = render_cover_tips_routes(registry)
+    if actual != expected:
+        return [f"CoverTips generated route table drifted: {relative_path(path, root)}"]
+    return []
+
+
 def build_style_index(root: Path, registry: dict[str, Any]) -> tuple[dict[str, Any], list[str]]:
     try:
         spec = load_style_spec(root)
@@ -204,8 +365,8 @@ def build_style_index(root: Path, registry: dict[str, Any]) -> tuple[dict[str, A
         try:
             base_text = base_path.read_text(encoding="utf-8")
             with_docs_text = with_docs_path.read_text(encoding="utf-8")
-            actual_base_hash = sha256_file(base_path)
-            actual_with_docs_hash = sha256_file(with_docs_path)
+            actual_base_hash = normalized_style_artifact_sha256(base_path)
+            actual_with_docs_hash = normalized_style_artifact_sha256(with_docs_path)
         except (OSError, RegistryError) as exc:
             errors.append(str(exc))
             continue
@@ -222,6 +383,26 @@ def build_style_index(root: Path, registry: dict[str, Any]) -> tuple[dict[str, A
         for marker in style["with_docs_rule_markers"]:
             if marker not in with_docs_text:
                 errors.append(f"with-docs rule marker missing for {with_docs}: {marker}")
+
+        for target, skill_name, skill_text in (
+            ("base", base, base_text),
+            ("with-docs", with_docs, with_docs_text),
+        ):
+            expected_projection = render_style_spec_projection(style, target)
+            begin = STYLE_PROJECTION_BEGIN.format(base_skill=base)
+            end = STYLE_PROJECTION_END.format(base_skill=base)
+            try:
+                actual_projection = extract_generated_block(
+                    skill_text, begin, end, root / (expected_base_path if target == "base" else expected_with_docs_path)
+                )
+            except RegistryError as exc:
+                errors.append(str(exc))
+                continue
+            if actual_projection != expected_projection:
+                errors.append(
+                    f"style spec projection drifted for {skill_name}: "
+                    f"{STYLE_SPEC_PATH.as_posix()} does not match generated block"
+                )
 
         indexed_styles.append(
             {
@@ -627,6 +808,14 @@ def command_discover(root: Path) -> int:
 
 def command_generate(root: Path) -> int:
     registry, errors = discover(root)
+    if errors:
+        print_errors(errors)
+        return 1
+    try:
+        synchronize_generated_skill_blocks(root, registry)
+    except RegistryError as exc:
+        print_errors([str(exc)])
+        return 1
     style_index, style_errors = build_style_index(root, registry)
     errors.extend(style_errors)
     if errors:
@@ -641,6 +830,7 @@ def command_generate(root: Path) -> int:
 
 def command_check(root: Path) -> int:
     registry, errors = discover(root)
+    errors.extend(validate_cover_tips_routes(root, registry))
     style_index, style_errors = build_style_index(root, registry)
     errors.extend(style_errors)
     if errors:

@@ -15,10 +15,13 @@ route runtime work to `cover-light-product`, `light-product-kit`, or
 - Accepted article sources: pasted article text, Markdown files, or plain-text
   files.
 - Do not claim DOCX, PDF, remote article, or web-page ingestion support.
-- Treat the article source as read-only.
+- The article source remains read-only.
 - If no valid article content is available, ask the user for pasted content or
   a Markdown/plain-text path. Do not fall back to a single cover.
-- Default output is planning material, not direct image generation.
+- Default output is returned in the conversation. Write a file only when the
+  user explicitly provides an output path.
+- An output path applies only to that requested path; do not overwrite or
+  modify any other file.
 
 ## Output Type
 
@@ -236,3 +239,63 @@ Every inline prompt must include:
 
 Only generate final images when the user explicitly asks for image output. Keep
 analysis internal and output only the generated asset result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-light-product -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "article_visual_system": {
+    "accepted_article_sources": [
+      "pasted article text",
+      "Markdown files",
+      "plain-text files"
+    ],
+    "cover_role": "carry the article thesis as a premium AI-native product visual",
+    "default_inline_count": 3,
+    "default_out_type": "brief",
+    "inline_count_range": [
+      1,
+      5
+    ],
+    "inline_focus": "one product workflow, interface behavior, decision, or agent-system relationship at a time",
+    "inline_role": "explain one product or workflow concept with UI modules tied to the section",
+    "required_binding": [
+      "one concrete section or paragraph",
+      "one reading problem",
+      "insertion location",
+      "aspect ratio",
+      "visual anchors"
+    ],
+    "shared_family": "cream-white product surfaces, warm-cool dual accents, refined UI modules, and agent workflow storytelling"
+  },
+  "base_skill": "cover-light-product",
+  "visual_system": {
+    "anchors": [
+      "refined SaaS UI modules",
+      "agent workspace narratives",
+      "workflow nodes",
+      "product surfaces",
+      "warm-cool dual-brand information hierarchy"
+    ],
+    "avoid": [
+      "dark mode",
+      "cheap AI poster art",
+      "e-commerce banner feel",
+      "candy colors",
+      "fluorescent gradients",
+      "overdone 3D"
+    ],
+    "background": "cream-white or light neutral base with generous negative space",
+    "composition": "three-layer product visual with a clear hero object, supporting UI modules, and magazine-editorial typography",
+    "family": "light-product",
+    "palette": [
+      "cream-white",
+      "Claude warm orange, brown, or gold",
+      "Codex indigo or purple-blue",
+      "neutral white, gray, or charcoal"
+    ]
+  },
+  "with_docs_skill": "cover-light-product-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-light-product -->

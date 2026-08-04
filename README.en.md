@@ -98,7 +98,7 @@ Topic: local AI
 Use case: tutorial cover
 ```
 
-CoverTips' own cover-organizing mode defaults to a template. Use `--out-type prompt` for a generic image prompt and `--out-type all` for both.
+CoverTips has no output mode of its own and does not generate a generic prompt or intermediate template. After both confirmations, it passes the original request and confirmed choices to the target `cover-X` or `cover-X-with-docs` skill, which owns the output contract.
 
 ## Article Visual Package Examples
 

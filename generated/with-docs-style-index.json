@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source_spec": "style-specs/with-docs.json",
-  "source_spec_sha256": "b7b86f796a1e2b9573fb9124b7e3110d5217148ee346e0c2fc5c51a752c7c01d",
+  "source_spec_sha256": "b08b56a2ed75ee5ce8146db981a1e04bd0f687aa121512a93da1f179c8835838",
   "styles": [
     {
       "base_skill": "cover-3d-eye",
@@ -9,7 +9,7 @@
       "base_skill_path": "plugins/cover-3d-eye/skills/cover-3d-eye/SKILL.md",
       "with_docs_skill_path": "plugins/cover-3d-eye-with-docs/skills/cover-3d-eye-with-docs/SKILL.md",
       "base_skill_sha256": "f85eb0f695dd0ad9220b83a7fa5a0faf3b7fabf36568c2a4796b991e59412dbd",
-      "with_docs_skill_sha256": "5748baa3679bb4848b30844bbca3f38c3954b1933574bd42498c72ee3106b865",
+      "with_docs_skill_sha256": "ad7e8486636022ba5fe7f6377ba68885236851b70d81e7ed8d561397a4669098",
       "visual_system": {
         "family": "3d-eye",
         "background": "deep black or near-black #050707 with a subtle blueprint grid, scan lines, registration marks, and restrained grain",
@@ -84,7 +84,7 @@
       "base_skill_path": "plugins/cover-cream-orange-knowledge-poster/skills/cover-cream-orange-knowledge-poster/SKILL.md",
       "with_docs_skill_path": "plugins/cover-cream-orange-knowledge-poster-with-docs/skills/cover-cream-orange-knowledge-poster-with-docs/SKILL.md",
       "base_skill_sha256": "4180408066a7be36d9233287a5bb59b0dddc2de59aab9c94dee385269dc2d068",
-      "with_docs_skill_sha256": "d543dd7d391461cc1f41b11c276eb11ad34303b6c5f0e75f68f1a130b25f8b51",
+      "with_docs_skill_sha256": "b0ea91539450f698836e7d2515ae3b6bc3bc4d8e33451653d72be016d54f8754",
       "visual_system": {
         "family": "cream-orange-knowledge",
         "background": "warm cream paper or soft off-white with subtle grid, grain, scan texture, and restrained border shadow",
@@ -160,7 +160,7 @@
       "base_skill_path": "plugins/cover-light-product/skills/cover-light-product/SKILL.md",
       "with_docs_skill_path": "plugins/cover-light-product-with-docs/skills/cover-light-product-with-docs/SKILL.md",
       "base_skill_sha256": "c9dab9480db0b7c49ff408aa70605b4fccd774031431bed09ec7b996cb12ecd1",
-      "with_docs_skill_sha256": "3b16210790edb90e788ab245e6b937ffd188c4816d65e243ae30854ad6483839",
+      "with_docs_skill_sha256": "612bfa9824cd1f36b5dae63915e26de8835832da1b8778a92e5fe734f28c9700",
       "visual_system": {
         "family": "light-product",
         "background": "cream-white or light neutral base with generous negative space",
@@ -234,7 +234,7 @@
       "base_skill_path": "plugins/cover-sketch-knowledge-poster/skills/cover-sketch-knowledge-poster/SKILL.md",
       "with_docs_skill_path": "plugins/cover-sketch-knowledge-poster-with-docs/skills/cover-sketch-knowledge-poster-with-docs/SKILL.md",
       "base_skill_sha256": "1d172412f50a6a1ba8fca5069e84d83723bb37d2dd1adef751dde1a77bd707ab",
-      "with_docs_skill_sha256": "f87dcd968472ba4d5e17b31142d1946c485a410efbcb0d60efe6aced693ce43a",
+      "with_docs_skill_sha256": "54b6814bb001039b4346eb88c5561cbf692ab50e22ca49efd35f9e681ffa9c41",
       "visual_system": {
         "family": "sketch-knowledge",
         "background": "warm paper with subtle grain, scan feel, fold or notebook texture, and real paper shadow",

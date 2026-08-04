@@ -98,7 +98,7 @@ $cover-3d-eye
 用途：教程封面
 ```
 
-CoverTips 自身的封面整理模式默认输出模板；需要通用提示词时可使用 `--out-type prompt`，需要两者时使用 `--out-type all`。
+CoverTips 没有自己的输出模式，也不生成通用提示词或中间模板；完成两项确认后，它会把原始请求和确认结果交给目标 `cover-X` 或 `cover-X-with-docs` 技能，由目标技能负责输出。
 
 ## 文章视觉包示例
 

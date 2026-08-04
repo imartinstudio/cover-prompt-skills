@@ -1,6 +1,7 @@
 import json
 import hashlib
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -40,6 +41,11 @@ EXPECTED_STYLE_PAIRS = {
     "cover-light-product": "cover-light-product-with-docs",
     "cover-sketch-knowledge-poster": "cover-sketch-knowledge-poster-with-docs",
 }
+STYLE_PROJECTION_PATTERN = re.compile(
+    r"\n<!-- BEGIN GENERATED STYLE SPEC: [^>]+ -->.*?"
+    r"<!-- END GENERATED STYLE SPEC: [^>]+ -->\n?",
+    re.DOTALL,
+)
 
 
 class SkillRegistryTests(unittest.TestCase):
@@ -77,6 +83,11 @@ class SkillRegistryTests(unittest.TestCase):
 
     def sha256(self, path):
         return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    def normalized_style_sha256(self, path):
+        text = path.read_text(encoding="utf-8")
+        normalized = STYLE_PROJECTION_PATTERN.sub("", text)
+        return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
     def run_local_installer(self, target, *arguments):
         home = target.parent / "home"
@@ -190,8 +201,7 @@ class SkillRegistryTests(unittest.TestCase):
     def test_generation_is_repeatable_and_produces_all_required_indexes(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             temporary_root = Path(temporary_directory)
-            os.symlink(ROOT / "plugins", temporary_root / "plugins", target_is_directory=True)
-            os.symlink(ROOT / "style-specs", temporary_root / "style-specs", target_is_directory=True)
+            self.copy_style_fixture(temporary_root)
             self.run_registry("generate", "--root", str(temporary_root))
             generated_paths = [
                 temporary_root / "generated" / "skill-registry.json",
@@ -207,10 +217,30 @@ class SkillRegistryTests(unittest.TestCase):
                 for path in generated_paths
                 if self.assert_file(path)
             }
+            source_paths = [
+                temporary_root
+                / "plugins"
+                / "cover-tips"
+                / "skills"
+                / "cover-tips"
+                / "SKILL.md",
+            ] + [
+                temporary_root
+                / "plugins"
+                / name
+                / "skills"
+                / name
+                / "SKILL.md"
+                for pair in EXPECTED_STYLE_PAIRS.items()
+                for name in pair
+            ]
+            first_sources = {path: path.read_bytes() for path in source_paths}
 
             self.run_registry("generate", "--root", str(temporary_root))
             second = {path: path.read_bytes() for path in generated_paths}
             self.assertEqual(first, second)
+            second_sources = {path: path.read_bytes() for path in source_paths}
+            self.assertEqual(first_sources, second_sources)
 
     def test_generated_install_and_cover_tips_indexes_match_discovered_inventory(self):
         self.run_registry("check")
@@ -255,7 +285,7 @@ class SkillRegistryTests(unittest.TestCase):
             with_docs_path = ROOT / "plugins" / with_docs_skill / "skills" / with_docs_skill / "SKILL.md"
             self.assertEqual(
                 style["artifact_sha256"]["with_docs_skill"],
-                self.sha256(with_docs_path),
+                self.normalized_style_sha256(with_docs_path),
             )
             self.assertEqual(
                 indexed["with_docs_skill_sha256"],
@@ -343,6 +373,100 @@ class SkillRegistryTests(unittest.TestCase):
             )
 
             self.assertIn("base style rule marker missing", result.stderr)
+
+    def test_cover_tips_route_table_is_generated_and_rejects_fake_with_docs_route(self):
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            temporary_root = Path(temporary_directory)
+            self.copy_style_fixture(temporary_root)
+            self.run_registry("generate", "--root", str(temporary_root))
+
+            route_path = (
+                temporary_root
+                / "plugins"
+                / "cover-tips"
+                / "skills"
+                / "cover-tips"
+                / "SKILL.md"
+            )
+            route_text = route_path.read_text(encoding="utf-8")
+            self.assertIn("<!-- BEGIN GENERATED COVER-TIPS ROUTES -->", route_text)
+            self.assertIn("<!-- END GENERATED COVER-TIPS ROUTES -->", route_text)
+            self.assertIn(
+                "| 3D Eye | `cover-3d-eye` | `cover-3d-eye-with-docs` |",
+                route_text,
+            )
+
+            begin = route_text.index("<!-- BEGIN GENERATED COVER-TIPS ROUTES -->")
+            end = route_text.index("<!-- END GENERATED COVER-TIPS ROUTES -->")
+            block = route_text[begin:end]
+            tampered_block = block.replace(
+                "`cover-3d-eye-with-docs`", "`cover-fake-with-docs`", 1
+            )
+            route_path.write_text(
+                route_text[:begin] + tampered_block + route_text[end:],
+                encoding="utf-8",
+            )
+
+            result = self.run_registry_expect_failure(
+                "check", "--root", str(temporary_root)
+            )
+
+            self.assertIn("CoverTips generated route table drifted", result.stderr)
+
+    def test_style_spec_semantic_drift_fails_when_skill_projection_is_unchanged(self):
+        mutations = (
+            (
+                "palette",
+                lambda style: style["visual_system"]["palette"].append(
+                    "unexpected palette token"
+                ),
+            ),
+            (
+                "background",
+                lambda style: style["visual_system"].update(
+                    background="unexpected background contract"
+                ),
+            ),
+            (
+                "inline contract",
+                lambda style: style["article_visual_system"].update(
+                    inline_focus="unexpected inline contract"
+                ),
+            ),
+        )
+
+        for label, mutate in mutations:
+            with self.subTest(label=label), tempfile.TemporaryDirectory() as temporary_directory:
+                temporary_root = Path(temporary_directory)
+                self.copy_style_fixture(temporary_root)
+                self.run_registry("generate", "--root", str(temporary_root))
+
+                spec_path = temporary_root / "style-specs" / "with-docs.json"
+                spec = json.loads(spec_path.read_text(encoding="utf-8"))
+                mutate(spec["styles"][0])
+                spec_path.write_text(
+                    json.dumps(spec, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+
+                result = self.run_registry_expect_failure(
+                    "check", "--root", str(temporary_root)
+                )
+
+                self.assertIn("style spec projection drifted", result.stderr)
+
+    def test_with_docs_skills_declare_explicit_output_path_hard_boundaries(self):
+        required_phrases = (
+            "Default output is returned in the conversation. Write a file only when the user explicitly provides an output path.",
+            "An output path applies only to that requested path; do not overwrite or modify any other file.",
+            "The article source remains read-only.",
+        )
+        for name in EXPECTED_WITH_DOCS:
+            skill_path = ROOT / "plugins" / name / "skills" / name / "SKILL.md"
+            text = " ".join(skill_path.read_text(encoding="utf-8").split())
+            for phrase in required_phrases:
+                with self.subTest(skill=name, phrase=phrase):
+                    self.assertIn(phrase, text)
 
     def test_registry_rejects_unsafe_manifest_skill_name(self):
         with tempfile.TemporaryDirectory() as temporary_directory:

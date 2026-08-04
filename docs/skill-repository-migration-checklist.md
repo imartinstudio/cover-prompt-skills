@@ -55,7 +55,7 @@
 - [x] 基础 `cover-X` 统一支持 `template | prompt | all`，缺省为 `template`。
 - [x] `cover-X-with-docs` 统一支持 `template | brief | prompt | all`，缺省为 `brief`。
 - [x] `with-docs` 首版只接受用户粘贴内容、Markdown 文件和纯文本文件；DOCX/PDF 暂不纳入。
-- [x] `with-docs` 默认生成 1 张封面和 3 张正文图，自动选择最多 5 张；用户明确指定时允许覆盖数量。
+- [x] `with-docs` 默认生成 1 张封面和 3 张正文图；未指定=3，显式 inline 数量=1–5。
 - [x] 读取文章已有图片引用，避免规划重复主题。
 - [x] 每张正文图必须绑定具体章节或段落，并输出插入位置、阅读问题、画幅比例和提示词。
 - [ ] 文章源只读；默认在对话中输出，只有用户明确提供输出路径时才写文件。

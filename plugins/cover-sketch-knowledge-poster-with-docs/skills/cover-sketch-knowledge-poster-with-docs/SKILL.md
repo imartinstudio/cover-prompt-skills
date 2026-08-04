@@ -15,11 +15,14 @@ or `illustration-sketch-ui`.
 - Accepted article sources: pasted article text, Markdown files, or plain-text
   files.
 - Do not claim DOCX, PDF, Google Docs, web URL, or remote article support.
-- Treat the article source as read-only.
+- The article source remains read-only.
 - If no valid article content is available, stop and ask the user to provide
   pasted text or a Markdown/plain-text file. Do not downgrade to a cover-only
   skill.
-- Default deliverable is planning output, not direct image generation.
+- Default output is returned in the conversation. Write a file only when the
+  user explicitly provides an output path.
+- An output path applies only to that requested path; do not overwrite or
+  modify any other file.
 
 ## Output Type
 
@@ -231,3 +234,62 @@ Every inline prompt must include:
 
 Only generate final images when the user explicitly asks for image output. Keep
 analysis internal and output only the generated asset result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-sketch-knowledge-poster -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "article_visual_system": {
+    "accepted_article_sources": [
+      "pasted article text",
+      "Markdown files",
+      "plain-text files"
+    ],
+    "cover_role": "explain the whole article thesis as a collectible knowledge map or tutorial overview",
+    "default_inline_count": 3,
+    "default_out_type": "brief",
+    "inline_count_range": [
+      1,
+      5
+    ],
+    "inline_focus": "one specific knowledge point, interface behavior, or step that can be understood in three seconds",
+    "inline_role": "explain one specific knowledge point without becoming a mini cover",
+    "required_binding": [
+      "one concrete section or paragraph",
+      "one reading problem",
+      "insertion location",
+      "aspect ratio",
+      "visual anchors"
+    ],
+    "shared_family": "warm paper, black marker, orange emphasis, sketchnote hierarchy, and educational clarity"
+  },
+  "base_skill": "cover-sketch-knowledge-poster",
+  "visual_system": {
+    "anchors": [
+      "knowledge maps",
+      "arrows and folders",
+      "terminal windows",
+      "UI cards",
+      "databases, agents, memory, chat, and workflow nodes"
+    ],
+    "avoid": [
+      "pure white poster boards",
+      "dark tech backgrounds",
+      "blue-purple gradients",
+      "glossy UI mockups",
+      "3D icons",
+      "dense unreadable microtext"
+    ],
+    "background": "warm paper with subtle grain, scan feel, fold or notebook texture, and real paper shadow",
+    "composition": "clear title layer, central knowledge structure, concise support notes, generous whitespace, and strong hierarchy",
+    "family": "sketch-knowledge",
+    "palette": [
+      "paper white",
+      "black",
+      "Anthropic orange #E67E22 only"
+    ]
+  },
+  "with_docs_skill": "cover-sketch-knowledge-poster-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-sketch-knowledge-poster -->

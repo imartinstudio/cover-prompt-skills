@@ -15,10 +15,13 @@ skill.
 - Accepted article sources: pasted article text, Markdown files, or plain-text
   files.
 - Do not claim DOCX, PDF, remote article, or web scraping support.
-- Treat the article source as read-only.
+- The article source remains read-only.
 - If no valid article content is available, ask for pasted text or a
   Markdown/plain-text path. Do not downgrade to cover-only behavior.
-- Default output is planning material, not direct image generation.
+- Default output is returned in the conversation. Write a file only when the
+  user explicitly provides an output path.
+- An output path applies only to that requested path; do not overwrite or
+  modify any other file.
 
 ## Output Type
 
@@ -236,3 +239,64 @@ Every inline prompt must include:
 
 Only generate final images when the user explicitly asks for image output. Keep
 analysis internal and output only the generated asset result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-3d-eye -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "article_visual_system": {
+    "accepted_article_sources": [
+      "pasted article text",
+      "Markdown files",
+      "plain-text files"
+    ],
+    "cover_role": "carry the emotional hook and whole local-AI thesis",
+    "default_inline_count": 3,
+    "default_out_type": "brief",
+    "inline_count_range": [
+      1,
+      5
+    ],
+    "inline_focus": "one step, tradeoff, mistake, hardware fit, privacy comparison, or quantization point at a time",
+    "inline_role": "explain one concrete local-AI teaching point without restating the cover",
+    "required_binding": [
+      "one concrete section or paragraph",
+      "one reading problem",
+      "insertion location",
+      "aspect ratio",
+      "visual anchors"
+    ],
+    "shared_family": "black grid, neon green terminal focus, cream-white titles, local-AI clarity, optional mascot continuity"
+  },
+  "base_skill": "cover-3d-eye",
+  "visual_system": {
+    "anchors": [
+      "terminal windows",
+      "CLI cursors",
+      "hardware memory cards",
+      "local/cloud comparison panels",
+      "optional blue-white 3D Eye mascot"
+    ],
+    "avoid": [
+      "purple-blue neon",
+      "cyberpunk cityscapes",
+      "RGB gaming rooms",
+      "Matrix code rain",
+      "robot faces",
+      "official logos unless explicitly requested"
+    ],
+    "background": "deep black or near-black #050707 with a subtle blueprint grid, scan lines, registration marks, and restrained grain",
+    "composition": "one clear hero scene plus 1-3 supporting educational UI or diagram elements",
+    "family": "3d-eye",
+    "palette": [
+      "black",
+      "cream-white or off-white",
+      "neon terminal green #39FF73",
+      "dim gray",
+      "small red warning accents only when needed"
+    ]
+  },
+  "with_docs_skill": "cover-3d-eye-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-3d-eye -->

@@ -33,20 +33,22 @@ separate from the asset-scope question in Stage 2.
 The following table is an inventory of route IDs, not a copy of any style's
 visual rules.
 
+<!-- BEGIN GENERATED COVER-TIPS ROUTES -->
 | Display name | Single-cover route | Article-package route |
 | --- | --- | --- |
 | 3D Eye | `cover-3d-eye` | `cover-3d-eye-with-docs` |
-| 黑白极简 | `cover-black-white-minimal` | — |
-| 布达佩斯 | `cover-budapest-poster` | — |
-| 奶油橙知识海报 | `cover-cream-orange-knowledge-poster` | `cover-cream-orange-knowledge-poster-with-docs` |
-| 撕纸剪贴 | `cover-editorial-collage` | — |
-| 巨型透视海报 | `cover-giant-perspective-poster` | — |
-| 浅色产品 | `cover-light-product` | `cover-light-product-with-docs` |
-| 麦肯锡简报风 | `cover-mckinsey-briefing-style` | — |
-| 深夜工作室 | `cover-midnight-studio` | — |
-| 手绘知识海报 | `cover-sketch-knowledge-poster` | `cover-sketch-knowledge-poster-with-docs` |
-| 茶东方 | `cover-tea-oriental` | — |
-| 潮流彩色海报 | `cover-trendy-color-poster` | — |
+| Black-White Minimal | `cover-black-white-minimal` | — |
+| Budapest Poster | `cover-budapest-poster` | — |
+| Cream Orange Knowledge Poster | `cover-cream-orange-knowledge-poster` | `cover-cream-orange-knowledge-poster-with-docs` |
+| Editorial Collage | `cover-editorial-collage` | — |
+| Giant Perspective Poster | `cover-giant-perspective-poster` | — |
+| Light Product | `cover-light-product` | `cover-light-product-with-docs` |
+| McKinsey Briefing Style | `cover-mckinsey-briefing-style` | — |
+| Midnight Studio | `cover-midnight-studio` | — |
+| Sketch Knowledge Poster | `cover-sketch-knowledge-poster` | `cover-sketch-knowledge-poster-with-docs` |
+| Tea Oriental | `cover-tea-oriental` | — |
+| Trendy Color Poster | `cover-trendy-color-poster` | — |
+<!-- END GENERATED COVER-TIPS ROUTES -->
 
 ## Stage 2: Confirm the asset scope
 

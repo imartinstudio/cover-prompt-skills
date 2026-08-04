@@ -46,7 +46,7 @@ $cover-3d-eye
 用途：教程封面
 ```
 
-CoverTips supports `template | prompt | all` for the cover-organizing route. If `--out-type` is omitted, it returns the `template` output. `brief` belongs to the article-package skills.
+CoverTips has no output mode of its own and does not return a generic prompt or intermediate template. After both confirmations, the selected `cover-X` or `cover-X-with-docs` skill owns the output contract described below.
 
 ## Independent base cover skills
 

@@ -101,3 +101,38 @@ Include:
 7. A concise avoid list.
 
 If generating directly, keep all analysis internal and output only the generated image result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-sketch-knowledge-poster -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "base_skill": "cover-sketch-knowledge-poster",
+  "visual_system": {
+    "anchors": [
+      "knowledge maps",
+      "arrows and folders",
+      "terminal windows",
+      "UI cards",
+      "databases, agents, memory, chat, and workflow nodes"
+    ],
+    "avoid": [
+      "pure white poster boards",
+      "dark tech backgrounds",
+      "blue-purple gradients",
+      "glossy UI mockups",
+      "3D icons",
+      "dense unreadable microtext"
+    ],
+    "background": "warm paper with subtle grain, scan feel, fold or notebook texture, and real paper shadow",
+    "composition": "clear title layer, central knowledge structure, concise support notes, generous whitespace, and strong hierarchy",
+    "family": "sketch-knowledge",
+    "palette": [
+      "paper white",
+      "black",
+      "Anthropic orange #E67E22 only"
+    ]
+  },
+  "with_docs_skill": "cover-sketch-knowledge-poster-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-sketch-knowledge-poster -->

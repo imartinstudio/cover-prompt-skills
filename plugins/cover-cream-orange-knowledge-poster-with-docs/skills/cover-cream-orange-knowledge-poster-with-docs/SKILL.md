@@ -15,10 +15,13 @@ not route runtime work to `cover-cream-orange-knowledge-poster`,
 - Accepted article sources: pasted article text, Markdown files, or plain-text
   files.
 - Do not claim DOCX, PDF, remote article, or web scraping support.
-- Treat the article source as read-only.
+- The article source remains read-only.
 - If no valid article content is available, ask for pasted text or a
   Markdown/plain-text path. Do not fall back to cover-only behavior.
-- Default output is planning material, not direct image generation.
+- Default output is returned in the conversation. Write a file only when the
+  user explicitly provides an output path.
+- An output path applies only to that requested path; do not overwrite or
+  modify any other file.
 
 ## Output Type
 
@@ -236,3 +239,65 @@ Every inline prompt must include:
 
 Only generate final images when the user explicitly asks for image output. Keep
 analysis internal and output only the generated asset result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-cream-orange-knowledge-poster -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "article_visual_system": {
+    "accepted_article_sources": [
+      "pasted article text",
+      "Markdown files",
+      "plain-text files"
+    ],
+    "cover_role": "carry the system thesis, strategic model, or architecture-level story",
+    "default_inline_count": 3,
+    "default_out_type": "brief",
+    "inline_count_range": [
+      1,
+      5
+    ],
+    "inline_focus": "one architecture slice, loop, comparison, decision, or stage transition at a time",
+    "inline_role": "explain one architecture slice or decision with a clear reading path",
+    "required_binding": [
+      "one concrete section or paragraph",
+      "one reading problem",
+      "insertion location",
+      "aspect ratio",
+      "visual anchors"
+    ],
+    "shared_family": "cream paper, charcoal typography, burnt-orange emphasis, editorial technical infographic discipline"
+  },
+  "base_skill": "cover-cream-orange-knowledge-poster",
+  "visual_system": {
+    "anchors": [
+      "system architecture diagrams",
+      "feedback loops",
+      "maturity ladders",
+      "comparison frameworks",
+      "editorial technical infographic modules"
+    ],
+    "avoid": [
+      "dark cyberpunk backgrounds",
+      "blue-purple AI gradients",
+      "glossy 3D",
+      "realistic robots",
+      "chaotic arrows",
+      "dense unreadable paragraphs"
+    ],
+    "background": "warm cream paper or soft off-white with subtle grid, grain, scan texture, and restrained border shadow",
+    "composition": "strong title layer, structured diagram body, visible reading path, modular panels, and clear arrows",
+    "family": "cream-orange-knowledge",
+    "palette": [
+      "cream",
+      "charcoal black",
+      "warm gray",
+      "burnt orange",
+      "muted terracotta",
+      "small beige accents"
+    ]
+  },
+  "with_docs_skill": "cover-cream-orange-knowledge-poster-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-cream-orange-knowledge-poster -->

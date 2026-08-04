@@ -6,7 +6,7 @@
 
 Task 4 实现提交：`5effe19e58ef5fd51d58718c7657bc72c752be76`。
 
-本报告保留首轮 Task 4 的历史证据，并增加基于 HEAD `a2d0bc5` 的 NEEDS_FIX 修复回合。本报告记录当前回合；修复回合最终 commit 的 SHA 为：`961cb7a711da034b424538c4550985a981de0cd1`。
+本报告保留首轮 Task 4 和前两轮 NEEDS_FIX 的历史证据；当前最终审查修复回合基于 HEAD `4c41aad`，最终交付 commit 的真实 SHA 以本次交付消息为准。
 
 ## 本次 NEEDS_FIX 修复回合
 
@@ -188,6 +188,36 @@ git diff --check
 
 结果：退出码 `0`。
 
+## 本次最终审查修复回合（基于 HEAD `4c41aad`）
+
+本回合状态仍为 **DONE_WITH_CONCERNS**；最终交付 commit 的真实 SHA 以本次交付消息为准。
+
+已实际修复：
+
+- README、README.en 和 usage 不再把 CoverTips 描述成输出模板、通用 prompt 或中间结果；现在明确 CoverTips 只确认风格与资产范围，输出由目标 `cover-X` 或 `cover-X-with-docs` 技能负责。基础技能和 `with-docs` 自己的输出模式说明保留。
+- CoverTips 路由表增加 `BEGIN/END GENERATED COVER-TIPS ROUTES` 标记。现有 `scripts/skill_registry.py generate` 从真实 registry 的 base 与 with-docs 配对生成表，`check` 解析并比较区块；隔离测试篡改为 `cover-fake-with-docs` 时会失败。CoverTips 仍只负责选择和转交，不包含视觉规则。
+- `style-specs/with-docs.json` 的 `visual_system` 投影到四个 base 技能，`visual_system` 与 `article_visual_system` 投影到四个 with-docs 技能，均为稳定、可审阅的 JSON fenced generated block。生成块被规范化排除在 artifact SHA 之外，避免自引用循环；只改 spec 的 palette、background 或 inline contract 而不更新 SKILL.md 时，`check` 会失败。
+- 四个 with-docs 的 Hard Boundaries 明确：默认在对话中输出；只有用户明确给出输出路径才写文件；输出路径只作用于该路径；文章源始终只读。
+- 迁移清单 line 58 改为“未指定=3，显式 inline 数量=1–5”，未验证的真实 Agent 路由、自动执行和人工视觉验收仍未勾选。
+
+本回合没有修改用户现有的未跟踪 `CONTEXT.md` 或 `docs/adr/`。
+
+### 本回合 TDD 与质量门结果
+
+- RED：`PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p "test_*.py" -v`；新增行为接入后为 `Ran 20 tests ... FAILED (failures=16)`。
+- GREEN：同一命令最终为 `Ran 20 tests ... OK`，覆盖真实路由表篡改、三类 style spec 语义漂移、生成稳定性和四个 Hard Boundaries。
+- `python3 scripts/skill_registry.py generate`：使用现有 generator 完整成功，写入 7 个产物，包括两个 marketplace；未联网。
+- `python3 scripts/skill_registry.py check`：`registry check passed: 17 plugins`。
+- frontmatter：`frontmatter-ok 17 skills`；本地 Markdown 结构检查：`markdown-structure-ok 47 files; fenced blocks balanced; headings non-empty`。
+- JSON：`json-ok 41 files`；Shell：`shell-ok 5 files`。
+- 离线 `npx --offline --yes markdownlint-cli2` 返回 `ENOTCACHED`，未联网重试；本地结构检查通过。
+- 离线临时安装 smoke：`install-smoke-ok all=17 single=cover-3d-eye-with-docs cover-tips`。
+- `git diff --check`：退出码 `0`。
+
+### 本回合剩余 concerns
+
+仍未执行真实 Agent 调用、网络安装、provider 调用、实际生图或四个 with-docs 的发布前人工视觉抽样；这些是本回合明确禁止或未授权的外部验证。独立 offline markdownlint 仍因本机没有 npm 缓存不可用；现有提交钩子的历史 lint 证据与本地 Markdown 结构检查已分别保留记录。
+
 ## 残留引用分类
 
 ### 当前发布库存：已清理
@@ -216,4 +246,4 @@ README、usage 和 source-prompts 说明中的两个旧名称只用于迁移指�
 1. 四个 with-docs 尚未进行发布前人工抽样验收。本次按要求不联网、不实际生图，因此没有真实视觉结果可做风格、章节绑定、重复图片规避和提示词质量验收；迁移清单对应项保持未勾选。
 2. 本回合已把 CoverTips 选择器正文收紧为“给出 1–3 个候选并等待确认”的契约，但未执行真实 Agent 调用，因此尚未验证候选质量、确认顺序、目标 skill 自动执行或其他 Agent 模板的实际行为。
 3. 独立 `npx --offline` markdownlint 探测因 npm 缓存缺失返回 `ENOTCACHED`；提交钩子的实际 lint 输出全通过，另有本地 Markdown 结构检查通过。若发布门要求独立 offline markdownlint 命令，需要提供本地缓存或 vendored 工具。
-4. 未执行网络安装、`npx skills add`、curl 远程安装、provider 调用或实际生图；安装验证仅覆盖本地临时目标的全量和单个 symlink smoke。Codex marketplace 的生成写入仍受仓库只读保护，但其现有内容未被修改且 registry check 通过。
+4. 未执行网络安装、`npx skills add`、curl 远程安装、provider 调用或实际生图；安装验证仅覆盖本地临时目标的全量和单个 symlink smoke。两个 marketplace 均已由现有 generator 成功生成并由 registry check 校验。
