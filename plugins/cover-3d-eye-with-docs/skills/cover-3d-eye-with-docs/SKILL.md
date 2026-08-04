@@ -63,9 +63,10 @@ Extract or infer:
   YouTube thumbnail, local AI poster.
 - Inline use case: install guide visual, hardware map, privacy comparison,
   quantization explainer, workflow strip, mistake checklist, cost comparison.
-- Inline count: explicit user number wins. Otherwise default to `3` and
-  auto-expand up to `5` only when article density or existing image placement
-  justifies it.
+- Inline count: must be an integer from `1` to `5`. If omitted, default to `3`.
+  If the user explicitly requests `0`, a negative number, a non-integer, or any
+  value above `5`, fail and ask them to choose a count from `1` to `5`. Do not
+  clamp, expand, truncate, or silently fall back.
 - Language: Chinese, English, or mixed Chinese-English.
 - Core hook: privacy, offline, local ownership, no cloud, hardware fit,
   quantization, speed, cost, mistakes, workflow clarity.
@@ -88,6 +89,8 @@ Extract or infer:
    problem.
 6. Prefer the clearest educational leverage: installation, hardware fit,
    privacy, quantization, workflow, errors, or comparison.
+7. Enforce the inline count exactly as requested when it is valid. Never output
+   fewer than `1` or more than `5` inline assets.
 
 ## Aspect Ratio Defaults
 

@@ -63,9 +63,10 @@ Extract or infer:
   cover, PPT cover, LinkedIn header.
 - Inline use case: product docs, feature walkthrough, article inline image,
   workflow explainer, module explanation.
-- Inline count: explicit user number wins. Otherwise default to `3` and
-  auto-expand up to `5` only when article density or existing image placement
-  justifies it.
+- Inline count: must be an integer from `1` to `5`. If omitted, default to `3`.
+  If the user explicitly requests `0`, a negative number, a non-integer, or any
+  value above `5`, fail and ask them to choose a count from `1` to `5`. Do not
+  clamp, expand, truncate, or silently fall back.
 - Language: Chinese, English, or mixed Chinese-English.
 - Product context: AI product, agent workspace, research flow, coding workflow,
   automation system, dashboard, knowledge base, or feature module.
@@ -87,6 +88,8 @@ Extract or infer:
    one concrete section or paragraph and one reading problem.
 6. Prefer sections with the highest explanatory leverage: feature anatomy,
    workflow sequence, dashboard slice, architecture layer, or before/after.
+7. Enforce the inline count exactly as requested when it is valid. Never output
+   fewer than `1` or more than `5` inline assets.
 
 ## Aspect Ratio Defaults
 

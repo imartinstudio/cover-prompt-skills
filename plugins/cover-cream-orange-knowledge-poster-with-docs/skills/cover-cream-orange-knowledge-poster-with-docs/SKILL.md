@@ -63,9 +63,10 @@ Extract or infer:
   technical knowledge poster, PPT title visual.
 - Inline use case: architecture explainer, workflow diagram, comparison panel,
   decision logic visual, feedback-loop inline image.
-- Inline count: explicit user number wins. Otherwise default to `3` and
-  auto-expand up to `5` only when article density or existing image placement
-  justifies it.
+- Inline count: must be an integer from `1` to `5`. If omitted, default to `3`.
+  If the user explicitly requests `0`, a negative number, a non-integer, or any
+  value above `5`, fail and ask them to choose a count from `1` to `5`. Do not
+  clamp, expand, truncate, or silently fall back.
 - Language: Chinese, English, or mixed Chinese-English.
 - Information structure: stage progression, before/after comparison, system
   architecture, feedback loop, maturity ladder, decision framework, bounded vs
@@ -87,6 +88,8 @@ Extract or infer:
 5. Map the cover to the system-level thesis. Map every `article-inline` asset to
    one concrete section or paragraph and one reading problem.
 6. Prefer sections that benefit from clear logic diagrams rather than decoration.
+7. Enforce the inline count exactly as requested when it is valid. Never output
+   fewer than `1` or more than `5` inline assets.
 
 ## Aspect Ratio Defaults
 

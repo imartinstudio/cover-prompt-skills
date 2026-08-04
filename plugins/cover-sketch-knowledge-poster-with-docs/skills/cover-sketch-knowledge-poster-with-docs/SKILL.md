@@ -64,9 +64,10 @@ Extract or infer:
 - Article topic / working title: required.
 - Cover use case: X 文章封面、微信公众号封面、教程封面、博客头图、知识图谱封面。
 - Inline use case: 教程配图、产品教育插图、功能讲解图、章节知识图、X 文章配图。
-- Inline count: if the user explicitly requests a number, use it. Otherwise
-  default to `3` and auto-expand up to `5` only when article density or existing
-  image placement justifies it.
+- Inline count: must be an integer from `1` to `5`. If omitted, default to `3`.
+  If the user explicitly requests `0`, a negative number, a non-integer, or any
+  value above `5`, fail and ask them to choose a count from `1` to `5`. Do not
+  clamp, expand, truncate, or silently fall back.
 - Language: Chinese, English, or mixed Chinese-English.
 - Cover ratio and inline ratio: optional; infer from use case when omitted.
 - Knowledge structure: hub-and-spoke, workflow, framework diagram, knowledge
@@ -88,6 +89,8 @@ Extract or infer:
    asset from one concrete section or paragraph and bind it to one reading
    problem.
 6. Prefer the most teachable sections, not a mechanical every-section loop.
+7. Enforce the inline count exactly as requested when it is valid. Never output
+   fewer than `1` or more than `5` inline assets.
 
 ## Aspect Ratio Defaults
 
