@@ -63,10 +63,13 @@ Extract or infer:
   cover, PPT cover, LinkedIn header.
 - Inline use case: product docs, feature walkthrough, article inline image,
   workflow explainer, module explanation.
-- Inline count: must be an integer from `1` to `5`. If omitted, default to `3`.
-  If the user explicitly requests `0`, a negative number, a non-integer, or any
-  value above `5`, fail and ask them to choose a count from `1` to `5`. Do not
-  clamp, expand, truncate, or silently fall back.
+- Inline count: this is a hard constraint. If `正文配图数量` is omitted, use
+  `3`. If it is explicitly supplied, accept only an integer from `1` to `5`.
+  Validate this before producing any template, brief, prompt, or image. An
+  explicit `0`, negative number, non-integer, or value above `5` must fail with
+  a clear request to use an integer from `1` to `5`; never clamp, round,
+  expand, truncate, omit, or route to the base cover skill or cover-only
+  behavior.
 - Language: Chinese, English, or mixed Chinese-English.
 - Product context: AI product, agent workspace, research flow, coding workflow,
   automation system, dashboard, knowledge base, or feature module.

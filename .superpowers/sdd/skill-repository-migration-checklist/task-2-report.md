@@ -71,3 +71,23 @@
 ## 未解决疑问
 
 - 无
+
+## 修复回合 3（审查修复）
+
+- 将四个 `with-docs` `SKILL.md` 的正文配图数量改为显式硬约束：省略时只
+  使用 `3`；显式值只接受 `1` 到 `5` 的整数；校验必须先于任何模板、brief、
+  prompt 或图片输出。`0`、负数、非整数和大于 `5` 的值必须明确失败并要求
+  使用 `1` 到 `5`，不得取整、截断、扩展、省略，或路由到基础封面 skill / 仅封面行为。
+- 复核 cream-orange 两版的真实品牌色：基础版和 with-docs 版的 Codex
+  manifest 均为 `#C65A2E`；两版 Claude manifest 均不含 `brandColor`，保持
+  manifest schema 对应关系，不凭空新增未解释字段。
+- 本轮只修改上述四个 `SKILL.md` 和本报告；未修改 Task 3/4、README、marketplace、
+  安装器、CoverTips，也未触碰用户未跟踪文件。
+
+### 修复回合 3 验证记录
+
+1. Frontmatter 和数量边界定向检查：通过，`task2-fix3-check-ok`。
+2. JSON 定向检查：通过，基础版与 with-docs 版 cream-orange Codex manifest
+   的 `brandColor` 均为 `#C65A2E`，Claude manifest 均不含该字段。
+3. 品牌色一致性检查：通过，四个目标 `SKILL.md` 均保留合法数量边界说明。
+4. Diff 和范围检查：通过，`git diff --check` 及允许文件白名单检查均通过。
