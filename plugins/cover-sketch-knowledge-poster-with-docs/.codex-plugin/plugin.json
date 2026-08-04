@@ -1,0 +1,18 @@
+{
+  "name": "cover-sketch-knowledge-poster-with-docs",
+  "version": "1.0.0",
+  "description": "Create a self-contained article cover plus inline visual package in the sketch-knowledge style from pasted text, Markdown, or plain-text articles.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "sketch", "knowledge-map", "article", "inline-visual", "with-docs", "education"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sketch Knowledge Poster With Docs",
+    "shortDescription": "Sketch-knowledge article cover and inline visuals",
+    "longDescription": "Create a coordinated article visual package with one cover and section-bound inline visuals in the sketch-knowledge family, using warm paper, black marker linework, Anthropic orange highlights, and tutorial-friendly knowledge-map structure.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#E67E22"
+  }
+}

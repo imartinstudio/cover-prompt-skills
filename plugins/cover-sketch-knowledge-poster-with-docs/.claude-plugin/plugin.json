@@ -1,0 +1,9 @@
+{
+  "name": "cover-sketch-knowledge-poster-with-docs",
+  "displayName": "Sketch Knowledge Poster With Docs",
+  "version": "1.0.0",
+  "description": "Create a self-contained article cover plus inline visual package in the sketch-knowledge style from pasted text, Markdown, or plain-text articles.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "sketch", "knowledge-map", "article", "inline-visual", "with-docs", "education"]
+}
