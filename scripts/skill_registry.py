@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any, Iterable
@@ -49,6 +50,7 @@ CODEX_MARKETPLACE_INTERFACE = {
     "developerName": "imartinstudio",
     "category": "Design",
 }
+SKILL_NAME_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 
 
 class RegistryError(Exception):
@@ -255,6 +257,13 @@ def require_string(value: Any, field: str, path: Path) -> str:
     return value
 
 
+def require_skill_name(value: Any, field: str, path: Path) -> str:
+    name = require_string(value, field, path)
+    if SKILL_NAME_PATTERN.fullmatch(name) is None:
+        raise RegistryError(f"invalid skill name for {field}: {name!r}: {path}")
+    return name
+
+
 def contains_files(path: Path) -> bool:
     try:
         return any(
@@ -296,6 +305,10 @@ def validate_deprecated_directories(root: Path) -> list[str]:
 def inspect_plugin(plugin_dir: Path, root: Path) -> tuple[dict[str, Any] | None, list[str]]:
     errors: list[str] = []
     directory_name = plugin_dir.name
+    try:
+        require_skill_name(directory_name, "plugin directory name", plugin_dir)
+    except RegistryError as exc:
+        errors.append(str(exc))
     claude_path = plugin_dir / CLAUDE_MANIFEST
     codex_path = plugin_dir / CODEX_MANIFEST
 
@@ -313,8 +326,8 @@ def inspect_plugin(plugin_dir: Path, root: Path) -> tuple[dict[str, Any] | None,
         return None, [str(exc)]
 
     try:
-        claude_name = require_string(claude.get("name"), "Claude manifest name", claude_path)
-        codex_name = require_string(codex.get("name"), "Codex manifest name", codex_path)
+        claude_name = require_skill_name(claude.get("name"), "Claude manifest name", claude_path)
+        codex_name = require_skill_name(codex.get("name"), "Codex manifest name", codex_path)
         claude_display_name = require_string(
             claude.get("displayName"), "Claude manifest displayName", claude_path
         )
@@ -376,6 +389,14 @@ def inspect_plugin(plugin_dir: Path, root: Path) -> tuple[dict[str, Any] | None,
 
     skill_directory_name = skill_dir.name
     frontmatter_name = frontmatter.get("name", "")
+    try:
+        require_skill_name(skill_directory_name, "skill directory name", skill_dir)
+    except RegistryError as exc:
+        errors.append(str(exc))
+    try:
+        require_skill_name(frontmatter_name, "SKILL.md frontmatter name", skill_path)
+    except RegistryError as exc:
+        errors.append(str(exc))
     if skill_directory_name != directory_name:
         errors.append(
             f"skill directory name {skill_directory_name!r} does not match plugin {directory_name!r}"
@@ -556,6 +577,8 @@ def shell_install_index(registry: dict[str, Any]) -> str:
         ("BASE_SKILLS", registry["base_skills"]),
         ("WITH_DOCS_SKILLS", registry["with_docs_skills"]),
     ):
+        for value in values:
+            require_skill_name(value, f"generated {variable} value", Path(INSTALL_INDEX_SHELL_PATH))
         lines.append(f"{variable}=(")
         lines.extend(f'  "{value}"' for value in values)
         lines.append(")")
