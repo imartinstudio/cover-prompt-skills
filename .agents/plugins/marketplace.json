@@ -8,6 +8,30 @@
   },
   "plugins": [
     {
+      "name": "cover-3d-eye",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-3d-eye"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-3d-eye-with-docs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-3d-eye-with-docs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "cover-black-white-minimal",
       "source": {
         "source": "local",
@@ -32,10 +56,118 @@
       "category": "Design"
     },
     {
+      "name": "cover-cream-orange-knowledge-poster",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-cream-orange-knowledge-poster"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-cream-orange-knowledge-poster-with-docs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-cream-orange-knowledge-poster-with-docs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
       "name": "cover-editorial-collage",
       "source": {
         "source": "local",
         "path": "./plugins/cover-editorial-collage"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-giant-perspective-poster",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-giant-perspective-poster"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-light-product",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-light-product"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-light-product-with-docs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-light-product-with-docs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-mckinsey-briefing-style",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-mckinsey-briefing-style"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-midnight-studio",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-midnight-studio"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-sketch-knowledge-poster",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-sketch-knowledge-poster"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "cover-sketch-knowledge-poster-with-docs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cover-sketch-knowledge-poster-with-docs"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -68,118 +200,10 @@
       "category": "Design"
     },
     {
-      "name": "article-visual-planner",
-      "source": {
-        "source": "local",
-        "path": "./plugins/article-visual-planner"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
       "name": "cover-trendy-color-poster",
       "source": {
         "source": "local",
         "path": "./plugins/cover-trendy-color-poster"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-giant-perspective-poster",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-giant-perspective-poster"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-sketch-knowledge-poster",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-sketch-knowledge-poster"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-cream-orange-knowledge-poster",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-cream-orange-knowledge-poster"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-midnight-studio",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-midnight-studio"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-pixel-avatar",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-pixel-avatar"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-light-product",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-light-product"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-3d-eye",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-3d-eye"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Design"
-    },
-    {
-      "name": "cover-mckinsey-briefing-style",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cover-mckinsey-briefing-style"
       },
       "policy": {
         "installation": "AVAILABLE",

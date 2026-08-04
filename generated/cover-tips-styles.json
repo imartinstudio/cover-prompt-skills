@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "cover_styles": [
+    "cover-3d-eye",
+    "cover-black-white-minimal",
+    "cover-budapest-poster",
+    "cover-cream-orange-knowledge-poster",
+    "cover-editorial-collage",
+    "cover-giant-perspective-poster",
+    "cover-light-product",
+    "cover-mckinsey-briefing-style",
+    "cover-midnight-studio",
+    "cover-sketch-knowledge-poster",
+    "cover-tea-oriental",
+    "cover-trendy-color-poster"
+  ],
+  "article_visual_styles": [
+    "cover-3d-eye",
+    "cover-cream-orange-knowledge-poster",
+    "cover-light-product",
+    "cover-sketch-knowledge-poster"
+  ],
+  "with_docs_skills": [
+    "cover-3d-eye-with-docs",
+    "cover-cream-orange-knowledge-poster-with-docs",
+    "cover-light-product-with-docs",
+    "cover-sketch-knowledge-poster-with-docs"
+  ]
+}

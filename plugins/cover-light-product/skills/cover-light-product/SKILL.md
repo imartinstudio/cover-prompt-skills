@@ -349,3 +349,39 @@ First impression targets:
 - "This could be my wallpaper."
 
 For the archived original Chinese specification, see [docs/source-prompts/cover-light-product.md](../../../../docs/source-prompts/cover-light-product.md).
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-light-product -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "base_skill": "cover-light-product",
+  "visual_system": {
+    "anchors": [
+      "refined SaaS UI modules",
+      "agent workspace narratives",
+      "workflow nodes",
+      "product surfaces",
+      "warm-cool dual-brand information hierarchy"
+    ],
+    "avoid": [
+      "dark mode",
+      "cheap AI poster art",
+      "e-commerce banner feel",
+      "candy colors",
+      "fluorescent gradients",
+      "overdone 3D"
+    ],
+    "background": "cream-white or light neutral base with generous negative space",
+    "composition": "three-layer product visual with a clear hero object, supporting UI modules, and magazine-editorial typography",
+    "family": "light-product",
+    "palette": [
+      "cream-white",
+      "Claude warm orange, brown, or gold",
+      "Codex indigo or purple-blue",
+      "neutral white, gray, or charcoal"
+    ]
+  },
+  "with_docs_skill": "cover-light-product-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-light-product -->

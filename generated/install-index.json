@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "all_skills": [
+    "cover-3d-eye",
+    "cover-3d-eye-with-docs",
+    "cover-black-white-minimal",
+    "cover-budapest-poster",
+    "cover-cream-orange-knowledge-poster",
+    "cover-cream-orange-knowledge-poster-with-docs",
+    "cover-editorial-collage",
+    "cover-giant-perspective-poster",
+    "cover-light-product",
+    "cover-light-product-with-docs",
+    "cover-mckinsey-briefing-style",
+    "cover-midnight-studio",
+    "cover-sketch-knowledge-poster",
+    "cover-sketch-knowledge-poster-with-docs",
+    "cover-tea-oriental",
+    "cover-tips",
+    "cover-trendy-color-poster"
+  ],
+  "standalone_skills": [
+    "cover-3d-eye",
+    "cover-3d-eye-with-docs",
+    "cover-black-white-minimal",
+    "cover-budapest-poster",
+    "cover-cream-orange-knowledge-poster",
+    "cover-cream-orange-knowledge-poster-with-docs",
+    "cover-editorial-collage",
+    "cover-giant-perspective-poster",
+    "cover-light-product",
+    "cover-light-product-with-docs",
+    "cover-mckinsey-briefing-style",
+    "cover-midnight-studio",
+    "cover-sketch-knowledge-poster",
+    "cover-sketch-knowledge-poster-with-docs",
+    "cover-tea-oriental",
+    "cover-tips",
+    "cover-trendy-color-poster"
+  ],
+  "base_skills": [
+    "cover-3d-eye",
+    "cover-black-white-minimal",
+    "cover-budapest-poster",
+    "cover-cream-orange-knowledge-poster",
+    "cover-editorial-collage",
+    "cover-giant-perspective-poster",
+    "cover-light-product",
+    "cover-mckinsey-briefing-style",
+    "cover-midnight-studio",
+    "cover-sketch-knowledge-poster",
+    "cover-tea-oriental",
+    "cover-trendy-color-poster"
+  ],
+  "with_docs_skills": [
+    "cover-3d-eye-with-docs",
+    "cover-cream-orange-knowledge-poster-with-docs",
+    "cover-light-product-with-docs",
+    "cover-sketch-knowledge-poster-with-docs"
+  ],
+  "cover_tips": "cover-tips"
+}

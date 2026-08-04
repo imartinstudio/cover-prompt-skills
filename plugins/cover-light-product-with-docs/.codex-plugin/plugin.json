@@ -1,0 +1,18 @@
+{
+  "name": "cover-light-product-with-docs",
+  "version": "1.0.0",
+  "description": "Create a self-contained article cover plus inline visual package in the light-product family from pasted text, Markdown, or plain-text articles.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "light", "product", "article", "inline-visual", "with-docs", "SaaS", "agent-workspace"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Light Product With Docs",
+    "shortDescription": "Light-product article cover and inline visuals",
+    "longDescription": "Create a coordinated article visual package with one cover and section-bound inline visuals in the light-product family, using cream-white product surfaces, warm-cool dual accents, refined SaaS UI modules, and agent workflow storytelling.",
+    "developerName": "imartinstudio",
+    "category": "Design",
+    "capabilities": ["Read", "Write"],
+    "brandColor": "#FAF7F2"
+  }
+}

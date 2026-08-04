@@ -7,7 +7,7 @@ description: Generate dark 3D Eye cover/poster image prompts or final images wit
 
 Use this skill to create a finished image prompt, or call an image generation tool directly when the user asks to generate the final cover. The result should feel like a premium dark-mode tutorial poster for running local AI: bold, private, terminal-native, slightly rebellious, and easy to understand at social-feed speed.
 
-This is the visual style member of the `3d-eye` family. Use it directly for covers/posters. When the same tutorial also needs step-by-step diagrams, hardware maps, privacy comparisons, or quantization explainers, route planning through `article-visual-planner` and pass this skill as the selected style, for example `/article-visual-planner:cover-3d-eye`.
+This is the visual style member of the `3d-eye` family. Use it directly for covers/posters. When the same tutorial also needs step-by-step diagrams, hardware maps, privacy comparisons, or quantization explainers, route planning through the matching available with-docs sibling for this style if it exists.
 
 ## Output Type
 
@@ -103,3 +103,40 @@ Include:
 7. A concise avoid list.
 
 If generating directly, keep all analysis internal and output only the generated image result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-3d-eye -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "base_skill": "cover-3d-eye",
+  "visual_system": {
+    "anchors": [
+      "terminal windows",
+      "CLI cursors",
+      "hardware memory cards",
+      "local/cloud comparison panels",
+      "optional blue-white 3D Eye mascot"
+    ],
+    "avoid": [
+      "purple-blue neon",
+      "cyberpunk cityscapes",
+      "RGB gaming rooms",
+      "Matrix code rain",
+      "robot faces",
+      "official logos unless explicitly requested"
+    ],
+    "background": "deep black or near-black #050707 with a subtle blueprint grid, scan lines, registration marks, and restrained grain",
+    "composition": "one clear hero scene plus 1-3 supporting educational UI or diagram elements",
+    "family": "3d-eye",
+    "palette": [
+      "black",
+      "cream-white or off-white",
+      "neon terminal green #39FF73",
+      "dim gray",
+      "small red warning accents only when needed"
+    ]
+  },
+  "with_docs_skill": "cover-3d-eye-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-3d-eye -->

@@ -7,7 +7,7 @@ description: Generate hand-drawn sketch knowledge map cover/poster image prompts
 
 Use this skill to create a finished image prompt, or call an image generation tool directly when the user asks to generate the final cover. The result must feel like an expert's hand-drawn knowledge map on warm paper: clear, collectible, educational, and highly shareable.
 
-This is the visual style member of the `sketch-knowledge` family. Use it directly for covers/posters. When the same article or tutorial also needs product UI explanation visuals, route planning through `article-visual-planner` and pass this skill as the selected style, for example `/article-visual-planner:cover-sketch-knowledge-poster`.
+This is the visual style member of the `sketch-knowledge` family. Use it directly for covers/posters. When the same article or tutorial also needs product UI explanation visuals, route planning through the matching available with-docs sibling for this style if it exists.
 
 ## Output Type
 
@@ -101,3 +101,38 @@ Include:
 7. A concise avoid list.
 
 If generating directly, keep all analysis internal and output only the generated image result.
+
+<!-- BEGIN GENERATED STYLE SPEC: cover-sketch-knowledge-poster -->
+<!-- Generated from style-specs/with-docs.json; do not edit by hand. -->
+```json
+{
+  "base_skill": "cover-sketch-knowledge-poster",
+  "visual_system": {
+    "anchors": [
+      "knowledge maps",
+      "arrows and folders",
+      "terminal windows",
+      "UI cards",
+      "databases, agents, memory, chat, and workflow nodes"
+    ],
+    "avoid": [
+      "pure white poster boards",
+      "dark tech backgrounds",
+      "blue-purple gradients",
+      "glossy UI mockups",
+      "3D icons",
+      "dense unreadable microtext"
+    ],
+    "background": "warm paper with subtle grain, scan feel, fold or notebook texture, and real paper shadow",
+    "composition": "clear title layer, central knowledge structure, concise support notes, generous whitespace, and strong hierarchy",
+    "family": "sketch-knowledge",
+    "palette": [
+      "paper white",
+      "black",
+      "Anthropic orange #E67E22 only"
+    ]
+  },
+  "with_docs_skill": "cover-sketch-knowledge-poster-with-docs"
+}
+```
+<!-- END GENERATED STYLE SPEC: cover-sketch-knowledge-poster -->

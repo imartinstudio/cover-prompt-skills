@@ -1,31 +1,36 @@
 # Source Prompts
 
-This directory archives the original Chinese prompts used to create the visual prompt skills.
+This directory archives the original prompts, reference-image notes, and requirement dialogue used to define the visual prompt skills.
 
-These files are source/design records only. Runtime behavior is defined by each plugin's `SKILL.md`.
+> **Historical archive only.** Files here are source/design evidence, not current runtime instructions, user entry points, marketplace descriptions, install sources, or release inventory. If an archived record mentions `article-visual-planner` or another retired name, that wording is intentionally retained as historical evidence and must not be treated as a published skill. Current runtime behavior is defined by the checked-in plugin `SKILL.md` files and generated registry.
 
 ## Files
 
-| File | Skill |
-|---|---|
-| `cover-editorial-collage.md` | `cover-editorial-collage` |
-| `cover-black-white-minimal.md` | `cover-black-white-minimal` |
-| `cover-trendy-color-poster.md` | `cover-trendy-color-poster` |
-| `cover-budapest-poster.md` | `cover-budapest-poster` |
-| `cover-tea-oriental.md` | `cover-tea-oriental` |
-| `cover-giant-perspective-poster.md` | `cover-giant-perspective-poster` |
-| `cover-midnight-studio.md` | `cover-midnight-studio` |
-| `cover-light-product.md` | `cover-light-product` |
-| `cover-mckinsey-briefing-style.md` | `cover-mckinsey-briefing-style` |
-| `cover-sketch-knowledge-poster.md` | `cover-sketch-knowledge-poster` |
-| `cream-orange-knowledge.md` | `cover-cream-orange-knowledge-poster`, usable through `article-visual-planner` |
-| `3d-eye.md` | `cover-3d-eye`, usable through `article-visual-planner` |
+| File | Current style artifact | Record type |
+|---|---|---|
+| `cover-editorial-collage.md` | `cover-editorial-collage` | historical source prompt |
+| `cover-black-white-minimal.md` | `cover-black-white-minimal` | historical source prompt |
+| `cover-trendy-color-poster.md` | `cover-trendy-color-poster` | historical source prompt |
+| `cover-budapest-poster.md` | `cover-budapest-poster` | historical source prompt |
+| `cover-tea-oriental.md` | `cover-tea-oriental` | historical source prompt |
+| `cover-giant-perspective-poster.md` | `cover-giant-perspective-poster` | historical source prompt |
+| `cover-midnight-studio.md` | `cover-midnight-studio` | historical source prompt |
+| `cover-light-product.md` | `cover-light-product` | historical source prompt |
+| `cover-mckinsey-briefing-style.md` | `cover-mckinsey-briefing-style` | historical source prompt |
+| `cover-sketch-knowledge-poster.md` | `cover-sketch-knowledge-poster` | historical source prompt |
+| `cream-orange-knowledge.md` | `cover-cream-orange-knowledge-poster` and its published sibling | historical reference set and requirement dialogue |
+| `3d-eye.md` | `cover-3d-eye` and its published sibling | historical reference set and requirement dialogue |
 
-`article-visual-planner` has no standalone source prompt. It is the unified planner that reads article content and chains planned visual assets to a selected `cover-*` style.
+The current article-package inventory is selective. The only published `with-docs` siblings are:
 
-`3d-eye.md` tracks the original case images in `assets/cases/`. Runtime behavior is owned by `cover-3d-eye`; article-level visual packages are planned by `article-visual-planner`.
+```text
+cover-3d-eye-with-docs
+cover-cream-orange-knowledge-poster-with-docs
+cover-light-product-with-docs
+cover-sketch-knowledge-poster-with-docs
+```
 
-`cream-orange-knowledge.md` tracks the original reference-image set and requirement dialogue for the cream-orange technical knowledge family. Runtime style behavior is owned by `cover-cream-orange-knowledge-poster`; article-level visual packages are planned by `article-visual-planner`.
+The archived records are not generated into a planner or a new skill. Their original terminology is preserved so that the provenance of the style rules and reference images remains auditable.
 
 ## Source
 

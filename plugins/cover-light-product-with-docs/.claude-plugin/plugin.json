@@ -1,0 +1,9 @@
+{
+  "name": "cover-light-product-with-docs",
+  "displayName": "Light Product With Docs",
+  "version": "1.0.0",
+  "description": "Create a self-contained article cover plus inline visual package in the light-product family from pasted article text, Markdown files, or plain-text files. Defaults to a brief with 1 cover and 3 inline visuals; supports 1-5 inline visuals. DOCX and PDF are not supported.",
+  "author": { "name": "imartinstudio" },
+  "license": "MIT",
+  "keywords": ["cover", "light", "product", "article", "inline-visual", "with-docs", "SaaS", "agent-workspace"]
+}

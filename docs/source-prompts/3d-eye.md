@@ -1,11 +1,13 @@
 # 3D Eye Source References
 
+> **历史档案，不属于当前发布库存。** 本文件保留原始参考图和需求证据；其中旧的文章编排名称只代表历史语境，不是当前用户入口、marketplace 条目或安装来源。当前单张封面由 `cover-3d-eye` 提供，文章视觉包由独立的 `cover-3d-eye-with-docs` 提供。
+
 This source record tracks the original case images used to define the `3d-eye` visual family.
 
-Runtime behavior is defined by:
+Current runtime behavior is defined by:
 
 - `cover-3d-eye`
-- `article-visual-planner` when one article needs coordinated cover and inline visual planning
+- `cover-3d-eye-with-docs` when one article needs a coordinated cover and section-bound inline visuals
 
 ## Case Images
 
